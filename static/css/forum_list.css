@@ -5,11 +5,11 @@
 
 .class-title {
     font-weight: bold;
-    font-size: var(--fs-36);
+    font-size: var(--fs-32);
 }
 .article-title {
     font-weight: bold;
-    font-size: var(--fs-24);
+    font-size: var(--fs-20);
 }
 .article-title > a {
     text-decoration: none;
@@ -18,6 +18,7 @@
 .article-abs {
     color: var(--ct-sub-1);
     line-height: var(--fs-30);
+    font-weight: lighter;
 }
 
 /* 類別標籤 */
@@ -37,8 +38,10 @@
     border: var(--ct-sub-3) 0.1rem solid;
     font-size: var(--fs-16);
     margin-right: calc(1rem * 0.25);
-    margin-top: calc(1rem * 0.25);
-    margin-bottom: calc(1rem * 0.25);
+    margin-top: calc(1rem * 0.05);
+    margin-bottom: calc(1rem * 0.05);
+    padding-top: 0.15rem;
+    padding-bottom: 0.15rem;
 }
 
 /* 右側文章分類選單 */
