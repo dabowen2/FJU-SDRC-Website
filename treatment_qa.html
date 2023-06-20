@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+    <head>
+        <link rel="icon" href="static/img/us-icon.ico" type="image/x-icon" />
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <!--ICON-->
+        <link rel="stylesheet" href="static/bootstrap_icons-1.4.1/font/bootstrap-icons.css" />
+        <link rel="stylesheet" href="static/fontawesome-free-5.15.3-web/css/all.css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+
+        <!--Bootstrap-->
+        <link rel="stylesheet" href="static/bootstrap-5.1.3-dist/css/bootstrap.min.css" />
+        <!--BootstrapTable-->
+        <link rel="stylesheet" href="static/bootstrap-table-master/dist/bootstrap-table.min.css" />
+        <!-- Sweet Alert -->
+        <link rel="stylesheet" href="static/sweetalert2-11.7.1/dist/sweetalert2.min.css" />
+        <script src="static/sweetalert2-11.7.1/dist/sweetalert2.all.min.js"></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
+            integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
+            crossorigin="anonymous"
+        ></script>
+        <!-- import self-css -->
+        <link rel="stylesheet" href="static/css/master_page.css" />
+        <link rel="stylesheet" href="static/css/forum_list.css" />
+        <title>優德莎莉 療心室</title>
+        <style></style>
+    </head>
+    <body>
+        <div class="container-xxl" style="margin-bottom: 5%">
+            <header class="navbar ct-bg-0 fixed-top d-flex flex-wrap justify-content-center align-items-center p-4">
+                <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                    <img src="static/img/us-logo.png" alt="" height="45" class="d-inline-block align-text-center" />
+                    <!-- <span class="fs-5 mx-2 fw-bold">LOGO Name</span> -->
+                </a>
+                <ul class="nav nav-pills navbar-pills" id="topbar-nav-tabs">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active" data-bs-toggle="dropdown">知識圖書館</a>
+                        <ul class="dropdown-menu">
+                            <a class="dropdown-item" href="#">小產調理</a>
+                            <a class="dropdown-item" href="#">婦科保健</a>
+                            <a class="dropdown-item" href="#">備孕調理</a>
+                            <a class="dropdown-item" href="#">懷孕知識</a>
+                            <a class="dropdown-item" href="#">日常保健</a>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link active" data-bs-toggle="dropdown">療心室</a>
+                        <ul class="dropdown-menu">
+                            <a class="dropdown-item" href="#">聊療小產</a>
+                            <a class="dropdown-item" href="#">聊療婦科保健</a>
+                            <a class="dropdown-item" href="#">聊療備孕</a>
+                            <a class="dropdown-item" href="#">聊療懷孕</a>
+                            <a class="dropdown-item" href="#">聊療日常保健</a>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a href="#" class="nav-link active">暢聊咖啡廳</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link active">營養師諮詢</a></li>
+                    <li class="nav-item" data-bs-toggle="tooltip" data-bs-title="通知" data-bs-placement="bottom">
+                        <a href="#" class="nav-link"><i class="fas fa-bell"></i></a>
+                    </li>
+                    <li class="nav-item dropstart">
+                        <a href="#" class="nav-link" data-bs-toggle="dropdown"><i class="fas fa-user-circle"></i></a>
+                        <ul class="dropdown-menu">
+                            <a class="dropdown-item" href="#">個人資料</a>
+                            <a class="dropdown-item" href="#">點數錢包</a>
+                            <a class="dropdown-item" href="#">文章列表</a>
+                            <a class="dropdown-item" href="#">收藏與追蹤</a>
+                            <a class="dropdown-item" href="#">登出</a>
+                        </ul>
+                    </li>
+                </ul>
+            </header>
+        </div>
+        <div class="container-fluid" style="padding: 0 8vw">
+            <div class="row pt-3 px-5">
+                <div class="col-12 my-2">
+                    <nav class="mb-4">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="#">療心室</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">聊療婦科保健</li>
+                        </ol>
+                    </nav>
+                    <div class="row d-flex align-items-center">
+                        <h3 class="class-title col-auto ps-0"><i class="fab fa-gratipay me-1 ct-txt-1"></i>聊療婦科保健</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="row px-5">
+                <div class="col-md col-lg-9 pe-4">
+                    <div class="row d-flex justify-content-between align-items-center">
+                        <div class="col-auto">
+                            <button class="btn btn-c2 fs-16 rounded-pill" data-bs-toggle="modal" data-bs-target="#create_modal"><i class="fas fa-pen me-1"></i>建立聊療</button>
+                        </div>
+                        <div class="col-auto">
+                            <select class="form-select fs-16">
+                                <option selected>熱門文章</option>
+                                <option value="1">最新文章</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-lg-12">
+                            <div class="row border-bottom">
+                                <div id="article_id1" class="col p-3 d-flex flex-column align-content-between justify-content-center position-static">
+                                    <h5 class="article-title" id="article_id_title"><a href="#">#發問 文章標題</a></h5>
+                                    <div class="mb-3 article-abs" id="article_id_abs">我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文</div>
+                                    <div class="ct-sub-1">
+                                        <button class="btn btn-sm p-0" onclick="like(this)">
+                                            <i class="fas fa-heart ct-sub-1 me-1"></i></button
+                                        ><span class="me-2 like_count">168</span> <i class="fas fa-comment me-1"></i><span class="me-2">26</span> <i class="fas fa-share me-1"></i
+                                        ><span class="me-2">3</span>
+                                        <button class="btn btn-sm p-0" onclick="collect(this)"><i class="far fa-bookmark ct-sub-1 me-1"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-auto d-none d-lg-block px-0 py-1">
+                                    <img src="https://placehold.co/150" width="150" />
+                                </div>
+                            </div>
+                            <div class="row border-bottom">
+                                <div id="article_id1" class="col p-3 d-flex flex-column align-content-between justify-content-center position-static">
+                                    <h5 class="article-title" id="article_id_title"><a href="#">#發問 文章標題</a></h5>
+                                    <div class="mb-3 article-abs" id="article_id_abs">我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文</div>
+                                    <div class="ct-sub-1">
+                                        <button class="btn btn-sm p-0" onclick="like(this)">
+                                            <i class="fas fa-heart ct-sub-1 me-1"></i>
+                                        </button>
+                                        <span class="me-2 like_count">112</span>
+                                        <i class="fas fa-comment me-1"></i><span class="me-2">26</span> <i class="fas fa-share me-1"></i><span class="me-2">3</span>
+                                        <button class="btn btn-sm p-0" onclick="collect(this)"><i class="far fa-bookmark ct-sub-1 me-1"></i></button>
+                                    </div>
+                                </div>
+                                <div class="col-auto d-none d-lg-block px-0 py-1">
+                                    <img src="https://placehold.co/150" width="150" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--右邊文章選單-->
+                <div class="col-md-3 col-lg-3 d-flex align-items-start">
+                    <div class="row fs-16 position-sticky" style="top: 15%">
+                        <div class="mb-3 col-12 my-auto">
+                            <input type="text" class="form-control fs-16 rounded-pill" placeholder="&#xF52A; 搜尋文章" style="font-family: 'bootstrap-icons'" />
+                        </div>
+                        <div class="col-12 mx-3">
+                            <ul class="nav flex-column" id="article_class_list">
+                                <li class="nav-item active">
+                                    <a class="nav-link active" data-bs-toggle="collapse" href="#sub-class-1">小產調理</a>
+                                    <ul class="collapse" id="sub-class-1">
+                                        <a class="dropdown-item" href="#">Action</a>
+                                        <a class="dropdown-item" href="#">Another action</a>
+                                        <a class="dropdown-item" href="#">Something else here</a>
+                                        <a class="dropdown-item" href="#">Separated link</a>
+                                    </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">婦科保健</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">備孕調理</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">懷孕知識</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">日常保健</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row py-3 px-5"></div>
+            <div class="position-fixed bottom-0 end-0 m-2">
+                <button class="btn" id="floatButton" data-bs-toggle="tooltip" data-bs-title="營養師諮詢" data-bs-placement="left">
+                    <i class="fas fa-comment-dots"></i>
+                </button>
+            </div>
+
+            <footer>
+                <div class="row p-4">
+                    <div class="col-12 d-flex justify-content-center">
+                        <a href="#" class="ct-title-1 text-decoration-none mx-3">關於我們</a>
+                        <a href="#" class="ct-title-1 text-decoration-none mx-3">聯絡我們</a>
+                        <a href="#" class="ct-title-1 text-decoration-none mx-3">常見問題</a>
+                        <a href="#" class="ct-title-1 text-decoration-none mx-3">使用者條款</a>
+                        <a href="#" class="ct-title-1 text-decoration-none mx-3">隱私權政策</a>
+                        <a href="#" class="ct-title-1 text-decoration-none mx-3">優德莎莉官網</a>
+                        <a href="#" class="ct-txt-2 mx-2"><i class="fab fa-line"></i></a>
+                        <a href="#" class="ct-txt-2 mx-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="ct-txt-2 mx-2"><i class="fab fa-facebook-square"></i></a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="create_modal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header pb-0 border-bottom-0">
+                        <h1 class="modal-title fs-5 ct-txt-2 fw-bold">建立聊療，一起聊聊吧🙂</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row mb-1 g-2 align-items-center">
+                            <div class="col-auto">
+                                <img class="me-1" src="static/img/user.png" width="25" />
+                            </div>
+                            <div class="col-auto">
+                                <select class="form-select">
+                                    <option selected>選擇聊療身分</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row my-1 g-2 align-items-center justify-content-between">
+                            <div class="col-8">
+                                <input class="form-control" type="text" id="input_new_title" placeholder="標題：請用簡短的話說明你的提問/分享" />
+                            </div>
+                            <div class="col">
+                                <select class="form-select">
+                                    <option selected>選擇聊療的類別</option>
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row my-1 g-2 justify-content-center">
+                            <div class="col-12"><textarea class="form-control" rows="7" id="editor"></textarea></div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary rounded-pill px-3 fs-14"><i class="bi bi-inbox-fill me-1"></i>暫存</button>
+                        <button type="button" class="btn btn-c2 rounded-pill px-3 fs-14"><i class="fas fa-bullhorn me-1"></i>發文</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="static/bootstrap-4.6.0-dist/jquery-3.6.0.js"></script>
+        <script src="static/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+        <script src="static/bootstrap-table-master/dist/bootstrap-table.min.js"></script>
+        <script src="static/dayjs-1.11.8/package/dayjs.min.js"></script>
+        <script src="static/ckeditor5-38.0.1/build/ckeditor.js"></script>
+        <script src="static/js/master_page.js"></script>
+        <script src="static/tinymce/js/tinymce/tinymce.min.js"></script>
+
+        <script>
+            const myModal = new bootstrap.Modal("#create_modal", {
+                focus: false,
+            });
+
+            tinymce.init({
+                selector: "textarea#editor",
+                plugins: "advlist link image lists emoticons",
+                height: 300,
+                content_style: "textarea { line-height: 0.75rem;}",
+                menubar: false,
+                toolbar: "undo redo | styles | bold italic underline | alignleft aligncenter alignright alignjustify | image emoticons |",
+                image_title: true,
+                automatic_uploads: true,
+                // images_upload_url: "./upload",
+                file_picker_types: "image",
+                /* and here's our custom image picker*/
+                file_picker_callback: (cb, value, meta) => {
+                    const input = document.createElement("input");
+                    input.setAttribute("type", "file");
+                    input.setAttribute("accept", "image/*");
+
+                    input.addEventListener("change", (e) => {
+                        const file = e.target.files[0];
+
+                        const reader = new FileReader();
+                        reader.addEventListener("load", () => {
+                            const id = "blobid" + new Date().getTime();
+                            const blobCache = tinymce.activeEditor.editorUpload.blobCache;
+                            const base64 = reader.result.split(",")[1];
+                            const blobInfo = blobCache.create(id, file, base64);
+                            blobCache.add(blobInfo);
+
+                            /* call the callback and populate the Title field with the file name */
+                            cb(blobInfo.blobUri(), { title: file.name });
+                        });
+                        reader.readAsDataURL(file);
+                    });
+
+                    input.click();
+                },
+                content_style: "body { font-family:Helvetica,Arial,sans-serif; font-size:16px }",
+            });
+
+            function get_content() {
+                let content = tinymce.get("editor").getContent();
+                console.log(content);
+            }
+        </script>
+    </body>
+</html>

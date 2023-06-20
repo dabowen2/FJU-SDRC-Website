@@ -1,0 +1,68 @@
+.breadcrumb a {
+    text-decoration: none;
+    color: var(--ct-sub-1);
+}
+
+.class-title {
+    font-weight: bold;
+    font-size: var(--fs-36);
+}
+.article-title {
+    font-weight: bold;
+    font-size: var(--fs-24);
+}
+.article-title > a {
+    text-decoration: none;
+    color: var(--ct-title-1);
+}
+.article-abs {
+    color: var(--ct-sub-1);
+    line-height: var(--fs-30);
+}
+
+/* 類別標籤 */
+#article_class_tabs .nav-link.active {
+    background-color: var(--ct-sub-3);
+    color: var(--ct-title-1);
+    border: var(--ct-sub-3) 0.08rem solid;
+    font-size: var(--fs-16);
+}
+#article_class_tabs .nav-link.active > i {
+    color: white;
+}
+
+#article_class_tabs .nav-link {
+    color: var(--ct-sub-1);
+    background-color: white;
+    border: var(--ct-sub-3) 0.1rem solid;
+    font-size: var(--fs-16);
+    margin-right: calc(1rem * 0.25);
+    margin-top: calc(1rem * 0.25);
+    margin-bottom: calc(1rem * 0.25);
+}
+
+/* 右側文章分類選單 */
+#article_class_list .nav-item.active {
+    border-left: var(--ct-color-1) 3px solid;
+    margin: 8px 0;
+}
+
+#article_class_list .nav-item {
+    border-left: var(--ct-sub-1) 3px solid;
+    margin: 8px 0;
+}
+
+#article_class_list .nav-item.active .nav-link {
+    color: var(--ct-color-1);
+}
+#article_class_list .nav-item .nav-link {
+    color: var(--ct-sub-1);
+}
+
+.ck-editor__editable[role="textbox"] {
+    /* editing area */
+    min-height: 150px;
+    max-height: 200px;
+    line-height: 0.75rem;
+    overflow: auto;
+}

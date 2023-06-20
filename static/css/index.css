@@ -1,0 +1,42 @@
+.carousel .carousel-item {
+    height: 25rem;
+}
+
+.carousel-item img {
+    height: 25rem;
+    object-fit: cover;
+}
+
+#card-yearmon,
+#card-day {
+    font-size: var(--fs-18);
+}
+
+#card-date {
+    font-size: 2.5rem; /* 40px */
+    font-weight: bolder;
+}
+
+.content {
+    padding: 3rem 8vw;
+}
+
+.content-title {
+    font-size: var(--fs-28);
+    font-weight: bold;
+    color: var(--ct-title-1);
+}
+
+.content-sub-title {
+    font-size: var(--fs-16);
+    color: var(--ct-sub-1);
+}
+
+.latest-news-card .card-img-top {
+    height: 11.25rem;
+    object-fit: cover;
+}
+
+#popular_topic_tabs button {
+    font-size: var(--fs-20);
+}
