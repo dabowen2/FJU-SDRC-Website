@@ -1,6 +1,7 @@
 .breadcrumb a {
     text-decoration: none;
     color: var(--ct-sub-1);
+    font-size: var(--fs-16);
 }
 
 .class-title {
@@ -19,6 +20,7 @@
     color: var(--ct-sub-1);
     line-height: var(--fs-30);
     font-weight: lighter;
+    font-size: var(--fs-18);
 }
 
 /* 類別標籤 */
@@ -26,7 +28,7 @@
     background-color: var(--ct-sub-3);
     color: var(--ct-title-1);
     border: var(--ct-sub-3) 0.08rem solid;
-    font-size: var(--fs-16);
+    font-size: var(--fs-18);
 }
 #article_class_tabs .nav-link.active > i {
     color: white;
@@ -45,21 +47,18 @@
 }
 
 /* 右側文章分類選單 */
-#article_class_list .nav-item.active {
-    border-left: var(--ct-color-1) 3px solid;
-    margin: 8px 0;
-}
-
-#article_class_list .nav-item {
-    border-left: var(--ct-sub-1) 3px solid;
-    margin: 8px 0;
-}
-
-#article_class_list .nav-item.active .nav-link {
+#article_class_list .nav-item .collapse.show .dropdown-item:hover {
     color: var(--ct-color-1);
+    background: none;
+}
+#article_class_list .nav-item .collapse.show .dropdown-item.active {
+    color: var(--ct-title-1);
+    background-color: var(--ct-sub-3);
+    font-weight: 500;
+    border-radius: 0.5rem;
 }
 #article_class_list .nav-item .nav-link {
-    color: var(--ct-sub-1);
+    color: var(--ct-title-1);
 }
 
 .ck-editor__editable[role="textbox"] {
