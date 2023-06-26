@@ -38,7 +38,7 @@
     color: var(--ct-sub-1);
     background-color: white;
     border: var(--ct-sub-3) 0.1rem solid;
-    font-size: var(--fs-16);
+    font-size: var(--fs-18);
     margin-right: calc(1rem * 0.25);
     margin-top: calc(1rem * 0.05);
     margin-bottom: calc(1rem * 0.05);
