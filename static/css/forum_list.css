@@ -60,6 +60,9 @@
 #article_class_list .nav-item .nav-link {
     color: var(--ct-title-1);
 }
+#article_class_list .nav-item .nav-link i {
+    color: var(--ct-color-1);
+}
 
 .ck-editor__editable[role="textbox"] {
     /* editing area */
