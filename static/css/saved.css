@@ -1,0 +1,41 @@
+/* 文章收藏 */
+.saved-title {
+    font-size: var(--fs-20);
+    font-weight: 500;
+}
+
+#article_collection_list a {
+    text-decoration: none;
+    color: var(--ct-title-1);
+}
+
+/* 作者、話題追蹤 */
+#topic_collection_list span.rounded-circle {
+    padding: 0.35rem;
+}
+
+#topic_collection_list .topic_title {
+    font-size: var(--fs-18);
+}
+#topic_collection_list .topic_info {
+    font-size: var(--fs-18);
+    color: var(--ct-color-1);
+}
+
+#topic_collection_list .topic_news {
+    font-size: var(--fs-18);
+    color: var(--ct-color-2);
+}
+
+#topic_collection_list .topic_news::before,
+#topic_collection_list .topic_info::before {
+    content: "．";
+}
+
+#topic_collection_list button i {
+    color: var(--ct-color-2);
+    font-size: var(--fs-18);
+}
+#topic_collection_list button.rounded-pill {
+    padding: 0.15rem 1.25rem;
+}
