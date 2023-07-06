@@ -29,7 +29,7 @@
     </head>
     <body>
         <div class="container-xxl" style="margin-bottom: 5vw">
-            <header class="navbar ct-bg-0 fixed-top d-flex flex-wrap justify-content-center align-items-center p-4">
+            <header class="navbar border-bottom fixed-top d-flex flex-wrap justify-content-center align-items-center pt-3 px-4">
                 <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
                     <img src="static/img/us-logo.png" alt="" height="45" class="d-inline-block align-text-center" />
                     <!-- <span class="fs-5 mx-2 fw-bold">LOGO Name</span> -->
@@ -147,17 +147,17 @@
                 </div>
                 <!--右邊文章選單-->
                 <div class="col-md-3 col-lg-3 d-flex align-items-start">
-                    <div class="row fs-16 position-sticky" style="top: 15%">
-                        <div class="mb-3 mx-3 px-0 col-12 my-auto">
+                    <div class="row fs-16 position-sticky" id="right-sidebar" style="top: 15%">
+                        <div class="mb-3 px-0 col-12 my-auto">
                             <input type="text" class="form-control fs-16 rounded-pill" placeholder="&#xF52A; 搜尋文章" style="font-family: 'bootstrap-icons'" />
                         </div>
-                        <div class="col-12 mx-3 ct-bg-3 ps-2 p-1 rounded">
+                        <div class="col-12 ct-bg-3 ps-2 p-1 rounded">
                             <p class="ct-title-1 fs-18 my-auto" style="font-weight: 500">文章類別</p>
                         </div>
-                        <div class="col-12">
+                        <div class="col-12 px-0">
                             <ul class="nav flex-column" id="article_class_list">
                                 <li class="nav-item">
-                                    <a class="nav-link active" data-bs-toggle="collapse" href="#sub-class-1">小產調理<i class="fas fa-angle-down ms-2"></i></a>
+                                    <a class="nav-link" data-bs-toggle="collapse" href="#sub-class-1">小產調理<i class="fas fa-angle-down ms-2"></i></a>
                                     <ul class="collapse show" id="sub-class-1">
                                         <a class="dropdown-item active" href="#">小產知識</a>
                                         <a class="dropdown-item" href="#">小產調理知識</a>
@@ -191,7 +191,7 @@
                 </button>
             </div>
 
-            <footer>
+            <footer class="mt-5">
                 <div class="row p-4">
                     <div class="col-12 d-flex justify-content-center">
                         <a href="#" class="ct-title-1 text-decoration-none mx-3">關於我們</a>
@@ -213,6 +213,6 @@
         <script src="static/bootstrap-table-master/dist/bootstrap-table.min.js"></script>
         <script src="static/dayjs-1.11.8/package/dayjs.min.js"></script>
         <script src="static/js/master_page.js"></script>
-        <script src="static/js/library.js"></script>
+        <script src="static/js/forum_list.js"></script>
     </body>
 </html>

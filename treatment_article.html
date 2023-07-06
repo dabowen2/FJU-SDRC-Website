@@ -28,8 +28,8 @@
         <style></style>
     </head>
     <body>
-        <div class="container-xxl" style="margin-bottom: 5%">
-            <header class="navbar ct-bg-0 fixed-top d-flex flex-wrap justify-content-center align-items-center p-4">
+        <div class="container-xxl" style="margin-bottom: 5vw">
+            <header class="navbar border-bottom fixed-top d-flex flex-wrap justify-content-center align-items-center pt-3 px-4">
                 <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
                     <img src="static/img/us-logo.png" alt="" height="45" class="d-inline-block align-text-center" />
                     <!-- <span class="fs-5 mx-2 fw-bold">LOGO Name</span> -->
@@ -73,7 +73,7 @@
                 </ul>
             </header>
         </div>
-        <div class="container-fluid">
+        <div class="container-fluid" style="padding: 0 8vw">
             <div class="row pt-3 px-5">
                 <div class="col-12 my-2">
                     <nav class="mb-4">
@@ -83,32 +83,33 @@
                         </ol>
                     </nav>
                     <div class="row d-flex align-items-center">
-                        <h3 class="fw-bold col-auto px-0" 　id="article_title">#發問 發問標題！</h3>
+                        <h3 class="col-auto px-0" id="article_title">#發問 有多囊的姐妹，有吃調經藥的習慣嗎？</h3>
                     </div>
                 </div>
             </div>
             <div class="row px-5">
-                <div class="col-md col-lg-9 px-0">
+                <div class="col-md col-lg-9 ps-0 pe-4">
                     <div class="row d-flex justify-content-between align-items-center">
-                        <div class="col-12 my-2">
+                        <div class="col-12 mt-3 d-flex align-items-end">
                             <span class="ct-sub-1 mx-2" id="article_date"></span>
-                            <a href="#" class="ct-txt-2 text-decoration-underline me-2" id="article_author">月經順順來</a>
-                            <button type="button" class="btn btn-sm rounded-pill btn-c2 col-auto">追蹤</button>
+                            <a href="#" class="ct-title-1 text-decoration-none mx-2" id="article_author">月經順順來</a>
+                            <button type="button" class="btn btn-sm rounded-pill btn-outline-c2 col-auto mx-2 px-3" id="follow_button">追蹤</button>
                         </div>
                     </div>
                     <div class="row mt-4 pe-3" id="article_content">
-                        <p id="article_abs">
-                            我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文
-                            我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文
-                            我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文
-                            我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文
-                            我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文
-                        </p>
                         <img src="https://placehold.co/500x200" class="w-100 mx-auto d-block" alt="文章圖片" />
+                        <div class="col-12 my-3 text-break" id="article_abs">
+                            我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文
+                            我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文
+                            我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文
+                            我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文
+                            我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文
+                        </div>
+
                         <div class="col-12 my-3">
-                            <ul class="nav" id="article_topic_tabs">
-                                <a class="nav-link rounded-pill active" href="#">#月經不順</a>
-                                <a class="nav-link rounded-pill active" href="#">#求解</a>
+                            <ul class="nav" id="article_tabs">
+                                <a class="nav-link rounded-pill" href="#"><i class="fas fa-hashtag me-1"></i>多囊性卵巢</a>
+                                <a class="nav-link rounded-pill" href="#"><i class="fas fa-hashtag me-1"></i>調經藥</a>
                             </ul>
                         </div>
                         <div class="col-12 d-flex mt-4 mb-2 ct-sub-1">
@@ -131,11 +132,11 @@
                             <form action="#" method="post">
                                 <div class="position-relative">
                                     <textarea class="form-control d-block ps-3 py-3" rows="4" placeholder="留下你的想法！" id="comment"></textarea>
-                                    <div class="form-check position-absolute" style="bottom: 0.6rem; right: 5rem">
+                                    <div class="form-check position-absolute" style="top: 0.6rem; right: 0.7rem">
                                         <input class="form-check-input" type="checkbox" value="" id="anony_enable" />
                                         <label class="form-check-label" for="anony_enable">匿名留言</label>
                                     </div>
-                                    <button type="submit" class="btn btn-c2 position-absolute" style="bottom: 0.4rem; right: 0.4rem">留言</button>
+                                    <button type="submit" class="btn btn-c2 rounded-pill py-1 position-absolute" style="bottom: 0.6rem; right: 0.4rem">留言</button>
                                 </div>
                             </form>
                         </div>
@@ -143,7 +144,7 @@
                         <div id="comments_list">
                             <div class="col-12 mt-4 mb-2 border-bottom" id="comment_id">
                                 <div class="col-12 d-flex justify-content-between align-items-center">
-                                    <div><img class="me-1" src="static/img/user.png" width="25" />作者</div>
+                                    <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" />作者</div>
                                     <div>
                                         <button class="btn btn-sm p-0" onclick="like(this)">
                                             <i class="fas fa-heart ct-sub-1"></i>
@@ -173,7 +174,7 @@
                                 <div class="col-12 ps-4 pt-3 collapse" id="commentid_reply_list">
                                     <div class="border-bottom mb-2" id="commentid_reply_id-1">
                                         <div class="col-12 d-flex justify-content-between align-items-center">
-                                            <div><img class="me-1" src="static/img/user.png" width="25" />作者</div>
+                                            <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" />作者</div>
                                             <div>
                                                 <button class="btn btn-sm p-0" onclick="like(this)">
                                                     <i class="fas fa-heart ct-sub-1"></i>
@@ -196,7 +197,7 @@
                                     </div>
                                     <div class="border-bottom mb-2" id="commentid_reply_id-2 ">
                                         <div class="col-12 d-flex justify-content-between align-items-center">
-                                            <div><img class="me-1" src="static/img/user.png" width="25" />作者</div>
+                                            <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" />作者</div>
                                             <div>
                                                 <button class="btn btn-sm p-0" onclick="like(this)">
                                                     <i class="fas fa-heart ct-sub-1"></i>
@@ -221,7 +222,7 @@
                             </div>
                             <div class="col-12 mt-4 mb-2 border-bottom" id="comment_id">
                                 <div class="col-12 d-flex justify-content-between align-items-center">
-                                    <div><img class="me-1" src="static/img/user.png" width="25" />作者</div>
+                                    <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" />作者</div>
                                     <div>
                                         <button class="btn btn-sm p-0" onclick="like(this)">
                                             <i class="fas fa-heart ct-sub-1"></i>
@@ -248,7 +249,7 @@
                                 <div class="col-12 ps-4 pt-3 collapse" id="commentid2_reply_list">
                                     <div class="border-bottom mb-2" id="commentid_reply_id-1">
                                         <div class="col-12 d-flex justify-content-between align-items-center">
-                                            <div><img class="me-1" src="static/img/user.png" width="25" />作者</div>
+                                            <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" />作者</div>
                                             <div>
                                                 <button class="btn btn-sm p-0" onclick="like(this)">
                                                     <i class="fas fa-heart ct-sub-1"></i>
@@ -271,7 +272,7 @@
                                     </div>
                                     <div class="border-bottom mb-2" id="commentid_reply_id-2 ">
                                         <div class="col-12 d-flex justify-content-between align-items-center">
-                                            <div><img class="me-1" src="static/img/user.png" width="25" />作者</div>
+                                            <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" />作者</div>
                                             <div>
                                                 <button class="btn btn-sm p-0" onclick="like(this)">
                                                     <i class="fas fa-heart ct-sub-1"></i>
@@ -299,33 +300,55 @@
                 </div>
                 <!--右邊文章選單-->
                 <div class="col-md-3 col-lg-3 d-flex align-items-start">
-                    <div class="row fs-16 position-sticky" style="top: 15%">
-                        <div class="input-group mb-3 col-12 my-auto">
-                            <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
-                            <input type="text" class="form-control fs-14" placeholder="搜尋文章" />
+                    <div class="row fs-16 position-sticky" id="right-sidebar" style="top: 15%">
+                        <div class="mb-3 px-0 col-12 my-auto">
+                            <input type="text" class="form-control fs-16 rounded-pill" placeholder="&#xF52A; 搜尋文章" style="font-family: 'bootstrap-icons'" />
                         </div>
-                        <div class="col-12 mx-3">
-                            <ul class="nav flex-column" id="article_class_list">
-                                <li class="nav-item active">
-                                    <a class="nav-link active" data-bs-toggle="collapse" href="#sub-class-1">小產調理</a>
-                                    <ul class="collapse" id="sub-class-1">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                        <a class="dropdown-item" href="#">Separated link</a>
-                                    </ul>
+                        <div class="col-12 ct-bg-3 ps-2 p-1 rounded">
+                            <p class="ct-title-1 fs-18 my-auto" style="font-weight: 500">熱門文章</p>
+                        </div>
+                        <div class="col-12">
+                            <ul class="nav flex-column forum-list">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"> 小產了怎麼辦？調理方式與常見Q&A總整理 ，解決各類小產的疑惑 </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">婦科保健</a>
+                                    <a class="nav-link" href="#"> 小產/流產關鍵問題－需要吃小產餐或月子餐嗎？ </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">備孕調理</a>
+                                    <a class="nav-link" href="#"> 小產/流產後可以馬上吃補品？營養師：補 錯時機，效果打折 </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-12 ct-bg-3 ps-2 p-1 rounded">
+                            <p class="ct-title-1 fs-18 my-auto" style="font-weight: 500">最新文章</p>
+                        </div>
+                        <div class="col-12">
+                            <ul class="nav flex-column forum-list">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"> 小產了怎麼辦？調理方式與常見Q&A總整理 ，解決各類小產的疑惑 </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">懷孕知識</a>
+                                    <a class="nav-link" href="#"> 小產/流產關鍵問題－需要吃小產餐或月子餐嗎？ </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">日常保健</a>
+                                    <a class="nav-link" href="#"> 小產/流產後可以馬上吃補品？營養師：補 錯時機，效果打折 </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-12 ct-bg-3 ps-2 p-1 rounded">
+                            <p class="ct-title-1 fs-18 my-auto" style="font-weight: 500">延伸文章</p>
+                        </div>
+                        <div class="col-12">
+                            <ul class="nav flex-column forum-list">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"> 小產了怎麼辦？調理方式與常見Q&A總整理 ，解決各類小產的疑惑 </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"> 小產/流產關鍵問題－需要吃小產餐或月子餐嗎？ </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#"> 小產/流產後可以馬上吃補品？營養師：補 錯時機，效果打折 </a>
                                 </li>
                             </ul>
                         </div>

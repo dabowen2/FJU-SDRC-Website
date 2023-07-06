@@ -30,8 +30,8 @@
         <style></style>
     </head>
     <body>
-        <div class="container-xxl" style="margin-bottom: 5%">
-            <header class="navbar ct-bg-0 fixed-top d-flex flex-wrap justify-content-center align-items-center p-4">
+        <div class="container-xxl" style="margin-bottom: 5vw">
+            <header class="navbar border-bottom fixed-top d-flex flex-wrap justify-content-center align-items-center pt-3 px-4">
                 <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
                     <img src="static/img/us-logo.png" alt="" height="45" class="d-inline-block align-text-center" />
                     <!-- <span class="fs-5 mx-2 fw-bold">LOGO Name</span> -->
@@ -142,32 +142,29 @@
                 </div>
                 <!--右邊文章選單-->
                 <div class="col-md-3 col-lg-3 d-flex align-items-start">
-                    <div class="row fs-16 position-sticky" style="top: 15%">
-                        <div class="mb-3 col-12 my-auto" style="width: 15vw;">
+                    <div class="row fs-16 position-sticky" id="right-sidebar" style="top: 15%">
+                        <div class="mb-3 px-0 col-12 my-auto">
                             <input type="text" class="form-control fs-16 rounded-pill" placeholder="&#xF52A; 搜尋文章" style="font-family: 'bootstrap-icons'" />
                         </div>
-                        <div class="col-12 mx-3">
-                            <ul class="nav flex-column" id="article_class_list">
-                                <li class="nav-item active">
-                                    <a class="nav-link active" data-bs-toggle="collapse" href="#sub-class-1">小產調理</a>
-                                    <ul class="collapse" id="sub-class-1">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <a class="dropdown-item" href="#">Something else here</a>
-                                        <a class="dropdown-item" href="#">Separated link</a>
-                                    </ul>
+                        <div class="col-12 ct-bg-3 ps-2 p-1 rounded">
+                            <p class="ct-title-1 fs-18 my-auto" style="font-weight: 500">聊療類別</p>
+                        </div>
+                        <div class="col-12 px-0">
+                            <ul class="nav flex-column" id="treat_class_list">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#">聊療小產</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">婦科保健</a>
+                                    <a class="nav-link" href="#">聊療婦科保健</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">備孕調理</a>
+                                    <a class="nav-link" href="#">聊療備孕</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">懷孕知識</a>
+                                    <a class="nav-link" href="#">聊療懷孕</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">日常保健</a>
+                                    <a class="nav-link" href="#">聊療日常保健</a>
                                 </li>
                             </ul>
                         </div>
@@ -181,7 +178,7 @@
                 </button>
             </div>
 
-            <footer>
+            <footer class="mt-5">
                 <div class="row p-4">
                     <div class="col-12 d-flex justify-content-center">
                         <a href="#" class="ct-title-1 text-decoration-none mx-3">關於我們</a>
@@ -251,6 +248,7 @@
         <script src="static/dayjs-1.11.8/package/dayjs.min.js"></script>
         <script src="static/ckeditor5-38.0.1/build/ckeditor.js"></script>
         <script src="static/js/master_page.js"></script>
+        <script src="static/js/forum_list.js"></script>
         <script src="static/tinymce/js/tinymce/tinymce.min.js"></script>
 
         <script>
