@@ -22,7 +22,7 @@
 }
 
 .content-title {
-    font-size: var(--fs-28);
+    font-size: var(--fs-20);
     font-weight: bold;
     color: var(--ct-title-1);
 }
@@ -32,6 +32,9 @@
     color: var(--ct-sub-1);
 }
 
+.latest-news-card {
+    min-width: 15rem;
+}
 .latest-news-card .card-img-top {
     height: 11.25rem;
     object-fit: cover;
@@ -39,4 +42,20 @@
 
 #popular_topic_tabs button {
     font-size: var(--fs-20);
+}
+
+.card-title {
+    font-size: var(--fs-20);
+}
+.card-text {
+    font-size: var(--fs-16);
+    line-height: var(--fs-28);
+    letter-spacing: 1px;
+}
+
+#popular_topic_tabs button {
+    color: var(--ct-title-1);
+    font-size: var(--fs-16);
+    margin-left: 0;
+    margin-right: 5px;
 }

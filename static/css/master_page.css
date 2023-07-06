@@ -5,7 +5,7 @@
 
 body {
     font-family: "Muli", "Noto Sans TC", "微軟正黑體";
-    background-color: #fff8f1;
+    background-color: white;
 }
 .row {
     margin-left: 0;
@@ -13,19 +13,19 @@ body {
 }
 
 .ct-txt-1 {
-    color: #70c6e3 !important;
+    color: #54beec !important;
 }
 .ct-txt-2 {
-    color: #faa810 !important;
+    color: #ff9900 !important;
 }
 .ct-bg-0 {
     background-color: #fff8f1 !important;
 }
 .ct-bg-1 {
-    background-color: #70c6e3 !important;
+    background-color: #54beec !important;
 }
 .ct-bg-2 {
-    background-color: #faa810 !important;
+    background-color: #ff9900 !important;
 }
 .ct-bg-3 {
     background-color: #ccecfa !important;
@@ -34,13 +34,16 @@ body {
     color: #1a1a1a !important;
 }
 .ct-sub-1 {
-    color: #808080 !important;
+    color: #5c5c5c !important;
 }
 .ct-sub-2 {
     color: #f24726 !important;
 }
 .ct-sub-3 {
     color: #ccecfa !important;
+}
+.ct-sub-4 {
+    color: #0096d7 !important;
 }
 .fs-12 {
     font-size: 0.75rem;
@@ -59,14 +62,17 @@ body {
 }
 
 :root {
-    --ct-color-1: #70c6e3;
-    --ct-color-2: #faa810;
+    --ct-color-1: #54beec;
+    --ct-color-2: #ff9900;
     --ct-title-1: #1a1a1a;
-    --ct-sub-1: #808080;
+    --ct-sub-1: #5c5c5c;
     --ct-sub-2: #f24726;
     --ct-sub-3: #ccecfa;
+    --ct-sub-4: #0096d7;
+
     --fs-12: 0.75rem;
     --fs-14: 0.875rem;
+    --fs-15: 0.938rem;
     --fs-16: 1rem;
     --fs-18: 1.125rem;
     --fs-20: 1.25rem;
@@ -99,12 +105,15 @@ body {
     border-width: 0.078rem;
 }
 .btn-outline-c2 {
-    color: #faa810;
-    border-color: #faa810;
+    color: var(--ct-title-1);
+    border-color: #ff9900;
     background-color: white;
-    border-width: 0.078rem;
+    border-width: 0.15rem;
 }
 
+header {
+    background: white;
+}
 #topbar-nav-tabs li a i {
     color: var(--ct-color-1);
     font-size: var(--fs-20);
@@ -170,10 +179,7 @@ body {
     background-color: var(--ct-color-1);
     color: white;
 }
-#topbar-nav-tabs li .dropdown-menu {
-    /* overflow: auto; */
-    /* position: relative; */
-}
+
 #goTopButton,
 #floatButton {
     font-size: var(--fs-24);
@@ -189,4 +195,88 @@ footer a {
     text-decoration: none;
     text-align: center;
     color: var(--ct-title-1);
+}
+
+.tooltip-inner {
+    /* background: var(--ct-sub-3);
+    color: black; */
+}
+
+/* 右側側邊欄選單 */
+#right-sidebar {
+    overflow-y: auto;
+    overflow-x: auto;
+    max-height: 70vh;
+    padding-right: 1.3rem;
+}
+#right-sidebar::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+#right-sidebar::-webkit-scrollbar-track {
+    background-color: #e0e0e0;
+    border-radius: 100px;
+}
+#right-sidebar::-webkit-scrollbar-thumb {
+    background-color: var(--ct-sub-3);
+    border-radius: 100px;
+}
+
+/* 右側文章分類選單 知識圖書館、個人資料 */
+#article_class_list .nav-item .collapse.show .dropdown-item:hover,
+#info_class_list .nav-item .collapse.show .dropdown-item:hover {
+    color: var(--ct-color-1);
+    background: none;
+}
+
+#article_class_list .nav-item .nav-link.active,
+#info_class_list .nav-item .nav-link.active {
+    color: var(--ct-title-1);
+    background-color: var(--ct-sub-3);
+    font-weight: 500;
+    border-radius: 0.5rem;
+}
+
+#article_class_list .nav-item .collapse.show .dropdown-item.active,
+#info_class_list .nav-item .collapse.show .dropdown-item.active {
+    color: var(--ct-title-1);
+    background-color: var(--ct-sub-3);
+    font-weight: 500;
+    border-radius: 0.5rem;
+}
+
+#article_class_list .nav-item .nav-link,
+#info_class_list .nav-item .nav-link {
+    color: var(--ct-title-1);
+}
+
+#article_class_list .nav-item .nav-link i,
+#info_class_list .nav-item .nav-link i {
+    color: var(--ct-color-1);
+}
+
+/* 右側文章分類選單 療心室(聊療) */
+#treat_class_list .nav-item .nav-link.active {
+    color: var(--ct-title-1);
+    background-color: var(--ct-sub-3);
+    font-weight: 500;
+    border-radius: 0.5rem;
+    margin: 0.5rem 0;
+}
+#treat_class_list .nav-item .nav-link {
+    color: var(--ct-title-1);
+}
+#treat_class_list .nav-item .nav-link:hover {
+    color: var(--ct-color-1);
+    background: none;
+}
+
+/* 右側文章分類選單 文章推薦列表 */
+.forum-list .nav-item .nav-link {
+    color: var(--ct-title-1);
+    padding-left: 0;
+}
+.forum-list .nav-item .nav-link:hover {
+    color: var(--ct-color-1);
+    background: none;
 }

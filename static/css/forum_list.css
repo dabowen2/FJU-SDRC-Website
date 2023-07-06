@@ -46,23 +46,7 @@
     padding-bottom: 0.15rem;
 }
 
-/* 右側文章分類選單 */
-#article_class_list .nav-item .collapse.show .dropdown-item:hover {
-    color: var(--ct-color-1);
-    background: none;
-}
-#article_class_list .nav-item .collapse.show .dropdown-item.active {
-    color: var(--ct-title-1);
-    background-color: var(--ct-sub-3);
-    font-weight: 500;
-    border-radius: 0.5rem;
-}
-#article_class_list .nav-item .nav-link {
-    color: var(--ct-title-1);
-}
-#article_class_list .nav-item .nav-link i {
-    color: var(--ct-color-1);
-}
+
 
 .ck-editor__editable[role="textbox"] {
     /* editing area */
