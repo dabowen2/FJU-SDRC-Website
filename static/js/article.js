@@ -1,5 +1,5 @@
 // 使用 Day.js
-const now_today = dayjs().format("YYYY-MM-DD");
+// const now_today = dayjs().format("YYYY-MM-DD");
 $("#article_date").html(now_today);
 
 $("#content_tabs > li > a").click(function () {

@@ -13,5 +13,4 @@ const now_year = dayjs().year();
 const now_month = dayjs().format("MM");
 const now_date = dayjs().date();
 const now_day = dayjs().day();
-
-
+const now_today = dayjs().format("YYYY-MM-DD");
