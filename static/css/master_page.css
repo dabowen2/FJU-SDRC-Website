@@ -69,7 +69,6 @@ body {
     --ct-sub-2: #f24726;
     --ct-sub-3: #ccecfa;
     --ct-sub-4: #0096d7;
-
     --fs-12: 0.75rem;
     --fs-14: 0.875rem;
     --fs-15: 0.938rem;
@@ -83,6 +82,7 @@ body {
     --fs-34: 2.125rem;
     --fs-36: 2.25rem;
     --fs-40: 2.5rem;
+    --fs-46: 2.875rem;
     --fs-60: 3.75rem;
 }
 
@@ -110,10 +110,26 @@ body {
     background-color: white;
     border-width: 0.15rem;
 }
+.btn-outline-c2:hover {
+    color: white;
+    border-color: #ff9900;
+    background-color: #ff9900;
+    border-width: 0.15rem;
+}
 
 header {
     background: white;
 }
+.topbar {
+    margin-bottom: 70px;
+}
+
+.input_underline {
+    border: none;
+    border-radius: 0;
+    border-bottom: var(--ct-sub-1) 0.1rem solid;
+}
+
 #topbar-nav-tabs li a i {
     color: var(--ct-color-1);
     font-size: var(--fs-20);
