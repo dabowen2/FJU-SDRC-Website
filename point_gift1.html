@@ -102,7 +102,7 @@
                     <div class="row mt-2 fs-18">
                         <div class="col-md-10 col-lg-6 my-3">
                             <div class="row g-3 mb-2 align-items-center">
-                                <div class="col-md-5 col-lg-3">
+                                <div class="col-auto">
                                     <label for="gift_points" class="col-form-label">
                                         贈送點數
                                         <i class="bi bi-info-circle-fill ct-sub-1 mx-1" data-bs-toggle="tooltip" data-bs-html="true" data-bs-title="半年內贈送同一帳號，</br>贈送聊心點上限為500點"></i>
@@ -113,7 +113,7 @@
                                 </div>
                             </div>
                             <div class="row g-3 mb-2 align-items-center">
-                                <div class="col-md-5 col-lg-3">
+                                <div class="col-auto">
                                     <label for="gift_account" class="col-form-label">贈送對象帳號</label>
                                 </div>
                                 <div class="col">
@@ -121,7 +121,7 @@
                                 </div>
                             </div>
                             <div class="row g-3 mb-2 align-items-center">
-                                <div class="col-md-5 col-lg-3">
+                                <div class="col-auto">
                                     <label for="gift_comment" class="col-form-label">留言(非必填)</label>
                                 </div>
                                 <div class="col">
@@ -161,6 +161,7 @@
                                         <a class="dropdown-item" href="#">點數兌換</a>
                                         <a class="dropdown-item active" href="#">點數轉贈</a>
                                         <a class="dropdown-item" href="#">點數獲得紀錄</a>
+                                        <a class="dropdown-item" href="#">點數使用紀錄</a>
                                     </ul>
                                 </li>
                                 <li class="nav-item">
@@ -204,56 +205,6 @@
                     </div>
                 </div>
             </footer>
-        </div>
-
-        <div class="modal fade" id="pwdModal" tabindex="-1">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-lock-fill ct-txt-1 me-2"></i>設定密碼</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body fs-18">
-                        <div class="row d-flex justify-content-center py-3">
-                            <div class="col-md col-lg-8">
-                                <form>
-                                    <div class="row g-3 mb-3 align-items-start">
-                                        <div class="col-4">
-                                            <label for="old_password" class="col-form-label">舊密碼</label>
-                                        </div>
-                                        <div class="col">
-                                            <input type="password" id="old_password" placeholder="請輸入舊密碼" class="form-control" />
-                                            <span class="ct-txt-2 fs-16">＊舊密碼輸入錯誤</span>
-                                        </div>
-                                    </div>
-                                    <div class="row g-3 mb-3 align-items-start">
-                                        <div class="col-4">
-                                            <label for="new_password" class="col-form-label">新密碼</label>
-                                        </div>
-                                        <div class="col">
-                                            <input type="password" id="new_password" placeholder="須包含英文大小寫，至少8個字元" class="form-control" />
-                                            <span class="ct-txt-2 fs-16">＊新密碼須包含英文大小寫，至少8個字元</span>
-                                        </div>
-                                    </div>
-                                    <div class="row g-3 mb-3 align-items-start">
-                                        <div class="col-4">
-                                            <label for="check_password" class="col-form-label">確認新密碼</label>
-                                        </div>
-                                        <div class="col">
-                                            <input type="password" id="check_password" class="form-control" />
-                                            <span class="ct-txt-2 fs-16">＊請重新確認新密碼</span>
-                                        </div>
-                                    </div>
-                                    <div class="row g-3 my-4 align-items-center">
-                                        <button class="btn btn-c2 rounded-pill px-4 mx-1 col-auto">完成</button>
-                                        <button type="button" class="btn col-auto mx-1" data-bs-dismiss="modal">取消</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <script src="static/bootstrap-4.6.0-dist/jquery-3.6.0.js"></script>
