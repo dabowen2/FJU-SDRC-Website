@@ -11,12 +11,121 @@
     vertical-align: middle;
 }
 
-.input_underline {
-    border: none;
-    border-radius: 0;
-    border-bottom: var(--ct-sub-1) 2px solid;
-}
-
 .modal span {
     visibility: hidden;
+}
+
+/* 會員登入 */
+#user_login_tabs .nav-link.active {
+    font-size: var(--fs-24);
+    background: white;
+    color: black;
+    box-shadow: 0 -0.35rem 1.2rem rgba(90, 90, 90, 0.15);
+}
+#user_login_tabs .nav-link {
+    font-size: var(--fs-20);
+    line-height: var(--fs-34);
+    font-weight: bold;
+    background-color: var(--ct-sub-3);
+    color: #b9b9b9;
+}
+.form-signin .tab-pane button {
+    border-radius: 10px;
+    font-size: var(--fs-18);
+}
+.form-signin .tab-pane a {
+    color: black;
+    font-size: var(--fs-14);
+}
+.form-signin .tab-pane .hr-w-txt {
+    width: 100%;
+    height: 14px;
+    border-bottom: 1px solid #c9c9c9;
+    text-align: center;
+    margin: 10px 0 35px 0;
+}
+.form-signin .tab-pane .hr-w-txt span {
+    background-color: white;
+    padding: 0 14px;
+}
+
+.form-signin {
+    max-width: 450px;
+    padding: 1rem;
+}
+
+/* 會員註冊 */
+.form-register {
+    min-height: 400px;
+}
+.form-register .tab-pane {
+    font-size: var(--fs-18);
+}
+
+.form-register .tab-pane .title {
+    font-size: var(--fs-24);
+    font-weight: bold;
+    margin: 0.7rem 0;
+    text-indent: -1em;
+}
+.form-register .tab-pane .ol {
+    text-indent: 0em;
+    color: black;
+}
+
+.form-register .tab-pane .i-imp {
+    color: var(--ct-sub-2);
+}
+
+.form-register .tab-content span.text-muted {
+    font-size: var(--fs-18);
+}
+.form-register .tab-pane .btn-c2 {
+    padding: 0.25rem 1rem;
+    /* padding-top: 0.25rem;
+    padding-bottom: 0.25rem; */
+}
+.nav-link.step-btn,
+.nav-link.step-btn.active {
+    background: #d9d9d9;
+    color: var(--ct-color-1);
+    font-size: var(--fs-14);
+}
+
+.form-register .tab-pane .step-div {
+    color: var(--ct-sub-1);
+    font-size: var(--fs-15);
+}
+
+.form-register .tab-pane a {
+    color: var(--ct-sub-4);
+}
+
+.form_mail {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 65vh;
+    background-image: url("../img/postcard2.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    /* background: repeating-linear-gradient(#f1ede9, #f1ede9 31px, #94acd4 31px, #94acd4 32px); */
+    padding: 0;
+    margin-bottom: 0px;
+}
+fieldset {
+    position: absolute;
+    top: 5%;
+    padding: 45px 130px;
+    /* line-height: 30px; */
+    font-size: var(--fs-18);
+}
+fieldset p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+fieldset .step-tabs {
+    cursor: pointer;
+    color: var(--ct-sub-4);
 }

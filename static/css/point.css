@@ -40,7 +40,7 @@
 }
 
 /* 任務列表 */
-#task_list .task_title {
+.task_title {
     font-size: var(--fs-24);
     font-weight: bold;
 }
@@ -92,5 +92,48 @@
 }
 .point_col:hover {
     background: var(--ct-sub-3);
-    color: var(--ct-sub-4);
+    color: black;
+}
+
+/* 點數獲取/使用記錄 */
+.record_title {
+    font-size: var(--fs-20);
+    font-weight: bold;
+}
+.task_point {
+    font-size: var(--fs-20);
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.task_point::after {
+    content: "點";
+}
+.task_point.use {
+    color: var(--ct-color-2);
+}
+.task_point.use::before {
+    content: "-";
+}
+.task_time {
+    font-size: var(--fs-16);
+    color: var(--ct-sub-1);
+}
+
+/* 點數兌換 */
+#point_exchange_list .title {
+    font-size: var(--fs-20);
+    font-weight: bold;
+}
+
+#point_exchange_list .text {
+    font-size: var(--fs-16);
+    letter-spacing: 1px;
+    margin: 0 0 0.75rem 0;
+}
+
+#point_exchange_list button {
+    background: #c9c9c9;
+    border-radius: 100px;
+    height: 30px;
+    width: 30px;
 }

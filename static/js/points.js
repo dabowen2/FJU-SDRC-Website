@@ -68,3 +68,35 @@ function points_gift() {
         });
     }
 }
+
+//點數兌換
+const exg_list = {};
+
+function add_product(obj, sum_type) {
+    let pd_num = parseInt($(obj).parent().find(".pd_num").html());
+    if (sum_type == "dash") {
+        if (pd_num != 0) {
+            $(obj)
+                .parent()
+                .find(".pd_num")
+                .html(pd_num - 1);
+        }
+    }
+    if (sum_type == "plus") {
+        $(obj)
+            .parent()
+            .find(".pd_num")
+            .html(pd_num + 1);
+    }
+
+    //計算當前點數
+    let pd_arr = $("#point_exchange_list").find(".pd-item");
+    let total_point = 0;
+    $(pd_arr).each(function (i, pd) {
+        let pd_title = $(pd).find(".title").html();
+        let pd_point = parseInt($(pd).find(".pd_point").html());
+        let pd_num = parseInt($(pd).find(".pd_num").html());
+        total_point += pd_point * pd_num;
+    });
+    $("#total_exg_point").html(total_point);
+}
