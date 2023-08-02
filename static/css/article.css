@@ -1,7 +1,10 @@
+.breadcrumb,
 .breadcrumb a {
     text-decoration: none;
-    color: var(--ct-sub-1);
+    color: #6c757d;
+    font-size: var(--fs-16);
 }
+
 .ct-title-1 a {
     text-decoration: none;
     color: var(--ct-title-1);
@@ -82,6 +85,10 @@ textarea {
     resize: none;
 }
 
+#comments_list .ct-sub-1 {
+    font-size: var(--fs-14);
+}
+
 .comment-uesr-img {
     width: var(--fs-30);
 }
@@ -94,4 +101,10 @@ textarea {
     border: 4px var(--ct-color-1) solid;
     border-radius: 0.75rem;
     padding: 0.75rem;
+}
+@media screen and (max-width: 425px) {
+    .countdown {
+        font-size: var(--fs-24) !important;
+        padding: 0.75rem 0.5rem !important;
+    }
 }

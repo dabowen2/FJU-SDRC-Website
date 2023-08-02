@@ -1,6 +1,7 @@
+.breadcrumb,
 .breadcrumb a {
     text-decoration: none;
-    color: var(--ct-sub-1);
+    color: #6c757d;
     font-size: var(--fs-16);
 }
 
@@ -10,11 +11,12 @@
 }
 .article-title {
     font-weight: bold;
-    font-size: var(--fs-20);
+    font-size: var(--fs-22);
 }
 .article-title > a {
     text-decoration: none;
     color: var(--ct-title-1);
+    font-size: var(--fs-22);
 }
 .article-abs {
     color: var(--ct-sub-1);
@@ -28,7 +30,7 @@
     background-color: var(--ct-sub-3);
     color: var(--ct-title-1);
     border: var(--ct-sub-3) 0.08rem solid;
-    font-size: var(--fs-18);
+    font-size: var(--fs-17);
 }
 #article_class_tabs .nav-link.active > i {
     color: white;
@@ -38,15 +40,25 @@
     color: var(--ct-sub-1);
     background-color: white;
     border: var(--ct-sub-3) 0.1rem solid;
-    font-size: var(--fs-18);
-    margin-right: calc(1rem * 0.25);
-    margin-top: calc(1rem * 0.05);
-    margin-bottom: calc(1rem * 0.05);
+    font-size: var(--fs-17);
+    margin-right: calc(1rem * 0.1);
+    margin-top: calc(1rem * 0.1);
+    margin-bottom: calc(1rem * 0.1);
     padding-top: 0.15rem;
     padding-bottom: 0.15rem;
 }
 
+@media screen and (max-width: 425px) {
+    #article_class_tabs .nav-link,
+    #article_class_tabs .nav-link.active {
+        font-size: var(--fs-16) !important;
+    }
 
+    .countdown {
+        font-size: var(--fs-24) !important;
+        padding: 0.75rem 0.5rem !important;
+    }
+}
 
 .ck-editor__editable[role="textbox"] {
     /* editing area */

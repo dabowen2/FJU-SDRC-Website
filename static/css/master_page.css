@@ -69,46 +69,151 @@ body {
     --ct-sub-2: #f24726;
     --ct-sub-3: #ccecfa;
     --ct-sub-4: #0096d7;
-    --fs-12: 0.75rem;
-    --fs-14: 0.875rem;
-    --fs-15: 0.938rem;
-    --fs-16: 1rem;
-    --fs-18: 1.125rem;
-    --fs-20: 1.25rem;
-    --fs-24: 1.5rem;
-    --fs-28: 1.75rem;
-    --fs-30: 1.875rem;
-    --fs-32: 2rem;
-    --fs-34: 2.125rem;
-    --fs-36: 2.25rem;
-    --fs-40: 2.5rem;
-    --fs-46: 2.875rem;
-    --fs-60: 3.75rem;
+}
+
+@media screen and (min-width: 1440px) {
+    :root {
+        --fs-12: 0.75rem;
+        --fs-14: 0.875rem;
+        --fs-15: 0.938rem;
+        --fs-16: 1rem;
+        --fs-17: 1.063rem;
+        --fs-18: 1.125rem;
+        --fs-20: 1.25rem;
+        --fs-22: 1.375rem;
+        --fs-24: 1.5rem;
+        --fs-28: 1.75rem;
+        --fs-30: 1.875rem;
+        --fs-32: 2rem;
+        --fs-34: 2.125rem;
+        --fs-36: 2.25rem;
+        --fs-40: 2.5rem;
+        --fs-46: 2.875rem;
+        --fs-60: 3.75rem;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1440px) {
+    :root {
+        --fs-12: calc(0.75rem - 0.125rem);
+        --fs-14: calc(0.875rem - 0.125rem);
+        --fs-15: calc(0.938rem - 0.125rem);
+        --fs-16: calc(1rem - 0.125rem);
+        --fs-17: calc(1.063rem - 0.125rem);
+        --fs-18: calc(1.125rem - 0.125rem);
+        --fs-20: calc(1.25rem - 0.125rem);
+        --fs-22: calc(1.375rem - 0.125rem);
+        --fs-24: calc(1.5rem - 0.125rem);
+        --fs-28: calc(1.75rem - 0.125rem);
+        --fs-30: calc(1.875rem - 0.125rem);
+        --fs-32: calc(2rem - 0.125rem);
+        --fs-34: calc(2.125rem - 0.125rem);
+        --fs-36: calc(2.25rem - 0.125rem);
+        --fs-40: calc(2.5rem - 0.125rem);
+        --fs-46: calc(2.875rem - 0.125rem);
+        --fs-60: calc(3.75rem - 0.125rem);
+    }
+
+    .footer-px {
+        padding-left: 4vw !important;
+        padding-right: 4vw !important;
+    }
+}
+
+@media screen and (min-width: 425px) and (max-width: 768px) {
+    :root {
+        --fs-12: calc(0.75rem - 0.25rem);
+        --fs-14: calc(0.875rem - 0.25rem);
+        --fs-15: calc(0.938rem - 0.25rem);
+        --fs-16: calc(1rem - 0.25rem);
+        --fs-17: calc(1.063rem - 0.25rem);
+        --fs-18: calc(1.125rem - 0.25rem);
+        --fs-20: calc(1.25rem - 0.25rem);
+        --fs-22: calc(1.375rem - 0.25rem);
+        --fs-24: calc(1.5rem - 0.25rem);
+        --fs-28: calc(1.75rem - 0.25rem);
+        --fs-30: calc(1.875rem - 0.25rem);
+        --fs-32: calc(2rem - 0.25rem);
+        --fs-34: calc(2.125rem - 0.25rem);
+        --fs-36: calc(2.25rem - 0.25rem);
+        --fs-40: calc(2.5rem - 0.25rem);
+        --fs-46: calc(2.875rem - 0.25rem);
+        --fs-60: calc(3.75rem - 0.25rem);
+    }
+}
+
+@media screen and (max-width: 425px) {
+    :root {
+        --fs-12: calc(0.75rem - 0.2rem);
+        --fs-14: calc(0.875rem - 0.2rem);
+        --fs-15: calc(0.938rem - 0.2rem);
+        --fs-16: calc(1rem - 0.2rem);
+        --fs-17: calc(1.063rem - 0.2rem);
+        --fs-18: calc(1.125rem - 0.2rem);
+        --fs-20: calc(1.25rem - 0.25rem);
+        --fs-22: calc(1.375rem - 0.25rem);
+        --fs-24: calc(1.5rem - 0.25rem);
+        --fs-28: calc(1.75rem - 0.25rem);
+        --fs-30: calc(1.875rem - 0.25rem);
+        --fs-32: calc(2rem - 0.25rem);
+        --fs-34: calc(2.125rem - 0.25rem);
+        --fs-36: calc(2.25rem - 0.25rem);
+        --fs-40: calc(2.5rem - 0.25rem);
+        --fs-46: calc(2.875rem - 0.25rem);
+        --fs-60: calc(3.75rem - 0.25rem);
+    }
+
+    .notifications {
+        width: 250px !important;
+        right: 45px !important;
+    }
+
+    footer a {
+        font-size: var(--fs-14) !important;
+    }
 }
 
 .btn-c1 {
     color: white;
     background-color: var(--ct-color-1);
+    font-size: var(--fs-16);
+    padding-top: 0.15rem;
+    padding-bottom: 0.15rem;
+}
+.btn-c1:hover {
+    color: white;
+    background-color: var(--ct-color-1);
+    font-size: var(--fs-16);
 }
 .btn-c2 {
     color: white;
     background-color: var(--ct-color-2);
+    font-size: var(--fs-16);
+    padding-top: 0.15rem;
+    padding-bottom: 0.15rem;
 }
 .btn-c2:hover {
     color: white;
     background-color: var(--ct-sub-2);
+    font-size: var(--fs-16);
 }
 .btn-outline-c1 {
     color: #70c6e3;
     border-color: #70c6e3;
     background-color: white;
     border-width: 0.078rem;
+    font-size: var(--fs-16);
+    padding-top: 0.15rem;
+    padding-bottom: 0.15rem;
 }
 .btn-outline-c2 {
     color: var(--ct-title-1);
     border-color: #ff9900;
     background-color: white;
     border-width: 0.15rem;
+    font-size: var(--fs-16);
+    padding-top: 0.15rem;
+    padding-bottom: 0.15rem;
 }
 .btn-outline-c2:hover {
     color: white;
@@ -117,11 +222,36 @@ body {
     border-width: 0.15rem;
 }
 
-header {
+.btn-outline-c3 {
+    color: var(--ct-title-1);
+    border-color: var(--ct-color-1);
+    background-color: white;
+    border-width: 0.05rem;
+    font-size: var(--fs-17);
+    padding-top: 0.15rem;
+    padding-bottom: 0.15rem;
+}
+.btn-outline-c3:hover {
+    color: white;
+    border-color: var(--ct-color-1);
+    background-color: var(--ct-color-1);
+}
+.btn-check:active + .btn-outline-c3,
+.btn-check:checked + .btn-outline-c3,
+.btn-outline-c3:active {
+    color: white;
+    border-color: var(--ct-color-1);
+    background-color: var(--ct-color-1);
+}
+
+header,
+.topbar .navbar {
     background: white;
+    font-size: var(--fs-18);
 }
 .topbar {
     margin-bottom: 70px;
+    /* margin-bottom: 5vw; */
 }
 
 .input_underline {
@@ -130,70 +260,166 @@ header {
     border-bottom: var(--ct-sub-1) 0.1rem solid;
 }
 
-#topbar-nav-tabs li a i {
-    color: var(--ct-color-1);
-    font-size: var(--fs-20);
+/*上方通知欄*/
+.notifications.show {
+    display: block;
 }
-
-#topbar-nav-tabs li .nav-link {
-    padding: 0.2rem 0.5rem;
-    margin: auto 0.15rem;
-}
-#topbar-nav-tabs li .nav-link.active {
-    color: var(--ct-sub-1);
-    background: none;
-    font-size: var(--fs-16);
-    padding: auto 0.375rem;
-}
-
-#topbar-nav-tabs li .dropdown-menu .dropdown-item:hover {
-    color: #000;
-    padding-left: 20px;
-}
-
-#topbar-nav-tabs li .dropdown-menu .dropdown-item {
-    font-size: var(--fs-16);
-    color: var(--ct-sub-1);
-    border-bottom: 1px solid #efefef;
-    padding-top: 10px;
-    padding-left: 15px;
-    padding-bottom: 10px;
-    position: relative;
-}
-#topbar-nav-tabs li .dropdown-menu .dropdown-item::before {
-    content: "";
+.notifications {
+    width: 300px;
+    height: auto;
+    display: none;
     position: absolute;
-
-    width: 0px;
-    height: 100%;
-    left: 0;
-    bottom: 0;
-    top: 0;
-    opacity: 0;
-    visibility: hidden;
-    z-index: 2;
-    background: var(--ct-color-1);
-    -webkit-transition: 0.3s all ease;
-    -o-transition: 0.3s all ease;
-    transition: 0.3s all ease;
+    top: 63px;
+    right: 62px;
+    border-radius: 5px 0px 5px 5px;
+    background-color: #fff;
+    border-left: 1px #eee solid;
+    border-right: 1px #eee solid;
+    border-top: 1px #eee solid;
+    box-shadow: 0 4px 8px 0 rgba(128, 128, 128, 0.4), 0 6px 20px 0 rgba(128, 128, 128, 0.4);
 }
-#topbar-nav-tabs li .dropdown-menu .dropdown-item:last-child {
-    border-bottom: none;
+.notifications h2 {
+    font-size: 14px;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    color: #999;
+    background-color: whitesmoke;
+    border-left: 1px #eee solid;
+    border-right: 1px #eee solid;
 }
-
-#topbar-nav-tabs li .dropdown-menu .dropdown-item:hover {
-    color: #000;
-    padding-left: 20px;
-}
-#topbar-nav-tabs li .dropdown-menu .dropdown-item:hover:before {
-    opacity: 1;
-    visibility: visible;
-    width: 6px;
-}
-
-#topbar-nav-tabs li .dropdown-menu .dropdown-item:active {
-    background-color: var(--ct-color-1);
+.notifications h2 span {
+    font-size: var(--fs-14);
     color: white;
+}
+.notifications-item {
+    display: flex;
+    border-bottom: 1px solid #eee;
+    padding: 6px 9px;
+    margin-bottom: 0px;
+    cursor: pointer;
+    background-color: white;
+    border-left: 1px #eee solid;
+    border-right: 1px #eee solid;
+}
+.notifications-item:hover {
+    background-color: #eee;
+}
+.notifications-item img {
+    display: block;
+    width: 50px;
+    height: 50px;
+    margin-right: 9px;
+    border-radius: 50%;
+    margin-top: 2px;
+}
+.notifications-item .text h4 {
+    color: #777;
+    font-size: 16px;
+    margin-top: 3px;
+}
+.notifications-item .text p {
+    color: #aaa;
+    font-size: 12px;
+}
+
+@media screen and (max-width: 1024px) {
+    #topbar-nav-tabs .dropdown-menu {
+        font-size: var(--fs-18);
+    }
+    .topbar ul li .nav-link {
+        font-size: var(--fs-18);
+        color: #000;
+    }
+    #topbar-nav-tabs li a i {
+        color: var(--ct-color-1);
+        font-size: var(--fs-20);
+        text-indent: -1em;
+    }
+
+    #topbar-nav-tabs li .nav-link {
+        color: #000;
+        text-indent: 2em;
+        padding: 0.35rem 0;
+    }
+    #topbar-nav-tabs .dropdown-menu {
+        border: none;
+        padding-left: 1rem;
+    }
+    #topbar-nav-tabs .dropdown-menu a::before {
+        content: "\F231";
+        font-family: "bootstrap-icons";
+    }
+    #topbar-nav-tabs .dropdown-menu .dropdown-item:hover {
+        background: var(--ct-sub-3);
+        border-radius: 8px;
+    }
+}
+@media screen and (min-width: 1024px) and (max-width: 1980px) {
+    #topbar-nav-tabs li a i {
+        color: var(--ct-color-1);
+        font-size: var(--fs-20);
+    }
+
+    #topbar-nav-tabs li .nav-link {
+        padding: 0.2rem 0.5rem;
+        margin: auto 0.15rem;
+    }
+    #topbar-nav-tabs li .nav-link.active {
+        color: var(--ct-sub-1);
+        background: none;
+        font-size: var(--fs-16);
+        padding: auto 0.375rem;
+    }
+
+    #topbar-nav-tabs li .dropdown-menu .dropdown-item:hover {
+        color: #000;
+        padding-left: 20px;
+    }
+
+    #topbar-nav-tabs li .dropdown-menu .dropdown-item {
+        font-size: var(--fs-16);
+        color: var(--ct-sub-1);
+        border-bottom: 1px solid #efefef;
+        padding-top: 10px;
+        padding-left: 15px;
+        padding-bottom: 10px;
+        position: relative;
+    }
+    #topbar-nav-tabs li .dropdown-menu .dropdown-item::before {
+        content: "";
+        position: absolute;
+
+        width: 0px;
+        height: 100%;
+        left: 0;
+        bottom: 0;
+        top: 0;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 2;
+        background: var(--ct-color-1);
+        -webkit-transition: 0.3s all ease;
+        -o-transition: 0.3s all ease;
+        transition: 0.3s all ease;
+    }
+    #topbar-nav-tabs li .dropdown-menu .dropdown-item:last-child {
+        border-bottom: none;
+    }
+
+    #topbar-nav-tabs li .dropdown-menu .dropdown-item:hover {
+        color: #000;
+        padding-left: 20px;
+    }
+    #topbar-nav-tabs li .dropdown-menu .dropdown-item:hover:before {
+        opacity: 1;
+        visibility: visible;
+        width: 6px;
+    }
+
+    #topbar-nav-tabs li .dropdown-menu .dropdown-item:active {
+        background-color: var(--ct-color-1);
+        color: white;
+    }
 }
 
 #goTopButton,
@@ -202,6 +428,19 @@ header {
     color: var(--ct-color-1);
 }
 
+@media (max-width: 768px) {
+    #floatButton {
+        background-color: rgba(255, 255, 255, 0.7);
+    }
+}
+
+.footer-px {
+    padding: 1rem 8vw;
+}
+
+/* footer {
+    background-color: var(--ct-sub-3);
+} */
 footer i {
     font-size: var(--fs-24);
     color: var(--ct-color-1);
@@ -211,23 +450,43 @@ footer a {
     text-decoration: none;
     text-align: center;
     color: var(--ct-title-1);
+    font-size: var(--fs-17);
 }
 
-.tooltip-inner {
-    /* background: var(--ct-sub-3);
-    color: black; */
+/* 星號重要標示 */
+.i-imp {
+    color: var(--ct-sub-2);
 }
+
+/* .tooltip-inner {
+    background: var(--ct-sub-3);
+    color: black;
+} */
 
 /* 右側側邊欄選單 */
+@media (max-width: 767px) {
+    #right-sidebar {
+        display: none !important;
+    }
+}
+
 #right-sidebar {
     overflow-y: auto;
     overflow-x: auto;
-    max-height: 70vh;
-    padding-right: 1.3rem;
+    max-height: 80vh;
+    padding-right: 0.25rem;
+    top: 15vh;
+    font-size: var(--fs-16);
 }
+
+#right-sidebar ol,
+ul {
+    padding-left: 0.9rem;
+}
+
 #right-sidebar::-webkit-scrollbar {
-    width: 7px;
-    height: 7px;
+    width: 6px;
+    height: 6px;
 }
 #right-sidebar::-webkit-scrollbar-track {
     background-color: #e0e0e0;
@@ -236,6 +495,15 @@ footer a {
 #right-sidebar::-webkit-scrollbar-thumb {
     background-color: var(--ct-sub-3);
     border-radius: 100px;
+}
+
+/*右邊側邊欄的標題 ex:文章類別or最新文章*/
+#right-sidebar .ct-title-1 {
+    font-size: var(--fs-18);
+}
+#right-sidebar .search-input {
+    font-size: var(--fs-16);
+    box-shadow: none;
 }
 
 /* 右側文章分類選單 知識圖書館、個人資料 */

@@ -9,6 +9,11 @@
     color: var(--ct-title-1);
 }
 
+#article_collection_list img {
+    /* width: 11.25rem; */
+    width: 100%;
+    height: 8.125rem;
+}
 /* 作者、話題追蹤 */
 #topic_collection_list span.rounded-circle {
     padding: 0.35rem;
@@ -30,6 +35,13 @@
 #topic_collection_list .topic_news::before,
 #topic_collection_list .topic_info::before {
     content: "．";
+}
+
+@media (max-width: 992px) {
+    .topic_info,
+    .topic_news {
+        display: none !important;
+    }
 }
 
 #topic_collection_list button i {

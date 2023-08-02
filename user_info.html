@@ -33,7 +33,7 @@
         <style></style>
     </head>
     <body>
-        <div class="container-xxl" style="margin-bottom: 5vw">
+        <div class="container-xxl topbar">
             <header class="navbar border-bottom fixed-top d-flex flex-wrap justify-content-center align-items-center pt-3 px-4">
                 <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
                     <img src="static/img/us-logo.png" alt="" height="45" class="d-inline-block align-text-center" />
@@ -78,7 +78,7 @@
                 </ul>
             </header>
         </div>
-        <div class="container-fluid" style="padding: 0 8vw">
+        <div class="container-xxl">
             <div class="row pt-3 px-5">
                 <div class="col-12 my-2">
                     <nav class="mb-4">
@@ -93,9 +93,9 @@
                 </div>
             </div>
             <div class="row px-5">
-                <div class="col-md col-lg-9 ps-0 pe-5">
+                <div class="col-md col-lg-9 ps-0 pe-4">
                     <div class="row mt-4">
-                        <div class="col-md-12 col-lg-6" style="font-size: 18px">
+                        <div class="col-md-12 col-lg-6" style="font-size: var(--fs-18)">
                             <div class="row g-3 align-items-start">
                                 <div class="col-3">
                                     <label for="user_name" class="col-form-label">大頭貼</label>
@@ -114,8 +114,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12 col-lg-6" style="font-size: 18px"></div>
-                        <div class="col-md-12 col-lg-6" style="font-size: 18px">
+                        <div class="col-md-12 col-lg-6"></div>
+                        <div class="col-md-12 col-lg-6" style="font-size: var(--fs-18)">
                             <div class="row g-3 mb-2 align-items-center">
                                 <div class="col-3">
                                     <label for="user_name" class="col-form-label">姓名</label>
@@ -174,7 +174,7 @@
                                 <div class="col-3">
                                     <label for="user_phone" class="col-form-label">手機號碼</label>
                                     <!-- <span class="ct-sub-1 fs-16">(選填)</span> -->
-                                    <p class="ct-sub-1 fs-16" style="line-height: 14px">(選填)</p>
+                                    <p class="ct-sub-1" style="line-height: var(--fs-14); font-size: var(--fs-16)">(選填)</p>
                                 </div>
                                 <div class="col">
                                     <input type="text" id="user_phone" class="form-control" />
@@ -183,30 +183,33 @@
                             <div class="row g-3 mb-2 align-items-center">
                                 <div class="col-3">
                                     <label for="user_address" class="col-form-label">居住地址</label>
-                                    <p class="ct-sub-1 fs-16" style="line-height: 14px">(選填)</p>
+                                    <p class="ct-sub-1" style="line-height: var(--fs-14); font-size: var(--fs-16)">(選填)</p>
                                 </div>
                                 <div class="col">
                                     <input type="text" id="user_address" class="form-control" />
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12 col-lg-6" style="font-size: 18px">
+                        <div class="col-md-12 col-lg-6" style="font-size: var(--fs-18)">
                             <div class="row g-3 mb-2 align-items-center">
                                 <div class="col-4">
-                                    <label for="user_height" class="col-form-label">身高(cm)</label>
+                                    <label for="user_height" class="col-form-label">身高 / 體重</label>
                                 </div>
                                 <div class="col">
-                                    <input type="number" id="user_height" class="form-control" />
+                                    <input type="number" id="user_height" placeholder="身高(cm)" class="form-control" />
+                                </div>
+                                <div class="col">
+                                    <input type="number" id="user_weight" placeholder="體重(kg)" class="form-control" />
                                 </div>
                             </div>
-                            <div class="row g-3 mb-2 align-items-center">
+                            <!-- <div class="row g-3 mb-2 align-items-center">
                                 <div class="col-4">
                                     <label for="user_weight" class="col-form-label">體重(kg)</label>
                                 </div>
                                 <div class="col">
                                     <input type="number" id="user_weight" class="form-control" />
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="row g-3 mb-2 align-items-center">
                                 <div class="col-4">
                                     <label for="user_birth_plan" class="col-form-label">生育計畫</label>
@@ -236,7 +239,7 @@
                             <div class="row g-3 mb-2 align-items-center">
                                 <div class="col-4">
                                     <label for="user_disease" class="col-form-label">病史</label>
-                                    <span class="ct-sub-1 fs-16">(多選)</span>
+                                    <span class="ct-sub-1" style="font-size: var(--fs-16)">(多選)</span>
                                 </div>
                                 <div class="col">
                                     <select class="form-select" id="disease_history" multiple="multiple">
@@ -256,6 +259,14 @@
                                         <option value="14">流產</option>
                                         <option value="15">其他</option>
                                     </select>
+                                </div>
+                            </div>
+                            <div class="row g-3 mb-2 align-items-center">
+                                <div class="col-4">
+                                    <label for="user_drug" class="col-form-label">其他病史</label>
+                                </div>
+                                <div class="col">
+                                    <input type="text" id="disease_other" placeholder="上題選其他，請填寫病史" class="form-control col-auto input_underline" />
                                 </div>
                             </div>
                             <div class="row g-3 mb-2 align-items-center">
@@ -313,13 +324,13 @@
                     </div>
                 </div>
                 <!--右邊文章選單-->
-                <div class="col-md-3 col-lg-3 d-flex align-items-start">
-                    <div class="row fs-16 position-sticky" id="right-sidebar" style="top: 15%">
+                <div class="col-md-4 col-lg d-flex align-items-start">
+                    <div class="row position-sticky" id="right-sidebar">
                         <div class="mb-3 px-0 col-12 my-auto">
-                            <input type="text" class="form-control fs-16 rounded-pill" placeholder="&#xF52A; 搜尋文章" style="font-family: 'bootstrap-icons'" />
+                            <input type="text" class="form-control search-input rounded-pill" placeholder="&#xF52A; 搜尋文章" style="font-family: 'bootstrap-icons'" />
                         </div>
                         <div class="col-12 ct-bg-3 ps-2 p-1 rounded">
-                            <p class="ct-title-1 fs-18 my-auto" style="font-weight: 500">個人資料</p>
+                            <p class="ct-title-1 my-auto" style="font-weight: 500">個人資料</p>
                         </div>
                         <div class="col-12 px-0">
                             <ul class="nav flex-column" id="info_class_list">
@@ -392,7 +403,7 @@
                         <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="bi bi-lock-fill ct-txt-1 me-2"></i>設定密碼</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body fs-18">
+                    <div class="modal-body" style="font-size: var(--fs-18)">
                         <div class="row d-flex justify-content-center py-3">
                             <div class="col-md col-lg-8">
                                 <form>
@@ -402,7 +413,7 @@
                                         </div>
                                         <div class="col">
                                             <input type="password" id="old_password" placeholder="請輸入舊密碼" class="form-control" />
-                                            <span class="ct-txt-2 fs-16">＊舊密碼輸入錯誤</span>
+                                            <span class="ct-txt-2" style="font-size: var(--fs-16)">＊舊密碼輸入錯誤</span>
                                         </div>
                                     </div>
                                     <div class="row g-3 mb-3 align-items-start">
@@ -411,7 +422,7 @@
                                         </div>
                                         <div class="col">
                                             <input type="password" id="new_password" placeholder="須包含英文大小寫，至少8個字元" class="form-control" />
-                                            <span class="ct-txt-2 fs-16">＊新密碼須包含英文大小寫，至少8個字元</span>
+                                            <span class="ct-txt-2" style="font-size: var(--fs-16)">＊新密碼須包含英文大小寫，至少8個字元</span>
                                         </div>
                                     </div>
                                     <div class="row g-3 mb-3 align-items-start">
@@ -420,7 +431,7 @@
                                         </div>
                                         <div class="col">
                                             <input type="password" id="check_password" class="form-control" />
-                                            <span class="ct-txt-2 fs-16">＊請重新確認新密碼</span>
+                                            <span class="ct-txt-2" style="font-size: var(--fs-16)">＊請重新確認新密碼</span>
                                         </div>
                                     </div>
                                     <div class="row g-3 my-4 align-items-center">

@@ -32,7 +32,7 @@
         <style></style>
     </head>
     <body>
-        <div class="container-xxl" style="margin-bottom: 5vw">
+        <div class="container-xxl topbar">
             <header class="navbar border-bottom fixed-top d-flex flex-wrap justify-content-center align-items-center pt-3 px-4">
                 <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
                     <img src="static/img/us-logo.png" alt="" height="45" class="d-inline-block align-text-center" />
@@ -77,9 +77,9 @@
                 </ul>
             </header>
         </div>
-        <div class="container-fluid" style="padding: 0 8vw">
+        <div class="container-xxl">
             <div class="row align-items-center px-5 mt-4 form-register h-100">
-                <div class="col-md-7 col-lg-7">
+                <div class="col-md col-lg-9 px-3">
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="step_1" tabindex="0">
                             <p class="title">
@@ -95,22 +95,20 @@
                             </p>
                             <button class="btn btn-c2 mt-2 rounded-pill step-confirm">確定</button>
 
-                            <div class="position-relative">
-                                <div class="position-absolute bottom-0 end-0 step-div">
-                                    <ul class="nav nav-pills align-items-center">
-                                        <li class="nav-item">
-                                            <button type="button" class="step-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_1" onclick="register_step(this)">
-                                                <i class="fas fa-chevron-up"></i>
-                                            </button>
-                                        </li>
-                                        <li class="nav-item">
-                                            <button type="button" class="step-btn step-next-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_2" onclick="register_step(this)">
-                                                <i class="fas fa-chevron-down"></i>
-                                            </button>
-                                        </li>
-                                        註冊進度：1/14
-                                    </ul>
-                                </div>
+                            <div class="step-div">
+                                <ul class="nav nav-pills align-items-center">
+                                    <li class="nav-item">
+                                        <button type="button" class="step-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_1" onclick="register_step(this)">
+                                            <i class="fas fa-chevron-up"></i>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item">
+                                        <button type="button" class="step-btn step-next-btn nav-link me-1" disabled disabled  data-bs-toggle="pill" data-bs-target="#step_2" onclick="register_step(this)">
+                                            <i class="fas fa-chevron-down"></i>
+                                        </button>
+                                    </li>
+                                    註冊進度：1/14
+                                </ul>
                             </div>
                         </div>
                         <div class="tab-pane" id="step_2">
@@ -131,22 +129,20 @@
                             </p>
                             <button class="btn btn-c2 mt-2 rounded-pill step-confirm">確定</button>
 
-                            <div class="position-relative">
-                                <div class="position-absolute bottom-0 end-0 step-div">
-                                    <ul class="nav nav-pills align-items-center">
-                                        <li class="nav-item">
-                                            <button type="button" class="step-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_1" onclick="register_step(this)">
-                                                <i class="fas fa-chevron-up"></i>
-                                            </button>
-                                        </li>
-                                        <li class="nav-item">
-                                            <button type="button" class="step-btn step-next-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_3" onclick="register_step(this)">
-                                                <i class="fas fa-chevron-down"></i>
-                                            </button>
-                                        </li>
-                                        註冊進度：2/14
-                                    </ul>
-                                </div>
+                            <div class="step-div">
+                                <ul class="nav nav-pills align-items-center">
+                                    <li class="nav-item">
+                                        <button type="button" class="step-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_1" onclick="register_step(this)">
+                                            <i class="fas fa-chevron-up"></i>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item">
+                                        <button type="button" class="step-btn step-next-btn nav-link me-1" disabled disabled data-bs-toggle="pill" data-bs-target="#step_3" onclick="register_step(this)">
+                                            <i class="fas fa-chevron-down"></i>
+                                        </button>
+                                    </li>
+                                    註冊進度：2/14
+                                </ul>
                             </div>
                         </div>
                         <div class="tab-pane" id="step_3">
@@ -167,22 +163,20 @@
                             </div>
                             <button class="btn btn-c2 mt-2 rounded-pill step-confirm">確定</button>
 
-                            <div class="position-relative">
-                                <div class="position-absolute bottom-0 end-0 step-div">
-                                    <ul class="nav nav-pills align-items-center">
-                                        <li class="nav-item">
-                                            <button type="button" class="step-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_2" onclick="register_step(this)">
-                                                <i class="fas fa-chevron-up"></i>
-                                            </button>
-                                        </li>
-                                        <li class="nav-item">
-                                            <button type="button" class="step-btn step-next-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_3_fin" onclick="register_step(this)">
-                                                <i class="fas fa-chevron-down"></i>
-                                            </button>
-                                        </li>
-                                        註冊進度：3/14
-                                    </ul>
-                                </div>
+                            <div class="step-div">
+                                <ul class="nav nav-pills align-items-center">
+                                    <li class="nav-item">
+                                        <button type="button" class="step-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_2" onclick="register_step(this)">
+                                            <i class="fas fa-chevron-up"></i>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item">
+                                        <button type="button" class="step-btn step-next-btn nav-link me-1" disabled disabled data-bs-toggle="pill" data-bs-target="#step_3_fin" onclick="register_step(this)">
+                                            <i class="fas fa-chevron-down"></i>
+                                        </button>
+                                    </li>
+                                    註冊進度：3/14
+                                </ul>
                             </div>
                         </div>
                         <div class="tab-pane" id="step_3_fin">
@@ -190,22 +184,20 @@
 
                             <button class="btn btn-c2 mt-4 rounded-pill step-confirm">確定</button>
 
-                            <div class="position-relative">
-                                <div class="position-absolute bottom-0 end-0 step-div">
-                                    <ul class="nav nav-pills align-items-center">
-                                        <li class="nav-item">
-                                            <button type="button" class="step-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_3" onclick="register_step(this)">
-                                                <i class="fas fa-chevron-up"></i>
-                                            </button>
-                                        </li>
-                                        <li class="nav-item">
-                                            <button type="button" class="step-btn step-next-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_4" onclick="register_step(this)">
-                                                <i class="fas fa-chevron-down"></i>
-                                            </button>
-                                        </li>
-                                        註冊進度：3/14
-                                    </ul>
-                                </div>
+                            <div class="step-div">
+                                <ul class="nav nav-pills align-items-center">
+                                    <li class="nav-item">
+                                        <button type="button" class="step-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_3" onclick="register_step(this)">
+                                            <i class="fas fa-chevron-up"></i>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item">
+                                        <button type="button" class="step-btn step-next-btn nav-link me-1" disabled disabled data-bs-toggle="pill" data-bs-target="#step_4" onclick="register_step(this)">
+                                            <i class="fas fa-chevron-down"></i>
+                                        </button>
+                                    </li>
+                                    註冊進度：3/14
+                                </ul>
                             </div>
                         </div>
                         <div class="tab-pane" id="step_4">
@@ -220,22 +212,20 @@
                             </div>
                             <button class="btn btn-c2 mt-2 rounded-pill step-confirm">確定</button>
 
-                            <div class="position-relative">
-                                <div class="position-absolute bottom-0 end-0 step-div">
-                                    <ul class="nav nav-pills align-items-center">
-                                        <li class="nav-item">
-                                            <button type="button" class="step-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_3" onclick="register_step(this)">
-                                                <i class="fas fa-chevron-up"></i>
-                                            </button>
-                                        </li>
-                                        <li class="nav-item">
-                                            <button type="button" class="step-btn step-next-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_5" onclick="register_step(this)">
-                                                <i class="fas fa-chevron-down"></i>
-                                            </button>
-                                        </li>
-                                        註冊進度：4/14
-                                    </ul>
-                                </div>
+                            <div class="step-div">
+                                <ul class="nav nav-pills align-items-center">
+                                    <li class="nav-item">
+                                        <button type="button" class="step-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_3" onclick="register_step(this)">
+                                            <i class="fas fa-chevron-up"></i>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item">
+                                        <button type="button" class="step-btn step-next-btn nav-link me-1" disabled disabled data-bs-toggle="pill" data-bs-target="#step_5" onclick="register_step(this)">
+                                            <i class="fas fa-chevron-down"></i>
+                                        </button>
+                                    </li>
+                                    註冊進度：4/14
+                                </ul>
                             </div>
                         </div>
                         <div class="tab-pane" id="step_5">
@@ -246,32 +236,30 @@
                                 或許不是我最滿意的樣子，可是我喜歡現在的我自己！
                                 <span class="i-imp">*</span>
                             </p>
-                            <div class="input-group w-25 mt-4 mb-1 align-items-end">
+                            <div class="input-group w-50 mt-4 mb-1 align-items-end">
                                 <input type="number" name="user_height" class="form-control input_underline" placeholder="請輸入身高" />
                                 <span class="ms-2">公分</span>
                             </div>
-                            <div class="input-group w-25 mt-4 mb-1 align-items-end">
+                            <div class="input-group w-50 mt-4 mb-1 align-items-end">
                                 <input type="number" name="user_height" class="form-control input_underline" placeholder="請輸入體重" />
                                 <span class="ms-2">公斤</span>
                             </div>
                             <button class="btn btn-c2 mt-4 rounded-pill step-confirm">寫下</button>
 
-                            <div class="position-relative">
-                                <div class="position-absolute bottom-0 end-0 step-div">
-                                    <ul class="nav nav-pills align-items-center">
-                                        <li class="nav-item">
-                                            <button type="button" class="step-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_4" onclick="register_step(this)">
-                                                <i class="fas fa-chevron-up"></i>
-                                            </button>
-                                        </li>
-                                        <li class="nav-item">
-                                            <button type="button" class="step-btn step-next-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_6" onclick="register_step(this)">
-                                                <i class="fas fa-chevron-down"></i>
-                                            </button>
-                                        </li>
-                                        註冊進度：5/14
-                                    </ul>
-                                </div>
+                            <div class="step-div">
+                                <ul class="nav nav-pills align-items-center">
+                                    <li class="nav-item">
+                                        <button type="button" class="step-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_4" onclick="register_step(this)">
+                                            <i class="fas fa-chevron-up"></i>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item">
+                                        <button type="button" class="step-btn step-next-btn nav-link me-1" disabled disabled data-bs-toggle="pill" data-bs-target="#step_6" onclick="register_step(this)">
+                                            <i class="fas fa-chevron-down"></i>
+                                        </button>
+                                    </li>
+                                    註冊進度：5/14
+                                </ul>
                             </div>
                         </div>
                         <div class="tab-pane" id="step_6">
@@ -290,22 +278,20 @@
                             </div>
                             <button class="btn btn-c2 mt-4 rounded-pill step-confirm">寫下</button>
 
-                            <div class="position-relative">
-                                <div class="position-absolute bottom-0 end-0 step-div">
-                                    <ul class="nav nav-pills align-items-center">
-                                        <li class="nav-item">
-                                            <button type="button" class="step-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_5" onclick="register_step(this)">
-                                                <i class="fas fa-chevron-up"></i>
-                                            </button>
-                                        </li>
-                                        <li class="nav-item">
-                                            <button type="button" class="step-btn step-next-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_7" onclick="register_step(this)">
-                                                <i class="fas fa-chevron-down"></i>
-                                            </button>
-                                        </li>
-                                        註冊進度：6/14
-                                    </ul>
-                                </div>
+                            <div class="step-div">
+                                <ul class="nav nav-pills align-items-center">
+                                    <li class="nav-item">
+                                        <button type="button" class="step-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_5" onclick="register_step(this)">
+                                            <i class="fas fa-chevron-up"></i>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item">
+                                        <button type="button" class="step-btn step-next-btn nav-link me-1" disabled data-bs-toggle="pill" data-bs-target="#step_7" onclick="register_step(this)">
+                                            <i class="fas fa-chevron-down"></i>
+                                        </button>
+                                    </li>
+                                    註冊進度：6/14
+                                </ul>
                             </div>
                         </div>
                         <div class="tab-pane" id="step_7">
@@ -331,22 +317,20 @@
                             </div>
                             <button class="btn btn-c2 mt-4 rounded-pill step-confirm">寫下</button>
 
-                            <div class="position-relative">
-                                <div class="position-absolute bottom-0 end-0 step-div">
-                                    <ul class="nav nav-pills align-items-center">
-                                        <li class="nav-item">
-                                            <button type="button" class="step-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_6" onclick="register_step(this)">
-                                                <i class="fas fa-chevron-up"></i>
-                                            </button>
-                                        </li>
-                                        <li class="nav-item">
-                                            <button type="button" class="step-btn step-next-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_8" onclick="register_step(this)">
-                                                <i class="fas fa-chevron-down"></i>
-                                            </button>
-                                        </li>
-                                        註冊進度：7/14
-                                    </ul>
-                                </div>
+                            <div class="step-div">
+                                <ul class="nav nav-pills align-items-center">
+                                    <li class="nav-item">
+                                        <button type="button" class="step-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_6" onclick="register_step(this)">
+                                            <i class="fas fa-chevron-up"></i>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item">
+                                        <button type="button" class="step-btn step-next-btn nav-link me-1" disabled data-bs-toggle="pill" data-bs-target="#step_8" onclick="register_step(this)">
+                                            <i class="fas fa-chevron-down"></i>
+                                        </button>
+                                    </li>
+                                    註冊進度：7/14
+                                </ul>
                             </div>
                         </div>
                         <div class="tab-pane" id="step_8">
@@ -376,22 +360,20 @@
                             </div>
                             <button class="btn btn-c2 mt-4 rounded-pill step-confirm">寫下</button>
 
-                            <div class="position-relative">
-                                <div class="position-absolute bottom-0 end-0 step-div">
-                                    <ul class="nav nav-pills align-items-center">
-                                        <li class="nav-item">
-                                            <button type="button" class="step-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_7" onclick="register_step(this)">
-                                                <i class="fas fa-chevron-up"></i>
-                                            </button>
-                                        </li>
-                                        <li class="nav-item">
-                                            <button type="button" class="step-btn step-next-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_9" onclick="register_step(this)">
-                                                <i class="fas fa-chevron-down"></i>
-                                            </button>
-                                        </li>
-                                        註冊進度：8/14
-                                    </ul>
-                                </div>
+                            <div class="step-div">
+                                <ul class="nav nav-pills align-items-center">
+                                    <li class="nav-item">
+                                        <button type="button" class="step-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_7" onclick="register_step(this)">
+                                            <i class="fas fa-chevron-up"></i>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item">
+                                        <button type="button" class="step-btn step-next-btn nav-link me-1" disabled data-bs-toggle="pill" data-bs-target="#step_9" onclick="register_step(this)">
+                                            <i class="fas fa-chevron-down"></i>
+                                        </button>
+                                    </li>
+                                    註冊進度：8/14
+                                </ul>
                             </div>
                         </div>
                         <div class="tab-pane" id="step_9">
@@ -413,22 +395,20 @@
                             </div>
                             <button class="btn btn-c2 mt-4 rounded-pill step-confirm">寫下</button>
 
-                            <div class="position-relative">
-                                <div class="position-absolute bottom-0 end-0 step-div">
-                                    <ul class="nav nav-pills align-items-center">
-                                        <li class="nav-item">
-                                            <button type="button" class="step-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_8" onclick="register_step(this)">
-                                                <i class="fas fa-chevron-up"></i>
-                                            </button>
-                                        </li>
-                                        <li class="nav-item">
-                                            <button type="button" class="step-btn step-next-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_10" onclick="register_step(this)">
-                                                <i class="fas fa-chevron-down"></i>
-                                            </button>
-                                        </li>
-                                        註冊進度：9/14
-                                    </ul>
-                                </div>
+                            <div class="step-div">
+                                <ul class="nav nav-pills align-items-center">
+                                    <li class="nav-item">
+                                        <button type="button" class="step-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_8" onclick="register_step(this)">
+                                            <i class="fas fa-chevron-up"></i>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item">
+                                        <button type="button" class="step-btn step-next-btn nav-link me-1" disabled data-bs-toggle="pill" data-bs-target="#step_10" onclick="register_step(this)">
+                                            <i class="fas fa-chevron-down"></i>
+                                        </button>
+                                    </li>
+                                    註冊進度：9/14
+                                </ul>
                             </div>
                         </div>
                         <div class="tab-pane" id="step_10">
@@ -447,27 +427,25 @@
                                 <div class="input-group w-50">
                                     <input type="radio" class="btn-check" name="user_allergy_state" id="a_item_2" value="1" autocomplete="off" />
                                     <label class="btn btn-outline-secondary rounded-pill px-3" for="a_item_2">我對某些東西過敏：</label>
-                                    <input type="text" class="form-control input_underline ms-2" id="a_item_other" placeholder="請填入過敏原" />
+                                    <input type="text" class="form-control input_underline ms-2" name="user_allergy_state" id="a_item_other" placeholder="請填入過敏原" />
                                 </div>
                             </div>
                             <button class="btn btn-c2 mt-4 rounded-pill step-confirm">寫下</button>
 
-                            <div class="position-relative">
-                                <div class="position-absolute bottom-0 end-0 step-div">
-                                    <ul class="nav nav-pills align-items-center">
-                                        <li class="nav-item">
-                                            <button type="button" class="step-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_9" onclick="register_step(this)">
-                                                <i class="fas fa-chevron-up"></i>
-                                            </button>
-                                        </li>
-                                        <li class="nav-item">
-                                            <button type="button" class="step-btn step-next-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_11" onclick="register_step(this)">
-                                                <i class="fas fa-chevron-down"></i>
-                                            </button>
-                                        </li>
-                                        註冊進度：10/14
-                                    </ul>
-                                </div>
+                            <div class="step-div">
+                                <ul class="nav nav-pills align-items-center">
+                                    <li class="nav-item">
+                                        <button type="button" class="step-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_9" onclick="register_step(this)">
+                                            <i class="fas fa-chevron-up"></i>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item">
+                                        <button type="button" class="step-btn step-next-btn nav-link me-1" disabled data-bs-toggle="pill" data-bs-target="#step_11" onclick="register_step(this)">
+                                            <i class="fas fa-chevron-down"></i>
+                                        </button>
+                                    </li>
+                                    註冊進度：10/14
+                                </ul>
                             </div>
                         </div>
                         <div class="tab-pane" id="step_11">
@@ -530,22 +508,20 @@
                             </div>
                             <button class="btn btn-c2 mt-4 rounded-pill step-confirm">寫下</button>
 
-                            <div class="position-relative">
-                                <div class="position-absolute bottom-0 end-0 step-div">
-                                    <ul class="nav nav-pills align-items-center">
-                                        <li class="nav-item">
-                                            <button type="button" class="step-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_10" onclick="register_step(this)">
-                                                <i class="fas fa-chevron-up"></i>
-                                            </button>
-                                        </li>
-                                        <li class="nav-item">
-                                            <button type="button" class="step-btn step-next-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_12" onclick="register_step(this)">
-                                                <i class="fas fa-chevron-down"></i>
-                                            </button>
-                                        </li>
-                                        註冊進度：11/14
-                                    </ul>
-                                </div>
+                            <div class="step-div">
+                                <ul class="nav nav-pills align-items-center">
+                                    <li class="nav-item">
+                                        <button type="button" class="step-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_10" onclick="register_step(this)">
+                                            <i class="fas fa-chevron-up"></i>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item">
+                                        <button type="button" class="step-btn step-next-btn nav-link me-1" disabled data-bs-toggle="pill" data-bs-target="#step_12" onclick="register_step(this)">
+                                            <i class="fas fa-chevron-down"></i>
+                                        </button>
+                                    </li>
+                                    註冊進度：11/14
+                                </ul>
                             </div>
                         </div>
                         <div class="tab-pane" id="step_12">
@@ -564,27 +540,25 @@
                                 <div class="input-group w-50">
                                     <input type="radio" class="btn-check" name="user_order_state" id="or_item_2" value="1" autocomplete="off" />
                                     <label class="btn btn-outline-secondary rounded-pill px-3" for="or_item_2">醫生有特別說：</label>
-                                    <input type="text" class="form-control input_underline ms-2" id="or_item_other" placeholder="請填入醫囑" />
+                                    <input type="text" class="form-control input_underline ms-2" name="user_order_state" id="or_item_other" placeholder="請填入醫囑" />
                                 </div>
                             </div>
                             <button class="btn btn-c2 mt-4 rounded-pill step-confirm">寫下</button>
 
-                            <div class="position-relative">
-                                <div class="position-absolute bottom-0 end-0 step-div">
-                                    <ul class="nav nav-pills align-items-center">
-                                        <li class="nav-item">
-                                            <button type="button" class="step-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_11" onclick="register_step(this)">
-                                                <i class="fas fa-chevron-up"></i>
-                                            </button>
-                                        </li>
-                                        <li class="nav-item">
-                                            <button type="button" class="step-btn step-next-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_13" onclick="register_step(this)">
-                                                <i class="fas fa-chevron-down"></i>
-                                            </button>
-                                        </li>
-                                        註冊進度：12/14
-                                    </ul>
-                                </div>
+                            <div class="step-div">
+                                <ul class="nav nav-pills align-items-center">
+                                    <li class="nav-item">
+                                        <button type="button" class="step-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_11" onclick="register_step(this)">
+                                            <i class="fas fa-chevron-up"></i>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item">
+                                        <button type="button" class="step-btn step-next-btn nav-link me-1" disabled data-bs-toggle="pill" data-bs-target="#step_13" onclick="register_step(this)">
+                                            <i class="fas fa-chevron-down"></i>
+                                        </button>
+                                    </li>
+                                    註冊進度：12/14
+                                </ul>
                             </div>
                         </div>
                         <div class="tab-pane" id="step_13">
@@ -628,22 +602,20 @@
                             </div>
                             <button class="btn btn-c2 mt-4 rounded-pill step-confirm">寫下</button>
 
-                            <div class="position-relative">
-                                <div class="position-absolute bottom-0 end-0 step-div">
-                                    <ul class="nav nav-pills align-items-center">
-                                        <li class="nav-item">
-                                            <button type="button" class="step-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_12" onclick="register_step(this)">
-                                                <i class="fas fa-chevron-up"></i>
-                                            </button>
-                                        </li>
-                                        <li class="nav-item">
-                                            <button type="button" class="step-btn step-next-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_14" onclick="register_step(this)">
-                                                <i class="fas fa-chevron-down"></i>
-                                            </button>
-                                        </li>
-                                        註冊進度：13/14
-                                    </ul>
-                                </div>
+                            <div class="step-div">
+                                <ul class="nav nav-pills align-items-center">
+                                    <li class="nav-item">
+                                        <button type="button" class="step-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_12" onclick="register_step(this)">
+                                            <i class="fas fa-chevron-up"></i>
+                                        </button>
+                                    </li>
+                                    <li class="nav-item">
+                                        <button type="button" class="step-btn step-next-btn nav-link me-1" disabled data-bs-toggle="pill" data-bs-target="#step_14" onclick="register_step(this)">
+                                            <i class="fas fa-chevron-down"></i>
+                                        </button>
+                                    </li>
+                                    註冊進度：13/14
+                                </ul>
                             </div>
                         </div>
                         <div class="tab-pane" id="step_14">
@@ -670,27 +642,30 @@
                                         歲(生日為
                                         <span class="step-tabs" onclick="register_step(this,4)" id="birthday"></span>
                                         )， 身高
-                                        <span class="step-tabs" onclick="register_step(this,5)" id="height">XX</span>
+                                        <span class="step-tabs" onclick="register_step(this,5)" id="height"></span>
                                         公分、體重
                                         <span class="step-tabs" onclick="register_step(this,5)" id="weight"></span>
                                         公斤， 我很喜歡現在我的樣子，你也一樣喜歡現在的自己嗎？我現在
-                                        <span onclick="register_step(this,6)" class="step-tabs" id="married_state">XX</span>
-                                        ， 而且
-                                        <span class="step-tabs" onclick="register_step(this,8)" id="pregnant_state">沒有懷孕</span>
-                                        ，不過我
-                                        <span class="step-tabs" onclick="register_step(this,7)" id="birth_plan">正在進行人工受孕療程</span>
-                                        ，不知道未來看到信的你是否還是這樣呢？還是你已經邁入人生下一段旅程了呢？
+                                        <span onclick="register_step(this,6)" class="step-tabs" id="married_state"></span>
+                                        <span class="onyly-show-famele">
+                                            ， 而且
+                                            <span class="step-tabs" onclick="register_step(this,8)" id="pregnant_state"></span>
+                                            ，不過我
+                                            <span class="step-tabs" onclick="register_step(this,7)" id="birth_plan"></span>
+                                        </span>
+                                        ，不知道未來看到信的你是否還是這樣呢？
+                                        <span class="onyly-show-famele">還是你已經邁入人生下一段旅程了呢？</span>
                                     </p>
                                     <p>
-                                        現在的我有
+                                        現在的我
                                         <span class="step-tabs" onclick="register_step(this,11)" id="disease">高血壓、子宮肌瘤</span>
                                         、對
-                                        <span class="step-tabs" onclick="register_step(this,10)" id="allergy_state">XX</span>
+                                        <span class="step-tabs" onclick="register_step(this,10)" id="allergy_state"></span>
                                         過敏，醫生有特別說
-                                        <span class="step-tabs" onclick="register_step(this,12)" id="order">XX</span>
+                                        <span class="step-tabs" onclick="register_step(this,12)" id="order"></span>
                                         ， 需要吃
-                                        <span class="step-tabs" onclick="register_step(this,9)" id="drug">XX</span>
-                                        藥，不過整體都還可以，希望你也一切都好～
+                                        <span class="step-tabs" onclick="register_step(this,9)" id="drug"></span>
+                                        ，不過整體都還可以，希望你也一切都好～
                                     </p>
                                     <p>
                                         最後，不要忘記那個充滿熱情和夢想的自己，或許時間會帶來許多變化，但是我希望你能一直保持那份初心和熱情，同時，我相信你現在也一定成為一個更好的人，希望未來的日子裡，你能找到屬於自己的步調，繼續成為一個更好的自己。
@@ -715,22 +690,19 @@
                                 </div>
                             </div>
 
-                            <div class="position-relative">
-                                <div class="position-absolute bottom-0 end-0 step-div">
-                                    <ul class="nav nav-pills align-items-center">
-                                        <li class="nav-item">
-                                            <button type="button" class="step-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_13" onclick="register_step(this)">
-                                                <i class="fas fa-chevron-up"></i>
-                                            </button>
-                                        </li>
-                                        註冊進度：14/14
-                                    </ul>
-                                </div>
+                            <div class="step-div">
+                                <ul class="nav nav-pills align-items-center">
+                                    <li class="nav-item">
+                                        <button type="button" class="step-btn nav-link me-1" data-bs-toggle="pill" data-bs-target="#step_13" onclick="register_step(this)">
+                                            <i class="fas fa-chevron-up"></i>
+                                        </button>
+                                    </li>
+                                    註冊進度：14/14
+                                </ul>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md col-lg"></div>
             </div>
             <div class="row py-3 px-5"></div>
             <div class="position-fixed bottom-0 end-0 m-2">
