@@ -1,16 +1,16 @@
-$("#article_class_list > li").mouseover(function () {
-    $(this).find(".collapse").addClass("show");
-});
-$("#article_class_list > li").mouseout(function () {
-    $(this).find(".collapse").removeClass("show");
-});
+// $("#article_class_list > li").mouseover(function () {
+//     $(this).find(".collapse").addClass("show");
+// });
+// $("#article_class_list > li").mouseout(function () {
+//     $(this).find(".collapse").removeClass("show");
+// });
 
-$("#info_class_list > li").mouseover(function () {
-    $(this).find(".collapse").addClass("show");
-});
-$("#info_class_list > li").mouseout(function () {
-    $(this).find(".collapse").removeClass("show");
-});
+// $("#info_class_list > li").mouseover(function () {
+//     $(this).find(".collapse").addClass("show");
+// });
+// $("#info_class_list > li").mouseout(function () {
+//     $(this).find(".collapse").removeClass("show");
+// });
 
 function like(obj) {
     const obj_node = obj.parentNode; //tr
