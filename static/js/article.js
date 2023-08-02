@@ -47,11 +47,11 @@ function collect(obj) {
     }
 }
 
-//療心室-票選活動 倒數計時
-$(".countdown")._countTime("2023-08-03 12:30:00", {
-    isActive: true,
-    str: {
-        title: "活動截止：",
-        day: "日",
-    },
-});
+// //療心室-票選活動 倒數計時
+// $(".countdown")._countTime("2023-08-03 12:30:00", {
+//     isActive: true,
+//     str: {
+//         title: "活動截止：",
+//         day: "日",
+//     },
+// });
