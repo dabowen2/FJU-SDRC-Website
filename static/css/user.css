@@ -114,7 +114,7 @@
     color: var(--ct-sub-1);
     font-size: var(--fs-15);
     position: absolute;
-    bottom: 20%;
+    top: 70vh;
     left: 35%;
 }
 
