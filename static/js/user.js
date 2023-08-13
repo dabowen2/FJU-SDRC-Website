@@ -29,9 +29,9 @@ function updateImageDisplay() {
 
     if (input.files.length === 0) {
         var para = document.createElement("p");
-        para.textContent = "未選擇任何檔案";
+        para.innerHTML = `<span class="d-none d-lg-block">上傳檔案 </span><span><i class="fas fa-camera"></i></span>`;
         preview.style = "background: #cccccc;";
-        para.style = "line-height: 10vw;";
+        para.classList.add("my-0");
         preview.appendChild(para);
     } else {
         var para = document.createElement("p");

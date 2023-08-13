@@ -1,3 +1,13 @@
+@media screen and (max-width: 576px) {
+    .preview {
+        width: 30vw !important;
+        height: 30vw !important;
+    }
+    .preview img {
+        height: 30vw !important;
+    }
+}
+
 .preview {
     background: #cccccc;
     width: 10vw;
