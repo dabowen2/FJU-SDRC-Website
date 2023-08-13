@@ -244,6 +244,30 @@ body {
     background-color: var(--ct-color-1);
 }
 
+/* for 註冊頁 選項按鈕 */
+.btn-outline-gy1 {
+    color: var(--ct-title-1);
+    border-color: whitesmoke;
+    background-color: white;
+    border-width: 0.05rem;
+    font-size: var(--fs-18);
+    padding-top: 0.15rem;
+    padding-bottom: 0.15rem;
+    margin: auto;
+}
+.btn-outline-gy1:hover {
+    color: white;
+    border-color: whitesmoke;
+    background-color: var(--ct-sub-1);
+}
+.btn-check:active + .btn-outline-gy1,
+.btn-check:checked + .btn-outline-gy1,
+.btn-outline-gy1:active {
+    color: white;
+    border-color: whitesmoke;
+    background-color: var(--ct-sub-1);
+}
+
 header,
 .topbar .navbar {
     background: white;
@@ -354,7 +378,7 @@ header,
         border-radius: 8px;
     }
 }
-@media screen and (min-width: 1024px) and (max-width: 1980px) {
+@media screen and (min-width: 1024px) {
     #topbar-nav-tabs li a i {
         color: var(--ct-color-1);
         font-size: var(--fs-20);
@@ -426,6 +450,7 @@ header,
 #floatButton {
     font-size: var(--fs-24);
     color: var(--ct-color-1);
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
 @media (max-width: 768px) {
