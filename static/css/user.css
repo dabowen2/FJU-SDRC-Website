@@ -72,6 +72,13 @@
     text-indent: 0em;
     color: black;
 }
+.form-register .tab-pane input:not([type="radio"], [type="checkbox"], [type="datetime"]) {
+    background: none;
+}
+.form-register .tab-pane input:focus {
+    box-shadow: none;
+    border-bottom: 0.12rem solid black;
+}
 
 .form-register .tab-content span.text-muted {
     font-size: var(--fs-18);
@@ -83,7 +90,7 @@
 }
 .nav-link.step-btn,
 .nav-link.step-btn.active {
-    background: #d9d9d9;
+    background: white;
     color: var(--ct-color-1);
     font-size: var(--fs-14);
 }
@@ -96,14 +103,92 @@
 .form-register .tab-pane .step-div {
     color: var(--ct-sub-1);
     font-size: var(--fs-15);
-    position: fixed;
-    bottom: 25%;
-    right: 10%;
+    position: absolute;
+    bottom: 20%;
+    left: 35%;
 }
 
 .form-register .tab-pane a {
     color: var(--ct-sub-4);
 }
+
+.full-img {
+    z-index: -1;
+    top: 30%;
+    right: 2%;
+    max-width: 45vw;
+    width: 100%;
+}
+@media screen and (max-width: 1024px) {
+    .full-img {
+        top: 20%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .form-register .tab-pane br {
+        display: inline;
+        content: " ";
+        clear: none;
+    }
+    .full-img {
+        display: none;
+    }
+    .form-register .tab-pane input:not(.input-group > input):not([type="radio"], [type="checkbox"], [type="datetime"]) {
+        width: 100% !important;
+    }
+    .form-register .tab-pane .input-group {
+        width: 100% !important;
+    }
+    .form-register .tab-pane .step-div {
+        bottom: 30%;
+        right: 5%;
+        left: auto;
+    }
+
+    /*信紙*/
+    .form_mail {
+        background: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        margin: 26px auto 0;
+        max-width: 550px;
+        min-height: 300px;
+        padding: 24px;
+        position: relative;
+        width: 80%;
+    }
+    .form_mail:before,
+    .letter:after {
+        content: "";
+        height: 98%;
+        position: absolute;
+        width: 100%;
+        z-index: -1;
+    }
+    .form_mail:before {
+        background: #fafafa;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+        left: -5px;
+        top: 4px;
+        transform: rotate(-2.5deg);
+    }
+    .form_mail:after {
+        background: #f6f6f6;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+        right: -3px;
+        top: 1px;
+        transform: rotate(1.4deg);
+    }
+    fieldset {
+        padding: 0 !important;
+    }
+}
+/* @media screen and (min-width: 1440px) {
+    
+}
+@media screen and (min-width: 768px) and (max-width: 1440px) {
+    
+} */
 
 .form_mail {
     background-position: center;
@@ -114,24 +199,12 @@
     display: flex;
     width: 100%;
     height: 100%;
-
-    /* position: relative;
-    width: 100%;
-    height: 100%;
-    min-height: 65vh;
-    background-image: url("../img/postcard2.png");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background: repeating-linear-gradient(#f1ede9, #f1ede9 31px, #94acd4 31px, #94acd4 32px);
-    padding: 0;
-    margin-bottom: 0px; */
 }
 
 .form_mail::after {
     content: "";
     position: absolute;
-    background: url("../img/postcard2.png");
+    background: url("../img/register/vc/14.png");
     background-size: 100% 100vh;
     background-repeat: no-repeat;
     background-position: center;
@@ -150,12 +223,12 @@ fieldset {
     padding: 45px 130px; */
     /* line-height: 30px; */
     font-size: var(--fs-17);
-    line-height: var(--fs-28);
-    padding: 5% 15%;
+    line-height: var(--fs-22);
+    padding: 13% 18%;
 }
 fieldset p {
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 3px;
+    margin-bottom: 3px;
 }
 fieldset .step-tabs {
     cursor: pointer;

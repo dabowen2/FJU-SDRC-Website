@@ -66,7 +66,8 @@ $(".button-radio > button").click(function () {
 /*註冊步驟按鈕*/
 const step_confirm_btn = document.querySelectorAll(".step-confirm");
 const register_info = {};
-
+let img_path = "static/img/register/vc/";
+let bg_path = "static/img/register/bg/";
 $(`input[id='ds_item_1']`).click(function () {
     if ($(`input[id='ds_item_1']`).is(":checked") == true) {
         $(`input[name*="user_disease_state"]:not("#ds_item_1")`).attr("disabled", true);
@@ -80,11 +81,16 @@ step_confirm_btn.forEach((item, step_index) => {
     item.addEventListener("click", function () {
         let is_write = false;
         let input_obj_arr = $(this).parent().find("input");
+        let step_id = 0;
+        let pwd_rule = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}$/;
+
         console.log("Now step:" + step_index);
 
         if (step_index == 3) {
             $(this).next().find(".step-next-btn").attr("disabled", false);
             $(this).next().find(".step-next-btn").click();
+            step_id = $(this).next().find(".step-next-btn").data("bs-target").substring(6);
+            $("body").css("background-image", `url('${bg_path + step_id}.png')`);
         }
         if (input_obj_arr.length > 0) {
             let obj_key = $(input_obj_arr).eq(0).get(0).name;
@@ -105,9 +111,9 @@ step_confirm_btn.forEach((item, step_index) => {
                         text: "請再檢查必要欄位是否確實有填寫！",
                         confirmButtonColor: "#70c6e3",
                     });
-                } else if (step_index == 0 && obj_value.length < 8) {
+                } else if (step_index == 0 && !obj_value.match(pwd_rule)) {
                     Swal.fire({
-                        title: `密碼須至少8個字元`,
+                        title: `密碼須符合規則`,
                         text: "請再檢查必要欄位是否確實有填寫！",
                         confirmButtonColor: "#70c6e3",
                         icon: "warning",
@@ -220,6 +226,9 @@ step_confirm_btn.forEach((item, step_index) => {
                                 $(btn).attr("data-bs-target", "#step_8");
                             }
                         });
+                        step_id = $(this).next().find(".step-next-btn").data("bs-target").substring(6);
+                        $("body").css("background-image", `url('${bg_path + step_id}.png')`);
+
                         $(this).next().find(".step-next-btn").click();
                     }
                 } else if (step_index == 13) {
@@ -237,26 +246,39 @@ step_confirm_btn.forEach((item, step_index) => {
                     if (register_info.user_pregnant_state != "0") $("#pregnant_state").html(register_info.user_pregnant_state);
                     if (register_info.user_birth_plan != "0") $("#birth_plan").html(register_info.user_birth_plan);
                     if (register_info.user_disease_state != "0") $("#disease").html("有" + register_info.user_disease_state);
-                    if (register_info.user_allergy_state != "0") $("#allergy_state").html(register_info.user_allergy_state.replace("1,", ""));
-                    if (register_info.user_order_state != "0") $("#order").html(register_info.user_order_state.replace("1,", ""));
-                    if (register_info.user_drug_state != "0") $("#drug").html(register_info.user_drug_state.replace("1,", ""));
+                    if (register_info.user_allergy_state != "0") $("#allergy_state").html("，對" + register_info.user_allergy_state.replace("1,", "") + "過敏");
+                    if (register_info.user_order_state != "0") $("#order").html("，醫生有特別說" + register_info.user_order_state.replace("1,", ""));
+                    if (register_info.user_drug_state != "0") $("#drug").html("， 需要吃" + register_info.user_drug_state.replace("1,", ""));
 
                     $("#username").html(register_info.user_name);
+                    step_id = $(this).next().find(".step-next-btn").data("bs-target").substring(6);
+                    $("body").css("background-image", `url('${bg_path + step_id}.png')`);
                     $(this).next().find(".step-next-btn").click();
-                } else $(this).next().find(".step-next-btn").click();
+                } else {
+                    step_id = $(this).next().find(".step-next-btn").data("bs-target").substring(6);
+                    $("body").css("background-image", `url('${bg_path + step_id}.png')`);
+                    $(this).next().find(".step-next-btn").click();
+                }
             }
         }
+        console.log("Now step id:" + step_id);
     });
 });
 
 function register_step(obj, step_num) {
+    let step_id = 0;
     if (step_num != null) {
         $(".step-btn").each(function (i, btn) {
-            let step_id = parseInt($(btn).data("bs-target").substring(6));
+            step_id = parseInt($(btn).attr("data-bs-target").substring(6));
+            $("body").css("background-image", `url('${bg_path + step_id}.png')`);
             if (step_id == step_num) {
                 $(btn).click();
             }
         });
+    }
+    if ($(obj).attr("data-bs-target")) {
+        step_id = parseInt($(obj).attr("data-bs-target").substring(6));
+        $("body").css("background-image", `url('${bg_path + step_id}.png')`);
     }
 
     setTimeout(() => {
