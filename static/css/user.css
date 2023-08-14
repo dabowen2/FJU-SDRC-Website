@@ -113,9 +113,9 @@
 .form-register .tab-pane .step-div {
     color: var(--ct-sub-1);
     font-size: var(--fs-15);
-    position: absolute;
-    top: 70vh;
-    left: 35%;
+    position: fixed;
+    top: calc(22rem + 0.125rem);
+    left: 36%;
 }
 
 .form-register .tab-pane a {
@@ -124,14 +124,15 @@
 
 .full-img {
     z-index: -1;
-    top: 30%;
-    right: 2%;
+    top: 0;
+    right: -20vw;
     max-width: 45vw;
     width: 100%;
 }
 @media screen and (max-width: 1024px) {
     .full-img {
-        top: 20%;
+        top: 20% !important;
+        right: -3% !important;
     }
 }
 
