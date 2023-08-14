@@ -55,6 +55,11 @@
     font-size: var(--fs-18);
     line-height: var(--fs-30);
     letter-spacing: 1px;
+    word-break: break-word;
+}
+
+#article_content img {
+    width: 100%;
 }
 
 .content-title {
