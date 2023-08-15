@@ -133,7 +133,7 @@
                         </div>
                     </div>
                     <div class="row mt-4 px-1 ps-md-0 pe-md-3">
-                        <div id="article_content">
+                        <div class="article_content" id="article_content_id">
                             <img src="https://placehold.co/500x200" class="w-100 mx-auto d-block" alt="文章圖片" />
                             <p>
                                 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文
@@ -180,62 +180,90 @@
                         </div>
                         <!--留言回應區-->
                         <div class="mt-4" id="comments_list">
-                            <div class="col-12 my-1" id="comment_id">
+                            <!-- 留言 1F -->
+                            <div class="col-12 my-1" id="comment_1F">
                                 <div class="col-12 d-flex justify-content-between align-items-center">
-                                    <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" />作者</div>
+                                    <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" /><span class="cmt_author">作者</span></div>
                                     <div class="d-flex align-items-center">
                                         <button class="btn btn-sm p-0" onclick="like(this)">
+                                            <!--需判斷是否按讚過此文章-->
+                                            <!-- 無按讚 顯示-->
                                             <i class="fas fa-heart ct-sub-1 me-1"></i>
+                                            <!-- 有按讚 顯示-->
+                                            <!-- <i class="fas fa-heart ct-txt-2 me-1"></i> -->
                                         </button>
                                         <span class="me-2 like_count">112</span>
+
+                                        <!--判斷是否是自己帳號留的言 有則顯示編輯功能-->
                                         <button class="btn btn-sm p-0" onclick="edit_comment(this)">
                                             <i class="fas fa-edit ct-sub-1 me-1"></i>
                                         </button>
+
                                         <div class="dropdown d-inline" data-bs-toggle="tooltip" data-bs-title="檢舉/刪除" data-bs-placement="top">
                                             <button class="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
                                                 <i class="fas fa-exclamation-circle ct-sub-1 me-1"></i>
                                             </button>
                                             <ul class="dropdown-menu">
-                                                <li><button class="dropdown-item">刪除留言</button></li>
-                                                <li><button class="dropdown-item">檢舉留言</button></li>
+                                                <li>
+                                                    <button type="button" onclick="del_comment(this)" class="dropdown-item">刪除留言</button>
+                                                </li>
+                                                <li>
+                                                    <button type="button" onclick="report_comment(this)" class="dropdown-item">檢舉留言</button>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 my-3 pe-4 ct-title-1" id="commentid_content1" style="text-align: justify">
+                                <div class="col-12 my-3 pe-4 ct-title-1 comment_content" contenteditable="false" id="commentid_content1" style="text-align: justify">
                                     我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容
                                 </div>
                                 <div class="col-12 my-2">
-                                    <a class="ct-sub-1 text-decoration-none" data-bs-toggle="collapse" href="#commentid_reply_list"> 顯示回覆 <span id="comment_id_reply_count">12</span> </a>
+                                    <a class="ct-sub-1 text-decoration-none" data-bs-toggle="collapse" href="#commentid_reply_list">
+                                        顯示回覆
+                                        <span id="comment_id_reply_count">
+                                            2
+                                            <!-- 顯示回覆留言數 -->
+                                        </span>
+                                    </a>
                                 </div>
                                 <!--留言回覆 摺疊區 -->
                                 <div class="col-12 ps-4 mt-3 collapse" id="commentid_reply_list">
-                                    <div class="my-1" id="commentid_reply_id-1">
+                                    <!--留言回覆 第一則顯示-->
+                                    <div class="my-1" id="comment1F_reply_1F">
                                         <div class="col-12 d-flex justify-content-between align-items-center">
-                                            <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" />作者</div>
+                                            <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" /><span class="cmt_author">作者</span></div>
                                             <div class="d-flex align-items-center">
                                                 <button class="btn btn-sm p-0" onclick="like(this)">
                                                     <i class="fas fa-heart ct-sub-1 me-1"></i>
                                                 </button>
                                                 <span class="me-2 like_count">112</span>
+                                                <!--判斷是否是自己帳號留的言 有則顯示編輯功能-->
+                                                <button class="btn btn-sm p-0" onclick="edit_comment(this)">
+                                                    <i class="fas fa-edit ct-sub-1 me-1"></i>
+                                                </button>
                                                 <div class="dropdown d-inline" data-bs-toggle="tooltip" data-bs-title="檢舉/刪除" data-bs-placement="top">
                                                     <button class="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
                                                         <i class="fas fa-exclamation-circle ct-sub-1 me-1"></i>
                                                     </button>
                                                     <ul class="dropdown-menu">
-                                                        <li><button class="dropdown-item">刪除留言</button></li>
-                                                        <li><button class="dropdown-item">檢舉留言</button></li>
+                                                        <li>
+                                                            <button type="button" onclick="del_comment(this)" class="dropdown-item">刪除留言</button>
+                                                        </li>
+                                                        <li>
+                                                            <button type="button" onclick="report_comment(this)" class="dropdown-item">檢舉留言</button>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-12 my-3 pe-4 ct-title-1" id="replyid_content1" style="text-align: justify">
+                                        <div class="col-12 my-3 pe-4 ct-title-1 comment_content" contenteditable="false" id="replyid_content1" style="text-align: justify">
                                             我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容
                                         </div>
                                     </div>
-                                    <div class="border-top my-1 pt-3" id="commentid_reply_id-2 ">
+                                    <!--留言回覆 其他顯示 (有分隔線border-top差別)-->
+                                    <div class="border-top my-1 pt-3" id="comment1F_reply_2F ">
                                         <div class="col-12 d-flex justify-content-between align-items-center">
-                                            <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" />作者</div>
+                                            <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" /><span class="cmt_author">作者</span></div>
                                             <div class="d-flex align-items-center">
                                                 <button class="btn btn-sm p-0" onclick="like(this)">
                                                     <i class="fas fa-heart ct-sub-1 me-1"></i>
@@ -246,21 +274,26 @@
                                                         <i class="fas fa-exclamation-circle ct-sub-1 me-1"></i>
                                                     </button>
                                                     <ul class="dropdown-menu">
-                                                        <li><button class="dropdown-item">刪除留言</button></li>
-                                                        <li><button class="dropdown-item">檢舉留言</button></li>
+                                                        <li>
+                                                            <button type="button" onclick="del_comment(this)" class="dropdown-item">刪除留言</button>
+                                                        </li>
+                                                        <li>
+                                                            <button type="button" onclick="report_comment(this)" class="dropdown-item">檢舉留言</button>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-12 my-3 pe-4 ct-title-1" id="replyid_content2" style="text-align: justify">
+                                        <div class="col-12 my-3 pe-4 ct-title-1 comment_content" contenteditable="false" id="replyid_content2" style="text-align: justify">
                                             我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 my-1 pt-3 border-top" id="comment_id">
+                            <!-- 留言 2F -->
+                            <div class="col-12 my-1 pt-3 border-top" id="comment_2F">
                                 <div class="col-12 d-flex justify-content-between align-items-center">
-                                    <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" />作者</div>
+                                    <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" /><span class="cmt_author">作者</span></div>
                                     <div class="d-flex align-items-center">
                                         <button class="btn btn-sm p-0" onclick="like(this)">
                                             <i class="fas fa-heart ct-sub-1 me-1"></i>
@@ -271,23 +304,28 @@
                                                 <i class="fas fa-exclamation-circle ct-sub-1 me-1"></i>
                                             </button>
                                             <ul class="dropdown-menu">
-                                                <li><button class="dropdown-item">刪除留言</button></li>
-                                                <li><button class="dropdown-item">檢舉留言</button></li>
+                                                <li>
+                                                    <button type="button" onclick="del_comment(this)" class="dropdown-item">刪除留言</button>
+                                                </li>
+                                                <li>
+                                                    <button type="button" onclick="report_comment(this)" class="dropdown-item">檢舉留言</button>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 my-3 pe-4 ct-title-1" id="commentid_content1" style="text-align: justify">
+                                <div class="col-12 my-3 pe-4 ct-title-1 comment_content" contenteditable="false" id="commentid_content1" style="text-align: justify">
                                     我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容
                                 </div>
                                 <div class="col-12 my-2">
-                                    <a class="ct-sub-1 text-decoration-none" data-bs-toggle="collapse" href="#commentid2_reply_list"> 顯示回覆 <span id="comment_id_reply_count">12</span> </a>
+                                    <a class="ct-sub-1 text-decoration-none" data-bs-toggle="collapse" href="#commentid2_reply_list"> 顯示回覆 <span id="comment_id_reply_count">2</span> </a>
                                 </div>
                                 <!--留言回覆 摺疊區 -->
                                 <div class="col-12 ps-4 mt-3 collapse" id="commentid2_reply_list">
-                                    <div class="my-1" id="commentid_reply_id-1">
+                                    <!--留言回覆第一則顯示-->
+                                    <div class="my-1" id="comment2F_reply_1F">
                                         <div class="col-12 d-flex justify-content-between align-items-center">
-                                            <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" />作者</div>
+                                            <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" /><span class="cmt_author">作者</span></div>
                                             <div class="d-flex align-items-center">
                                                 <button class="btn btn-sm p-0" onclick="like(this)">
                                                     <i class="fas fa-heart ct-sub-1 me-1"></i>
@@ -298,19 +336,24 @@
                                                         <i class="fas fa-exclamation-circle ct-sub-1 me-1"></i>
                                                     </button>
                                                     <ul class="dropdown-menu">
-                                                        <li><button class="dropdown-item">刪除留言</button></li>
-                                                        <li><button class="dropdown-item">檢舉留言</button></li>
+                                                        <li>
+                                                            <button type="button" onclick="del_comment(this)" class="dropdown-item">刪除留言</button>
+                                                        </li>
+                                                        <li>
+                                                            <button type="button" onclick="report_comment(this)" class="dropdown-item">檢舉留言</button>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-12 my-3 pe-4 ct-title-1" id="replyid_content1" style="text-align: justify">
+                                        <div class="col-12 my-3 pe-4 ct-title-1 comment_content" contenteditable="false" id="replyid_content1" style="text-align: justify">
                                             我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容
                                         </div>
                                     </div>
-                                    <div class="border-top my-1 pt-3" id="commentid_reply_id-2 ">
+                                    <!--留言回覆 其他顯示 (有分隔線差別)-->
+                                    <div class="border-top my-1 pt-3" id="comment2F_reply_2F">
                                         <div class="col-12 d-flex justify-content-between align-items-center">
-                                            <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" />作者</div>
+                                            <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" /><span class="cmt_author">作者</span></div>
                                             <div class="d-flex align-items-center">
                                                 <button class="btn btn-sm p-0" onclick="like(this)">
                                                     <i class="fas fa-heart ct-sub-1 me-1"></i>
@@ -321,13 +364,17 @@
                                                         <i class="fas fa-exclamation-circle ct-sub-1 me-1"></i>
                                                     </button>
                                                     <ul class="dropdown-menu">
-                                                        <li><button class="dropdown-item">刪除留言</button></li>
-                                                        <li><button class="dropdown-item">檢舉留言</button></li>
+                                                        <li>
+                                                            <button type="button" onclick="del_comment(this)" class="dropdown-item">刪除留言</button>
+                                                        </li>
+                                                        <li>
+                                                            <button type="button" onclick="report_comment(this)" class="dropdown-item">檢舉留言</button>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-12 my-3 pe-4 ct-title-1" id="replyid_content2" style="text-align: justify">
+                                        <div class="col-12 my-3 pe-4 ct-title-1 comment_content" contenteditable="false" id="replyid_content2" style="text-align: justify">
                                             我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容
                                         </div>
                                     </div>

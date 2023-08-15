@@ -28,6 +28,7 @@
         <style></style>
     </head>
     <body>
+        <!--頂端欄-->
         <div class="container-xxl topbar">
             <nav class="navbar navbar-expand-lg border-bottom fixed-top">
                 <div class="container-xxl px-md-4">
@@ -35,6 +36,7 @@
                         <img src="static/img/us-logo.png" alt="" height="40" class="d-inline-block align-text-top" />
                     </a>
                     <div class="align-items-center">
+                        <!--通知按鈕-->
                         <button class="navbar-toggler notfiy_bell" type="button" data-bs-toggle="tooltip" data-bs-title="通知" data-bs-placement="bottom">
                             <i class="fas fa-bell ct-txt-1"></i>
                         </button>
@@ -73,8 +75,10 @@
                                 </a>
                             </li>
                             <li class="nav-item dropstart order-first order-lg-last">
+                                <!--判斷有無會員登入-->
                                 <a href="#" class="nav-link" data-bs-toggle="dropdown">
                                     <i class="fas fa-user-circle"></i>
+                                    <!--如有登入 顯示會員名稱-->
                                     <span id="account_name" class="d-lg-none">Account Name</span>
                                 </a>
                                 <ul class="dropdown-menu">
@@ -90,12 +94,14 @@
 
                     <!--通知欄區塊-->
                     <div class="notifications border" id="notifications_box">
+                        <!--當前通知訊息數量-->
                         <h2>Notifications <span class="badge bg-danger rounded-circle">2</span></h2>
+                        <!--通知訊息 loop-->
                         <div class="notifications-item">
-                            <img src="https://i.imgur.com/uIgDDDd.jpg" alt="img" />
+                            <img src="https://i.imgur.com/uIgDDDd.jpg" alt="會員頭像" />
                             <div class="text">
-                                <h4>Samso aliao</h4>
-                                <p>Samso Nagaro Like your home work</p>
+                                <h4>會員名稱</h4>
+                                <p>通知消息內容</p>
                             </div>
                         </div>
                         <div class="notifications-item">
@@ -120,6 +126,7 @@
                         </ol>
                     </nav>
                     <div class="row d-flex align-items-center">
+                        <!-- 顯示文章標題 -->
                         <h3 class="col-auto px-0" id="article_title">小產也能請產假！</h3>
                     </div>
                 </div>
@@ -129,18 +136,30 @@
                     <div class="row d-flex justify-content-between align-items-center">
                         <div class="col-12">
                             <ul class="nav" id="article_class_tabs">
+                                <!-- 文章類別標籤 -->
                                 <a class="nav-link rounded-pill active" aria-current="page" href="#"><i class="fas fa-tag me-1"></i>小產知識</a>
                             </ul>
                         </div>
                         <div class="col-12 mt-5 d-flex align-items-end">
+                            <!-- 顯示文章日期 -->
                             <span class="ct-sub-1 mx-2" id="article_date"></span>
+                            <!-- 顯示小編名稱/作者 *帶個人頁面超連結?-->
                             <a href="#" class="ct-title-1 text-decoration-none mx-2" id="article_author">優德莎莉編輯團隊</a>
                             <button type="button" class="btn btn-sm rounded-pill btn-outline-c2 col-auto mx-2 px-3" id="follow_button">追蹤</button>
                         </div>
                     </div>
                     <div class="row mt-4 px-1 ps-md-0 pe-md-3">
-                        <div id="article_content">
-                            <div class="col-12" id="article_pic">
+                        <div class="article_content" id="article_content_id">
+                            <!-- 顯示文章內容 -->
+                            <img src="https://placehold.co/500x200" alt="文章圖片" />
+                            <p>
+                                我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文
+                                我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文
+                                我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文
+                                我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文
+                                我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文
+                            </p>
+                            <!-- <div class="col-12" id="article_pic">
                                 <img src="https://placehold.co/500x200" class="w-100 mx-auto d-block" alt="文章圖片" />
                             </div>
                             <div class="col-12 text-break" id="article_abs">
@@ -149,11 +168,12 @@
                                 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文
                                 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文
                                 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文
-                            </div>
+                            </div> -->
                             <hr class="border border-secondary border-opacity-50 my-4" />
                             <div class="col-12">
                                 <h5 class="content-title">文章目錄</h5>
                                 <ul class="list-group list-group-flush" id="content_tabs">
+                                    <!-- for loop 帶內文段落標題 data:標題+段落id -->
                                     <li class="list-group-item bg-transparent border-0">
                                         <a href="#content_part1" class="ct-title-1">標題1</a>
                                     </li>
@@ -166,51 +186,67 @@
                                 </ul>
                             </div>
                             <hr class="border border-secondary border-opacity-50 my-4" />
+                            <!-- 以下為各段落標題與內容 須注意以下div id要與上面超連結href相同-->
+                            <!-- 內文段落1 每個段落data:標題/內文(+圖片) -->
                             <div class="col-12 mb-3" id="content_part1">
                                 <h5 class="content-title" id="article_title1">標題1</h5>
-                                <div class="text-break">
+                                <p>
                                     我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文
-                                </div>
+                                </p>
                             </div>
+                            <!-- 內文段落2 -->
                             <div class="col-12 mb-3" id="content_part2">
                                 <h5 class="content-title" id="article_title2">標題2</h5>
-                                <div class="text-break">
+                                <p>
                                     我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文
                                     <br />更誇張的是，加拿大的野火煙塵甚至飄散至數千公里遠的挪威、冰島與格陵蘭島。不過，挪威氣候與環境研究所（NILU）科學家伊凡傑利歐（Nikolaos
                                     Evangeliou）透露，有別於美國部分地區的有害空汙，挪威民眾可能僅能看見或聞到淡淡的煙塵，不會造成健康危害。
-                                </div>
+                                </p>
                             </div>
+                            <!-- 內文段落3 -->
                             <div class="col-12 mb-3" id="content_part3">
                                 <h5 class="content-title" id="article_title3">標題3</h5>
-                                <div class="text-break">
+                                <p>
                                     我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文
-                                </div>
+                                </p>
                             </div>
                         </div>
 
                         <div class="col-12 my-3">
                             <ul class="nav" id="article_tabs">
+                                <!-- for loop 顯示用戶自定義標籤 data:標籤名稱+連結 -->
                                 <a class="nav-link rounded-pill" href="#"><i class="fas fa-hashtag me-1"></i>小產知識</a>
                                 <a class="nav-link rounded-pill" href="#"><i class="fas fa-hashtag me-1"></i>產假</a>
                             </ul>
                         </div>
+
+                        <!-- 按讚/留言/分享數 顯示於span中 -->
                         <div class="col-12 d-flex mt-4 mb-2 ct-sub-1">
                             <div class="me-3">
                                 <button class="btn btn-sm p-0" onclick="like(this)">
+                                    <!--需判斷是否按讚過此文章-->
+                                    <!-- 無按讚 顯示-->
                                     <i class="fas fa-heart ct-sub-1"></i>
+                                    <!-- 有按讚 顯示-->
+                                    <!-- <i class="fas fa-heart ct-txt-2"></i> -->
                                 </button>
                                 <span class="me-2 like_count">112</span>
                             </div>
-                            <div class="me-3"><i class="fas fa-comment me-1"></i><span class="me-2">26</span></div>
-                            <div class="me-3"><i class="fas fa-share me-1"></i><span class="me-2">3</span></div>
+                            <div class="me-3"><i class="fas fa-comment me-1"></i><span class="me-2 comment_count">26</span></div>
+                            <div class="me-3"><i class="fas fa-share me-1"></i><span class="me-2 share_count">3</span></div>
                             <div class="me-3">
                                 <button class="btn btn-sm p-0" onclick="collect(this)">
+                                    <!--需判斷是否收藏過此文章-->
+                                    <!--沒收藏 顯示此按紐-->
                                     <i class="far fa-bookmark ct-sub-1 me-1"></i>
+                                    <!--有收藏 顯示此按紐-->
+                                    <!-- <i class="fas fa-bookmark ct-txt-2 me-1"></i> -->
                                 </button>
                             </div>
                         </div>
                         <!--留言區-->
                         <div class="col-12 my-2">
+                            <!--留言表單送出 後端處理url-->
                             <form action="#" method="post">
                                 <div class="position-relative">
                                     <textarea class="form-control d-block ps-3 py-3" rows="4" placeholder="留下你的想法！" id="comment"></textarea>
@@ -224,62 +260,90 @@
                         </div>
                         <!--留言回應區-->
                         <div class="mt-4" id="comments_list">
-                            <div class="col-12 my-1" id="comment_id">
+                            <!-- 留言 1F -->
+                            <div class="col-12 my-1" id="comment_1F">
                                 <div class="col-12 d-flex justify-content-between align-items-center">
-                                    <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" />作者</div>
+                                    <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" /><span class="cmt_author">作者</span></div>
                                     <div class="d-flex align-items-center">
                                         <button class="btn btn-sm p-0" onclick="like(this)">
+                                            <!--需判斷是否按讚過此文章-->
+                                            <!-- 無按讚 顯示-->
                                             <i class="fas fa-heart ct-sub-1 me-1"></i>
+                                            <!-- 有按讚 顯示-->
+                                            <!-- <i class="fas fa-heart ct-txt-2 me-1"></i> -->
                                         </button>
                                         <span class="me-2 like_count">112</span>
+
+                                        <!--判斷是否是自己帳號留的言 有則顯示編輯功能-->
                                         <button class="btn btn-sm p-0" onclick="edit_comment(this)">
                                             <i class="fas fa-edit ct-sub-1 me-1"></i>
                                         </button>
+
                                         <div class="dropdown d-inline" data-bs-toggle="tooltip" data-bs-title="檢舉/刪除" data-bs-placement="top">
                                             <button class="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
                                                 <i class="fas fa-exclamation-circle ct-sub-1 me-1"></i>
                                             </button>
                                             <ul class="dropdown-menu">
-                                                <li><button class="dropdown-item">刪除留言</button></li>
-                                                <li><button class="dropdown-item">檢舉留言</button></li>
+                                                <li>
+                                                    <button type="button" onclick="del_comment(this)" class="dropdown-item">刪除留言</button>
+                                                </li>
+                                                <li>
+                                                    <button type="button" onclick="report_comment(this)" class="dropdown-item">檢舉留言</button>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 my-3 pe-4 ct-title-1" id="commentid_content1" style="text-align: justify">
+                                <div class="col-12 my-3 pe-4 ct-title-1 comment_content" contenteditable="false" id="commentid_content1" style="text-align: justify">
                                     我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容
                                 </div>
                                 <div class="col-12 my-2">
-                                    <a class="ct-sub-1 text-decoration-none" data-bs-toggle="collapse" href="#commentid_reply_list"> 顯示回覆 <span id="comment_id_reply_count">12</span> </a>
+                                    <a class="ct-sub-1 text-decoration-none" data-bs-toggle="collapse" href="#commentid_reply_list">
+                                        顯示回覆
+                                        <span id="comment_id_reply_count">
+                                            2
+                                            <!-- 顯示回覆留言數 -->
+                                        </span>
+                                    </a>
                                 </div>
                                 <!--留言回覆 摺疊區 -->
                                 <div class="col-12 ps-4 mt-3 collapse" id="commentid_reply_list">
-                                    <div class="my-1" id="commentid_reply_id-1">
+                                    <!--留言回覆 第一則顯示-->
+                                    <div class="my-1" id="comment1F_reply_1F">
                                         <div class="col-12 d-flex justify-content-between align-items-center">
-                                            <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" />作者</div>
+                                            <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" /><span class="cmt_author">作者</span></div>
                                             <div class="d-flex align-items-center">
                                                 <button class="btn btn-sm p-0" onclick="like(this)">
                                                     <i class="fas fa-heart ct-sub-1 me-1"></i>
                                                 </button>
                                                 <span class="me-2 like_count">112</span>
+                                                <!--判斷是否是自己帳號留的言 有則顯示編輯功能-->
+                                                <button class="btn btn-sm p-0" onclick="edit_comment(this)">
+                                                    <i class="fas fa-edit ct-sub-1 me-1"></i>
+                                                </button>
                                                 <div class="dropdown d-inline" data-bs-toggle="tooltip" data-bs-title="檢舉/刪除" data-bs-placement="top">
                                                     <button class="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
                                                         <i class="fas fa-exclamation-circle ct-sub-1 me-1"></i>
                                                     </button>
                                                     <ul class="dropdown-menu">
-                                                        <li><button class="dropdown-item">刪除留言</button></li>
-                                                        <li><button class="dropdown-item">檢舉留言</button></li>
+                                                        <li>
+                                                            <button type="button" onclick="del_comment(this)" class="dropdown-item">刪除留言</button>
+                                                        </li>
+                                                        <li>
+                                                            <button type="button" onclick="report_comment(this)" class="dropdown-item">檢舉留言</button>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-12 my-3 pe-4 ct-title-1" id="replyid_content1" style="text-align: justify">
+                                        <div class="col-12 my-3 pe-4 ct-title-1 comment_content" contenteditable="false" id="replyid_content1" style="text-align: justify">
                                             我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容
                                         </div>
                                     </div>
-                                    <div class="border-top my-1 pt-3" id="commentid_reply_id-2 ">
+                                    <!--留言回覆 其他顯示 (有分隔線border-top差別)-->
+                                    <div class="border-top my-1 pt-3" id="comment1F_reply_2F ">
                                         <div class="col-12 d-flex justify-content-between align-items-center">
-                                            <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" />作者</div>
+                                            <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" /><span class="cmt_author">作者</span></div>
                                             <div class="d-flex align-items-center">
                                                 <button class="btn btn-sm p-0" onclick="like(this)">
                                                     <i class="fas fa-heart ct-sub-1 me-1"></i>
@@ -290,21 +354,26 @@
                                                         <i class="fas fa-exclamation-circle ct-sub-1 me-1"></i>
                                                     </button>
                                                     <ul class="dropdown-menu">
-                                                        <li><button class="dropdown-item">刪除留言</button></li>
-                                                        <li><button class="dropdown-item">檢舉留言</button></li>
+                                                        <li>
+                                                            <button type="button" onclick="del_comment(this)" class="dropdown-item">刪除留言</button>
+                                                        </li>
+                                                        <li>
+                                                            <button type="button" onclick="report_comment(this)" class="dropdown-item">檢舉留言</button>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-12 my-3 pe-4 ct-title-1" id="replyid_content2" style="text-align: justify">
+                                        <div class="col-12 my-3 pe-4 ct-title-1 comment_content" contenteditable="false" id="replyid_content2" style="text-align: justify">
                                             我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-12 my-1 pt-3 border-top" id="comment_id">
+                            <!-- 留言 2F -->
+                            <div class="col-12 my-1 pt-3 border-top" id="comment_2F">
                                 <div class="col-12 d-flex justify-content-between align-items-center">
-                                    <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" />作者</div>
+                                    <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" /><span class="cmt_author">作者</span></div>
                                     <div class="d-flex align-items-center">
                                         <button class="btn btn-sm p-0" onclick="like(this)">
                                             <i class="fas fa-heart ct-sub-1 me-1"></i>
@@ -315,23 +384,28 @@
                                                 <i class="fas fa-exclamation-circle ct-sub-1 me-1"></i>
                                             </button>
                                             <ul class="dropdown-menu">
-                                                <li><button class="dropdown-item">刪除留言</button></li>
-                                                <li><button class="dropdown-item">檢舉留言</button></li>
+                                                <li>
+                                                    <button type="button" onclick="del_comment(this)" class="dropdown-item">刪除留言</button>
+                                                </li>
+                                                <li>
+                                                    <button type="button" onclick="report_comment(this)" class="dropdown-item">檢舉留言</button>
+                                                </li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 my-3 pe-4 ct-title-1" id="commentid_content1" style="text-align: justify">
+                                <div class="col-12 my-3 pe-4 ct-title-1 comment_content" contenteditable="false" id="commentid_content1" style="text-align: justify">
                                     我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容
                                 </div>
                                 <div class="col-12 my-2">
-                                    <a class="ct-sub-1 text-decoration-none" data-bs-toggle="collapse" href="#commentid2_reply_list"> 顯示回覆 <span id="comment_id_reply_count">12</span> </a>
+                                    <a class="ct-sub-1 text-decoration-none" data-bs-toggle="collapse" href="#commentid2_reply_list"> 顯示回覆 <span id="comment_id_reply_count">2</span> </a>
                                 </div>
                                 <!--留言回覆 摺疊區 -->
                                 <div class="col-12 ps-4 mt-3 collapse" id="commentid2_reply_list">
-                                    <div class="my-1" id="commentid_reply_id-1">
+                                    <!--留言回覆第一則顯示-->
+                                    <div class="my-1" id="comment2F_reply_1F">
                                         <div class="col-12 d-flex justify-content-between align-items-center">
-                                            <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" />作者</div>
+                                            <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" /><span class="cmt_author">作者</span></div>
                                             <div class="d-flex align-items-center">
                                                 <button class="btn btn-sm p-0" onclick="like(this)">
                                                     <i class="fas fa-heart ct-sub-1 me-1"></i>
@@ -342,19 +416,24 @@
                                                         <i class="fas fa-exclamation-circle ct-sub-1 me-1"></i>
                                                     </button>
                                                     <ul class="dropdown-menu">
-                                                        <li><button class="dropdown-item">刪除留言</button></li>
-                                                        <li><button class="dropdown-item">檢舉留言</button></li>
+                                                        <li>
+                                                            <button type="button" onclick="del_comment(this)" class="dropdown-item">刪除留言</button>
+                                                        </li>
+                                                        <li>
+                                                            <button type="button" onclick="report_comment(this)" class="dropdown-item">檢舉留言</button>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-12 my-3 pe-4 ct-title-1" id="replyid_content1" style="text-align: justify">
+                                        <div class="col-12 my-3 pe-4 ct-title-1 comment_content" contenteditable="false" id="replyid_content1" style="text-align: justify">
                                             我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容
                                         </div>
                                     </div>
-                                    <div class="border-top my-1 pt-3" id="commentid_reply_id-2 ">
+                                    <!--留言回覆 其他顯示 (有分隔線差別)-->
+                                    <div class="border-top my-1 pt-3" id="comment2F_reply_2F">
                                         <div class="col-12 d-flex justify-content-between align-items-center">
-                                            <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" />作者</div>
+                                            <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" /><span class="cmt_author">作者</span></div>
                                             <div class="d-flex align-items-center">
                                                 <button class="btn btn-sm p-0" onclick="like(this)">
                                                     <i class="fas fa-heart ct-sub-1 me-1"></i>
@@ -365,13 +444,17 @@
                                                         <i class="fas fa-exclamation-circle ct-sub-1 me-1"></i>
                                                     </button>
                                                     <ul class="dropdown-menu">
-                                                        <li><button class="dropdown-item">刪除留言</button></li>
-                                                        <li><button class="dropdown-item">檢舉留言</button></li>
+                                                        <li>
+                                                            <button type="button" onclick="del_comment(this)" class="dropdown-item">刪除留言</button>
+                                                        </li>
+                                                        <li>
+                                                            <button type="button" onclick="report_comment(this)" class="dropdown-item">檢舉留言</button>
+                                                        </li>
                                                     </ul>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-12 my-3 pe-4 ct-title-1" id="replyid_content2" style="text-align: justify">
+                                        <div class="col-12 my-3 pe-4 ct-title-1 comment_content" contenteditable="false" id="replyid_content2" style="text-align: justify">
                                             我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容我是留言內容
                                         </div>
                                     </div>

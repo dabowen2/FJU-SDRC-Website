@@ -50,6 +50,7 @@
     font-size: var(--fs-18);
 }
 
+.article_content,
 #article_content {
     text-align: justify;
     font-size: var(--fs-18);
@@ -58,7 +59,8 @@
     word-break: break-word;
 }
 
-#article_content img {
+#article_content img,
+.article_content img {
     width: 100%;
 }
 
