@@ -165,12 +165,14 @@
             <div class="row px-1 px-md-5">
                 <div class="col-md col-lg-9 px-1 ps-md-1 pe-md-4">
                     <div class="row mt-4 justify-content-between align-items-center" id="point_topbar">
+                        <!-- span內 帶入用戶的當前點數-->
                         <div class="col-sm-11 col-md mx-2 mx-lg-3 mb-2 justify-content-center d-flex align-items-center" id="total_points">聊心點 <span>635</span> 點</div>
                         <a href="#" class="col-sm-11 col-md mx-2 mx-lg-3 mb-2 justify-content-center d-flex align-items-center" id="point_exchange"> 點數兌換 </a>
                     </div>
                     <div class="row mt-2">
                         <div class="col-12 my-3">
                             <ul class="nav" id="task_class_tabs">
+                                <!-- 任務類型篩選器 -->
                                 <a class="nav-link rounded-pill" onclick="task_class_filter('beginner')"><i class="fas fa-hashtag me-1"></i>新手任務</a>
                                 <a class="nav-link rounded-pill" onclick="task_class_filter('activity')"><i class="fas fa-hashtag me-1"></i>活動任務</a>
                                 <a class="nav-link rounded-pill" onclick="task_class_filter('normal')"><i class="fas fa-hashtag me-1"></i>常態任務</a>
@@ -178,28 +180,46 @@
                             </ul>
                         </div>
                     </div>
+                    <!-- 任務列表 -->
                     <div class="row mt-2 mt-md-4" id="task_list">
-                        <div class="row py-3">
+                        <!--如果該任務已全部完成(進度100%) 下方class內要加 order-last，讓任務強制跑到最下方顯示-->
+                        <!--反之，該任務若未完成，class中則不要有order-last -->
+                        <!-- 判斷第一項任務 class沒有border-top 沒有分隔線 -->
+                        <div class="row py-3 order-last">
+                            <!--任務標題 資料帶入span-->
                             <div class="col task_title">任務標題1</div>
                             <div class="col-auto">
+                                <!-- 展開更多按鈕的href需對應task_id-->
                                 <button class="btn" data-bs-toggle="collapse" href="#task_no1">
                                     <i class="fas fa-caret-down" data-bs-toggle="tooltip" data-bs-title="展開更多"></i>
                                 </button>
                             </div>
                             <div class="col-12 mb-2">
+                                <!--任務類型 資料帶入span-->
                                 <p class="my-2"><span class="task_class">新手任務</span></p>
+                                <!--任務期限 資料帶入span-->
                                 <p class="my-2">活動期限：<span class="task_deadline">無期限</span></p>
+                                <!--任務獲得點數 資料帶入span-->
                                 <p class="my-2">獲得點數：<span class="task_get_point">110</span>點</p>
                                 <div class="row d-flex align-items-center">
+                                    <!--任務完成進度條 -->
                                     <div class="col px-0 progress rounded-pill" role="progressbar" aria-valuemin="0" aria-valuemax="100">
-                                        <div class="progress-bar rounded-pill w-100"></div>
+                                        <!--已完成幾% 就修改以下width-->
+                                        <div class="progress-bar rounded-pill" style="width: 100%"></div>
                                     </div>
+                                    <!--顯示 已完成幾個步驟/全部步驟數-->
                                     <div class="col-auto mx-2 progres_value">4/4</div>
                                 </div>
                             </div>
+                            <!-- 下面的div id 要帶 task_id，展開按鈕才可以依id 打開顯示該div區塊 -->
                             <div class="col-12 my-2 pe-5 collapse" id="task_no1">
+                                <!--帶入任務步驟項目以及超連結(用戶可跳轉至要完成的頁面)-->
                                 <p class="my-2">
-                                    步驟1：＿＿＿＿＿＿＿<a href="#"><span class="badge finish_badge">已完成</span></a>
+                                    步驟1：＿＿＿＿＿＿＿
+                                    <!-- 任務步驟已完成 顯示下行-->
+                                    <a href="#"><span class="badge finish_badge">已完成</span></a>
+                                    <!-- 任務步驟未完成 則顯示下行-->
+                                    <!-- <a href="#"><span class="badge">去完成</span></a> -->
                                 </p>
                                 <p class="my-2">
                                     步驟2：＿＿＿＿＿＿＿<a href="#"><span class="badge">去完成</span></a>
@@ -211,12 +231,18 @@
                                     步驟4：＿＿＿＿＿＿＿<a href="#"><span class="badge">去完成</span></a>
                                 </p>
                                 <p class="mt-3 mb-1">任務規則：</p>
-                                <p class="my-2">
-                                    規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容
-                                </p>
-                                <img src="https://placehold.co/500x200" width="100%" />
+                                <div class="task_detail">
+                                    <!-- 任務規則內容 如是html tag資料可直接找task_detail帶入資料-->
+                                    <p class="my-2">
+                                        規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容
+                                    </p>
+                                    <img src="https://placehold.co/500x200" width="100%" />
+                                </div>
                             </div>
                         </div>
+
+                        <!--下面各任務 內容以此類推-->
+                        <!-- 判斷非為第一則任務後，其餘每個任務class皆有border-top 為了顯示分隔線-->
                         <div class="row py-3 border-top">
                             <div class="col task_title">完善會員資料！讓我們更認識你！</div>
                             <div class="col-auto">
@@ -249,14 +275,18 @@
                                     步驟4：＿＿＿＿＿＿＿<a href="#"><span class="badge">去完成</span></a>
                                 </p>
                                 <p class="mt-3 mb-1">任務規則：</p>
-                                <p class="my-2">
-                                    規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容
-                                </p>
-                                <img src="https://placehold.co/500x200" width="100%" />
+                                <div class="task_detail">
+                                    <!-- 任務規則內容 如是html tag資料可直接找task_detail帶入資料-->
+                                    <p class="my-2">
+                                        規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容
+                                    </p>
+                                    <img src="https://placehold.co/500x200" width="100%" />
+                                </div>
                             </div>
                         </div>
+
                         <div class="row py-3 border-top">
-                            <div class="col task_title">完善會員資料！讓我們更認識你！</div>
+                            <div class="col task_title">常態任務活動來了！！</div>
                             <div class="col-auto">
                                 <button class="btn" data-bs-toggle="collapse" href="#task_no3">
                                     <i class="fas fa-caret-down" data-bs-toggle="tooltip" data-bs-title="展開更多"></i>
@@ -287,10 +317,13 @@
                                     步驟4：＿＿＿＿＿＿＿<a href="#"><span class="badge">去完成</span></a>
                                 </p>
                                 <p class="mt-3 mb-1">任務規則：</p>
-                                <p class="my-2">
-                                    規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容
-                                </p>
-                                <img src="https://placehold.co/500x200" width="100%" />
+                                <div class="task_detail">
+                                    <!-- 任務規則內容 如是html tag資料可直接找task_detail帶入資料-->
+                                    <p class="my-2">
+                                        規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容
+                                    </p>
+                                    <img src="https://placehold.co/500x200" width="100%" />
+                                </div>
                             </div>
                         </div>
                         <div class="row py-3 border-top">
@@ -324,11 +357,13 @@
                                 <p class="my-2">
                                     步驟4：＿＿＿＿＿＿＿<a href="#"><span class="badge">去完成</span></a>
                                 </p>
-                                <p class="mt-3 mb-1">任務規則：</p>
-                                <p class="my-2">
-                                    規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容
-                                </p>
-                                <img src="https://placehold.co/500x200" width="100%" />
+                                <div class="task_detail">
+                                    <!-- 任務規則內容 如是html tag資料可直接找task_detail帶入資料-->
+                                    <p class="my-2">
+                                        規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容規則內容
+                                    </p>
+                                    <img src="https://placehold.co/500x200" width="100%" />
+                                </div>
                             </div>
                         </div>
                     </div>

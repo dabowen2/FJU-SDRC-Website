@@ -13,6 +13,7 @@ $("#content_tabs > li > a").click(function () {
     return false;
 });
 
+// 按讚
 function like(obj) {
     const obj_node = obj.parentNode; //tr
     const has_like = $(obj_node).parent().find("i.fa-heart").hasClass("ct-txt-2");
@@ -37,6 +38,7 @@ function like(obj) {
     }
 }
 
+// 收藏文章
 function collect(obj) {
     const obj_node = obj.parentNode; //tr
     const no_collect = $(obj_node).parent().find("i.fa-bookmark").hasClass("far");
@@ -49,6 +51,18 @@ function collect(obj) {
         $(obj_node).parent().find("i.fa-bookmark").addClass("far ct-sub-1");
     }
     //後端處理 回傳本篇文章id?
+    let article_id = $(".article_content").attr("id");
+    console.log(article_id);
+}
+
+// 追蹤按鈕
+function follow(obj, type) {
+    if (type == "author") {
+        //追蹤作者
+        let follow_author = $("#article_author").html();
+        console.log(follow_author);
+        //後端處理
+    }
 }
 
 //編輯留言按鈕
@@ -104,10 +118,10 @@ function report_comment(obj) {
         icon: "warning",
         input: "select",
         inputOptions: {
-            惡意言論: "具有人身攻擊、騷擾等反感言論",
-            垃圾訊息: "留言空泛、無意義",
-            不實訊息: "留言具有不實誤導性",
-            不喜歡: "不認同留言內容",
+            惡意言論: "中傷、歧視、挑釁或謾罵他人",
+            惡意洗版: "惡意洗版、重複張貼",
+            不舒服內容: "發表內容包含色情、性騷擾、恐怖血腥等讓人不舒服之內容",
+            其他: "其他",
         },
         inputPlaceholder: "不喜歡的原因",
         showCancelButton: true,
@@ -138,6 +152,17 @@ function report_comment(obj) {
             console.log(cmt_id, report_item);
         }
     });
+}
+
+//療心室-票選活動 投票
+function vote(obj) {
+    let select_item = $('input[name="vote_item"]:checked')
+        .map(function () {
+            return this.value;
+        })
+        .get()
+        .join(",");
+    console.log(select_item);
 }
 
 // //療心室-票選活動 倒數計時

@@ -21,9 +21,9 @@
     vertical-align: middle;
 }
 
-.modal span {
+/* .modal span {
     visibility: hidden;
-}
+} */
 
 /* 會員登入 */
 #user_login_tabs .nav-link.active {

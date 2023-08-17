@@ -14,6 +14,7 @@ $(document).ready(function () {
     });
 });
 
+/* 會員資料 上傳圖片 */
 var input = document.getElementById("image_uploads");
 var preview = document.querySelector(".preview");
 if (input != null && preview != null) {
@@ -21,7 +22,6 @@ if (input != null && preview != null) {
     input.addEventListener("change", updateImageDisplay);
 }
 
-/* 會員資料 上傳圖片 */
 function updateImageDisplay() {
     while (preview.firstChild) {
         preview.removeChild(preview.firstChild);
@@ -44,24 +44,114 @@ function updateImageDisplay() {
 }
 
 let datepick_pos_top = null;
-// $("#datepicker").focus(function () {
-//     var datepk_display = $(".datepicker-dropdown").css("display");
-//     if (datepk_display == "block") {
-//         let top = parseFloat($(".datepicker-dropdown").css("top")) + 70;
-//         if (datepick_pos_top == null || datepick_pos_top != top) {
-//             datepick_pos_top = top;
-//         }
-//         $(".datepicker-dropdown").css("top", `${datepick_pos_top}px`);
-//     }
-// });
 
-/* 有無按鈕 */
+// 會員資料前端 有無按鈕 */
 $(".button-radio > button").click(function () {
     $(this).css("background", "var(--ct-color-2)");
     $(this).css("color", "white");
+    $(this).addClass("active");
     $(this).parent().find("button").not(this).css("background", "none");
     $(this).parent().find("button").not(this).css("color", "black");
 });
+
+/* 修改會員資料 */
+function info_setting() {
+    let diease = "";
+    let drug = "";
+    let order = "";
+    let allergy = "";
+    //病史
+    if ($("input#disease_other").val() != "") {
+        //有填其他
+        diease = $("#disease_history").val() + "," + $("input#disease_other").val();
+    } else {
+        diease = $("#disease_history").val();
+    }
+    //用藥狀況
+    if ($("input#drug_other").val() != "") {
+        //有填其他
+        drug = $("#user_drug").children("button.active").html() + "," + $("input#drug_other").val();
+    } else {
+        drug = $("#user_drug").children("button.active").html();
+    }
+    //醫囑
+    if ($("input#order_other").val() != "") {
+        //有填其他
+        order = $("#user_order").children("button.active").html() + "," + $("input#order_other").val();
+    } else {
+        order = $("#user_order").children("button.active").html();
+    }
+    //過敏情況
+    if ($("input#allergy_other").val() != "") {
+        //有填其他
+        allergy = $("#user_allergy").children("button.active").html() + "," + $("input#allergy_other").val();
+    } else {
+        allergy = $("#user_allergy").children("button.active").html();
+    }
+    let user_info = {
+        user_name: $("input#user_name").val(),
+        user_nickname: $("input#user_nickname").val(),
+        user_email: $("input#user_email").val(),
+        user_sex: $("#user_sex").val(),
+        user_birthday: $("input#datepicker").val(),
+        user_phone: $("input#user_phone").val(),
+        user_address: $("input#user_address").val(),
+        user_height: $("input#user_height").val(),
+        user_weight: $("input#user_weight").val(),
+        user_birth_plan: $("#birth_plan").val(), //生育計畫
+        user_pregnant: $("#pregnant_state").val(), //懷孕狀態
+        user_disease: diease, //疾病病史
+        user_drug: drug, //用藥狀況
+        user_order: order,
+        user_allergy: allergy,
+        user_married: $("#married_state").val(),
+    };
+    console.log(user_info);
+}
+
+/* 重設密碼 */
+function reset_password() {
+    let pwd_rule = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}$/;
+    let old_pwd = $("input#old_password").val();
+    let new_pwd = $("input#new_password").val();
+    let check_password = $("input#check_password").val();
+    let pwd_error = false;
+    let og_pwd = ""; //原密碼 須從後端要取
+    if (old_pwd != og_pwd) {
+        //原密碼比對
+        $("#old_pwd_alert").removeClass("d-none");
+        pwd_error = true;
+    } else {
+        $("#old_pwd_alert").addClass("d-none");
+    }
+
+    //新密碼有無符合規則
+    if (!new_pwd.match(pwd_rule)) {
+        $("#new_pwd_alert").removeClass("d-none");
+        pwd_error = true;
+    } else {
+        $("#new_pwd_alert").addClass("d-none");
+    }
+
+    //新密碼與再次輸入密碼有無一致
+    if (new_pwd != check_password) {
+        $("#check_pwd_alert").removeClass("d-none");
+        pwd_error = true;
+    } else {
+        $("#check_pwd_alert").addClass("d-none");
+    }
+
+    /*後端處理*/
+    if (pwd_error == false) {
+        Swal.fire({
+            title: `修改密碼成功！`,
+            text: "已重新設定密碼",
+            icon: "success",
+            confirmButtonColor: "#70c6e3",
+            timer: 2000,
+        });
+    }
+}
 
 /*註冊步驟按鈕*/
 const step_confirm_btn = document.querySelectorAll(".step-confirm");
@@ -284,4 +374,12 @@ function register_step(obj, step_num) {
     setTimeout(() => {
         $(obj).eq(0).removeClass("active");
     }, "1000");
+}
+
+/* 會員登入頁 */
+function facebook_login() {
+    //api串接
+}
+function line_login() {
+    //api串接
 }

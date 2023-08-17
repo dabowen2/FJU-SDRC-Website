@@ -165,29 +165,39 @@
             <div class="row px-md-5">
                 <div class="col-md col-lg-9 px-1 ps-md-1 pe-md-4">
                     <div class="row mt-4 justify-content-between align-items-center" id="point_topbar">
+                        <!-- span內 帶入用戶的當前點數-->
                         <div class="col-sm-11 col-md mx-2 mx-lg-3 mb-2 justify-content-center d-flex align-items-center" id="total_points">聊心點 <span>635</span> 點</div>
                         <a href="#" class="col-sm-11 col-md mx-2 mx-lg-3 mb-2 justify-content-center d-flex align-items-center" id="point_exchange"> 點數兌換 </a>
                     </div>
+                    <!--兌換商品列表-->
                     <div class="row px-1 mt-5 justify-content-center justify-content-md-start" id="point_exchange_list">
+                        <!--兌換商品1-->
                         <div class="col-auto text-center px-2 mb-2 pd-item">
                             <img src="https://placehold.co/180" class="rounded mx-auto d-block" width="100%" alt="商品1" />
-                            <p class="title p-1 my-1">商品1</p>
+                            <!--商品名稱 根據消費者過去最常購買的商品會顯示皇冠icon-->
+                            <p class="title p-1 my-1">商品1<i class="fas fa-crown ms-1"></i></p>
+                            <!--商品兌換點數(填入span)-->
                             <p class="text">聊心點 <span class="pd_point">110</span>點</p>
                             <div class="col-auto my-1">
                                 <div class="border d-inline-block rounded-pill">
                                     <button class="border" onclick="add_product(this,'dash')"><i class="bi bi-dash"></i></button>
+                                    <!--要兌換數量-->
                                     <span class="pd_num px-2">0</span>
                                     <button class="border" onclick="add_product(this,'plus')"><i class="bi bi-plus"></i></button>
                                 </div>
                             </div>
                         </div>
+                        <!--兌換商品2-->
                         <div class="col-auto text-center px-2 mb-2 pd-item">
                             <img src="https://placehold.co/180" class="rounded mx-auto d-block" width="100%" alt="商品2" />
+                            <!--商品名稱 無皇冠icon-->
                             <p class="title p-1 my-1">商品2</p>
+                            <!--商品兌換點數(填入span)-->
                             <p class="text">聊心點 <span class="pd_point">200</span>點</p>
                             <div class="col-auto my-1">
                                 <div class="border d-inline-block rounded-pill">
                                     <button class="border" onclick="add_product(this,'dash')"><i class="bi bi-dash"></i></button>
+                                    <!--要兌換數量-->
                                     <span class="pd_num px-2">0</span>
                                     <button class="border" onclick="add_product(this,'plus')"><i class="bi bi-plus"></i></button>
                                 </div>
@@ -223,11 +233,11 @@
                     <div class="row mt-5 d-flex justify-content-center align-items-center" style="font-size: var(--fs-18)">
                         <div class="col-auto" style="font-weight: 500">已選擇兌換商品 共<span class="fw-bold mx-1" id="total_exg_point">0</span>點</div>
                         <div class="col-auto px-0">
-                            <button class="btn btn-outline-c2 rounded-pill m-2">我要兌換</button>
+                            <button class="btn btn-outline-c2 rounded-pill m-2" onclick="exchange()">我要兌換</button>
                         </div>
                     </div>
                 </div>
-                <!--右邊文章選單-->
+                <!--右邊欄選單-->
                 <div class="col-md-4 col-lg d-flex align-items-start">
                     <div class="row position-sticky" id="right-sidebar">
                         <div class="mb-3 px-0 col-12 my-auto">
@@ -310,6 +320,27 @@
                     </div>
                 </div>
             </footer>
+        </div>
+
+        <!--點擊商品 商品介紹-->
+        <div class="modal fade" id="product_modal" tabindex="-1">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="btn float-start" data-bs-toggle="modal" data-bs-target="#first_daily_modal"><i class="bi bi-chevron-left"></i></button>
+                        <h1 class="modal-title fs-5 ct-txt-1">商品介紹</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" style="font-size: var(--fs-18)">
+                        <div class="row d-flex align-items-center mb-2">
+                            <div class="col-4">
+                                <img src="https://placehold.co/180" class="w-100" />
+                            </div>
+                            <div class="col-6"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <script src="static/bootstrap-4.6.0-dist/jquery-3.6.0.js"></script>

@@ -139,6 +139,7 @@
             <div class="row pt-3 px-md-5">
                 <div class="col-12 my-2">
                     <nav class="mb-4">
+                        <!-- 麵包屑 網頁導覽列-->
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">知識圖書館</a></li>
                             <li class="breadcrumb-item"><a href="#">小產調理</a></li>
@@ -147,7 +148,6 @@
                     </nav>
                     <div class="row d-flex align-items-center">
                         <h2 class="class-title col-auto ps-0"><i class="fab fa-gratipay me-1 ct-txt-1"></i>小產調理</h2>
-                        <button type="button" class="btn btn-sm rounded-pill btn-c2 col-auto">追蹤</button>
                     </div>
                 </div>
             </div>
@@ -156,6 +156,7 @@
                     <div class="row d-flex justify-content-between align-items-end">
                         <div class="col-auto mb-1">
                             <ul class="nav" id="article_class_tabs">
+                                <!-- 文章類別標籤 -->
                                 <a class="nav-link rounded-pill active" aria-current="page" href="#"><i class="fas fa-tag me-1"></i>小產知識</a>
                                 <a class="nav-link rounded-pill" href="#"><i class="fas fa-tag me-1"></i>備孕知識</a>
                                 <a class="nav-link rounded-pill" href="#"><i class="fas fa-tag me-1"></i>婦科保健</a>
@@ -174,25 +175,37 @@
                         </div>
                     </div>
                     <div class="row mt-4">
+                        <!--文章列表-->
                         <div class="col-lg-12 px-0">
+                            <!-- 文章1 -->
                             <div class="row border-bottom">
                                 <div id="article_id1" class="col p-3 d-flex flex-column align-content-between justify-content-center position-static">
+                                    <!--文章標題-->
                                     <h5 class="article-title" id="article_id_title"><a href="#">文章標題</a></h5>
+                                    <!--文章內文摘要-->
                                     <div class="mb-3 article-abs" id="article_id_abs">我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文</div>
                                     <div class="ct-sub-1">
+                                        <!--按鑽數 資料填入span-->
                                         <button class="btn btn-sm p-0" onclick="like(this)">
-                                            <i class="fas fa-heart ct-sub-1 me-1"></i></button
-                                        ><span class="me-2 like_count">168</span> <i class="fas fa-comment me-1"></i><span class="me-2 cmt_count">26</span> <i class="fas fa-share me-1"></i
-                                        ><span class="me-2 share_count">3</span>
-                                        <button class="btn btn-sm p-0" onclick="collect(this)"><i class="far fa-bookmark ct-sub-1 me-1"></i></button>
+                                            <i class="fas fa-heart ct-sub-1 me-1"></i>
+                                        </button>
+                                        <span class="me-2 like_count">168</span>
+                                        <!--留言數 資料填入span-->
+                                        <i class="fas fa-comment me-1"></i><span class="me-2 cmt_count">26</span>
+                                        <!--分享數 資料填入span-->
+                                        <i class="fas fa-share me-1"></i><span class="me-2 share_count">3</span>
+                                        <!--收藏文章 onclick()帶入文章id-->
+                                        <button class="btn btn-sm p-0" onclick="collect(this,'article_id1')"><i class="far fa-bookmark ct-sub-1 me-1"></i></button>
                                     </div>
                                 </div>
                                 <div class="col-auto d-none d-lg-block px-0 py-1">
+                                    <!--文章縮圖-->
                                     <img src="https://placehold.co/150" width="150" />
                                 </div>
                             </div>
+                            <!-- 文章2 -->
                             <div class="row border-bottom">
-                                <div id="article_id1" class="col p-3 d-flex flex-column align-content-between justify-content-center position-static">
+                                <div id="article_id2" class="col p-3 d-flex flex-column align-content-between justify-content-center position-static">
                                     <h5 class="article-title" id="article_id_title"><a href="#">文章標題</a></h5>
                                     <div class="mb-3 article-abs" id="article_id_abs">我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文</div>
                                     <div class="ct-sub-1">
@@ -200,7 +213,8 @@
                                             <i class="fas fa-heart ct-sub-1 me-1"></i></button
                                         ><span class="me-2 like_count">168</span> <i class="fas fa-comment me-1"></i><span class="me-2 cmt_count">26</span> <i class="fas fa-share me-1"></i
                                         ><span class="me-2 share_count">3</span>
-                                        <button class="btn btn-sm p-0" onclick="collect(this)"><i class="far fa-bookmark ct-sub-1 me-1"></i></button>
+                                        <!--收藏文章 onclick()帶入文章id-->
+                                        <button class="btn btn-sm p-0" onclick="collect(this,'article_id2')"><i class="far fa-bookmark ct-sub-1 me-1"></i></button>
                                     </div>
                                 </div>
                                 <div class="col-auto d-none d-lg-block px-0 py-1">
@@ -210,7 +224,7 @@
                         </div>
                     </div>
                 </div>
-                <!--右邊文章選單-->
+                <!--右邊欄選單-->
                 <div class="col-md-4 col-lg d-flex align-items-start">
                     <div class="row position-sticky" id="right-sidebar">
                         <div class="mb-3 px-0 col-12 my-auto">

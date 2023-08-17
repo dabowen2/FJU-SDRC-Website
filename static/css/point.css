@@ -175,3 +175,8 @@
     width: 100%;
     max-width: 200px;
 }
+
+.fa-crown {
+    color: #ff9900;
+    font-size: var(--fs-15);
+}

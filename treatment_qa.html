@@ -167,7 +167,9 @@
                         </div>
                     </div>
                     <div class="row mt-4">
+                        <!--文章列表-->
                         <div class="col-lg-12 px-0">
+                            <!-- 文章1 -->
                             <div class="row border-bottom">
                                 <div id="article_id1" class="col p-3 d-flex flex-column align-content-between justify-content-center position-static">
                                     <h5 class="article-title" id="article_id_title"><a href="#">#發問 文章標題</a></h5>
@@ -177,15 +179,17 @@
                                             <i class="fas fa-heart ct-sub-1 me-1"></i></button
                                         ><span class="me-2 like_count">168</span> <i class="fas fa-comment me-1"></i><span class="me-2">26</span> <i class="fas fa-share me-1"></i
                                         ><span class="me-2">3</span>
-                                        <button class="btn btn-sm p-0" onclick="collect(this)"><i class="far fa-bookmark ct-sub-1 me-1"></i></button>
+                                        <!--收藏文章 onclick()帶入文章id-->
+                                        <button class="btn btn-sm p-0" onclick="collect(this,'article_id1')"><i class="far fa-bookmark ct-sub-1 me-1"></i></button>
                                     </div>
                                 </div>
                                 <div class="col-auto d-none d-lg-block px-0 py-1">
                                     <img src="https://placehold.co/150" width="150" />
                                 </div>
                             </div>
+                            <!-- 文章2 -->
                             <div class="row border-bottom">
-                                <div id="article_id1" class="col p-3 d-flex flex-column align-content-between justify-content-center position-static">
+                                <div id="article_id2" class="col p-3 d-flex flex-column align-content-between justify-content-center position-static">
                                     <h5 class="article-title" id="article_id_title"><a href="#">#發問 文章標題</a></h5>
                                     <div class="mb-3 article-abs" id="article_id_abs">我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文</div>
                                     <div class="ct-sub-1">
@@ -194,7 +198,8 @@
                                         </button>
                                         <span class="me-2 like_count">112</span>
                                         <i class="fas fa-comment me-1"></i><span class="me-2">26</span> <i class="fas fa-share me-1"></i><span class="me-2">3</span>
-                                        <button class="btn btn-sm p-0" onclick="collect(this)"><i class="far fa-bookmark ct-sub-1 me-1"></i></button>
+                                        <!--收藏文章 onclick()帶入文章id-->
+                                        <button class="btn btn-sm p-0" onclick="collect(this,'article_id2')"><i class="far fa-bookmark ct-sub-1 me-1"></i></button>
                                     </div>
                                 </div>
                                 <div class="col-auto d-none d-lg-block px-0 py-1">
@@ -204,7 +209,7 @@
                         </div>
                     </div>
                 </div>
-                <!--右邊文章選單-->
+                <!--右邊欄選單-->
                 <div class="col-md-4 col-lg d-flex align-items-start">
                     <div class="row position-sticky" id="right-sidebar">
                         <div class="mb-3 px-0 col-12 my-auto">
@@ -272,7 +277,7 @@
             </footer>
         </div>
 
-        <!-- Modal -->
+        <!-- 建立聊療 Modal -->
         <div class="modal fade" id="create_modal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-lg modal-dialog-centered">
                 <div class="modal-content">
@@ -286,11 +291,11 @@
                                 <img class="me-1" src="static/img/user.png" width="25" />
                             </div>
                             <div class="col-auto">
-                                <select class="form-select">
+                                <select class="form-select" id="id_type">
                                     <option selected>選擇聊療身分</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <option value="身分1">身分1</option>
+                                    <option value="身分2">身分2</option>
+                                    <option value="身分3">身分3</option>
                                 </select>
                             </div>
                         </div>
@@ -299,23 +304,25 @@
                                 <input class="form-control" type="text" id="input_new_title" placeholder="標題：請用簡短的話說明你的提問/分享" />
                             </div>
                             <div class="col">
-                                <select class="form-select">
+                                <select class="form-select" id="treat_class">
                                     <option selected>選擇聊療的類別</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <option value="類別1">類別1</option>
+                                    <option value="類別2">類別2</option>
+                                    <option value="類別3">類別3</option>
                                 </select>
                             </div>
                         </div>
                         <div class="row my-1 g-2 justify-content-center">
+                            <!--文字編輯器套件 editor-->
                             <div class="col-12"><textarea class="form-control" rows="7" id="editor"></textarea></div>
+                            <div class="col-12">
+                                <input class="form-control" type="text" id="input_topic" placeholder="＃話題：可以根據你的文章內容輸入多個＃話題喔！" />
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary rounded-pill px-3 py-1" style="font-size: var(--fs-14)" onclick="get_content()">
-                            <i class="bi bi-inbox-fill me-1"></i>暫存
-                        </button>
-                        <button type="button" class="btn btn-c2 rounded-pill px-3 py-1" style="font-size: var(--fs-14)"><i class="fas fa-bullhorn me-1"></i>發文</button>
+                        <button type="button" class="btn btn-c2 rounded-pill px-3 py-1" onclick="post()"><i class="fas fa-bullhorn me-1"></i>發文</button>
+                        <button type="button" class="btn btn-outline-c2 ct-sub-1 rounded-pill px-3 py-1" onclick="draft()"><i class="bi bi-inbox-fill me-1"></i>暫存</button>
                     </div>
                 </div>
             </div>
@@ -338,7 +345,7 @@
             tinymce.init({
                 selector: "textarea#editor",
                 plugins: "advlist link image lists emoticons",
-                height: 300,
+                height: 250,
                 content_style: "textarea { line-height: 0.75rem;}",
                 menubar: false,
                 toolbar: "undo redo | styles | bold italic underline | alignleft aligncenter alignright alignjustify | image emoticons |",
@@ -381,6 +388,7 @@
             //     theme: "snow",
             // });
 
+            //取文字編輯器內容
             function get_content() {
                 tinymce.activeEditor.dom.addClass(tinymce.activeEditor.dom.select("img"), "w-100");
 

@@ -174,7 +174,7 @@
 
                         <div class="tab-content shadow p-3 border-bottom border-start border-end">
                             <div class="tab-pane fade show active text-center" id="user_login" tabindex="0">
-                                <form>
+                                <form action="#">
                                     <div class="form-floating my-2">
                                         <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" />
                                         <label for="floatingInput">電子郵件帳號</label>
@@ -189,10 +189,10 @@
                                     <div class="hr-w-txt">
                                         <span> 或使用社群帳號登入 </span>
                                     </div>
-                                    <button class="btn w-75 py-2 my-1" style="background: #227bef; color: white">
+                                    <button class="btn w-75 py-2 my-1" onclick="facebook_login()" style="background: #227bef; color: white">
                                         <span class="float-start fs-18"><i class="fab fa-facebook-square"></i></span>facebook 登入
                                     </button>
-                                    <button class="btn w-75 py-2 my-1" style="background: #18c109; color: white">
+                                    <button class="btn w-75 py-2 my-1" onclick="line_login()" style="background: #18c109; color: white">
                                         <span class="float-start fs-18"><i class="fab fa-line"></i></span>LINE 登入
                                     </button>
 
@@ -209,10 +209,10 @@
                                     <div class="hr-w-txt">
                                         <span> 或使用社群帳號登入 </span>
                                     </div>
-                                    <button class="btn w-75 py-2 my-1" style="background: #227bef; color: white">
+                                    <button class="btn w-75 py-2 my-1" onclick="facebook_login()" style="background: #227bef; color: white">
                                         <span class="float-start fs-18"><i class="fab fa-facebook-square"></i></span>facebook 登入
                                     </button>
-                                    <button class="btn w-75 py-2 my-1" style="background: #18c109; color: white">
+                                    <button class="btn w-75 py-2 my-1" onclick="line_login()" style="background: #18c109; color: white">
                                         <span class="float-start fs-18"><i class="fab fa-line"></i></span>LINE 登入
                                     </button>
 

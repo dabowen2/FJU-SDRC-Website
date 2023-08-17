@@ -37,6 +37,10 @@
                     <div class="align-items-center">
                         <button class="navbar-toggler notfiy_bell" type="button" data-bs-toggle="tooltip" data-bs-title="通知" data-bs-placement="bottom">
                             <i class="fas fa-bell ct-txt-1"></i>
+                            <!--如有新通知 顯示紅點-->
+                            <span class="position-absolute top-25 start-75 translate-middle p-1 bg-danger border border-light rounded-circle">
+                                <span class="visually-hidden">New alerts</span>
+                            </span>
                         </button>
                         <button class="navbar-toggler border" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
                             <i class="fas fa-bars ct-txt-1"></i>
@@ -70,9 +74,14 @@
                             <li class="nav-item notfiy_bell d-none d-lg-block" data-bs-toggle="tooltip" data-bs-title="通知" data-bs-placement="bottom">
                                 <a class="nav-link" style="cursor: pointer">
                                     <i class="fas fa-bell"></i>
+                                    <!--如有新通知 顯示紅點-->
+                                    <span class="position-absolute top-25 start-75 translate-middle p-1 bg-danger border border-light rounded-circle">
+                                        <span class="visually-hidden">New alerts</span>
+                                    </span>
                                 </a>
                             </li>
                             <li class="nav-item dropstart order-first order-lg-last">
+                                <!--如有會員登入 顯示會員名稱-->
                                 <a href="#" class="nav-link" data-bs-toggle="dropdown">
                                     <i class="fas fa-user-circle"></i>
                                     <span id="account_name" class="d-lg-none">Account Name</span>

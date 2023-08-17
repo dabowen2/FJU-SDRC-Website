@@ -132,53 +132,63 @@
                         <div class="col-12 mt-3 d-flex align-items-end">
                             <span class="ct-sub-1 mx-2" id="article_date"></span>
                             <a href="#" class="ct-title-1 text-decoration-none mx-2" id="article_author">月經順順來</a>
-                            <button type="button" class="btn btn-sm rounded-pill btn-outline-c2 col-auto mx-2 px-3" id="follow_button">追蹤</button>
+                            <button type="button" class="btn btn-sm rounded-pill btn-outline-c2 col-auto mx-2 px-3"  onclick="follow(this,'author')">追蹤</button>
                         </div>
                     </div>
                     <div class="row mt-4 px-1 ps-md-0 pe-md-3">
                         <div class="article_content" id="article_content_id">
                             <div class="col-12 my-3 countdown"></div>
-                            <img src="https://placehold.co/500x200" class="w-100 mx-auto d-block" alt="文章圖片" />
-                            <div class="col-12 my-3 text-break" id="article_abs">
+                            <img src="https://placehold.co/500x200" alt="文章圖片" />
+                            <p id="article_abs">
                                 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文
                                 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文
                                 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文
                                 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文
                                 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文
-                            </div>
-                            <img src="https://placehold.co/200x300" width="100%" />
+                            </p>
+                            <img src="https://placehold.co/200x100" />
                             <div class="col-12 my-3" id="article_vote">
-                                <!-- 單選radio / 複選checkbox -->
+                                <!--票選選項 type分有單選radio / 複選checkbox -->
                                 <div class="form-check mb-2">
-                                    <input class="form-check-input" type="radio" name="vote_item" id="vote_item1" />
+                                    <input class="form-check-input" type="radio" name="vote_item" value="vote_item1" />
                                     <label class="form-check-label" for="vote_item1"> 選項一 </label>
                                 </div>
                                 <div class="form-check mb-2">
-                                    <input class="form-check-input" type="radio" name="vote_item" id="vote_item2" checked />
+                                    <input class="form-check-input" type="radio" name="vote_item" value="vote_item2" checked />
                                     <label class="form-check-label" for="vote_item2"> 選項二 </label>
                                 </div>
-                                <button type="button" class="btn btn-c2 col-12 my-1" style="font-size: var(--fs-18)">投票</button>
                             </div>
+                            <button type="button" class="btn btn-c2 col-12 my-1" onclick="vote(this)" style="font-size: var(--fs-18)">投票</button>
                         </div>
 
                         <div class="col-12 my-3">
                             <ul class="nav" id="article_tabs">
+                                <!-- for loop 顯示用戶自定義標籤 data:標籤名稱+連結 -->
                                 <a class="nav-link rounded-pill" href="#"><i class="fas fa-hashtag me-1"></i>多囊性卵巢</a>
                                 <a class="nav-link rounded-pill" href="#"><i class="fas fa-hashtag me-1"></i>調經藥</a>
                             </ul>
                         </div>
+                        <!-- 按讚/留言/分享數 顯示於span中 -->
                         <div class="col-12 d-flex mt-4 mb-2 ct-sub-1">
                             <div class="me-3">
                                 <button class="btn btn-sm p-0" onclick="like(this)">
-                                    <i class="fas fa-heart ct-sub-1 me-1"></i>
+                                    <!--需判斷是否按讚過此文章-->
+                                    <!-- 無按讚 顯示-->
+                                    <i class="fas fa-heart ct-sub-1"></i>
+                                    <!-- 有按讚 顯示-->
+                                    <!-- <i class="fas fa-heart ct-txt-2"></i> -->
                                 </button>
                                 <span class="me-2 like_count">112</span>
                             </div>
-                            <div class="me-3"><i class="fas fa-comment me-1"></i><span class="me-2">26</span></div>
-                            <div class="me-3"><i class="fas fa-share me-1"></i><span class="me-2">3</span></div>
+                            <div class="me-3"><i class="fas fa-comment me-1"></i><span class="me-2 comment_count">26</span></div>
+                            <div class="me-3"><i class="fas fa-share me-1"></i><span class="me-2 share_count">3</span></div>
                             <div class="me-3">
                                 <button class="btn btn-sm p-0" onclick="collect(this)">
+                                    <!--需判斷是否收藏過此文章-->
+                                    <!--沒收藏 顯示此按紐-->
                                     <i class="far fa-bookmark ct-sub-1 me-1"></i>
+                                    <!--有收藏 顯示此按紐-->
+                                    <!-- <i class="fas fa-bookmark ct-txt-2 me-1"></i> -->
                                 </button>
                             </div>
                         </div>

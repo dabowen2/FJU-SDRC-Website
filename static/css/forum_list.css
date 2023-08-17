@@ -60,10 +60,9 @@
     }
 }
 
-.ck-editor__editable[role="textbox"] {
-    /* editing area */
+/* .ck-editor__editable[role="textbox"] {
     min-height: 150px;
     max-height: 200px;
     line-height: 0.75rem;
     overflow: auto;
-}
+} */
