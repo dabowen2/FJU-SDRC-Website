@@ -159,47 +159,49 @@
             <div class="row px-md-5">
                 <div class="col-md col-lg-9 px-0 pe-md-4">
                     <!--文章列表-->
-                    <div class="row mt-4">
-                        <div class="col-lg-12 px-0">
-                            <!-- 文章1 -->
-                            <div class="row border-bottom">
-                                <div id="article_id1" class="col p-3 d-flex flex-column align-content-between justify-content-center position-static">
-                                    <h5 class="article-title" id="article_id_title"><a href="#">文章標題</a></h5>
-                                    <div class="mb-3 article-abs" id="article_id_abs">我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文</div>
-                                    <div class="ct-sub-1">
-                                        <button class="btn btn-sm p-0" onclick="like(this)">
-                                            <i class="fas fa-heart ct-sub-1 me-1"></i></button
-                                        ><span class="me-2 like_count">168</span> <i class="fas fa-comment me-1"></i><span class="me-2">26</span> <i class="fas fa-share me-1"></i
-                                        ><span class="me-2">3</span>
-                                    </div>
-                                </div>
-                                <div class="col-auto d-none d-lg-block px-0 py-1">
-                                    <img src="https://placehold.co/150" width="150" />
+                    <div class="col-lg-12 px-0">
+                        <!--for loop 文章資料list-->
+                        <!-- 文章1 -->
+                        <div class="row border-bottom">
+                            <!--帶入 文章ID-->
+                            <div id="article_id1" class="col p-3 d-flex flex-column align-content-between justify-content-center position-static">
+                                <!--文章標題-->
+                                <h5 class="article-title" id="article_id_title"><a href="#">#發問 文章標題</a></h5>
+                                <!--文章內文摘要-->
+                                <div class="mb-3 article-abs" id="article_id_abs">我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文</div>
+                                <div class="ct-sub-1">
+                                    <button class="btn btn-sm p-0" onclick="like(this)">
+                                        <i class="fas fa-heart ct-sub-1 me-1"></i>
+                                    </button>
+                                    <!--按讚數 資料填入span-->
+                                    <span class="me-2 like_count">168</span>
+                                    <!--留言數 資料填入span-->
+                                    <i class="fas fa-comment me-1"></i><span class="me-2">26</span>
+                                    <!--分享數 資料填入span-->
+                                    <i class="fas fa-share me-1"></i><span class="me-2">3</span>
                                 </div>
                             </div>
-                            <!-- 文章2 -->
-                            <div class="row border-bottom">
-                                <div id="article_id1" class="col p-3 d-flex flex-column align-content-between justify-content-center position-static">
-                                    <!-- 文章標題 -->
-                                    <h5 class="article-title" id="article_id_title"><a href="#">文章標題</a></h5>
-                                    <!-- 文章內文摘要 -->
-                                    <div class="mb-3 article-abs" id="article_id_abs">我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文</div>
-                                    <div class="ct-sub-1">
-                                        <!--按鑽數 資料填入span-->
-                                        <button class="btn btn-sm p-0" onclick="like(this)">
-                                            <i class="fas fa-heart ct-sub-1 me-1"></i>
-                                        </button>
-                                        <span class="me-2 like_count">168</span>
-                                        <!--留言數 資料填入span-->
-                                        <i class="fas fa-comment me-1"></i><span class="me-2 cmt_count">26</span>
-                                        <!--分享數 資料填入span-->
-                                        <i class="fas fa-share me-1"></i><span class="me-2 share_count">3</span>
-                                    </div>
+                            <div class="col-auto d-none d-lg-block px-0 py-1">
+                                <!--文章縮圖-->
+                                <img src="https://placehold.co/150" class="article-img" width="150" />
+                            </div>
+                        </div>
+                        <!--loop end 以下為靜態網頁範例 可刪除-->
+                        <!-- 文章2 -->
+                        <div class="row border-bottom">
+                            <div id="article_id2" class="col p-3 d-flex flex-column align-content-between justify-content-center position-static">
+                                <h5 class="article-title" id="article_id_title"><a href="#">#發問 文章標題</a></h5>
+                                <div class="mb-3 article-abs" id="article_id_abs">我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文</div>
+                                <div class="ct-sub-1">
+                                    <button class="btn btn-sm p-0" onclick="like(this)">
+                                        <i class="fas fa-heart ct-sub-1 me-1"></i>
+                                    </button>
+                                    <span class="me-2 like_count">112</span>
+                                    <i class="fas fa-comment me-1"></i><span class="me-2">26</span> <i class="fas fa-share me-1"></i><span class="me-2">3</span>
                                 </div>
-                                <div class="col-auto d-none d-lg-block px-0 py-1">
-                                    <!--文章縮圖-->
-                                    <img src="https://placehold.co/150" width="150" />
-                                </div>
+                            </div>
+                            <div class="col-auto d-none d-lg-block px-0 py-1">
+                                <img src="https://placehold.co/150" class="article-img" width="150" />
                             </div>
                         </div>
                     </div>

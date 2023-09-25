@@ -37,6 +37,10 @@
                     <div class="align-items-center">
                         <button class="navbar-toggler notfiy_bell" type="button" data-bs-toggle="tooltip" data-bs-title="通知" data-bs-placement="bottom">
                             <i class="fas fa-bell ct-txt-1"></i>
+                            <!--如有新通知 顯示紅點-->
+                            <span class="position-absolute top-25 start-75 translate-middle p-1 bg-danger border border-light rounded-circle">
+                                <span class="visually-hidden">New alerts</span>
+                            </span>
                         </button>
                         <button class="navbar-toggler border" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
                             <i class="fas fa-bars ct-txt-1"></i>
@@ -70,6 +74,10 @@
                             <li class="nav-item notfiy_bell d-none d-lg-block" data-bs-toggle="tooltip" data-bs-title="通知" data-bs-placement="bottom">
                                 <a class="nav-link" style="cursor: pointer">
                                     <i class="fas fa-bell"></i>
+                                    <!--如有新通知 顯示紅點-->
+                                    <span class="position-absolute top-25 start-75 translate-middle p-1 bg-danger border border-light rounded-circle">
+                                        <span class="visually-hidden">New alerts</span>
+                                    </span>
                                 </a>
                             </li>
                             <li class="nav-item dropstart order-first order-lg-last">
@@ -123,7 +131,11 @@
 
                     <!--通知欄區塊-->
                     <div class="notifications border" id="notifications_box">
-                        <h2>Notifications <span class="badge bg-danger rounded-circle">2</span></h2>
+                        <h2>
+                            Notifications
+                            <span class="badge bg-danger rounded-circle notify_num"> 2<!--帶入通知數--> </span>
+                        </h2>
+                        <!-- for loop 通知消息 img:頭貼圖片 h4:人名/帳號名 p:通知訊息內容-->
                         <div class="notifications-item">
                             <img src="https://i.imgur.com/uIgDDDd.jpg" alt="img" />
                             <div class="text">
@@ -131,6 +143,7 @@
                                 <p>Samso Nagaro Like your home work</p>
                             </div>
                         </div>
+                        <!-- end loop-->
                         <div class="notifications-item">
                             <img src="https://img.icons8.com/flat_round/64/000000/vote-badge.png" alt="img" />
                             <div class="text">
@@ -163,35 +176,42 @@
             </div>
             <div class="row px-md-5">
                 <div class="col-md col-lg-9 pe-md-4">
-                    <!--收藏文章列表-->
                     <div class="row mt-4">
+                        <!--文章列表-->
                         <div class="col-lg-12 px-0">
-                            <!--收藏文章1-->
+                            <!--for loop 文章資料list-->
+                            <!-- 文章1 -->
                             <div class="row border-bottom">
+                                <!--帶入 文章ID-->
                                 <div id="article_id1" class="col p-3 d-flex flex-column align-content-between justify-content-center position-static">
-                                    <h5 class="article-title" id="article_id_title"><a href="#">文章標題</a></h5>
+                                    <!--文章標題-->
+                                    <h5 class="article-title" id="article_id_title"><a href="#">#發問 文章標題</a></h5>
+                                    <!--文章內文摘要-->
                                     <div class="mb-3 article-abs" id="article_id_abs">我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文</div>
                                     <div class="ct-sub-1">
-                                        <!--按讚數-->
                                         <button class="btn btn-sm p-0" onclick="like(this)">
                                             <i class="fas fa-heart ct-sub-1 me-1"></i>
                                         </button>
+                                        <!--按讚數 資料填入span-->
                                         <span class="me-2 like_count">168</span>
-                                        <!--留言數-->
+                                        <!--留言數 資料填入span-->
                                         <i class="fas fa-comment me-1"></i><span class="me-2">26</span>
-                                        <!--分享數-->
+                                        <!--分享數 資料填入span-->
                                         <i class="fas fa-share me-1"></i><span class="me-2">3</span>
-                                        <button class="btn btn-sm p-0" onclick="collect(this)"><i class="far fa-bookmark ct-sub-1 me-1"></i></button>
+                                        <!--收藏文章 onclick()帶入文章id-->
+                                        <button class="btn btn-sm p-0" onclick="collect(this,'article_id1')"><i class="far fa-bookmark ct-sub-1 me-1"></i></button>
                                     </div>
                                 </div>
                                 <div class="col-auto d-none d-lg-block px-0 py-1">
-                                    <img src="https://placehold.co/150" width="150" />
+                                    <!--文章縮圖-->
+                                    <img src="https://placehold.co/150" class="article-img" width="150" />
                                 </div>
                             </div>
-                            <!--收藏文章2-->
+                            <!--loop end 以下為靜態網頁範例 可刪除-->
+                            <!-- 文章2 -->
                             <div class="row border-bottom">
-                                <div id="article_id1" class="col p-3 d-flex flex-column align-content-between justify-content-center position-static">
-                                    <h5 class="article-title" id="article_id_title"><a href="#">文章標題</a></h5>
+                                <div id="article_id2" class="col p-3 d-flex flex-column align-content-between justify-content-center position-static">
+                                    <h5 class="article-title" id="article_id_title"><a href="#">#發問 文章標題</a></h5>
                                     <div class="mb-3 article-abs" id="article_id_abs">我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文</div>
                                     <div class="ct-sub-1">
                                         <button class="btn btn-sm p-0" onclick="like(this)">
@@ -199,11 +219,12 @@
                                         </button>
                                         <span class="me-2 like_count">112</span>
                                         <i class="fas fa-comment me-1"></i><span class="me-2">26</span> <i class="fas fa-share me-1"></i><span class="me-2">3</span>
-                                        <button class="btn btn-sm p-0" onclick="collect(this)"><i class="far fa-bookmark ct-sub-1 me-1"></i></button>
+                                        <!--收藏文章 onclick()帶入文章id-->
+                                        <button class="btn btn-sm p-0" onclick="collect(this,'article_id2')"><i class="far fa-bookmark ct-sub-1 me-1"></i></button>
                                     </div>
                                 </div>
                                 <div class="col-auto d-none d-lg-block px-0 py-1">
-                                    <img src="https://placehold.co/150" width="150" />
+                                    <img src="https://placehold.co/150" class="article-img" width="150" />
                                 </div>
                             </div>
                         </div>

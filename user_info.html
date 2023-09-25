@@ -170,6 +170,7 @@
             <div class="row px-md-5">
                 <div class="col-md col-lg-9 px-1 ps-md-1 pe-md-4">
                     <div class="row mt-4">
+                        <!--個人頭像上傳-->
                         <div class="col-md-12 col-lg-6" style="font-size: var(--fs-18)">
                             <div class="row g-3 align-items-start">
                                 <div class="col-3">
@@ -316,7 +317,7 @@
                                     <label for="user_disease" class="col-form-label">病史</label>
                                     <span class="ct-sub-1" style="font-size: var(--fs-16)">(多選)</span>
                                 </div>
-                                <div class="col">
+                                <div class="col-8">
                                     <select class="form-select" id="disease_history" multiple="multiple">
                                         <option value="高血壓" selected>高血壓</option>
                                         <option value="糖尿病">糖尿病</option>
@@ -348,10 +349,18 @@
                                 <div class="col-4">
                                     <label for="user_drug" class="col-form-label">用藥情況</label>
                                 </div>
-                                <div class="col-auto button-radio" id="user_drug">
+                                <div class="col-auto mx-1 form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="user_drug" id="user_drug_1" value="有" />
+                                    <label class="form-check-label" for="user_drug_1">有</label>
+                                </div>
+                                <div class="col-auto mx-1 form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="user_drug" id="user_drug_0" value="option2" />
+                                    <label class="form-check-label" for="user_drug_0">無</label>
+                                </div>
+                                <!-- <div class="col-auto button-radio" id="user_drug">
                                     <button class="btn border">無</button>
                                     <button class="btn border">有</button>
-                                </div>
+                                </div> -->
                                 <div class="col">
                                     <input type="text" id="drug_other" placeholder="請敘述用藥情況" class="form-control col-auto input_underline" />
                                 </div>
@@ -360,10 +369,18 @@
                                 <div class="col-4">
                                     <label for="user_order" class="col-form-label">特別醫囑</label>
                                 </div>
-                                <div class="col-auto button-radio" id="user_order">
+                                <div class="col-auto mx-1 form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="user_order" id="user_order_1" value="有" />
+                                    <label class="form-check-label" for="user_order_1">有</label>
+                                </div>
+                                <div class="col-auto mx-1 form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="user_order" id="user_order_0" value="無" />
+                                    <label class="form-check-label" for="user_order_0">無</label>
+                                </div>
+                                <!-- <div class="col-auto button-radio" id="user_order">
                                     <button class="btn border">無</button>
                                     <button class="btn border">有</button>
-                                </div>
+                                </div> -->
                                 <div class="col">
                                     <input type="text" id="order_other" placeholder="請敘述醫囑" class="form-control col-auto input_underline" />
                                 </div>
@@ -372,10 +389,18 @@
                                 <div class="col-4">
                                     <label for="user_allergy" class="col-form-label">過敏來源</label>
                                 </div>
-                                <div class="col-auto button-radio" id="user_allergy">
+                                <div class="col-auto mx-1 form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="user_allergy" id="user_allergy_1" value="有" />
+                                    <label class="form-check-label" for="user_allergy_1">有</label>
+                                </div>
+                                <div class="col-auto mx-1 form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="user_allergy" id="user_allergy_0" value="無" />
+                                    <label class="form-check-label" for="user_allergy_0">無</label>
+                                </div>
+                                <!-- <div class="col-auto button-radio" id="user_allergy">
                                     <button class="btn border">無</button>
                                     <button class="btn border">有</button>
-                                </div>
+                                </div> -->
                                 <div class="col">
                                     <input type="text" id="allergy_other" placeholder="請敘述過敏來源" class="form-control col-auto input_underline" />
                                 </div>

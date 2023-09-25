@@ -42,6 +42,10 @@
                     <div class="align-items-center">
                         <button class="navbar-toggler notfiy_bell" type="button" data-bs-toggle="tooltip" data-bs-title="通知" data-bs-placement="bottom">
                             <i class="fas fa-bell ct-txt-1"></i>
+                            <!--如有新通知 顯示紅點-->
+                            <span class="position-absolute top-25 start-75 translate-middle p-1 bg-danger border border-light rounded-circle">
+                                <span class="visually-hidden">New alerts</span>
+                            </span>
                         </button>
                         <button class="navbar-toggler border" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
                             <i class="fas fa-bars ct-txt-1"></i>
@@ -75,11 +79,17 @@
                             <li class="nav-item notfiy_bell d-none d-lg-block" data-bs-toggle="tooltip" data-bs-title="通知" data-bs-placement="bottom">
                                 <a class="nav-link" style="cursor: pointer">
                                     <i class="fas fa-bell"></i>
+                                    <!--如有新通知 顯示紅點-->
+                                    <span class="position-absolute top-25 start-75 translate-middle p-1 bg-danger border border-light rounded-circle">
+                                        <span class="visually-hidden">New alerts</span>
+                                    </span>
                                 </a>
                             </li>
+                            <!--如有會員登入 顯示以下 li 區塊-->
                             <li class="nav-item dropstart order-first order-lg-last">
                                 <a href="#" class="nav-link" data-bs-toggle="dropdown">
                                     <i class="fas fa-user-circle"></i>
+                                    <!--顯示會員名稱-->
                                     <span id="account_name" class="d-lg-none">Account Name</span>
                                 </a>
                                 <ul class="dropdown-menu">
@@ -128,7 +138,11 @@
 
                     <!--通知欄區塊-->
                     <div class="notifications border" id="notifications_box">
-                        <h2>Notifications <span class="badge bg-danger rounded-circle">2</span></h2>
+                        <h2>
+                            Notifications
+                            <span class="badge bg-danger rounded-circle notify_num"> 2<!--帶入通知數--> </span>
+                        </h2>
+                        <!-- for loop 通知消息 img:頭貼圖片 h4:人名/帳號名 p:通知訊息內容-->
                         <div class="notifications-item">
                             <img src="https://i.imgur.com/uIgDDDd.jpg" alt="img" />
                             <div class="text">
@@ -136,6 +150,7 @@
                                 <p>Samso Nagaro Like your home work</p>
                             </div>
                         </div>
+                        <!-- end loop-->
                         <div class="notifications-item">
                             <img src="https://img.icons8.com/flat_round/64/000000/vote-badge.png" alt="img" />
                             <div class="text">
@@ -190,7 +205,7 @@
                             <div class="col task_title">任務標題1</div>
                             <div class="col-auto">
                                 <!-- 展開更多按鈕的href需對應task_id-->
-                                <button class="btn" data-bs-toggle="collapse" href="#task_no1">
+                                <button class="btn" data-bs-toggle="collapse" href="#task_id1">
                                     <i class="fas fa-caret-down" data-bs-toggle="tooltip" data-bs-title="展開更多"></i>
                                 </button>
                             </div>
@@ -212,7 +227,7 @@
                                 </div>
                             </div>
                             <!-- 下面的div id 要帶 task_id，展開按鈕才可以依id 打開顯示該div區塊 -->
-                            <div class="col-12 my-2 pe-5 collapse" id="task_no1">
+                            <div class="col-12 my-2 pe-5 collapse" id="task_id1">
                                 <!--帶入任務步驟項目以及超連結(用戶可跳轉至要完成的頁面)-->
                                 <p class="my-2">
                                     步驟1：＿＿＿＿＿＿＿
@@ -246,7 +261,7 @@
                         <div class="row py-3 border-top">
                             <div class="col task_title">完善會員資料！讓我們更認識你！</div>
                             <div class="col-auto">
-                                <button class="btn" data-bs-toggle="collapse" href="#task_no2">
+                                <button class="btn" data-bs-toggle="collapse" href="#task_id2">
                                     <i class="fas fa-caret-down" data-bs-toggle="tooltip" data-bs-title="展開更多"></i>
                                 </button>
                             </div>
@@ -261,7 +276,7 @@
                                     <div class="col-auto mx-2 progres_value">1/4</div>
                                 </div>
                             </div>
-                            <div class="col-12 my-2 pe-5 collapse" id="task_no2">
+                            <div class="col-12 my-2 pe-5 collapse" id="task_id2">
                                 <p class="my-2">
                                     步驟1：＿＿＿＿＿＿＿<a href="#"><span class="badge finish_badge">已完成</span></a>
                                 </p>

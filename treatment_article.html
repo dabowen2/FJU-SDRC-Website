@@ -37,6 +37,10 @@
                     <div class="align-items-center">
                         <button class="navbar-toggler notfiy_bell" type="button" data-bs-toggle="tooltip" data-bs-title="通知" data-bs-placement="bottom">
                             <i class="fas fa-bell ct-txt-1"></i>
+                            <!--如有新通知 顯示紅點-->
+                            <span class="position-absolute top-25 start-75 translate-middle p-1 bg-danger border border-light rounded-circle">
+                                <span class="visually-hidden">New alerts</span>
+                            </span>
                         </button>
                         <button class="navbar-toggler border" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
                             <i class="fas fa-bars ct-txt-1"></i>
@@ -70,11 +74,17 @@
                             <li class="nav-item notfiy_bell d-none d-lg-block" data-bs-toggle="tooltip" data-bs-title="通知" data-bs-placement="bottom">
                                 <a class="nav-link" style="cursor: pointer">
                                     <i class="fas fa-bell"></i>
+                                    <!--如有新通知 顯示紅點-->
+                                    <span class="position-absolute top-25 start-75 translate-middle p-1 bg-danger border border-light rounded-circle">
+                                        <span class="visually-hidden">New alerts</span>
+                                    </span>
                                 </a>
                             </li>
+                            <!--如有會員登入 顯示以下 li 區塊-->
                             <li class="nav-item dropstart order-first order-lg-last">
                                 <a href="#" class="nav-link" data-bs-toggle="dropdown">
                                     <i class="fas fa-user-circle"></i>
+                                    <!--顯示會員名稱-->
                                     <span id="account_name" class="d-lg-none">Account Name</span>
                                 </a>
                                 <ul class="dropdown-menu">
@@ -90,7 +100,11 @@
 
                     <!--通知欄區塊-->
                     <div class="notifications border" id="notifications_box">
-                        <h2>Notifications <span class="badge bg-danger rounded-circle">2</span></h2>
+                        <h2>
+                            Notifications
+                            <span class="badge bg-danger rounded-circle notify_num"> 2<!--帶入通知數--> </span>
+                        </h2>
+                        <!-- for loop 通知消息 img:頭貼圖片 h4:人名/帳號名 p:通知訊息內容-->
                         <div class="notifications-item">
                             <img src="https://i.imgur.com/uIgDDDd.jpg" alt="img" />
                             <div class="text">
@@ -98,6 +112,7 @@
                                 <p>Samso Nagaro Like your home work</p>
                             </div>
                         </div>
+                        <!-- end loop-->
                         <div class="notifications-item">
                             <img src="https://img.icons8.com/flat_round/64/000000/vote-badge.png" alt="img" />
                             <div class="text">
@@ -119,6 +134,7 @@
                         </ol>
                     </nav>
                     <div class="row d-flex align-items-center">
+                        <!-- 帶入 文章標題 -->
                         <h3 class="col-auto px-0" id="article_title">#發問 有多囊的姐妹，有吃調經藥的習慣嗎？</h3>
                     </div>
                 </div>
@@ -127,13 +143,17 @@
                 <div class="col-md col-lg-9 px-1 ps-md-0 pe-md-4">
                     <div class="row d-flex justify-content-between align-items-center">
                         <div class="col-12 mt-3 d-flex align-items-end">
-                            <span class="ct-sub-1 mx-2" id="article_date"></span>
+                            <!-- article_date 帶入 發文日期 -->
+                            <span class="ct-sub-1 mx-2" id="article_date">1999-01-01</span>
+                            <!-- article_author 帶入 發文者名稱& (發文者個人頁面?)url  -->
                             <a href="#" class="ct-title-1 text-decoration-none mx-2" id="article_author">月經順順來</a>
                             <button type="button" class="btn btn-sm rounded-pill btn-outline-c2 col-auto mx-2 px-3" onclick="follow(this,'author')">追蹤</button>
                         </div>
                     </div>
                     <div class="row mt-4 px-1 ps-md-0 pe-md-3">
+                        <!-- article_content_id 帶入 文章id -->
                         <div class="article_content" id="article_content_id">
+                            <!-- 內文 填入圖片(img) & 文字(p)-->
                             <img src="https://placehold.co/500x200" alt="文章圖片" />
                             <p>
                                 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文 我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文
@@ -191,9 +211,9 @@
                         <!--留言回應區-->
                         <div class="mt-4" id="comments_list">
                             <!-- 留言 1F -->
-                            <div class="col-12 my-1" id="comment_1F">
+                            <div class="col-12 my-1" id="comment_id_1F">
                                 <div class="col-12 d-flex justify-content-between align-items-center">
-                                    <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" /><span class="cmt_author">作者</span></div>
+                                    <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" /><span class="comment_author">作者</span></div>
                                     <div class="d-flex align-items-center">
                                         <button class="btn btn-sm p-0" onclick="like(this)">
                                             <!--需判斷是否按讚過此文章-->
@@ -214,11 +234,13 @@
                                                 <i class="fas fa-exclamation-circle ct-sub-1 me-1"></i>
                                             </button>
                                             <ul class="dropdown-menu">
+                                                <!--判斷是否是自己帳號留的言 有則顯示刪除功能-->
                                                 <li>
                                                     <button type="button" onclick="del_comment(this)" class="dropdown-item">刪除留言</button>
                                                 </li>
                                                 <li>
-                                                    <button type="button" onclick="report_comment(this)" class="dropdown-item">檢舉留言</button>
+                                                    <!--data-cmt-id 須帶入留言ID-->
+                                                    <button type="button" data-bs-toggle="modal" data-bs-target="#reportModal" data-cmt-id="comment_id_1F" class="dropdown-item">檢舉留言</button>
                                                 </li>
                                             </ul>
                                         </div>
@@ -241,12 +263,12 @@
                                     <!--留言回覆 第一則顯示-->
                                     <div class="my-1" id="comment1F_reply_1F">
                                         <div class="col-12 d-flex justify-content-between align-items-center">
-                                            <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" /><span class="cmt_author">作者</span></div>
+                                            <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" /><span class="comment_author">作者</span></div>
                                             <div class="d-flex align-items-center">
                                                 <button class="btn btn-sm p-0" onclick="like(this)">
                                                     <i class="fas fa-heart ct-sub-1 me-1"></i>
                                                 </button>
-                                                <span class="me-2 like_count">112</span>
+                                                <span class="me-2 like_count">29</span>
                                                 <!--判斷是否是自己帳號留的言 有則顯示編輯功能-->
                                                 <button class="btn btn-sm p-0" onclick="edit_comment(this)">
                                                     <i class="fas fa-edit ct-sub-1 me-1"></i>
@@ -260,7 +282,10 @@
                                                             <button type="button" onclick="del_comment(this)" class="dropdown-item">刪除留言</button>
                                                         </li>
                                                         <li>
-                                                            <button type="button" onclick="report_comment(this)" class="dropdown-item">檢舉留言</button>
+                                                            <!--data-cmt-id 須帶入留言ID-->
+                                                            <button type="button" data-bs-toggle="modal" data-bs-target="#reportModal" data-cmt-id="comment1F_reply_1F" class="dropdown-item">
+                                                                檢舉留言
+                                                            </button>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -273,12 +298,12 @@
                                     <!--留言回覆 其他顯示 (有分隔線border-top差別)-->
                                     <div class="border-top my-1 pt-3" id="comment1F_reply_2F ">
                                         <div class="col-12 d-flex justify-content-between align-items-center">
-                                            <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" /><span class="cmt_author">作者</span></div>
+                                            <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" /><span class="comment_author">作者</span></div>
                                             <div class="d-flex align-items-center">
                                                 <button class="btn btn-sm p-0" onclick="like(this)">
                                                     <i class="fas fa-heart ct-sub-1 me-1"></i>
                                                 </button>
-                                                <span class="me-2 like_count">112</span>
+                                                <span class="me-2 like_count">53</span>
                                                 <div class="dropdown d-inline" data-bs-toggle="tooltip" data-bs-title="檢舉/刪除" data-bs-placement="top">
                                                     <button class="btn btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown">
                                                         <i class="fas fa-exclamation-circle ct-sub-1 me-1"></i>
@@ -288,7 +313,10 @@
                                                             <button type="button" onclick="del_comment(this)" class="dropdown-item">刪除留言</button>
                                                         </li>
                                                         <li>
-                                                            <button type="button" onclick="report_comment(this)" class="dropdown-item">檢舉留言</button>
+                                                            <!--data-cmt-id 須帶入留言ID-->
+                                                            <button type="button" data-bs-toggle="modal" data-bs-target="#reportModal" data-cmt-id="comment1F_reply_2F" class="dropdown-item">
+                                                                檢舉留言
+                                                            </button>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -301,9 +329,9 @@
                                 </div>
                             </div>
                             <!-- 留言 2F -->
-                            <div class="col-12 my-1 pt-3 border-top" id="comment_2F">
+                            <div class="col-12 my-1 pt-3 border-top" id="comment_id_2F">
                                 <div class="col-12 d-flex justify-content-between align-items-center">
-                                    <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" /><span class="cmt_author">作者</span></div>
+                                    <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" /><span class="comment_author">作者</span></div>
                                     <div class="d-flex align-items-center">
                                         <button class="btn btn-sm p-0" onclick="like(this)">
                                             <i class="fas fa-heart ct-sub-1 me-1"></i>
@@ -318,7 +346,7 @@
                                                     <button type="button" onclick="del_comment(this)" class="dropdown-item">刪除留言</button>
                                                 </li>
                                                 <li>
-                                                    <button type="button" onclick="report_comment(this)" class="dropdown-item">檢舉留言</button>
+                                                    <button type="button" data-bs-toggle="modal" data-bs-target="#reportModal" data-cmt-id="comment_id_2F" class="dropdown-item">檢舉留言</button>
                                                 </li>
                                             </ul>
                                         </div>
@@ -335,7 +363,7 @@
                                     <!--留言回覆第一則顯示-->
                                     <div class="my-1" id="comment2F_reply_1F">
                                         <div class="col-12 d-flex justify-content-between align-items-center">
-                                            <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" /><span class="cmt_author">作者</span></div>
+                                            <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" /><span class="comment_author">作者</span></div>
                                             <div class="d-flex align-items-center">
                                                 <button class="btn btn-sm p-0" onclick="like(this)">
                                                     <i class="fas fa-heart ct-sub-1 me-1"></i>
@@ -350,7 +378,10 @@
                                                             <button type="button" onclick="del_comment(this)" class="dropdown-item">刪除留言</button>
                                                         </li>
                                                         <li>
-                                                            <button type="button" onclick="report_comment(this)" class="dropdown-item">檢舉留言</button>
+                                                            <!--data-cmt-id 須帶入留言ID-->
+                                                            <button type="button" data-bs-toggle="modal" data-bs-target="#reportModal" data-cmt-id="comment2F_reply_1F" class="dropdown-item">
+                                                                檢舉留言
+                                                            </button>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -363,7 +394,7 @@
                                     <!--留言回覆 其他顯示 (有分隔線差別)-->
                                     <div class="border-top my-1 pt-3" id="comment2F_reply_2F">
                                         <div class="col-12 d-flex justify-content-between align-items-center">
-                                            <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" /><span class="cmt_author">作者</span></div>
+                                            <div class="d-flex align-items-end"><img class="comment-uesr-img me-2" src="static/img/user.png" /><span class="comment_author">作者</span></div>
                                             <div class="d-flex align-items-center">
                                                 <button class="btn btn-sm p-0" onclick="like(this)">
                                                     <i class="fas fa-heart ct-sub-1 me-1"></i>
@@ -378,7 +409,10 @@
                                                             <button type="button" onclick="del_comment(this)" class="dropdown-item">刪除留言</button>
                                                         </li>
                                                         <li>
-                                                            <button type="button" onclick="report_comment(this)" class="dropdown-item">檢舉留言</button>
+                                                            <!--data-cmt-id 須帶入留言ID-->
+                                                            <button type="button" data-bs-toggle="modal" data-bs-target="#reportModal" data-cmt-id="comment2F_reply_2F" class="dropdown-item">
+                                                                檢舉留言
+                                                            </button>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -404,12 +438,11 @@
                         </div>
                         <div class="col-12">
                             <ul class="nav flex-column forum-list">
+                                <!-- 此處for loop填入 熱門文章 標題&url 最多兩則  -->
                                 <li class="nav-item">
                                     <a class="nav-link" href="#"> 小產了怎麼辦？調理方式與常見Q&A總整理 ，解決各類小產的疑惑 </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#"> 小產/流產關鍵問題－需要吃小產餐或月子餐嗎？ </a>
-                                </li>
+                                <!---->
                             </ul>
                         </div>
                         <div class="col-12 ct-bg-3 ps-2 p-1 rounded">
@@ -417,12 +450,11 @@
                         </div>
                         <div class="col-12">
                             <ul class="nav flex-column forum-list">
+                                <!-- 此處for loop填入 最新文章 標題&url 最多兩則  -->
                                 <li class="nav-item">
                                     <a class="nav-link" href="#"> 小產了怎麼辦？調理方式與常見Q&A總整理 ，解決各類小產的疑惑 </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#"> 小產/流產關鍵問題－需要吃小產餐或月子餐嗎？ </a>
-                                </li>
+                                <!---->
                             </ul>
                         </div>
                         <div class="col-12 ct-bg-3 ps-2 p-1 rounded">
@@ -430,12 +462,11 @@
                         </div>
                         <div class="col-12">
                             <ul class="nav flex-column forum-list">
+                                <!-- 此處for loop填入 延伸文章 標題&url 最多兩則  -->
                                 <li class="nav-item">
                                     <a class="nav-link" href="#"> 小產了怎麼辦？調理方式與常見Q&A總整理 ，解決各類小產的疑惑 </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#"> 小產/流產關鍵問題－需要吃小產餐或月子餐嗎？ </a>
-                                </li>
+                                <!---->
                             </ul>
                         </div>
                     </div>
@@ -476,6 +507,65 @@
                     </div>
                 </div>
             </footer>
+        </div>
+
+        <!--檢舉留言回報 modal-->
+        <div class="modal fade" id="reportModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel"><i class="fas fa-exclamation-circle me-2"></i>檢舉留言的原因</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" style="font-size: var(--fs-18)">
+                        <div class="row d-flex justify-content-center py-3">
+                            <div class="col-md col-lg-12 px-0">
+                                <div class="row gy-2 mb-3 align-items-center">
+                                    <div class="col-auto">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="report_item" id="report_item1" value="惡意言論" checked />
+                                            <label class="form-check-label" for="report_item1"> 中傷、歧視、挑釁或謾罵他人 </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row gy-2 mb-3 align-items-center">
+                                    <div class="col-auto">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="report_item" value="重複洗版" id="report_item2" />
+                                            <label class="form-check-label" for="report_item2"> 惡意洗版、重複張貼 </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row gy-2 mb-3 align-items-center">
+                                    <div class="col-auto">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="report_item" value="不舒服內容" id="report_item3" />
+                                            <label class="form-check-label" for="report_item3"> 發表內容包含色情、性騷擾、恐怖血腥等讓人不舒服之內容 </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row gy-2 mb-3 align-items-center">
+                                    <div class="col-auto">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="report_item" value="其他" id="report_item4" />
+                                            <label class="form-check-label" for="report_item4"> 其他 </label>
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" id="report_other" placeholder="請說明檢舉原因" class="form-control input_underline" />
+                                    </div>
+                                </div>
+                                <div class="row g-3 my-3 align-items-center">
+                                    <div class="col">
+                                        <button type="button" id="report_confirm_btn" class="btn btn-c2 rounded-pill px-3 mx-1 col-auto" onclick="report_comment(this)">完成</button>
+                                        <button type="button" class="btn col-auto mx-1" data-bs-dismiss="modal">取消</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <script src="static/bootstrap-4.6.0-dist/jquery-3.6.0.js"></script>

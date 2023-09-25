@@ -37,6 +37,10 @@
                     <div class="align-items-center">
                         <button class="navbar-toggler notfiy_bell" type="button" data-bs-toggle="tooltip" data-bs-title="通知" data-bs-placement="bottom">
                             <i class="fas fa-bell ct-txt-1"></i>
+                            <!--如有新通知 顯示紅點-->
+                            <span class="position-absolute top-25 start-75 translate-middle p-1 bg-danger border border-light rounded-circle">
+                                <span class="visually-hidden">New alerts</span>
+                            </span>
                         </button>
                         <button class="navbar-toggler border" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
                             <i class="fas fa-bars ct-txt-1"></i>
@@ -70,11 +74,17 @@
                             <li class="nav-item notfiy_bell d-none d-lg-block" data-bs-toggle="tooltip" data-bs-title="通知" data-bs-placement="bottom">
                                 <a class="nav-link" style="cursor: pointer">
                                     <i class="fas fa-bell"></i>
+                                    <!--如有新通知 顯示紅點-->
+                                    <span class="position-absolute top-25 start-75 translate-middle p-1 bg-danger border border-light rounded-circle">
+                                        <span class="visually-hidden">New alerts</span>
+                                    </span>
                                 </a>
                             </li>
+                            <!--如有會員登入 顯示以下 li 區塊-->
                             <li class="nav-item dropstart order-first order-lg-last">
                                 <a href="#" class="nav-link" data-bs-toggle="dropdown">
                                     <i class="fas fa-user-circle"></i>
+                                    <!--顯示會員名稱-->
                                     <span id="account_name" class="d-lg-none">Account Name</span>
                                 </a>
                                 <ul class="dropdown-menu">
@@ -116,7 +126,11 @@
 
                     <!--通知欄區塊-->
                     <div class="notifications border" id="notifications_box">
-                        <h2>Notifications <span class="badge bg-danger rounded-circle">2</span></h2>
+                        <h2>
+                            Notifications
+                            <span class="badge bg-danger rounded-circle notify_num"> 2<!--帶入通知數--> </span>
+                        </h2>
+                        <!-- for loop 通知消息 img:頭貼圖片 h4:人名/帳號名 p:通知訊息內容-->
                         <div class="notifications-item">
                             <img src="https://i.imgur.com/uIgDDDd.jpg" alt="img" />
                             <div class="text">
@@ -124,6 +138,7 @@
                                 <p>Samso Nagaro Like your home work</p>
                             </div>
                         </div>
+                        <!-- end loop-->
                         <div class="notifications-item">
                             <img src="https://img.icons8.com/flat_round/64/000000/vote-badge.png" alt="img" />
                             <div class="text">
@@ -156,7 +171,7 @@
                     <div class="row d-flex justify-content-between align-items-end">
                         <div class="col-auto mb-1">
                             <ul class="nav" id="article_class_tabs">
-                                <!-- 文章類別標籤 -->
+                                <!-- for loop 文章類別標籤 如果是當前類別標籤，class要加active -->
                                 <a class="nav-link rounded-pill active" aria-current="page" href="#"><i class="fas fa-tag me-1"></i>小產知識</a>
                                 <a class="nav-link rounded-pill" href="#"><i class="fas fa-tag me-1"></i>備孕知識</a>
                                 <a class="nav-link rounded-pill" href="#"><i class="fas fa-tag me-1"></i>婦科保健</a>
@@ -166,7 +181,7 @@
                         <div class="col-md-12 col pe-0">
                             <div class="row g-3 align-items-center float-end">
                                 <div class="col-auto px-0">
-                                    <select class="form-select" style="font-size: var(--fs-16)">
+                                    <select class="form-select" id="sort_select" style="font-size: var(--fs-16)">
                                         <option selected>熱門文章</option>
                                         <option value="1">最新文章</option>
                                     </select>
@@ -177,48 +192,52 @@
                     <div class="row mt-4">
                         <!--文章列表-->
                         <div class="col-lg-12 px-0">
+                            <!--for loop 文章資料list-->
                             <!-- 文章1 -->
                             <div class="row border-bottom">
+                                <!--帶入 文章ID-->
                                 <div id="article_id1" class="col p-3 d-flex flex-column align-content-between justify-content-center position-static">
                                     <!--文章標題-->
-                                    <h5 class="article-title" id="article_id_title"><a href="#">文章標題</a></h5>
+                                    <h5 class="article-title" id="article_id_title"><a href="#">#發問 文章標題</a></h5>
                                     <!--文章內文摘要-->
                                     <div class="mb-3 article-abs" id="article_id_abs">我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文</div>
                                     <div class="ct-sub-1">
-                                        <!--按鑽數 資料填入span-->
                                         <button class="btn btn-sm p-0" onclick="like(this)">
                                             <i class="fas fa-heart ct-sub-1 me-1"></i>
                                         </button>
+                                        <!--按讚數 資料填入span-->
                                         <span class="me-2 like_count">168</span>
                                         <!--留言數 資料填入span-->
-                                        <i class="fas fa-comment me-1"></i><span class="me-2 cmt_count">26</span>
+                                        <i class="fas fa-comment me-1"></i><span class="me-2">26</span>
                                         <!--分享數 資料填入span-->
-                                        <i class="fas fa-share me-1"></i><span class="me-2 share_count">3</span>
+                                        <i class="fas fa-share me-1"></i><span class="me-2">3</span>
                                         <!--收藏文章 onclick()帶入文章id-->
                                         <button class="btn btn-sm p-0" onclick="collect(this,'article_id1')"><i class="far fa-bookmark ct-sub-1 me-1"></i></button>
                                     </div>
                                 </div>
                                 <div class="col-auto d-none d-lg-block px-0 py-1">
                                     <!--文章縮圖-->
-                                    <img src="https://placehold.co/150" width="150" />
+                                    <img src="https://placehold.co/150" class="article-img" width="150" />
                                 </div>
                             </div>
+                            <!--loop end 以下為靜態網頁範例 可刪除-->
                             <!-- 文章2 -->
                             <div class="row border-bottom">
                                 <div id="article_id2" class="col p-3 d-flex flex-column align-content-between justify-content-center position-static">
-                                    <h5 class="article-title" id="article_id_title"><a href="#">文章標題</a></h5>
+                                    <h5 class="article-title" id="article_id_title"><a href="#">#發問 文章標題</a></h5>
                                     <div class="mb-3 article-abs" id="article_id_abs">我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文</div>
                                     <div class="ct-sub-1">
                                         <button class="btn btn-sm p-0" onclick="like(this)">
-                                            <i class="fas fa-heart ct-sub-1 me-1"></i></button
-                                        ><span class="me-2 like_count">168</span> <i class="fas fa-comment me-1"></i><span class="me-2 cmt_count">26</span> <i class="fas fa-share me-1"></i
-                                        ><span class="me-2 share_count">3</span>
+                                            <i class="fas fa-heart ct-sub-1 me-1"></i>
+                                        </button>
+                                        <span class="me-2 like_count">112</span>
+                                        <i class="fas fa-comment me-1"></i><span class="me-2">26</span> <i class="fas fa-share me-1"></i><span class="me-2">3</span>
                                         <!--收藏文章 onclick()帶入文章id-->
                                         <button class="btn btn-sm p-0" onclick="collect(this,'article_id2')"><i class="far fa-bookmark ct-sub-1 me-1"></i></button>
                                     </div>
                                 </div>
                                 <div class="col-auto d-none d-lg-block px-0 py-1">
-                                    <img src="https://placehold.co/150" width="150" />
+                                    <img src="https://placehold.co/150" class="article-img" width="150" />
                                 </div>
                             </div>
                         </div>
@@ -304,7 +323,57 @@
         <script src="static/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
         <script src="static/bootstrap-table-master/dist/bootstrap-table.min.js"></script>
         <script src="static/dayjs-1.11.8/package/dayjs.min.js"></script>
+        <script src="https://unpkg.com/vue@next"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
         <script src="static/js/master_page.js"></script>
         <script src="static/js/forum_list.js"></script>
+
+        <script>
+            var dataUrl = "https://my.api.mockaroo.com/article_list.json?key=07cfe6d0";
+
+            Vue.createApp({
+                data() {
+                    return {
+                        people: "",
+                        imgSize: 0,
+                    };
+                },
+                methods: {
+                    collect(obj, article_id) {
+                        obj = obj.currentTarget;
+                        const obj_node = obj.parentNode; //tr
+                        const no_collect = $(obj_node).parent().find("i.fa-bookmark").hasClass("far");
+                        if (no_collect) {
+                            $(obj_node).parent().find("i.fa-bookmark").removeClass("far ct-sub-1");
+                            $(obj_node).parent().find("i.fa-bookmark").addClass("fas ct-txt-2");
+                        } else {
+                            $(obj_node).parent().find("i.fa-bookmark").removeClass("fas ct-txt-2");
+                            $(obj_node).parent().find("i.fa-bookmark").addClass("far ct-sub-1");
+                        }
+                        console.log("已收藏!");
+                    },
+                    switch_imgSize() {
+                        if (this.imgSize >= 2) this.imgSize = 0;
+                        else this.imgSize++;
+                    },
+                    switch_data() {
+                        let page = this;
+                        $.ajax({
+                            url: "https://my.api.mockaroo.com/article_list.json?key=07cfe6d0",
+                            dataType: "json",
+                            success: function (data) {
+                                page.people = data[0];
+                            },
+                        });
+                    },
+                },
+                mounted() {
+                    axios.get(dataUrl).then((res) => {
+                        console.log(res.data);
+                        this.people = res.data;
+                    });
+                },
+            }).mount("#app");
+        </script>
     </body>
 </html>

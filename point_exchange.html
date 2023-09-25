@@ -42,6 +42,10 @@
                     <div class="align-items-center">
                         <button class="navbar-toggler notfiy_bell" type="button" data-bs-toggle="tooltip" data-bs-title="通知" data-bs-placement="bottom">
                             <i class="fas fa-bell ct-txt-1"></i>
+                            <!--如有新通知 顯示紅點-->
+                            <span class="position-absolute top-25 start-75 translate-middle p-1 bg-danger border border-light rounded-circle">
+                                <span class="visually-hidden">New alerts</span>
+                            </span>
                         </button>
                         <button class="navbar-toggler border" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
                             <i class="fas fa-bars ct-txt-1"></i>
@@ -75,11 +79,17 @@
                             <li class="nav-item notfiy_bell d-none d-lg-block" data-bs-toggle="tooltip" data-bs-title="通知" data-bs-placement="bottom">
                                 <a class="nav-link" style="cursor: pointer">
                                     <i class="fas fa-bell"></i>
+                                    <!--如有新通知 顯示紅點-->
+                                    <span class="position-absolute top-25 start-75 translate-middle p-1 bg-danger border border-light rounded-circle">
+                                        <span class="visually-hidden">New alerts</span>
+                                    </span>
                                 </a>
                             </li>
+                            <!--如有會員登入 顯示以下 li 區塊-->
                             <li class="nav-item dropstart order-first order-lg-last">
                                 <a href="#" class="nav-link" data-bs-toggle="dropdown">
                                     <i class="fas fa-user-circle"></i>
+                                    <!--顯示會員名稱-->
                                     <span id="account_name" class="d-lg-none">Account Name</span>
                                 </a>
                                 <ul class="dropdown-menu">
@@ -128,7 +138,11 @@
 
                     <!--通知欄區塊-->
                     <div class="notifications border" id="notifications_box">
-                        <h2>Notifications <span class="badge bg-danger rounded-circle">2</span></h2>
+                        <h2>
+                            Notifications
+                            <span class="badge bg-danger rounded-circle notify_num"> 2<!--帶入通知數--> </span>
+                        </h2>
+                        <!-- for loop 通知消息 img:頭貼圖片 h4:人名/帳號名 p:通知訊息內容-->
                         <div class="notifications-item">
                             <img src="https://i.imgur.com/uIgDDDd.jpg" alt="img" />
                             <div class="text">
@@ -136,6 +150,7 @@
                                 <p>Samso Nagaro Like your home work</p>
                             </div>
                         </div>
+                        <!-- end loop-->
                         <div class="notifications-item">
                             <img src="https://img.icons8.com/flat_round/64/000000/vote-badge.png" alt="img" />
                             <div class="text">
@@ -172,10 +187,14 @@
                     <!--兌換商品列表-->
                     <div class="row px-1 mt-5 justify-content-center justify-content-md-start" id="point_exchange_list">
                         <!--兌換商品1-->
-                        <div class="col-auto text-center px-2 mb-2 pd-item">
-                            <img src="https://placehold.co/180" class="rounded mx-auto d-block" width="100%" alt="商品1" />
-                            <!--商品名稱 根據消費者過去最常購買的商品會顯示皇冠icon-->
-                            <p class="title p-1 my-1">商品1<i class="fas fa-crown ms-1"></i></p>
+                        <div class="col-auto text-center px-2 my-2 pd-item">
+                            <!-- data-pd-id 要填入商品ID，才可識別開啟商品介紹modal-->
+                            <div role="button" data-bs-toggle="modal" data-bs-target="#product_modal" data-pd-id="pd1_id_value">
+                                <img src="https://placehold.co/180" class="rounded mx-auto d-block" width="100%" alt="商品1" />
+                                <!--商品名稱 根據消費者過去最常購買的商品會顯示皇冠icon-->
+                                <p class="d-inline-block title p-1 my-1">商品1</p>
+                                <i class="fas fa-crown"></i>
+                            </div>
                             <!--商品兌換點數(填入span)-->
                             <p class="text">聊心點 <span class="pd_point">110</span>點</p>
                             <div class="col-auto my-1">
@@ -188,10 +207,12 @@
                             </div>
                         </div>
                         <!--兌換商品2-->
-                        <div class="col-auto text-center px-2 mb-2 pd-item">
-                            <img src="https://placehold.co/180" class="rounded mx-auto d-block" width="100%" alt="商品2" />
-                            <!--商品名稱 無皇冠icon-->
-                            <p class="title p-1 my-1">商品2</p>
+                        <div class="col-auto text-center px-2 my-2 pd-item">
+                            <div role="button" data-bs-toggle="modal" data-bs-target="#product_modal" data-pd-id="pd2_id_value">
+                                <img src="https://placehold.co/180" class="rounded mx-auto d-block" width="100%" alt="商品2" />
+                                <!--商品名稱 無皇冠icon-->
+                                <p class="d-inline-block title p-1 my-1">商品2</p>
+                            </div>
                             <!--商品兌換點數(填入span)-->
                             <p class="text">聊心點 <span class="pd_point">200</span>點</p>
                             <div class="col-auto my-1">
@@ -203,9 +224,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-auto text-center px-2 mb-2 pd-item">
-                            <img src="https://placehold.co/180" class="rounded mx-auto d-block" width="100%" alt="商品2" />
-                            <p class="title p-1 my-1">商品3</p>
+                        <div class="col-auto text-center px-2 my-2 pd-item">
+                            <div role="button" data-bs-toggle="modal" data-bs-target="#product_modal" data-pd-id="pd3_id_value">
+                                <img src="https://placehold.co/180" class="rounded mx-auto d-block" width="100%" alt="商品3" />
+                                <!--商品名稱 無皇冠icon-->
+                                <p class="d-inline-block title p-1 my-1">商品3</p>
+                            </div>
                             <p class="text">聊心點 <span class="pd_point">140</span>點</p>
                             <div class="col-auto my-1">
                                 <div class="border d-inline-block rounded-pill">
@@ -215,9 +239,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-auto text-center px-2 mb-2 pd-item">
-                            <img src="https://placehold.co/180" class="rounded mx-auto d-block" width="100%" alt="商品2" />
-                            <p class="title p-1 my-1">商品4</p>
+                        <div class="col-auto text-center px-2 my-2 pd-item">
+                            <div role="button" data-bs-toggle="modal" data-bs-target="#product_modal" data-pd-id="pd4_id_value">
+                                <img src="https://placehold.co/180" class="rounded mx-auto d-block" width="100%" alt="商品4" />
+                                <!--商品名稱 無皇冠icon-->
+                                <p class="d-inline-block title p-1 my-1">商品4</p>
+                            </div>
                             <p class="text">聊心點 <span class="pd_point">300</span>點</p>
                             <div class="col-auto my-1">
                                 <div class="border d-inline-block rounded-pill">
@@ -324,19 +351,28 @@
 
         <!--點擊商品 商品介紹-->
         <div class="modal fade" id="product_modal" tabindex="-1">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button class="btn float-start" data-bs-toggle="modal" data-bs-target="#first_daily_modal"><i class="bi bi-chevron-left"></i></button>
+                        <button class="btn float-start" data-bs-dismiss="modal"><i class="bi bi-chevron-left"></i></button>
                         <h1 class="modal-title fs-5 ct-txt-1">商品介紹</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body" style="font-size: var(--fs-18)">
-                        <div class="row d-flex align-items-center mb-2">
-                            <div class="col-4">
-                                <img src="https://placehold.co/180" class="w-100" />
+                        <div class="row mb-2">
+                            <div class="col-6 product-img">
+                                <!--插入商品圖片-->
+                                <img src="https://placehold.co/180" alt="商品圖片" />
                             </div>
-                            <div class="col-6"></div>
+                            <div class="col-6 py-3">
+                                <!--商品名稱-->
+                                <h3 class="product-title">月月美生理飲(一包體驗組)</h3>
+                                <!--商品簡介-->
+                                <p class="product-summary">
+                                    光田綜合醫院婦產部主治醫師－蘇棋楓 醫師推薦<br /><br />☆ SNQ國家品質標章、Monde Selection金獎雙認證<br />☆ 豐富植化素添加，調整體質讓妳越來越好<br />☆
+                                    膳食纖維添加，使排便順暢<br />☆ 專為女性養生調理設計，以天然植萃為原料，熱量低<br />☆ 無中藥獨家配方！月經期間可以飲用
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>

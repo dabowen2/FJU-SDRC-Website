@@ -10,8 +10,8 @@
         <link rel="stylesheet" href="static/fontawesome-free-5.15.3-web/css/all.css" />
         <!--Bootstrap-->
         <link rel="stylesheet" href="static/bootstrap-5.1.3-dist/css/bootstrap.min.css" />
-        <!--BootstrapTable-->
-        <link rel="stylesheet" href="static/bootstrap-table-master/dist/bootstrap-table.min.css" />
+        <!-- Datetime picker -->
+        <link rel="stylesheet" href="static/bootstrap-datepicker-master/dist/css/bootstrap-datepicker.min.css" />
         <!-- Sweet Alert -->
         <link rel="stylesheet" href="static/sweetalert2-11.7.1/dist/sweetalert2.min.css" />
         <script src="static/sweetalert2-11.7.1/dist/sweetalert2.all.min.js"></script>
@@ -80,10 +80,11 @@
                                     </span>
                                 </a>
                             </li>
+                            <!--如有會員登入 顯示以下 li 區塊-->
                             <li class="nav-item dropstart order-first order-lg-last">
-                                <!--如有會員登入 顯示會員名稱-->
                                 <a href="#" class="nav-link" data-bs-toggle="dropdown">
                                     <i class="fas fa-user-circle"></i>
+                                    <!--顯示會員名稱-->
                                     <span id="account_name" class="d-lg-none">Account Name</span>
                                 </a>
                                 <ul class="dropdown-menu">
@@ -99,7 +100,11 @@
 
                     <!--通知欄區塊-->
                     <div class="notifications border" id="notifications_box">
-                        <h2>Notifications <span class="badge bg-danger rounded-circle">2</span></h2>
+                        <h2>
+                            Notifications
+                            <span class="badge bg-danger rounded-circle notify_num"> 2<!--帶入通知數--> </span>
+                        </h2>
+                        <!-- for loop 通知消息 img:頭貼圖片 h4:人名/帳號名 p:通知訊息內容-->
                         <div class="notifications-item">
                             <img src="https://i.imgur.com/uIgDDDd.jpg" alt="img" />
                             <div class="text">
@@ -107,6 +112,7 @@
                                 <p>Samso Nagaro Like your home work</p>
                             </div>
                         </div>
+                        <!-- end loop-->
                         <div class="notifications-item">
                             <img src="https://img.icons8.com/flat_round/64/000000/vote-badge.png" alt="img" />
                             <div class="text">
@@ -124,18 +130,15 @@
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselShow" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                         <button type="button" data-bs-target="#carouselShow" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                        <!-- <button type="button" data-bs-target="#carouselShow" data-bs-slide-to="2" aria-label="Slide 3"></button> -->
                     </div>
                     <div class="carousel-inner">
+                        <!-- 幻燈片 圖片-->
                         <div class="carousel-item active">
                             <img src="static/img/index1.png" class="d-block w-100" alt="Slide1" />
                         </div>
                         <div class="carousel-item">
                             <img src="static/img/index2.png" class="d-block w-100" alt="Slide2" />
                         </div>
-                        <!-- <div class="carousel-item">
-                            <img src="https://placehold.co/400x400" class="d-block w-100" alt="Slide3" />
-                        </div> -->
                     </div>
                 </div>
             </div>
@@ -144,6 +147,7 @@
                 <div class="col-md-4 col-lg-3 d-flex justify-content-center align-items-center">
                     <div class="card text-center position-relative" style="border-radius: 8%; width: 70%; height: 80%; padding-bottom: 50%">
                         <div class="card-body">
+                            <!--此區不用填入資料 前端會帶當天日期-->
                             <div class="card-text position-absolute pt-3 top-25 start-50 translate-middle" id="card-yearmon">2023.06</div>
                             <div class="card-text position-absolute pb-2 top-50 start-50 translate-middle" id="card-date">8</div>
                             <div class="card-text position-absolute bottom-0 start-50 translate-middle" id="card-day">星期四</div>
@@ -151,13 +155,11 @@
                     </div>
                 </div>
                 <div class="col-md col-lg-auto px-4 py-3 p-md-3 d-flex justify-content-center align-items-center">
-                    <div>
-                        <h4 class="ct-title-1 fw-bold" style="font-size: var(--fs-24)">生理期在三天就要來報到了！</h4>
-                        <p class="ct-sub-1" style="line-height: 1.75rem; letter-spacing: 1px">我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文</p>
-                        <!--判斷用戶是否初次使用-專屬月曆-->
-                        <button data-bs-toggle="modal" data-bs-target="#first_daily_modal" class="btn btn-c2 rounded-pill mx-1">寫下今天的身體日記</button>
-                        <!--非初次使用-專屬月曆 顯示該按鈕-->
-                        <button data-bs-toggle="modal" data-bs-target="#daily_modal" class="btn btn-c2 rounded-pill mx-1 d-none">寫下今天的身體日記</button>
+                    <div class="event_reminder">
+                        <!-- 需填入 提醒事項標題與內文資料 -->
+                        <h4 class="ct-title-1 fw-bold" style="font-size: var(--fs-24)">提醒事項標題</h4>
+                        <p class="ct-sub-1" style="line-height: 1.75rem; letter-spacing: 1px">內文內容</p>
+                        <button class="btn btn-c2 rounded-pill me-1" onclick="open_modal()">寫下今天的身體日記</button>
                     </div>
                 </div>
             </div>
@@ -173,6 +175,31 @@
                     <a href="#" class="text-reset text-decoration-none" style="font-size: var(--fs-17)">查看所有文章<i class="bi bi-chevron-right"></i></a>
                 </div>
                 <div class="row px-4 pt-3 bg-white d-flex justify-content-evenly">
+                    <!--for loop Component (最多展4個)-->
+                    <div class="col-auto mb-2">
+                        <div class="card card-temp-1">
+                            <!--文章縮圖 改src-->
+                            <img src="https://placehold.co/180" class="card-img-top" alt="..." />
+                            <div class="card-body">
+                                <!--文章標題-->
+                                <h5 class="card-title ct-title-1">我是標題</h5>
+                                 <!--文章內文簡介-->
+                                <p class="card-text ct-sub-1">我是簡介我是簡介我是簡介我是簡介我是簡介我是簡介我是簡介</p>
+
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <!--帶入 作者帳號名稱 & 頭貼圖片-->
+                                    <div class="article_author" style="font-size: var(--fs-14)"><img class="me-1" src="static/img/user.png" width="25" />作者</div>
+                                    <div class="ct-sub-1" style="font-size: var(--fs-14)">
+                                        <!--帶入 喜歡數-->
+                                        <span class="me-1 like_count"><i class="far fa-heart me-1"></i>155</span>
+                                        <!--帶入 留言數-->
+                                        <span class="me-1 cmt_count"><i class="far fa-comment me-1"></i>26</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end loop 以下為靜態範例 可刪掉-->
                     <div class="col-auto mb-2">
                         <div class="card card-temp-1">
                             <img src="https://placehold.co/180" class="card-img-top" alt="..." />
@@ -190,24 +217,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-auto mb-2">
-                        <div class="card card-temp-1">
-                            <img src="https://placehold.co/180" class="card-img-top" alt="..." />
-                            <div class="card-body">
-                                <h5 class="card-title ct-title-1">我是標題</h5>
-                                <p class="card-text ct-sub-1">我是簡介我是簡介我是簡介我是簡介我是簡介我是簡介我是簡介</p>
-
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div style="font-size: var(--fs-14)"><img class="me-1" src="static/img/user.png" width="25" />作者</div>
-                                    <div class="ct-sub-1" style="font-size: var(--fs-14)">
-                                        <span class="me-1"><i class="far fa-heart me-1"></i>168</span>
-                                        <span class="me-1"><i class="far fa-comment me-1"></i>26</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="col-auto mb-2">
                         <div class="card card-temp-1">
                             <img src="https://placehold.co/180" class="card-img-top" alt="..." />
@@ -250,22 +259,24 @@
                     <h4 class="content-title">熱門話題大集合🔥</h4>
                 </div>
                 <div class="col-12 px-5 py-3" id="popular_topic_tabs">
-                    <button class="btn btn-outline-c2 rounded-pill my-1">#小產知識</button>
-                    <button class="btn btn-outline-c2 rounded-pill my-1">#備孕知識</button>
-                    <button class="btn btn-outline-c2 rounded-pill my-1">#婦科保健</button>
-                    <button class="btn btn-outline-c2 rounded-pill my-1">#婦科保健知識</button>
-                    <button class="btn btn-outline-c2 rounded-pill my-1">#小產知識</button>
-                    <button class="btn btn-outline-c2 rounded-pill my-1">#備孕知識</button>
-                    <button class="btn btn-outline-c2 rounded-pill my-1">#婦科保健</button>
-                    <button class="btn btn-outline-c2 rounded-pill my-1">#婦科保健知識</button>
-                    <button class="btn btn-outline-c2 rounded-pill my-1">#小產知識</button>
-                    <button class="btn btn-outline-c2 rounded-pill my-1">#備孕知識</button>
-                    <button class="btn btn-outline-c2 rounded-pill my-1">#婦科保健</button>
-                    <button class="btn btn-outline-c2 rounded-pill my-1">#婦科保健知識</button>
-                    <button class="btn btn-outline-c2 rounded-pill my-1">#小產知識</button>
-                    <button class="btn btn-outline-c2 rounded-pill my-1">#備孕知識</button>
-                    <button class="btn btn-outline-c2 rounded-pill my-1">#婦科保健</button>
-                    <button class="btn btn-outline-c2 rounded-pill my-1">#婦科保健知識</button>
+                    <!-- for loop 熱門話題標籤 填入href.url+標籤名稱 -->
+                    <a href="#" class="btn btn-outline-c2 rounded-pill my-1">#標籤名稱</a>
+                     <!--以下為靜態範例 可刪掉-->
+                    <a href="#" class="btn btn-outline-c2 rounded-pill my-1">#備孕知識</a>
+                    <a href="#" class="btn btn-outline-c2 rounded-pill my-1">#婦科保健</a>
+                    <a href="#" class="btn btn-outline-c2 rounded-pill my-1">#婦科保健知識</a>
+                    <a href="#" class="btn btn-outline-c2 rounded-pill my-1">#小產知識</a>
+                    <a href="#" class="btn btn-outline-c2 rounded-pill my-1">#備孕知識</a>
+                    <a href="#" class="btn btn-outline-c2 rounded-pill my-1">#婦科保健</a>
+                    <a href="#" class="btn btn-outline-c2 rounded-pill my-1">#婦科保健知識</a>
+                    <a href="#" class="btn btn-outline-c2 rounded-pill my-1">#小產知識</a>
+                    <a href="#" class="btn btn-outline-c2 rounded-pill my-1">#備孕知識</a>
+                    <a href="#" class="btn btn-outline-c2 rounded-pill my-1">#婦科保健</a>
+                    <a href="#" class="btn btn-outline-c2 rounded-pill my-1">#婦科保健知識</a>
+                    <a href="#" class="btn btn-outline-c2 rounded-pill my-1">#小產知識</a>
+                    <a href="#" class="btn btn-outline-c2 rounded-pill my-1">#備孕知識</a>
+                    <a href="#" class="btn btn-outline-c2 rounded-pill my-1">#婦科保健</a>
+                    <a href="#" class="btn btn-outline-c2 rounded-pill my-1">#婦科保健知識</a>
                 </div>
             </div>
             <!--最新療聊別錯過-->
@@ -280,23 +291,31 @@
                     <a href="#" class="text-reset text-decoration-none" style="font-size: var(--fs-17)">查看所有文章<i class="bi bi-chevron-right"></i></a>
                 </div>
                 <div class="row px-4 pt-3 bg-white d-flex justify-content-evenly">
+                    <!--for loop Component (最多展4個)-->
                     <div class="col-auto mb-2">
                         <div class="card card-temp-1">
+                            <!--文章縮圖 改src-->
                             <img src="https://placehold.co/180" class="card-img-top" alt="..." />
                             <div class="card-body">
+                                <!--帶入 文章標題-->
                                 <h5 class="card-title ct-title-1">我是標題</h5>
+                                 <!--帶入 文章內文簡介-->
                                 <p class="card-text ct-sub-1">我是簡介我是簡介我是簡介我是簡介我是簡介我是簡介我是簡介</p>
 
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <div style="font-size: var(--fs-14)"><img class="me-1" src="static/img/user.png" width="25" />作者</div>
+                                    <!--帶入 作者帳號名稱 & 頭貼圖片-->
+                                    <div class="article_author" style="font-size: var(--fs-14)"><img class="me-1" src="static/img/user.png" width="25" />作者</div>
                                     <div class="ct-sub-1" style="font-size: var(--fs-14)">
-                                        <span class="me-1"><i class="far fa-heart me-1"></i>168</span>
-                                        <span class="me-1"><i class="far fa-comment me-1"></i>26</span>
+                                        <!--帶入 喜歡數-->
+                                        <span class="me-1 like_count"><i class="far fa-heart me-1"></i>155</span>
+                                        <!--帶入 留言數-->
+                                        <span class="me-1 cmt_count"><i class="far fa-comment me-1"></i>26</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!--end loop 以下為靜態範例 可刪掉-->
                     <div class="col-auto mb-2">
                         <div class="card card-temp-1">
                             <img src="https://placehold.co/180" class="card-img-top" alt="..." />
@@ -362,15 +381,20 @@
                     <a href="#" class="text-reset text-decoration-none" style="font-size: var(--fs-17)">查看所有商品<i class="bi bi-chevron-right"></i></a>
                 </div>
                 <div class="row pt-3 px-4 bg-white d-flex justify-content-evenly">
+                    <!--for loop Component (最多展4個)-->
                     <div class="col-auto mb-2 px-md-1">
                         <div class="card card-temp-2">
+                            <!--產品縮圖 改src-->
                             <img src="https://placehold.co/180" class="card-img-top" alt="..." />
                             <div class="card-body text-center">
+                                <!--帶入 產品名稱-->
                                 <h5 class="card-title ct-title-1">我是產品標題</h5>
+                                <!--帶入 產品介紹-->
                                 <p class="card-text ct-sub-1">我是簡介我是簡介我是簡介</p>
                             </div>
                         </div>
                     </div>
+                    <!--end loop 以下為靜態範例 可刪掉-->
                     <div class="col-auto mb-2 px-md-1">
                         <div class="card card-temp-2">
                             <img src="https://placehold.co/180" class="card-img-top" alt="..." />
@@ -412,15 +436,20 @@
                     <a href="#" class="text-reset text-decoration-none" style="font-size: var(--fs-17)">查看所有創作者<i class="bi bi-chevron-right"></i></a>
                 </div>
                 <div class="row pt-3 px-4 bg-white d-flex justify-content-evenly">
+                    <!--for loop Component (最多展4個)-->
                     <div class="col-auto mb-2 px-md-1">
                         <div class="card card-temp-2">
+                            <!--創作者圖片 改src-->
                             <img src="https://placehold.co/180" class="card-img-top" alt="..." />
                             <div class="card-body text-center">
+                                <!--帶入 創作者名稱-->
                                 <h5 class="card-title ct-title-1">創作者名稱</h5>
+                                <!--帶入 創作者介紹-->
                                 <p class="card-text ct-sub-1">我是簡介我是簡介我是簡介我是簡介我是簡介我是簡介我是簡介</p>
                             </div>
                         </div>
                     </div>
+                    <!--end loop 以下為靜態範例 可刪掉-->
                     <div class="col-auto mb-2 px-md-1">
                         <div class="card card-temp-2">
                             <img src="https://placehold.co/180" class="card-img-top" alt="..." />
@@ -449,45 +478,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- <div class="row px-4 bg-white d-flex justify-content-evenly">
-                    <div class="col-auto mb-2">
-                        <div class="card card-temp-1">
-                            <img src="https://placehold.co/180" class="card-img-top" alt="..." />
-                            <div class="card-body text-center">
-                                <h5 class="card-title ct-title-1">創作者名稱</h5>
-                                <p class="card-text ct-sub-1">我是簡介我是簡介我是簡介</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-auto mb-2">
-                        <div class="card card-temp-1">
-                            <img src="https://placehold.co/180" class="card-img-top" alt="..." />
-                            <div class="card-body text-center">
-                                <h5 class="card-title ct-title-1">創作者名稱</h5>
-                                <p class="card-text ct-sub-1">我是簡介我是簡介我是簡介</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-auto mb-2">
-                        <div class="card card-temp-1">
-                            <img src="https://placehold.co/180" class="card-img-top" alt="..." />
-                            <div class="card-body text-center">
-                                <h5 class="card-title ct-title-1">創作者名稱</h5>
-                                <p class="card-text ct-sub-1">我是簡介我是簡介我是簡介</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-auto mb-2">
-                        <div class="card card-temp-1">
-                            <img src="https://placehold.co/180" class="card-img-top" alt="..." />
-                            <div class="card-body text-center">
-                                <h5 class="card-title ct-title-1">創作者名稱</h5>
-                                <p class="card-text ct-sub-1">我是簡介我是簡介我是簡介</p>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
             </div>
 
             <div class="position-fixed bottom-0 end-0 m-2">
@@ -554,94 +544,99 @@
                                     </select>
                                 </div>
                             </div>
-                            <!--生理期-->
-                            <div class="py-3 ps-lg-4 health_type" id="health_type_1">
-                                <div class="row align-items-center mb-2">
-                                    <div class="col-auto">
-                                        <label for="type1_q1" class="col-form-label">・生理期週期(天)</label>
+                            <form id="first_daily_form">
+                                <!--生理期-->
+                                <div class="py-3 ps-lg-4 health_type" id="health_type_1">
+                                    <div class="row align-items-center mb-2">
+                                        <div class="col-auto">
+                                            <label for="type1_q1" class="col-form-label">・生理期週期(天)</label>
+                                        </div>
+                                        <div class="col-auto">
+                                            <input type="number" id="type1_q1" class="form-control" />
+                                        </div>
                                     </div>
-                                    <div class="col-auto">
-                                        <input type="number" id="type1_q1" class="form-control" />
+                                    <div class="row align-items-center mb-2">
+                                        <div class="col-auto">
+                                            <label for="type1_q2" class="col-form-label">・上次生理期開始日</label>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="input-group">
+                                                <input type="text" id="type1_q2" class="form-control datepicker" />
+                                                <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row align-items-center mb-2">
-                                    <div class="col-auto">
-                                        <label for="type1_q2" class="col-form-label">・上次生理期開始日</label>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="input-group">
-                                            <input type="text" id="type1_q2" class="form-control datepicker" />
-                                            <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                    <div class="row align-items-center mb-2">
+                                        <div class="col-auto">
+                                            <label for="type1_q3" class="col-form-label">・每次月經大約來多少天</label>
+                                        </div>
+                                        <div class="col-auto">
+                                            <input type="number" id="type1_q3" class="form-control" />
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row align-items-center mb-2">
-                                    <div class="col-auto">
-                                        <label for="type1_q3" class="col-form-label">・每次月經大約來多少天</label>
-                                    </div>
-                                    <div class="col-auto">
-                                        <input type="number" id="type1_q3" class="form-control" />
-                                    </div>
-                                </div>
-                            </div>
-                            <!--小產期-->
-                            <div class="py-3 ps-lg-4 health_type d-none" id="health_type_2">
-                                <div class="row align-items-center mb-2">
-                                    <div class="col-auto">
-                                        <label for="type2_q1" class="col-form-label">・小產的日期</label>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="input-group">
-                                            <input type="text" id="type2_q1" class="form-control datepicker" />
-                                            <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                <!--小產期-->
+                                <div class="py-3 ps-lg-4 health_type d-none" id="health_type_2">
+                                    <div class="row align-items-center mb-2">
+                                        <div class="col-auto">
+                                            <label for="type2_q1" class="col-form-label">・小產的日期</label>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="input-group">
+                                                <input type="text" id="type2_q1" class="form-control datepicker" />
+                                                <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!--懷孕期-->
-                            <div class="py-3 ps-lg-4 health_type d-none" id="health_type_3">
-                                <div class="row align-items-center mb-2">
-                                    <div class="col-auto">
-                                        <label for="type3_q1" class="col-form-label">・懷孕的週數</label>
+                                <!--懷孕期-->
+                                <div class="py-3 ps-lg-4 health_type d-none" id="health_type_3">
+                                    <div class="row align-items-center mb-2">
+                                        <div class="col-auto">
+                                            <label for="type3_q1" class="col-form-label">・懷孕的週數</label>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="input-group">
+                                                <input type="text" id="type3_q1" class="form-control datepicker" />
+                                                <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col-auto">
-                                        <div class="input-group">
-                                            <input type="text" id="type3_q1" class="form-control datepicker" />
-                                            <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                    <div class="row align-items-center mb-2">
+                                        <div class="col-auto">
+                                            <label for="type3_q2" class="col-form-label">・預產的日期</label>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="input-group">
+                                                <input type="text" id="type3_q2" class="form-control datepicker" />
+                                                <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row align-items-center mb-2">
-                                    <div class="col-auto">
-                                        <label for="type3_q2" class="col-form-label">・預產的日期</label>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="input-group">
-                                            <input type="text" id="type3_q2" class="form-control datepicker" />
-                                            <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                <!--產後期-->
+                                <div class="py-3 ps-lg-4 health_type d-none" id="health_type_4">
+                                    <div class="row align-items-center mb-2">
+                                        <div class="col-auto">
+                                            <label for="type4_q1" class="col-form-label">・生產的日期</label>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="input-group">
+                                                <input type="text" id="type4_q1" class="form-control datepicker" />
+                                                <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!--產後期-->
-                            <div class="py-3 ps-lg-4 health_type d-none" id="health_type_4">
-                                <div class="row align-items-center mb-2">
-                                    <div class="col-auto">
-                                        <label for="type4_q1" class="col-form-label">・生產的日期</label>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="input-group">
-                                            <input type="text" id="type4_q1" class="form-control datepicker" />
-                                            <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--更年期-->
-                            <div class="py-3 ps-lg-4 health_type d-none" id="health_type_5"></div>
+                                <!--更年期-->
+                                <div class="py-3 ps-lg-4 health_type d-none" id="health_type_5"></div>
+                            </form>
+
                             <div class="row justify-content-center align-items-center mt-2">
                                 <div class="col-auto">
-                                    <button class="btn btn-c2 rounded-pill" data-bs-toggle="modal" data-bs-target="#daily_modal" style="font-size: var(--fs-18)">前往記錄身體日記</button>
+                                    <button class="btn btn-c2 rounded-pill" data-bs-toggle="modal" data-bs-target="#daily_modal" onclick="first_daily_set()" style="font-size: var(--fs-18)">
+                                        前往記錄身體日記
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -660,457 +655,458 @@
                     </div>
                     <div class="modal-body" style="font-size: var(--fs-18)">
                         <div class="row d-flex justify-content-center mb-2">
-                            <!--生理期-->
-                            <div class="ps-sm-2 ps-md-4 daily_type" id="daily_type_1">
-                                <div class="row align-items-center mb-1">
-                                    <div class="col-auto">
-                                        <label for="type1_q1" class="col-form-label fw-bold">狀態</label>
-                                    </div>
-                                    <div class="col-auto">
-                                        <button class="btn btn-c1 rounded-pill" id="health_type">生理期</button>
-                                    </div>
-                                </div>
-                                <div class="row align-items-center mb-2">
-                                    <div class="col-auto">
-                                        <label for="d_type1_q1" class="col-form-label fw-bold">日期</label>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="input-group">
-                                            <input type="text" id="d_type1_q1" class="form-control datepicker" />
-                                            <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row align-items-center">
-                                    <div class="col-auto">
-                                        <label for="d_type1_q2" class="col-form-label fw-bold">月經</label>
-                                    </div>
-                                    <div class="col-auto">
-                                        <input type="radio" class="btn-check m-1" name="has_mc_type" id="has_mc" value="有" />
-                                        <label class="btn btn-outline-c3 rounded-pill" for="has_mc">有月經</label>
-                                        <input type="radio" class="btn-check m-1" name="has_mc_type" id="no_mc" value="沒有" />
-                                        <label class="btn btn-outline-c3 rounded-pill" for="no_mc">沒有月經</label>
-                                    </div>
+                            <form id="daily_form">
+                                <!--生理期-->
+                                <div class="ps-sm-2 ps-md-4 daily_type" id="daily_type_1">
                                     <div class="row align-items-center mb-1">
                                         <div class="col-auto">
-                                            <label for="type1_q2" class="col-form-label">・月經量</label>
+                                            <label for="type1_q1" class="col-form-label fw-bold">狀態</label>
                                         </div>
                                         <div class="col-auto">
-                                            <input type="radio" class="btn-check m-1" name="mc_amount" id="mc_less" value="量少" />
-                                            <label class="btn btn-outline-c3 rounded-pill" for="mc_less">量少🩸</label>
-                                            <input type="radio" class="btn-check m-1" name="mc_amount" id="mc_normal" value="量適中" />
-                                            <label class="btn btn-outline-c3 rounded-pill" for="mc_normal">量適中🩸🩸</label>
-                                            <input type="radio" class="btn-check m-1" name="mc_amount" id="mc_more" value="量多" />
-                                            <label class="btn btn-outline-c3 rounded-pill" for="mc_more">量多🩸🩸🩸</label>
+                                            <button class="btn btn-c1 rounded-pill" id="health_type">生理期</button>
                                         </div>
                                     </div>
+                                    <div class="row align-items-center mb-2">
+                                        <div class="col-auto">
+                                            <label for="d_type1_q1" class="col-form-label fw-bold">日期</label>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="input-group">
+                                                <input type="text" id="d_type1_q1" class="form-control datepicker" />
+                                                <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <label for="d_type1_q2" class="col-form-label fw-bold">月經</label>
+                                        </div>
+                                        <div class="col-auto">
+                                            <input type="radio" class="btn-check m-1" name="has_mc_type" id="has_mc" value="有" />
+                                            <label class="btn btn-outline-c3 rounded-pill" for="has_mc">有月經</label>
+                                            <input type="radio" class="btn-check m-1" name="has_mc_type" id="no_mc" value="沒有" />
+                                            <label class="btn btn-outline-c3 rounded-pill" for="no_mc">沒有月經</label>
+                                        </div>
+                                        <div class="row align-items-center mb-1">
+                                            <div class="col-auto">
+                                                <label for="type1_q2" class="col-form-label">・月經量</label>
+                                            </div>
+                                            <div class="col-auto">
+                                                <input type="radio" class="btn-check m-1" name="mc_amount" id="mc_less" value="量少" />
+                                                <label class="btn btn-outline-c3 rounded-pill" for="mc_less">量少🩸</label>
+                                                <input type="radio" class="btn-check m-1" name="mc_amount" id="mc_normal" value="量適中" />
+                                                <label class="btn btn-outline-c3 rounded-pill" for="mc_normal">量適中🩸🩸</label>
+                                                <input type="radio" class="btn-check m-1" name="mc_amount" id="mc_more" value="量多" />
+                                                <label class="btn btn-outline-c3 rounded-pill" for="mc_more">量多🩸🩸🩸</label>
+                                            </div>
+                                        </div>
+                                        <div class="row align-items-center mb-1">
+                                            <div class="col-auto">
+                                                <label for="type1_q2" class="col-form-label">・經痛程度</label>
+                                            </div>
+                                            <div class="col-auto">
+                                                <input type="radio" class="btn-check m-1" name="mc_pain" id="pain_less" value="輕微" />
+                                                <label class="btn btn-outline-c3 rounded-pill" for="pain_less">輕微(悶痛可忍)</label>
+                                                <input type="radio" class="btn-check m-1" name="mc_pain" id="pain_normal" value="中度" />
+                                                <label class="btn btn-outline-c3 rounded-pill" for="pain_normal">中度(止痛藥可緩解)</label>
+                                                <input type="radio" class="btn-check m-1" name="mc_pain" id="pain_more" value="嚴重" />
+                                                <label class="btn btn-outline-c3 rounded-pill" for="pain_more">嚴重(止痛藥無法緩解)</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row align-items-center mb-3">
+                                        <div class="col-auto">
+                                            <label for="d_type1_q3" class="col-form-label fw-bold">症狀</label>
+                                        </div>
+                                        <div class="col-auto mt-0">
+                                            <input type="checkbox" class="btn-check" name="d_type1_q3" id="type1_q3_1" value="頭痛" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type1_q3_1">頭痛</label>
+                                            <input type="checkbox" class="btn-check" name="d_type1_q3" id="type1_q3_2" value="腰痛" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type1_q3_2">腰痛</label>
+                                            <input type="checkbox" class="btn-check" name="d_type1_q3" id="type1_q3_3" value="潮熱" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type1_q3_3">潮熱</label>
+                                            <input type="checkbox" class="btn-check" name="d_type1_q3" id="type1_q3_4" value="乳房脹痛" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type1_q3_4">乳房脹痛</label>
+                                            <input type="checkbox" class="btn-check" name="d_type1_q3" id="type1_q3_5" value="排卵痛" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type1_q3_5">排卵痛</label>
+                                            <input type="checkbox" class="btn-check" name="d_type1_q3" id="type1_q3_6" value="便秘" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type1_q3_6">便秘</label>
+                                            <input type="checkbox" class="btn-check" name="d_type1_q3" id="type1_q3_7" value="腹瀉" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type1_q3_7">腹瀉</label>
+                                            <input type="checkbox" class="btn-check" name="d_type1_q3" id="type1_q3_8" value="分泌物增加" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type1_q3_8">分泌物增加</label>
+                                            <input type="checkbox" class="btn-check" name="d_type1_q3" id="type1_q3_9" value="點狀出血" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type1_q3_9">點狀出血</label>
+                                            <input type="checkbox" class="btn-check" name="d_type1_q3" id="type1_q3_10" value="其他" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type1_q3_10">其他：(請在右方填寫症狀)</label>
+                                            <div class="d-inline-flex input-group w-auto">
+                                                <input
+                                                    type="text"
+                                                    class="form-control input_underline ms-1"
+                                                    style="font-size: var(--fs-16)"
+                                                    name="d_type1_q3"
+                                                    id="type1_q3_other"
+                                                    placeholder="請填寫其他症狀"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row align-items-center mb-2">
+                                        <div class="col-auto">
+                                            <label for="d_type1_q4" class="col-form-label fw-bold">同房</label>
+                                        </div>
+                                        <div class="col-auto">
+                                            <input type="radio" class="btn-check" name="d_type1_q4" id="q4_item_1" value="沒有同房" />
+                                            <label class="btn btn-outline-c3 rounded-pill my-1" for="q4_item_1">沒有同房</label>
+                                            <input type="radio" class="btn-check" name="d_type1_q4" id="q4_item_2" value="有，且有避孕" />
+                                            <label class="btn btn-outline-c3 rounded-pill my-1" for="q4_item_2">有同房，有避孕</label>
+                                            <input type="radio" class="btn-check" name="d_type1_q4" id="q4_item_3" value="有，但沒有避孕" />
+                                            <label class="btn btn-outline-c3 rounded-pill my-1" for="q4_item_3">有同房，沒有避孕</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--小產期-->
+                                <div class="ps-sm-2 ps-md-4 daily_type d-none" id="daily_type_2">
                                     <div class="row align-items-center mb-1">
                                         <div class="col-auto">
-                                            <label for="type1_q2" class="col-form-label">・經痛程度</label>
+                                            <label for="type1_q1" class="col-form-label fw-bold">狀態</label>
                                         </div>
                                         <div class="col-auto">
-                                            <input type="radio" class="btn-check m-1" name="mc_pain" id="pain_less" value="輕微" />
-                                            <label class="btn btn-outline-c3 rounded-pill" for="pain_less">輕微(悶痛可忍)</label>
-                                            <input type="radio" class="btn-check m-1" name="mc_pain" id="pain_normal" value="中度" />
-                                            <label class="btn btn-outline-c3 rounded-pill" for="pain_normal">中度(止痛藥可緩解)</label>
-                                            <input type="radio" class="btn-check m-1" name="mc_pain" id="pain_more" value="嚴重" />
-                                            <label class="btn btn-outline-c3 rounded-pill" for="pain_more">嚴重(止痛藥無法緩解)</label>
+                                            <button class="btn btn-c1 rounded-pill" id="health_type">小產期</button>
+                                        </div>
+                                    </div>
+                                    <div class="row align-items-center mb-2">
+                                        <div class="col-auto">
+                                            <label for="d_type2_q1" class="col-form-label fw-bold">日期</label>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="input-group">
+                                                <input type="text" id="d_type2_q1" class="form-control datepicker" />
+                                                <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <label for="d_type2_q2" class="col-form-label fw-bold">惡露</label>
+                                        </div>
+                                        <div class="col-auto">
+                                            <input type="radio" class="btn-check m-1" name="has_loc_type" id="has_loc" value="有" />
+                                            <label class="btn btn-outline-c3 rounded-pill" for="has_loc">有惡露</label>
+                                            <input type="radio" class="btn-check m-1" name="has_loc_type" id="no_loc" value="沒有" />
+                                            <label class="btn btn-outline-c3 rounded-pill" for="no_loc">沒有惡露</label>
+                                        </div>
+                                        <div class="row align-items-center mb-1">
+                                            <div class="col-auto">
+                                                <label for="type1_q2" class="col-form-label">・惡露量</label>
+                                            </div>
+                                            <div class="col-auto">
+                                                <input type="radio" class="btn-check m-1" name="loc_amount" id="loc_less" value="量少" />
+                                                <label class="btn btn-outline-c3 rounded-pill" for="loc_less">量少🩸</label>
+                                                <input type="radio" class="btn-check m-1" name="loc_amount" id="loc_normal" value="量適中" />
+                                                <label class="btn btn-outline-c3 rounded-pill" for="loc_normal">量適中🩸🩸</label>
+                                                <input type="radio" class="btn-check m-1" name="loc_amount" id="loc_more" value="量多" />
+                                                <label class="btn btn-outline-c3 rounded-pill" for="loc_more">量多🩸🩸🩸</label>
+                                            </div>
+                                        </div>
+                                        <div class="row align-items-center mb-1">
+                                            <div class="col-auto">
+                                                <label for="type1_q2" class="col-form-label">・惡露顏色</label>
+                                            </div>
+                                            <div class="col-auto">
+                                                <input type="radio" class="btn-check m-1" name="loc_color" id="loc_red" value="鮮紅色" />
+                                                <label class="btn btn-outline-c3 rounded-pill" for="loc_red">鮮紅色<i class="fas fa-tint ms-1" style="color: red"></i></label>
+                                                <input type="radio" class="btn-check m-1" name="loc_color" id="loc_darkred" value="暗紅色" />
+                                                <label class="btn btn-outline-c3 rounded-pill" for="loc_darkred">暗紅色<i class="fas fa-tint ms-1" style="color: darkred"></i></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row align-items-center mb-3">
+                                        <div class="col-auto">
+                                            <label for="d_type2_q3" class="col-form-label fw-bold">症狀</label>
+                                        </div>
+                                        <div class="col-auto mt-0">
+                                            <input type="checkbox" class="btn-check" name="d_type2_q3" id="type2_q3_1" value="宮縮陣痛" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type2_q3_1">宮縮陣痛</label>
+                                            <input type="checkbox" class="btn-check" name="d_type2_q3" id="type2_q3_2" value="腰痛" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type2_q3_2">腰痛</label>
+                                            <input type="checkbox" class="btn-check" name="d_type2_q3" id="type2_q3_3" value="大量血塊" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type2_q3_3">大量的大塊血塊(直徑約5cm)</label>
+                                            <input type="checkbox" class="btn-check" name="d_type2_q3" id="type2_q3_4" value="發燒" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type2_q3_4">發燒</label>
+                                            <input type="checkbox" class="btn-check" name="d_type2_q3" id="type2_q3_5" value="噁心" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type2_q3_5">噁心</label>
+                                            <input type="checkbox" class="btn-check" name="d_type2_q3" id="type2_q3_6" value="嘔吐" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type2_q3_6">嘔吐</label>
+                                            <input type="checkbox" class="btn-check" name="d_type2_q3" id="type2_q3_7" value="暈眩" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type2_q3_7">暈眩</label>
+                                            <input type="checkbox" class="btn-check" name="d_type2_q3" id="type2_q3_8" value="胸部脹痛" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type2_q3_8">胸部脹痛</label>
+                                            <input type="checkbox" class="btn-check" name="d_type2_q3" id="type2_q3_9" value="其他" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type2_q3_9">其他：(請在右方填寫症狀)</label>
+                                            <div class="d-inline-flex input-group w-auto">
+                                                <input
+                                                    type="text"
+                                                    class="form-control input_underline ms-1"
+                                                    style="font-size: var(--fs-16)"
+                                                    name="d_type2_q3"
+                                                    id="type2_q3_other"
+                                                    placeholder="請填寫其他症狀"
+                                                />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row align-items-center mb-3">
-                                    <div class="col-auto">
-                                        <label for="d_type1_q3" class="col-form-label fw-bold">症狀</label>
-                                    </div>
-                                    <div class="col-auto mt-0">
-                                        <input type="checkbox" class="btn-check" name="d_type1_q3" id="type1_q3_1" value="頭痛" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type1_q3_1">頭痛</label>
-                                        <input type="checkbox" class="btn-check" name="d_type1_q3" id="type1_q3_2" value="腰痛" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type1_q3_2">腰痛</label>
-                                        <input type="checkbox" class="btn-check" name="d_type1_q3" id="type1_q3_3" value="潮熱" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type1_q3_3">潮熱</label>
-                                        <input type="checkbox" class="btn-check" name="d_type1_q3" id="type1_q3_4" value="乳房脹痛" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type1_q3_4">乳房脹痛</label>
-                                        <input type="checkbox" class="btn-check" name="d_type1_q3" id="type1_q3_5" value="排卵痛" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type1_q3_5">排卵痛</label>
-                                        <input type="checkbox" class="btn-check" name="d_type1_q3" id="type1_q3_6" value="便秘" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type1_q3_6">便秘</label>
-                                        <input type="checkbox" class="btn-check" name="d_type1_q3" id="type1_q3_7" value="腹瀉" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type1_q3_7">腹瀉</label>
-                                        <input type="checkbox" class="btn-check" name="d_type1_q3" id="type1_q3_8" value="分泌物增加" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type1_q3_8">分泌物增加</label>
-                                        <input type="checkbox" class="btn-check" name="d_type1_q3" id="type1_q3_9" value="點狀出血" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type1_q3_9">點狀出血</label>
-                                        <input type="checkbox" class="btn-check" name="d_type1_q3" id="type1_q3_10" value="其他" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type1_q3_10">其他：(請在右方填寫症狀)</label>
-                                        <div class="d-inline-flex input-group w-auto">
-                                            <input
-                                                type="text"
-                                                class="form-control input_underline ms-1"
-                                                style="font-size: var(--fs-16)"
-                                                name="d_type1_q3"
-                                                id="type1_q3_other"
-                                                placeholder="請填寫其他症狀"
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row align-items-center mb-2">
-                                    <div class="col-auto">
-                                        <label for="d_type1_q4" class="col-form-label fw-bold">同房</label>
-                                    </div>
-                                    <div class="col-auto">
-                                        <input type="radio" class="btn-check" name="d_type1_q4" id="q4_item_1" value="沒有同房" />
-                                        <label class="btn btn-outline-c3 rounded-pill my-1" for="q4_item_1">沒有同房</label>
-                                        <input type="radio" class="btn-check" name="d_type1_q4" id="q4_item_2" value="有，且有避孕" />
-                                        <label class="btn btn-outline-c3 rounded-pill my-1" for="q4_item_2">有同房，有避孕</label>
-                                        <input type="radio" class="btn-check" name="d_type1_q4" id="q4_item_3" value="有，但沒有避孕" />
-                                        <label class="btn btn-outline-c3 rounded-pill my-1" for="q4_item_3">有同房，沒有避孕</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--小產期-->
-                            <div class="ps-sm-2 ps-md-4 daily_type d-none" id="daily_type_2">
-                                <div class="row align-items-center mb-1">
-                                    <div class="col-auto">
-                                        <label for="type1_q1" class="col-form-label fw-bold">狀態</label>
-                                    </div>
-                                    <div class="col-auto">
-                                        <button class="btn btn-c1 rounded-pill" id="health_type">小產期</button>
-                                    </div>
-                                </div>
-                                <div class="row align-items-center mb-2">
-                                    <div class="col-auto">
-                                        <label for="d_type2_q1" class="col-form-label fw-bold">日期</label>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="input-group">
-                                            <input type="text" id="d_type2_q1" class="form-control datepicker" />
-                                            <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row align-items-center">
-                                    <div class="col-auto">
-                                        <label for="d_type2_q2" class="col-form-label fw-bold">惡露</label>
-                                    </div>
-                                    <div class="col-auto">
-                                        <input type="radio" class="btn-check m-1" name="has_loc_type" id="has_loc" value="有" />
-                                        <label class="btn btn-outline-c3 rounded-pill" for="has_loc">有惡露</label>
-                                        <input type="radio" class="btn-check m-1" name="has_loc_type" id="no_loc" value="沒有" />
-                                        <label class="btn btn-outline-c3 rounded-pill" for="no_loc">沒有惡露</label>
-                                    </div>
+                                <!--懷孕期-->
+                                <div class="ps-sm-2 ps-md-4 daily_type d-none" id="daily_type_3">
                                     <div class="row align-items-center mb-1">
                                         <div class="col-auto">
-                                            <label for="type1_q2" class="col-form-label">・惡露量</label>
+                                            <label for="type3_q1" class="col-form-label fw-bold">狀態</label>
                                         </div>
                                         <div class="col-auto">
-                                            <input type="radio" class="btn-check m-1" name="loc_amount" id="loc_less" value="量少" />
-                                            <label class="btn btn-outline-c3 rounded-pill" for="loc_less">量少🩸</label>
-                                            <input type="radio" class="btn-check m-1" name="loc_amount" id="loc_normal" value="量適中" />
-                                            <label class="btn btn-outline-c3 rounded-pill" for="loc_normal">量適中🩸🩸</label>
-                                            <input type="radio" class="btn-check m-1" name="loc_amount" id="loc_more" value="量多" />
-                                            <label class="btn btn-outline-c3 rounded-pill" for="loc_more">量多🩸🩸🩸</label>
+                                            <button class="btn btn-c1 rounded-pill">懷孕期</button>
                                         </div>
                                     </div>
+                                    <div class="row align-items-center mb-2">
+                                        <div class="col-auto">
+                                            <label for="d_type3_q1" class="col-form-label fw-bold">日期</label>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="input-group">
+                                                <input type="text" id="d_type3_q1" class="form-control datepicker" />
+                                                <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <label for="d_type3_q2" class="col-form-label fw-bold">出血</label>
+                                        </div>
+                                        <div class="col-auto">
+                                            <input type="radio" class="btn-check m-1" name="has_blood_type" id="has_blood" value="有" />
+                                            <label class="btn btn-outline-c3 rounded-pill" for="has_blood">有出血</label>
+                                            <input type="radio" class="btn-check m-1" name="has_blood_type" id="no_blood" value="沒有" />
+                                            <label class="btn btn-outline-c3 rounded-pill" for="no_blood">沒有出血</label>
+                                        </div>
+                                        <div class="row align-items-center mb-1">
+                                            <div class="col-auto">
+                                                <label for="type3_q2" class="col-form-label">・出血量</label>
+                                            </div>
+                                            <div class="col-auto">
+                                                <input type="radio" class="btn-check m-1" name="blood_amount" id="blood_less" value="量少" />
+                                                <label class="btn btn-outline-c3 rounded-pill" for="blood_less">量少🩸</label>
+                                                <input type="radio" class="btn-check m-1" name="blood_amount" id="blood_normal" value="量適中" />
+                                                <label class="btn btn-outline-c3 rounded-pill" for="blood_normal">量適中🩸🩸</label>
+                                                <input type="radio" class="btn-check m-1" name="blood_amount" id="blood_more" value="量多" />
+                                                <label class="btn btn-outline-c3 rounded-pill" for="blood_more">量多🩸🩸🩸</label>
+                                            </div>
+                                        </div>
+                                        <div class="row align-items-center mb-1">
+                                            <div class="col-auto">
+                                                <label for="type3_q2" class="col-form-label">・出血顏色</label>
+                                            </div>
+                                            <div class="col-auto">
+                                                <input type="radio" class="btn-check m-1" name="blood_color" id="blood_pink" value="粉紅色" />
+                                                <label class="btn btn-outline-c3 rounded-pill" for="blood_pink">粉紅色<i class="fas fa-tint ms-1" style="color: deeppink"></i></label>
+                                                <input type="radio" class="btn-check m-1" name="blood_color" id="blood_red" value="鮮紅色" />
+                                                <label class="btn btn-outline-c3 rounded-pill" for="blood_red">鮮紅色<i class="fas fa-tint ms-1" style="color: red"></i></label>
+                                                <input type="radio" class="btn-check m-1" name="blood_color" id="blood_darkred" value="暗紅色" />
+                                                <label class="btn btn-outline-c3 rounded-pill" for="blood_darkred">暗紅色<i class="fas fa-tint ms-1" style="color: darkred"></i></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row align-items-center mb-3">
+                                        <div class="col-auto">
+                                            <label for="d_type3_q3" class="col-form-label fw-bold">症狀</label>
+                                        </div>
+                                        <div class="col-auto mt-0">
+                                            <input type="checkbox" class="btn-check" name="d_type3_q3" id="type3_q3_1" value="陰道出血" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type3_q3_1">陰道出血</label>
+                                            <input type="checkbox" class="btn-check" name="d_type3_q3" id="type3_q3_2" value="腰痠背痛" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type3_q3_2">腰痠背痛</label>
+                                            <input type="checkbox" class="btn-check" name="d_type3_q3" id="type3_q3_3" value="胸部脹痛" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type3_q3_3">胸部脹痛</label>
+                                            <input type="checkbox" class="btn-check" name="d_type3_q3" id="type3_q3_4" value="下腹疼痛" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type3_q3_4">下腹疼痛</label>
+                                            <input type="checkbox" class="btn-check" name="d_type3_q3" id="type3_q3_5" value="噁心" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type3_q3_5">噁心</label>
+                                            <input type="checkbox" class="btn-check" name="d_type3_q3" id="type3_q3_6" value="嘔吐" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type3_q3_6">嘔吐</label>
+                                            <input type="checkbox" class="btn-check" name="d_type3_q3" id="type3_q3_7" value="頭暈" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type3_q3_7">頭暈</label>
+                                            <input type="checkbox" class="btn-check" name="d_type3_q3" id="type3_q3_8" value="便秘" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type3_q3_8">便秘</label>
+                                            <input type="checkbox" class="btn-check" name="d_type3_q3" id="type3_q3_9" value="頻尿" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type3_q3_9">頻尿</label>
+                                            <input type="checkbox" class="btn-check" name="d_type3_q3" id="type3_q3_10" value="胃部不適" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type3_q3_10">胃部不適</label>
+                                            <input type="checkbox" class="btn-check" name="d_type3_q3" id="type3_q3_11" value="消化不良" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type3_q3_11">消化不良</label>
+                                            <input type="checkbox" class="btn-check" name="d_type3_q3" id="type3_q3_12" value="其他" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type3_q3_12">其他：(請在右方填寫症狀)</label>
+                                            <div class="d-inline-flex input-group w-auto align-items-center">
+                                                <input
+                                                    type="text"
+                                                    class="form-control input_underline ms-1"
+                                                    style="font-size: var(--fs-16)"
+                                                    name="d_type3_q3"
+                                                    id="type3_q3_other"
+                                                    placeholder="請填寫其他症狀"
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--產後期-->
+                                <div class="ps-sm-2 ps-md-4 daily_type d-none" id="daily_type_4">
                                     <div class="row align-items-center mb-1">
                                         <div class="col-auto">
-                                            <label for="type1_q2" class="col-form-label">・惡露顏色</label>
+                                            <label for="type4_q1" class="col-form-label fw-bold">狀態</label>
                                         </div>
                                         <div class="col-auto">
-                                            <input type="radio" class="btn-check m-1" name="loc_color" id="loc_red" value="鮮紅色" />
-                                            <label class="btn btn-outline-c3 rounded-pill" for="loc_red">鮮紅色<i class="fas fa-tint ms-1" style="color: red"></i></label>
-                                            <input type="radio" class="btn-check m-1" name="loc_color" id="loc_darkred" value="暗紅色" />
-                                            <label class="btn btn-outline-c3 rounded-pill" for="loc_darkred">暗紅色<i class="fas fa-tint ms-1" style="color: darkred"></i></label>
+                                            <button class="btn btn-c1 rounded-pill">產後期</button>
+                                        </div>
+                                    </div>
+                                    <div class="row align-items-center mb-2">
+                                        <div class="col-auto">
+                                            <label for="d_type4_q1" class="col-form-label fw-bold">日期</label>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="input-group">
+                                                <input type="text" id="d_type4_q1" class="form-control datepicker" />
+                                                <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <label for="d_type4_q2" class="col-form-label fw-bold">惡露</label>
+                                        </div>
+                                        <div class="col-auto">
+                                            <input type="radio" class="btn-check m-1" name="has_loc_type1" id="has_loc1" value="有" />
+                                            <label class="btn btn-outline-c3 rounded-pill" for="has_loc1">有惡露</label>
+                                            <input type="radio" class="btn-check m-1" name="has_loc_type1" id="no_loc1" value="沒有" />
+                                            <label class="btn btn-outline-c3 rounded-pill" for="no_loc1">沒有惡露</label>
+                                        </div>
+                                        <div class="row align-items-center mb-1">
+                                            <div class="col-auto">
+                                                <label for="type4_q2" class="col-form-label">・惡露量</label>
+                                            </div>
+                                            <div class="col-auto">
+                                                <input type="radio" class="btn-check m-1" name="loc_amount4" id="loc_less4" value="量少" />
+                                                <label class="btn btn-outline-c3 rounded-pill" for="loc_less4">量少🩸</label>
+                                                <input type="radio" class="btn-check m-1" name="loc_amount4" id="loc_normal4" value="量適中" />
+                                                <label class="btn btn-outline-c3 rounded-pill" for="loc_normal4">量適中🩸🩸</label>
+                                                <input type="radio" class="btn-check m-1" name="loc_amount4" id="loc_more4" value="量多" />
+                                                <label class="btn btn-outline-c3 rounded-pill" for="loc_more4">量多🩸🩸🩸</label>
+                                            </div>
+                                        </div>
+                                        <div class="row align-items-center mb-1">
+                                            <div class="col-auto">
+                                                <label for="type4_q2" class="col-form-label">・惡露顏色</label>
+                                            </div>
+                                            <div class="col-auto">
+                                                <input type="radio" class="btn-check m-1" name="loc_color4" id="loc_red4" value="鮮紅色" />
+                                                <label class="btn btn-outline-c3 rounded-pill" for="loc_red4">鮮紅色<i class="fas fa-tint ms-1" style="color: red"></i></label>
+                                                <input type="radio" class="btn-check m-1" name="loc_color4" id="loc_darkred4" value="暗紅色" />
+                                                <label class="btn btn-outline-c3 rounded-pill" for="loc_darkred4">暗紅色<i class="fas fa-tint ms-1" style="color: darkred"></i></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row align-items-center mb-3">
+                                        <div class="col-auto">
+                                            <label for="d_type4_q3" class="col-form-label fw-bold">症狀</label>
+                                        </div>
+                                        <div class="col-auto mt-0">
+                                            <input type="checkbox" class="btn-check" name="d_type4_q3" id="type4_q3_1" value="宮縮陣痛" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type4_q3_1">宮縮陣痛</label>
+                                            <input type="checkbox" class="btn-check" name="d_type4_q3" id="type4_q3_2" value="腰痛" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type4_q3_2">腰痛</label>
+                                            <input type="checkbox" class="btn-check" name="d_type4_q3" id="type4_q3_3" value="大量血塊" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type4_q3_3">大量的大塊血塊(直徑約5cm)</label>
+                                            <input type="checkbox" class="btn-check" name="d_type4_q3" id="type4_q3_4" value="食慾不振" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type4_q3_4">食慾不振</label>
+                                            <input type="checkbox" class="btn-check" name="d_type4_q3" id="type4_q3_5" value="消化不良" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type4_q3_5">消化不良</label>
+                                            <input type="checkbox" class="btn-check" name="d_type4_q3" id="type4_q3_6" value="便秘" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type4_q3_6">便秘</label>
+                                            <input type="checkbox" class="btn-check" name="d_type4_q3" id="type4_q3_7" value="私密處搔癢/異味" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type4_q3_7">私密處搔癢/異味</label>
+                                            <input type="checkbox" class="btn-check" name="d_type4_q3" id="type4_q3_8" value="胸部脹痛" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type4_q3_8">胸部脹痛</label>
+                                            <input type="checkbox" class="btn-check" name="d_type4_q3" id="type4_q3_9" value="其他" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type4_q3_9">其他：(請在右方填寫症狀)</label>
+                                            <div class="d-inline-flex input-group w-auto">
+                                                <input
+                                                    type="text"
+                                                    class="form-control input_underline ms-1"
+                                                    style="font-size: var(--fs-16)"
+                                                    name="d_type4_q3"
+                                                    id="type4_q3_other"
+                                                    placeholder="請填寫其他症狀"
+                                                />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row align-items-center mb-3">
-                                    <div class="col-auto">
-                                        <label for="d_type2_q3" class="col-form-label fw-bold">症狀</label>
-                                    </div>
-                                    <div class="col-auto mt-0">
-                                        <input type="checkbox" class="btn-check" name="d_type2_q3" id="type2_q3_1" value="宮縮陣痛" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type2_q3_1">宮縮陣痛</label>
-                                        <input type="checkbox" class="btn-check" name="d_type2_q3" id="type2_q3_2" value="腰痛" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type2_q3_2">腰痛</label>
-                                        <input type="checkbox" class="btn-check" name="d_type2_q3" id="type2_q3_3" value="大量血塊" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type2_q3_3">大量的大塊血塊(直徑約5cm)</label>
-                                        <input type="checkbox" class="btn-check" name="d_type2_q3" id="type2_q3_4" value="發燒" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type2_q3_4">發燒</label>
-                                        <input type="checkbox" class="btn-check" name="d_type2_q3" id="type2_q3_5" value="噁心" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type2_q3_5">噁心</label>
-                                        <input type="checkbox" class="btn-check" name="d_type2_q3" id="type2_q3_6" value="嘔吐" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type2_q3_6">嘔吐</label>
-                                        <input type="checkbox" class="btn-check" name="d_type2_q3" id="type2_q3_7" value="暈眩" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type2_q3_7">暈眩</label>
-                                        <input type="checkbox" class="btn-check" name="d_type2_q3" id="type2_q3_8" value="胸部脹痛" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type2_q3_8">胸部脹痛</label>
-                                        <input type="checkbox" class="btn-check" name="d_type2_q3" id="type2_q3_9" value="其他" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type2_q3_9">其他：(請在右方填寫症狀)</label>
-                                        <div class="d-inline-flex input-group w-auto">
-                                            <input
-                                                type="text"
-                                                class="form-control input_underline ms-1"
-                                                style="font-size: var(--fs-16)"
-                                                name="d_type2_q3"
-                                                id="type2_q3_other"
-                                                placeholder="請填寫其他症狀"
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--懷孕期-->
-                            <div class="ps-sm-2 ps-md-4 daily_type d-none" id="daily_type_3">
-                                <div class="row align-items-center mb-1">
-                                    <div class="col-auto">
-                                        <label for="type3_q1" class="col-form-label fw-bold">狀態</label>
-                                    </div>
-                                    <div class="col-auto">
-                                        <button class="btn btn-c1 rounded-pill">懷孕期</button>
-                                    </div>
-                                </div>
-                                <div class="row align-items-center mb-2">
-                                    <div class="col-auto">
-                                        <label for="d_type3_q1" class="col-form-label fw-bold">日期</label>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="input-group">
-                                            <input type="text" id="d_type3_q1" class="form-control datepicker" />
-                                            <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row align-items-center">
-                                    <div class="col-auto">
-                                        <label for="d_type3_q2" class="col-form-label fw-bold">出血</label>
-                                    </div>
-                                    <div class="col-auto">
-                                        <input type="radio" class="btn-check m-1" name="has_blood_type" id="has_blood" value="有" />
-                                        <label class="btn btn-outline-c3 rounded-pill" for="has_blood">有出血</label>
-                                        <input type="radio" class="btn-check m-1" name="has_blood_type" id="no_blood" value="沒有" />
-                                        <label class="btn btn-outline-c3 rounded-pill" for="no_blood">沒有出血</label>
-                                    </div>
+                                <!--更年期-->
+                                <div class="ps-sm-2 ps-md-4 daily_type d-none" id="daily_type_5">
                                     <div class="row align-items-center mb-1">
                                         <div class="col-auto">
-                                            <label for="type3_q2" class="col-form-label">・出血量</label>
+                                            <label for="type5_q1" class="col-form-label fw-bold">狀態</label>
                                         </div>
                                         <div class="col-auto">
-                                            <input type="radio" class="btn-check m-1" name="blood_amount" id="blood_less" value="量少" />
-                                            <label class="btn btn-outline-c3 rounded-pill" for="blood_less">量少🩸</label>
-                                            <input type="radio" class="btn-check m-1" name="blood_amount" id="blood_normal" value="量適中" />
-                                            <label class="btn btn-outline-c3 rounded-pill" for="blood_normal">量適中🩸🩸</label>
-                                            <input type="radio" class="btn-check m-1" name="blood_amount" id="blood_more" value="量多" />
-                                            <label class="btn btn-outline-c3 rounded-pill" for="blood_more">量多🩸🩸🩸</label>
+                                            <button class="btn btn-c1 rounded-pill">更年期</button>
                                         </div>
                                     </div>
-                                    <div class="row align-items-center mb-1">
+                                    <div class="row align-items-center mb-2">
                                         <div class="col-auto">
-                                            <label for="type3_q2" class="col-form-label">・出血顏色</label>
+                                            <label for="d_type5_q1" class="col-form-label fw-bold">日期</label>
                                         </div>
                                         <div class="col-auto">
-                                            <input type="radio" class="btn-check m-1" name="blood_color" id="blood_pink" value="粉紅色" />
-                                            <label class="btn btn-outline-c3 rounded-pill" for="blood_pink">粉紅色<i class="fas fa-tint ms-1" style="color: deeppink"></i></label>
-                                            <input type="radio" class="btn-check m-1" name="blood_color" id="blood_red" value="鮮紅色" />
-                                            <label class="btn btn-outline-c3 rounded-pill" for="blood_red">鮮紅色<i class="fas fa-tint ms-1" style="color: red"></i></label>
-                                            <input type="radio" class="btn-check m-1" name="blood_color" id="blood_darkred" value="暗紅色" />
-                                            <label class="btn btn-outline-c3 rounded-pill" for="blood_darkred">暗紅色<i class="fas fa-tint ms-1" style="color: darkred"></i></label>
+                                            <div class="input-group">
+                                                <input type="text" id="d_type5_q1" class="form-control datepicker" />
+                                                <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row align-items-center mb-3">
-                                    <div class="col-auto">
-                                        <label for="d_type3_q3" class="col-form-label fw-bold">症狀</label>
-                                    </div>
-                                    <div class="col-auto mt-0">
-                                        <input type="checkbox" class="btn-check" name="d_type3_q3" id="type2_q3_1" value="陰道出血" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type3_q3_1">陰道出血</label>
-                                        <input type="checkbox" class="btn-check" name="d_type3_q3" id="type3_q3_2" value="腰痠背痛" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type3_q3_2">腰痠背痛</label>
-                                        <input type="checkbox" class="btn-check" name="d_type3_q3" id="type3_q3_3" value="胸部脹痛" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type3_q3_3">胸部脹痛</label>
-                                        <input type="checkbox" class="btn-check" name="d_type3_q3" id="type3_q3_4" value="下腹疼痛" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type3_q3_4">下腹疼痛</label>
-                                        <input type="checkbox" class="btn-check" name="d_type3_q3" id="type3_q3_5" value="噁心" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type3_q3_5">噁心</label>
-                                        <input type="checkbox" class="btn-check" name="d_type3_q3" id="type3_q3_6" value="嘔吐" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type3_q3_6">嘔吐</label>
-                                        <input type="checkbox" class="btn-check" name="d_type3_q3" id="type3_q3_7" value="頭暈" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type3_q3_7">頭暈</label>
-                                        <input type="checkbox" class="btn-check" name="d_type3_q3" id="type3_q3_8" value="便秘" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type3_q3_8">便秘</label>
-                                        <input type="checkbox" class="btn-check" name="d_type3_q3" id="type3_q3_9" value="頻尿" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type3_q3_9">頻尿</label>
-                                        <input type="checkbox" class="btn-check" name="d_type3_q3" id="type3_q3_10" value="胃部不適" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type3_q3_10">胃部不適</label>
-                                        <input type="checkbox" class="btn-check" name="d_type3_q3" id="type3_q3_11" value="消化不良" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type3_q3_11">消化不良</label>
-                                        <input type="checkbox" class="btn-check" name="d_type3_q3" id="type3_q3_12" value="其他" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type3_q3_12">其他：(請在右方填寫症狀)</label>
-                                        <div class="d-inline-flex input-group w-auto align-items-center">
-                                            <input
-                                                type="text"
-                                                class="form-control input_underline ms-1"
-                                                style="font-size: var(--fs-16)"
-                                                name="d_type3_q3"
-                                                id="type3_q3_other"
-                                                placeholder="請填寫其他症狀"
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--產後期-->
-                            <div class="ps-sm-2 ps-md-4 daily_type d-none" id="daily_type_4">
-                                <div class="row align-items-center mb-1">
-                                    <div class="col-auto">
-                                        <label for="type4_q1" class="col-form-label fw-bold">狀態</label>
-                                    </div>
-                                    <div class="col-auto">
-                                        <button class="btn btn-c1 rounded-pill">產後期</button>
-                                    </div>
-                                </div>
-                                <div class="row align-items-center mb-2">
-                                    <div class="col-auto">
-                                        <label for="d_type4_q1" class="col-form-label fw-bold">日期</label>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="input-group">
-                                            <input type="text" id="d_type4_q1" class="form-control datepicker" />
-                                            <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row align-items-center">
-                                    <div class="col-auto">
-                                        <label for="d_type4_q2" class="col-form-label fw-bold">惡露</label>
-                                    </div>
-                                    <div class="col-auto">
-                                        <input type="radio" class="btn-check m-1" name="has_loc_type1" id="has_loc1" value="有" />
-                                        <label class="btn btn-outline-c3 rounded-pill" for="has_loc1">有惡露</label>
-                                        <input type="radio" class="btn-check m-1" name="has_loc_type1" id="no_loc1" value="沒有" />
-                                        <label class="btn btn-outline-c3 rounded-pill" for="no_loc1">沒有惡露</label>
-                                    </div>
-                                    <div class="row align-items-center mb-1">
+                                    <div class="row align-items-center mb-3">
                                         <div class="col-auto">
-                                            <label for="type4_q2" class="col-form-label">・惡露量</label>
+                                            <label for="d_type5_q3" class="col-form-label fw-bold">症狀</label>
                                         </div>
-                                        <div class="col-auto">
-                                            <input type="radio" class="btn-check m-1" name="loc_amount4" id="loc_less4" value="量少" />
-                                            <label class="btn btn-outline-c3 rounded-pill" for="loc_less4">量少🩸</label>
-                                            <input type="radio" class="btn-check m-1" name="loc_amount4" id="loc_normal4" value="量適中" />
-                                            <label class="btn btn-outline-c3 rounded-pill" for="loc_normal4">量適中🩸🩸</label>
-                                            <input type="radio" class="btn-check m-1" name="loc_amount4" id="loc_more4" value="量多" />
-                                            <label class="btn btn-outline-c3 rounded-pill" for="loc_more4">量多🩸🩸🩸</label>
-                                        </div>
-                                    </div>
-                                    <div class="row align-items-center mb-1">
-                                        <div class="col-auto">
-                                            <label for="type4_q2" class="col-form-label">・惡露顏色</label>
-                                        </div>
-                                        <div class="col-auto">
-                                            <input type="radio" class="btn-check m-1" name="loc_color4" id="loc_red4" value="鮮紅色" />
-                                            <label class="btn btn-outline-c3 rounded-pill" for="loc_red4">鮮紅色<i class="fas fa-tint ms-1" style="color: red"></i></label>
-                                            <input type="radio" class="btn-check m-1" name="loc_color4" id="loc_darkred4" value="暗紅色" />
-                                            <label class="btn btn-outline-c3 rounded-pill" for="loc_darkred4">暗紅色<i class="fas fa-tint ms-1" style="color: darkred"></i></label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row align-items-center mb-3">
-                                    <div class="col-auto">
-                                        <label for="d_type4_q3" class="col-form-label fw-bold">症狀</label>
-                                    </div>
-                                    <div class="col-auto mt-0">
-                                        <input type="checkbox" class="btn-check" name="d_type4_q3" id="type4_q3_1" value="宮縮陣痛" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type4_q3_1">宮縮陣痛</label>
-                                        <input type="checkbox" class="btn-check" name="d_type4_q3" id="type4_q3_2" value="腰痛" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type4_q3_2">腰痛</label>
-                                        <input type="checkbox" class="btn-check" name="d_type4_q3" id="type4_q3_3" value="大量血塊" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type4_q3_3">大量的大塊血塊(直徑約5cm)</label>
-                                        <input type="checkbox" class="btn-check" name="d_type4_q3" id="type4_q3_4" value="食慾不振" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type4_q3_4">食慾不振</label>
-                                        <input type="checkbox" class="btn-check" name="d_type4_q3" id="type4_q3_5" value="消化不良" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type4_q3_5">消化不良</label>
-                                        <input type="checkbox" class="btn-check" name="d_type4_q3" id="type4_q3_6" value="便秘" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type4_q3_6">便秘</label>
-                                        <input type="checkbox" class="btn-check" name="d_type4_q3" id="type4_q3_7" value="私密處搔癢/異味" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type4_q3_7">私密處搔癢/異味</label>
-                                        <input type="checkbox" class="btn-check" name="d_type4_q3" id="type4_q3_8" value="胸部脹痛" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type4_q3_8">胸部脹痛</label>
-                                        <input type="checkbox" class="btn-check" name="d_type4_q3" id="type4_q3_9" value="其他" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type4_q3_9">其他：(請在右方填寫症狀)</label>
-                                        <div class="d-inline-flex input-group w-auto">
-                                            <input
-                                                type="text"
-                                                class="form-control input_underline ms-1"
-                                                style="font-size: var(--fs-16)"
-                                                name="d_type4_q3"
-                                                id="type4_q3_other"
-                                                placeholder="請填寫其他症狀"
-                                            />
+                                        <div class="col-auto mt-0">
+                                            <input type="checkbox" class="btn-check" name="d_type5_q3" id="type5_q3_1" value="熱潮紅" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type5_q3_1">熱潮紅</label>
+                                            <input type="checkbox" class="btn-check" name="d_type5_q3" id="type5_q3_2" value="盜汗" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type5_q3_2">盜汗</label>
+                                            <input type="checkbox" class="btn-check" name="d_type5_q3" id="type5_q3_3" value="手腳冰冷" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type5_q3_3">手腳冰冷</label>
+                                            <input type="checkbox" class="btn-check" name="d_type5_q3" id="type5_q3_4" value="不易入睡" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type5_q3_4">不易入睡</label>
+                                            <input type="checkbox" class="btn-check" name="d_type5_q3" id="type5_q3_5" value="陰道乾澀" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type5_q3_5">陰道乾澀</label>
+                                            <input type="checkbox" class="btn-check" name="d_type5_q3" id="type5_q3_6" value="陰道搔癢" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type5_q3_6">陰道搔癢</label>
+                                            <input type="checkbox" class="btn-check" name="d_type5_q3" id="type5_q3_7" value="頻尿" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type5_q3_7">頻尿</label>
+                                            <input type="checkbox" class="btn-check" name="d_type5_q3" id="type5_q3_8" value="頭痛" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type5_q3_8">頭痛</label>
+                                            <input type="checkbox" class="btn-check" name="d_type5_q3" id="type5_q3_9" value="其他" />
+                                            <label class="btn btn-outline-c3 rounded-pill m-1" for="type5_q3_9">其他：(請在右方填寫症狀)</label>
+                                            <div class="d-inline-flex input-group w-auto">
+                                                <input
+                                                    type="text"
+                                                    class="form-control input_underline ms-1"
+                                                    style="font-size: var(--fs-16)"
+                                                    name="d_type5_q3"
+                                                    id="type5_q3_other"
+                                                    placeholder="請填寫其他症狀"
+                                                />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <!--更年期-->
-                            <div class="ps-sm-2 ps-md-4 daily_type d-none" id="daily_type_5">
-                                <div class="row align-items-center mb-1">
-                                    <div class="col-auto">
-                                        <label for="type5_q1" class="col-form-label fw-bold">狀態</label>
-                                    </div>
-                                    <div class="col-auto">
-                                        <button class="btn btn-c1 rounded-pill">更年期</button>
-                                    </div>
-                                </div>
-                                <div class="row align-items-center mb-2">
-                                    <div class="col-auto">
-                                        <label for="d_type5_q2" class="col-form-label fw-bold">日期</label>
-                                    </div>
-                                    <div class="col-auto">
-                                        <div class="input-group">
-                                            <input type="text" id="d_type5_q2" class="form-control datepicker" />
-                                            <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row align-items-center mb-3">
-                                    <div class="col-auto">
-                                        <label for="d_type5_q3" class="col-form-label fw-bold">症狀</label>
-                                    </div>
-                                    <div class="col-auto mt-0">
-                                        <input type="checkbox" class="btn-check" name="d_type5_q3" id="type5_q3_1" value="熱潮紅" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type5_q3_1">熱潮紅</label>
-                                        <input type="checkbox" class="btn-check" name="d_type5_q3" id="type5_q3_2" value="盜汗" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type5_q3_2">盜汗</label>
-                                        <input type="checkbox" class="btn-check" name="d_type5_q3" id="type5_q3_3" value="手腳冰冷" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type5_q3_3">手腳冰冷</label>
-                                        <input type="checkbox" class="btn-check" name="d_type5_q3" id="type5_q3_4" value="不易入睡" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type5_q3_4">不易入睡</label>
-                                        <input type="checkbox" class="btn-check" name="d_type5_q3" id="type5_q3_5" value="陰道乾澀" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type5_q3_5">陰道乾澀</label>
-                                        <input type="checkbox" class="btn-check" name="d_type5_q3" id="type5_q3_6" value="陰道搔癢" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type5_q3_6">陰道搔癢</label>
-                                        <input type="checkbox" class="btn-check" name="d_type5_q3" id="type5_q3_7" value="頻尿" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type5_q3_7">頻尿</label>
-                                        <input type="checkbox" class="btn-check" name="d_type5_q3" id="type5_q3_8" value="頭痛" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type5_q3_8">頭痛</label>
-                                        <input type="checkbox" class="btn-check" name="d_type5_q3" id="type5_q3_9" value="其他" />
-                                        <label class="btn btn-outline-c3 rounded-pill m-1" for="type5_q3_9">其他：(請在右方填寫症狀)</label>
-                                        <div class="d-inline-flex input-group w-auto">
-                                            <input
-                                                type="text"
-                                                class="form-control input_underline ms-1"
-                                                style="font-size: var(--fs-16)"
-                                                name="d_type5_q3"
-                                                id="type5_q3_other"
-                                                placeholder="請填寫其他症狀"
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
+                            </form>
                             <div class="row justify-content-center align-items-center mt-2">
                                 <div class="col-auto">
                                     <button id="add_daily_btn" class="btn btn-c2 rounded-pill" style="font-size: var(--fs-18)">記錄</button>
@@ -1124,8 +1120,9 @@
 
         <script src="static/bootstrap-4.6.0-dist/jquery-3.6.0.js"></script>
         <script src="static/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
-        <script src="static/bootstrap-table-master/dist/bootstrap-table.min.js"></script>
         <script src="static/dayjs-1.11.8/package/dayjs.min.js"></script>
+        <script src="static/bootstrap-datepicker-master/dist/js/bootstrap-datepicker.min.js"></script>
+        <script src="static/bootstrap-datepicker-master/dist/locales/bootstrap-datepicker.zh-TW.min.js"></script>
         <script src="static/js/master_page.js"></script>
         <script src="static/js/index.js"></script>
 

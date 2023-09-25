@@ -59,7 +59,7 @@ function points_gift() {
         }).then((result) => {
             if (result.isConfirmed) {
                 //後端處理
-                // 跳轉 point_gift2 頁面
+                // 完成後跳轉 point_gift2 頁面
             }
         });
     }
@@ -98,7 +98,7 @@ function add_product(obj, sum_type) {
     $("#total_exg_point").html(total_point);
 }
 
-//確定要兌換
+//商品確定要兌換
 function exchange() {
     //商品項目list
     let product_list = $("#point_exchange_list .title")
@@ -125,3 +125,15 @@ function exchange() {
     console.log(product_point_list);
     console.log(product_num_list);
 }
+
+//商品兌換頁 點選商品open 商品介紹modal
+$("#product_modal").on("show.bs.modal", function (e) {
+    //get data-id attribute of the clicked element
+    //取得點選的商品ID
+    var pdId = $(e.relatedTarget).data("pd-id");
+    console.log(pdId);
+
+    //根據ID 填入該商品名稱與商品簡介
+    // $(".product-title").html("商品名稱");
+    // $(".product-summary").html("商品簡介");
+});

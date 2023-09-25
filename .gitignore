@@ -98,3 +98,77 @@ static/quill-1.3.6/quill.min.js
 static/quill-1.3.6/quill.min.js.map
 static/quill-1.3.6/quill.snow.css
 
+static/jsCalendar-master/demos/cdn-jsdelivr full demo.html
+static/jsCalendar-master/demos/cdn-jsdelivr minimal demo.html
+static/jsCalendar-master/demos/cdn-unpkg full demo.html
+static/jsCalendar-master/demos/cdn-unpkg minimal demo.html
+static/jsCalendar-master/demos/colorful selects.html
+static/jsCalendar-master/demos/date events.html
+static/jsCalendar-master/demos/date pickers.html
+static/jsCalendar-master/demos/experimental loader demo.html
+static/jsCalendar-master/demos/load events from json file.html
+static/jsCalendar-master/demos/load events from json file.json
+static/jsCalendar-master/demos/year calendar dark.html
+static/jsCalendar-master/demos/year calendar.html
+static/jsCalendar-master/examples/attribute version.html
+static/jsCalendar-master/examples/calendar creation with selectors.html
+static/jsCalendar-master/examples/calendar creation.html
+static/jsCalendar-master/examples/calendar events.html
+static/jsCalendar-master/examples/calendar object get set del.html
+static/jsCalendar-master/examples/calendar options.html
+static/jsCalendar-master/examples/calendar render handlers.html
+static/jsCalendar-master/examples/goto a date method.html
+static/jsCalendar-master/examples/language parameter and methods setLanguage.html
+static/jsCalendar-master/examples/languages.html
+static/jsCalendar-master/examples/min max parameters and methods.html
+static/jsCalendar-master/examples/next previous methods.html
+static/jsCalendar-master/examples/parameters day format.html
+static/jsCalendar-master/examples/parameters first day of the week.html
+static/jsCalendar-master/examples/parameters month format.html
+static/jsCalendar-master/examples/parameters navigator position.html
+static/jsCalendar-master/examples/parameters navigator.html
+static/jsCalendar-master/examples/parameters zero fill.html
+static/jsCalendar-master/examples/refresh method.html
+static/jsCalendar-master/examples/reset method.html
+static/jsCalendar-master/examples/select unselect and clear days methods.html
+static/jsCalendar-master/examples/set date method.html
+static/jsCalendar-master/examples/theme classic.html
+static/jsCalendar-master/examples/theme clean.html
+static/jsCalendar-master/examples/theme colors all.html
+static/jsCalendar-master/examples/theme colors.html
+static/jsCalendar-master/examples/theme custom colors.html
+static/jsCalendar-master/examples/theme darkseries.html
+static/jsCalendar-master/examples/theme default.html
+static/jsCalendar-master/examples/theme material.html
+static/jsCalendar-master/examples/theme micro.html
+static/jsCalendar-master/examples/extensions/datepicker-bootstrap.html
+static/jsCalendar-master/examples/extensions/datepicker-element-position-detection.html
+static/jsCalendar-master/examples/extensions/datepicker.html
+static/jsCalendar-master/examples/extensions/eventmarks.html
+static/jsCalendar-master/examples/extensions/example-extension.html
+static/jsCalendar-master/preview/preview_default.png
+static/jsCalendar-master/preview/preview_main.png
+static/jsCalendar-master/preview/preview_theme_classic.png
+static/jsCalendar-master/preview/preview_theme_clean.png
+static/jsCalendar-master/preview/preview_theme_darkseries.png
+static/jsCalendar-master/preview/preview_theme_default.png
+static/jsCalendar-master/preview/preview_theme_material.png
+static/jsCalendar-master/preview/preview_theme_micro.png
+static/jsCalendar-master/preview/thumbnail.png
+static/jsCalendar-master/preview/themes/preview_theme.xcf
+static/jsCalendar-master/preview/themes/preview.css
+static/jsCalendar-master/preview/themes/preview.js
+static/jsCalendar-master/preview/themes/theme.classic.html
+static/jsCalendar-master/preview/themes/theme.clean.html
+static/jsCalendar-master/preview/themes/theme.darkseries.html
+static/jsCalendar-master/preview/themes/theme.default.html
+static/jsCalendar-master/preview/themes/theme.material.html
+static/jsCalendar-master/preview/themes/theme.micro.html
+static/jsCalendar-master/extensions/jsCalendar.datepicker.js
+static/jsCalendar-master/extensions/jsCalendar.datepicker.min.js
+static/jsCalendar-master/extensions/jsCalendar.eventmarks.css
+static/jsCalendar-master/extensions/jsCalendar.eventmarks.js
+static/jsCalendar-master/CHANGELOG.md
+static/jsCalendar-master/LICENSE
+static/jsCalendar-master/package.json
+static/jsCalendar-master/README.md
