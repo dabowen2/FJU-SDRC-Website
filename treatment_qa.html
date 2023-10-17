@@ -342,7 +342,7 @@
                             <!--文字編輯器套件 editor-->
                             <div class="col-12"><textarea class="form-control" rows="7" id="editor"></textarea></div>
                             <div class="col-12">
-                                <input class="form-control" type="text" id="input_topic" placeholder="＃話題：可以根據你的文章內容輸入多個＃話題喔！" />
+                                <input class="form-control" type="text" id="input_topic" onchange="generateHashtag(this)" placeholder="＃話題：可以根據你的文章內容輸入多個＃話題喔！" />
                             </div>
                         </div>
                     </div>
@@ -420,6 +420,14 @@
 
                 let content = tinymce.get("editor").getContent();
                 console.log(content);
+            }
+
+            // 話題hashtag 取值
+            function generateHashtag(obj) {
+                // 定義字串
+                let input = obj.value;
+                const output = input.match(/#[^\s#]+/g);
+                console.log(output); // 输出 ["#abc", "#qwe"]
             }
         </script>
     </body>
