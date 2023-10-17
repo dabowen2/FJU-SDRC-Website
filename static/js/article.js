@@ -29,7 +29,7 @@ function like(obj) {
             .html(like_count - 1);
         //後端處理 更新按讚數
     } else {
-         // 按讚 讚數+1
+        // 按讚 讚數+1
         $(obj_node).parent().find("i.fa-heart").removeClass("ct-sub-1");
         $(obj_node).parent().find("i.fa-heart").addClass("ct-txt-2");
         $(obj_node)
@@ -44,7 +44,7 @@ function like(obj) {
 function collect(obj) {
     const obj_node = obj.parentNode; //取得前端組件
     let article_id = $(".article_content").attr("id"); //文章ID
-    const no_collect = $(obj_node).parent().find("i.fa-bookmark").hasClass("far");  //取得目前狀態有無收藏
+    const no_collect = $(obj_node).parent().find("i.fa-bookmark").hasClass("far"); //取得目前狀態有無收藏
     //前端顯示已收藏/未收藏按紐
     if (no_collect) {
         // 收藏文章
@@ -109,7 +109,7 @@ function del_comment(obj) {
             console.log("刪除成功");
             let cmt_content = $(obj).parents().eq(5).find(".comment_content").eq(0); //取得要刪除的留言內容物件
             $(obj).parents().eq(4).find(".cmt_author").eq(0).html("此則留言已被本人刪除"); //更改發文者名稱
-            $(cmt_content).html("--- 此則留言已被本人刪除，刪除留言無法再被查看 ---");  //刪除後不可見，更改留言內容 
+            $(cmt_content).html("--- 此則留言已被本人刪除，刪除留言無法再被查看 ---"); //刪除後不可見，更改留言內容
             $(cmt_content).addClass("fst-italic text-muted");
             $(cmt_content).removeClass("ct-title-1");
 
@@ -123,10 +123,10 @@ function del_comment(obj) {
 //點檢舉留言 賦予傳值給視窗對應的留言ID
 $("#reportModal").on("show.bs.modal", function (e) {
     //get data-id attribute of the clicked element
-    var cmtId = $(e.relatedTarget).data("cmt-id");  //取得點選的留言ID
+    var cmtId = $(e.relatedTarget).data("cmt-id"); //取得點選的留言ID
     console.log(cmtId);
     //給開啟的modal中確認按鈕添加data-cmt-id 屬性並賦值，以對應之後送出檢舉後可取得要檢舉的留言id
-    $("#report_confirm_btn").attr("data-cmt-id", cmtId); 
+    $("#report_confirm_btn").attr("data-cmt-id", cmtId);
 });
 
 //檢舉留言
@@ -173,11 +173,36 @@ function vote(obj) {
     console.log(select_item);
 }
 
-// //療心室-票選活動 倒數計時
-// $(".countdown")._countTime("2023-08-03 12:30:00", {
-//     isActive: true,
-//     str: {
-//         title: "活動截止：",
-//         day: "日",
-//     },
-// });
+
+//點擊分享 將當前網址填入shareModal內
+$("#shareModal").on("show.bs.modal", function (e) {
+    $("#input_link").val(location.href);
+});
+
+//分享文章 複製連結
+const select = (DOM) => document.querySelector(DOM);
+select("#copylink_btn").addEventListener("click", () => {
+    select("#input_link").select();    //選取連結文字
+    navigator.clipboard.writeText(select("#input_link").value).then(() => {
+        //當複製時，顯示'已複製'文字
+        $("#copylink_btn").html("Copied");
+        setTimeout(() => {
+            window.getSelection().removeAllRanges(); //remove selection from page
+            $("#copylink_btn").html("複製連結");
+        }, 3000);
+    });
+});
+
+copy.onclick = () => {
+    input.select(); //select input value
+    if (document.execCommand("copy")) {
+        //if the selected text is copied
+        field.classList.add("active");
+        copy.innerText = "Copied";
+        setTimeout(() => {
+            window.getSelection().removeAllRanges(); //remove selection from page
+            field.classList.remove("active");
+            copy.innerText = "Copy";
+        }, 3000);
+    }
+};
