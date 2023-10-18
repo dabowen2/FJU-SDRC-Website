@@ -483,6 +483,17 @@ footer a {
     color: var(--ct-sub-2);
 }
 
+/* 修正modal開啟時 無透黑背景問題 */
+.modal.fade {
+    background: rgba(0, 0, 0, 0.5);
+}
+.modal-backdrop.fade {
+    opacity: 0;
+}
+.modal-open {
+    overflow: auto;
+    padding-right: 0 !important;
+}
 /* .tooltip-inner {
     background: var(--ct-sub-3);
     color: black;

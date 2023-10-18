@@ -173,7 +173,6 @@ function vote(obj) {
     console.log(select_item);
 }
 
-
 //點擊分享 將當前網址填入shareModal內
 $("#shareModal").on("show.bs.modal", function (e) {
     $("#input_link").val(location.href);
@@ -182,7 +181,7 @@ $("#shareModal").on("show.bs.modal", function (e) {
 //分享文章 複製連結
 const select = (DOM) => document.querySelector(DOM);
 select("#copylink_btn").addEventListener("click", () => {
-    select("#input_link").select();    //選取連結文字
+    select("#input_link").select(); //選取連結文字
     navigator.clipboard.writeText(select("#input_link").value).then(() => {
         //當複製時，顯示'已複製'文字
         $("#copylink_btn").html("Copied");
@@ -192,17 +191,3 @@ select("#copylink_btn").addEventListener("click", () => {
         }, 3000);
     });
 });
-
-copy.onclick = () => {
-    input.select(); //select input value
-    if (document.execCommand("copy")) {
-        //if the selected text is copied
-        field.classList.add("active");
-        copy.innerText = "Copied";
-        setTimeout(() => {
-            window.getSelection().removeAllRanges(); //remove selection from page
-            field.classList.remove("active");
-            copy.innerText = "Copy";
-        }, 3000);
-    }
-};
