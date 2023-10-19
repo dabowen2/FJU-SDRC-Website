@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+    <head>
+        <link rel="icon" href="static/img/us-icon.ico" type="image/x-icon" />
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <!--ICON-->
+        <link rel="stylesheet" href="static/bootstrap_icons-1.4.1/font/bootstrap-icons.css" />
+        <link rel="stylesheet" href="static/fontawesome-free-5.15.3-web/css/all.css" />
+        <!--Bootstrap-->
+        <link rel="stylesheet" href="static/bootstrap-5.1.3-dist/css/bootstrap.min.css" />
+        <!-- <link rel="stylesheet" href="static/bootstrap-5.0.0-beta3-dist/css/bootstrap.min.css" /> -->
+        <!-- Sweet Alert -->
+        <link rel="stylesheet" href="static/sweetalert2-11.7.1/dist/sweetalert2.min.css" />
+        <script src="static/sweetalert2-11.7.1/dist/sweetalert2.all.min.js"></script>
+        <!-- Datetime picker -->
+        <link rel="stylesheet" href="static/bootstrap-datepicker-master/dist/css/bootstrap-datepicker.min.css" />
+        <!--MultiSelect-->
+        <link rel="stylesheet" href="static/bootstrap-multiselect/dist/css/bootstrap-multiselect.css" type="text/css" />
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
+            integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
+            crossorigin="anonymous"
+        ></script>
+        <!-- import self-css -->
+        <link rel="stylesheet" href="static/css/master_page.css" />
+        <link rel="stylesheet" href="static/css/forum_list.css" />
+        <link rel="stylesheet" href="static/css/chat_room.css" />
+
+        <title>優德莎莉 即時聊天室</title>
+        <style></style>
+    </head>
+    <body>
+        <div class="container-xxl topbar">
+            <nav class="navbar navbar-expand-lg border-bottom fixed-top">
+                <div class="container-xxl px-md-4">
+                    <a class="navbar-brand" href="#">
+                        <img src="static/img/us-logo.png" alt="" height="40" class="d-inline-block align-text-top" />
+                    </a>
+                    <div class="align-items-center">
+                        <button class="navbar-toggler notfiy_bell" type="button" data-bs-toggle="tooltip" data-bs-title="通知" data-bs-placement="bottom">
+                            <i class="fas fa-bell ct-txt-1"></i>
+                        </button>
+                        <button class="navbar-toggler border" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+                            <i class="fas fa-bars ct-txt-1"></i>
+                        </button>
+                    </div>
+
+                    <div class="justify-content-end collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav mb-2 mb-md-0" id="topbar-nav-tabs">
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active" data-bs-toggle="dropdown">知識圖書館</a>
+                                <ul class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">小產調理</a>
+                                    <a class="dropdown-item" href="#">婦科保健</a>
+                                    <a class="dropdown-item" href="#">備孕調理</a>
+                                    <a class="dropdown-item" href="#">懷孕知識</a>
+                                    <a class="dropdown-item" href="#">日常保健</a>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link active" data-bs-toggle="dropdown">療心室</a>
+                                <ul class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">聊療小產</a>
+                                    <a class="dropdown-item" href="#">聊療婦科保健</a>
+                                    <a class="dropdown-item" href="#">聊療備孕</a>
+                                    <a class="dropdown-item" href="#">聊療懷孕</a>
+                                    <a class="dropdown-item" href="#">聊療日常保健</a>
+                                </ul>
+                            </li>
+                            <li class="nav-item"><a role="button" id="chats-button" class="nav-link active">暢聊咖啡廳</a></li>
+                            <li class="nav-item"><a role="button" id="consult-button" class="nav-link active">營養師諮詢</a></li>
+                            <li class="nav-item notfiy_bell d-none d-lg-block" data-bs-toggle="tooltip" data-bs-title="通知" data-bs-placement="bottom">
+                                <a class="nav-link" style="cursor: pointer">
+                                    <i class="fas fa-bell"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item dropstart order-first order-lg-last">
+                                <a href="#" class="nav-link" data-bs-toggle="dropdown">
+                                    <i class="fas fa-user-circle"></i>
+                                    <span id="account_name" class="d-lg-none">Account Name</span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">個人資料</a>
+                                    <a class="dropdown-item" href="#">點數錢包</a>
+                                    <a class="dropdown-item" href="#">文章列表</a>
+                                    <a class="dropdown-item" href="#">收藏與追蹤</a>
+                                    <a class="dropdown-item" href="#">登出</a>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p class="py-1 mb-1 border-top border-bottom d-lg-none" style="letter-spacing: 2px; font-weight: 500; color: var(--ct-color-1); font-size: var(--fs-20)">功能選單</p>
+                        <ul class="nav flex-column d-lg-none">
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="collapse" href="#sub-class-1">會員資料<i class="fas fa-angle-down ms-2"></i></a>
+                                <ul class="collapse" id="sub-class-1">
+                                    <a class="dropdown-item" href="#">會員資料</a>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">專屬月曆</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="collapse" href="#sub-class-2">點數錢包<i class="fas fa-angle-down ms-2"></i></a>
+                                <ul class="collapse" id="sub-class-2">
+                                    <a class="dropdown-item" href="#">任務專區</a>
+                                    <a class="dropdown-item" href="#">點數兌換</a>
+                                    <a class="dropdown-item" href="#">點數轉贈</a>
+                                    <a class="dropdown-item" href="#">點數獲得紀錄</a>
+                                    <a class="dropdown-item" href="#">點數使用紀錄</a>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">我的心事</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-bs-toggle="collapse" href="#sub-class-3">收藏與追蹤<i class="fas fa-angle-down ms-2"></i></a>
+                                <ul class="collapse" id="sub-class-3">
+                                    <a class="dropdown-item" href="#">文章收藏</a>
+                                    <a class="dropdown-item" href="#">作者追蹤</a>
+                                    <a class="dropdown-item" href="#">話題追蹤</a>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!--通知欄區塊-->
+                    <div class="notifications border" id="notifications_box">
+                        <h2>Notifications <span class="badge bg-danger rounded-circle">2</span></h2>
+                        <div class="notifications-item">
+                            <img src="https://i.imgur.com/uIgDDDd.jpg" alt="img" />
+                            <div class="text">
+                                <h4>Samso aliao</h4>
+                                <p>Samso Nagaro Like your home work</p>
+                            </div>
+                        </div>
+                        <div class="notifications-item">
+                            <img src="https://img.icons8.com/flat_round/64/000000/vote-badge.png" alt="img" />
+                            <div class="text">
+                                <h4>John Silvester</h4>
+                                <p>+20 vista badge earned</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="container-xxl">
+            <div class="row pt-3 px-md-5">
+                <div class="col-12 my-2">
+                    <div class="row mt-2 d-flex align-items-center">
+                        <h2 class="class-title col-auto ps-0"><i class="fab fa-gratipay me-1 ct-txt-1"></i>聊天室 Chat-Room</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row px-md-5">
+                <div class="row container d-flex justify-content-center">
+                    <div class="">
+                        <p>是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字</p>
+                        <p>是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字</p>
+                        <p>是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字</p>
+                        <p>是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字</p>
+                        <p>是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字</p>
+                        <p>是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字</p>
+                        <p>是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字</p>
+                        <p>是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字</p>
+                        <p>是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字</p>
+                        <p>是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字</p>
+                        <p>是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字</p>
+                        <p>是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字</p>
+                        <p>是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字</p>
+                        <p>是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row py-3 px-5"></div>
+            <div class="position-fixed bottom-0 end-0 m-2">
+                <button class="btn" id="floatButton" data-bs-toggle="tooltip" data-bs-title="營養師諮詢" data-bs-placement="left">
+                    <i class="fas fa-comment-dots"></i>
+                </button>
+            </div>
+
+            <!-- 每個頁面加入聊天室介面 請複製以下div-->
+            <div class="tab-vertical">
+                <ul class="nav nav-tabs chats-nav-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="room1-vertical-tab" data-bs-toggle="tab" href="#chats-room1" role="tab" aria-controls="home" aria-selected="true">營養師諮詢</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="room2-vertical-tab" data-bs-toggle="tab" href="#chats-room2" role="tab" aria-controls="profile" aria-selected="false">小產咖啡廳</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="room3-vertical-tab" data-bs-toggle="tab" href="#chats-room3" role="tab" aria-controls="contact" aria-selected="false">婦科咖啡廳</a>
+                    </li>
+                </ul>
+
+                <ul class="nav nav-tabs nav-horizontal-tabs fade show active" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="room1-horizontal-tab" data-bs-toggle="tab" href="#chats-room1" role="tab" aria-controls="home" aria-selected="true">營養師諮詢</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="room2-horizontal-tab" data-bs-toggle="tab" href="#chats-room2" role="tab" aria-controls="profile" aria-selected="false">小產咖啡廳</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="room3-horizontal-tab" data-bs-toggle="tab" href="#chats-room3" role="tab" aria-controls="contact" aria-selected="false">婦科咖啡廳</a>
+                    </li>
+                </ul>
+
+                <div class="tab-content card card-bordered chats-card" id="myTabContent3">
+                    <!-- <div class="bg-none card card-bordered chats-card" id="myTabContent3"> -->
+                    <div class="tab-pane fade show active" id="chats-room1" role="tabpanel" aria-labelledby="chats-room1">
+                        <div class="card-header">
+                            <div class="img-thumbnail-group">
+                                <!-- 小編&用戶 頭像縮圖 -->
+                                <img src="https://placehold.co/100/orange/white" class="img-thumbnail rounded-circle" alt="..." />
+                                <img src="https://placehold.co/100/dodgerblue/white" class="img-thumbnail rounded-circle" alt="..." />
+                                <img src="https://placehold.co/100/hotpink/white" class="img-thumbnail rounded-circle" alt="..." />
+                            </div>
+                            <!-- 填入標題 -->
+                            <h4 class="card-title"><strong>營養師諮詢</strong></h4>
+                            <!-- [標題]營養師諮詢: 顯示客服人員上下班狀態 -->
+                            <p class="card-subtitle"><i class="bi bi-circle-fill pe-1"></i>目前客服人員上班中</p>
+                            <!-- [標題]小產咖啡廳: 顯示該咖啡廳剩餘時間 -->
+                            <!-- <p class="card-subtitle"><i class="bi bi-clock-fill pe-1"></i>倒數 2小時 20分鐘</p> -->
+                            <button type="button" class="btn-xs btn-close btn-card-close position-absolute top-0 end-0 p-3"></button>
+                        </div>
+
+                        <div class="ps-container ps-theme-default ps-active-y" id="chat-content" style="overflow-y: scroll !important; height: 400px !important">
+                            <div class="alert alert-secondary m-2 p-2 align-items-center d-flex" role="alert">
+                                <i class="bi bi-exclamation-circle float-start px-2"></i>
+                                <!-- 如有置頂標語提醒 請顯示alert，並填入文字 -->
+                                詐騙提醒詐騙提醒詐騙提醒
+                            </div>
+                            <!-- 小編方(media-chat) 顯示頭像與訊息文字 -->
+                            <div class="media media-chat">
+                                <img class="avatar" src="https://img.icons8.com/color/48/person-female.png" alt="..." />
+                                <div class="media-body">
+                                    <!-- 多則訊息 以<p>新增 -->
+                                    <p>Hi</p>
+                                    <p>How are you ...???</p>
+                                    <p>
+                                        What are you doing tomorrow?<br />
+                                        Can we come up a bar?
+                                    </p>
+                                    <p class="meta"><time datetime="2018">23:58</time></p>
+                                </div>
+                            </div>
+                            <!-- 若聊天有跨日(比如:隔夜凌晨) 顯示時間 -->
+                            <div class="media media-meta-day">Today</div>
+                            <!-- 用戶方(media-chat-reverse) 顯示發送訊息文字 -->
+                            <div class="media media-chat media-chat-reverse">
+                                <div class="media-body">
+                                    <p>Hiii, I'm good.</p>
+                                    <p>How are you doing?</p>
+                                    <p>Long time no see! Tomorrow office. will be free on sunday.</p>
+                                    <p class="meta"><time datetime="2018">00:06</time></p>
+                                </div>
+                            </div>
+
+                            <div class="media media-chat">
+                                <img class="avatar" src="https://img.icons8.com/color/48/person-female.png" alt="..." />
+                                <div class="media-body">
+                                    <p>Okay</p>
+                                    <p>We will go on sunday?</p>
+                                    <p class="meta"><time datetime="2018">00:07</time></p>
+                                </div>
+                            </div>
+
+                            <div class="media media-chat media-chat-reverse">
+                                <div class="media-body">
+                                    <p>That's awesome!</p>
+                                    <p>I will meet you Sandon Square sharp at 10 AM</p>
+                                    <p>Is that okay?</p>
+                                    <p class="meta"><time datetime="2018">00:09</time></p>
+                                </div>
+                            </div>
+
+                            <div class="media media-chat">
+                                <img class="avatar" src="https://img.icons8.com/color/48/person-female.png" alt="..." />
+                                <div class="media-body">
+                                    <p>Okay i will meet you on Sandon Square</p>
+                                    <p class="meta"><time datetime="2018">00:10</time></p>
+                                </div>
+                            </div>
+
+                            <div class="media media-chat media-chat-reverse">
+                                <div class="media-body">
+                                    <p>Do you have pictures of Matley Marriage?</p>
+                                    <p class="meta"><time datetime="2018">00:10</time></p>
+                                </div>
+                            </div>
+
+                            <div class="media media-chat">
+                                <img class="avatar" src="https://img.icons8.com/color/48/person-female.png" alt="..." />
+                                <div class="media-body">
+                                    <p>Sorry I don't have. i changed my phone.</p>
+                                    <p class="meta"><time datetime="2018">00:12</time></p>
+                                </div>
+                            </div>
+
+                            <div class="media media-chat media-chat-reverse">
+                                <div class="media-body">
+                                    <p>Okay then see you on sunday!!</p>
+                                    <p class="meta"><time datetime="2018">00:12</time></p>
+                                </div>
+                            </div>
+
+                            <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px"></div></div>
+                            <div class="ps-scrollbar-y-rail" style="top: 0px; height: 0px; right: 2px">
+                                <div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 2px"></div>
+                            </div>
+                        </div>
+
+                        <div class="publisher bt-1 border-light">
+                            
+                            <input class="publisher-input" type="text" placeholder="請輸入您想問的" />
+                            <span class="publisher-btn file-group">
+                                <input type="file" />
+                                <i class="fas fa-image"></i>
+                            </span>
+                            <a class="publisher-btn text-info" href="#" data-abc="true"><i class="fa fa-paper-plane"></i></a>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="chats-room2" role="tabpanel" aria-labelledby="chats-room2">
+                        <div class="card-header">
+                            <div class="img-thumbnail-group">
+                                <!-- 小編&用戶 頭像縮圖 -->
+                                <img src="https://placehold.co/100/orange/white" class="img-thumbnail rounded-circle" alt="..." />
+                                <img src="https://placehold.co/100/dodgerblue/white" class="img-thumbnail rounded-circle" alt="..." />
+                                <img src="https://placehold.co/100/hotpink/white" class="img-thumbnail rounded-circle" alt="..." />
+                            </div>
+                            <!-- 填入標題 -->
+                            <h4 class="card-title"><strong>小產咖啡廳</strong></h4>
+                            <!-- [標題]小產咖啡廳: 顯示該咖啡廳剩餘時間 -->
+                            <p class="card-subtitle"><i class="bi bi-clock-fill pe-1"></i>倒數 2小時 20分鐘</p>
+                            <button type="button" class="btn-xs btn-close btn-card-close position-absolute top-0 end-0 p-3"></button>
+                        </div>
+
+                        <div class="ps-container ps-theme-default ps-active-y" id="chat-content" style="overflow-y: scroll !important; height: 400px !important">
+                            <div class="alert alert-secondary m-2 p-2 align-items-center d-flex" role="alert">
+                                <i class="bi bi-exclamation-circle float-start px-2"></i>
+                                <!-- 如有置頂標語提醒 請顯示alert，並填入文字 -->
+                                詐騙提醒詐騙提醒詐騙提醒
+                            </div>
+                            <!-- 小編方(media-chat) 顯示頭像與訊息文字 -->
+                            <div class="media media-chat">
+                                <img class="avatar" src="https://img.icons8.com/color/48/person-female.png" alt="..." />
+                                <div class="media-body">
+                                    <!-- 多則訊息 以<p>新增 -->
+                                    <p>Hi</p>
+                                    <p>How are you ...???</p>
+                                    <p>
+                                        What are you doing tomorrow?<br />
+                                        Can we come up a bar?
+                                    </p>
+                                    <p class="meta"><time datetime="2018">23:58</time></p>
+                                </div>
+                            </div>
+                            <!-- 若聊天有跨日(比如:隔夜凌晨) 顯示時間 -->
+                            <div class="media media-meta-day">Today</div>
+                            <!-- 用戶方(media-chat-reverse) 顯示發送訊息文字 -->
+                            <div class="media media-chat media-chat-reverse">
+                                <div class="media-body">
+                                    <p>Hiii, I'm good.</p>
+                                    <p>How are you doing?</p>
+                                    <p>Long time no see! Tomorrow office. will be free on sunday.</p>
+                                    <p class="meta"><time datetime="2018">00:06</time></p>
+                                </div>
+                            </div>
+
+                            <div class="media media-chat">
+                                <img class="avatar" src="https://img.icons8.com/color/48/person-female.png" alt="..." />
+                                <div class="media-body">
+                                    <p>Okay</p>
+                                    <p>We will go on sunday?</p>
+                                    <p class="meta"><time datetime="2018">00:07</time></p>
+                                </div>
+                            </div>
+
+                            <div class="media media-chat media-chat-reverse">
+                                <div class="media-body">
+                                    <p>That's awesome!</p>
+                                    <p>I will meet you Sandon Square sharp at 10 AM</p>
+                                    <p>Is that okay?</p>
+                                    <p class="meta"><time datetime="2018">00:09</time></p>
+                                </div>
+                            </div>
+
+                            <div class="media media-chat">
+                                <img class="avatar" src="https://img.icons8.com/color/48/person-female.png" alt="..." />
+                                <div class="media-body">
+                                    <p>Okay i will meet you on Sandon Square</p>
+                                    <p class="meta"><time datetime="2018">00:10</time></p>
+                                </div>
+                            </div>
+
+                            <div class="media media-chat media-chat-reverse">
+                                <div class="media-body">
+                                    <p>Do you have pictures of Matley Marriage?</p>
+                                    <p class="meta"><time datetime="2018">00:10</time></p>
+                                </div>
+                            </div>
+
+                            <div class="media media-chat">
+                                <img class="avatar" src="https://img.icons8.com/color/48/person-female.png" alt="..." />
+                                <div class="media-body">
+                                    <p>Sorry I don't have. i changed my phone.</p>
+                                    <p class="meta"><time datetime="2018">00:12</time></p>
+                                </div>
+                            </div>
+
+                            <div class="media media-chat media-chat-reverse">
+                                <div class="media-body">
+                                    <p>Okay then see you on sunday!!</p>
+                                    <p class="meta"><time datetime="2018">00:12</time></p>
+                                </div>
+                            </div>
+
+                            <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px"></div></div>
+                            <div class="ps-scrollbar-y-rail" style="top: 0px; height: 0px; right: 2px">
+                                <div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 2px"></div>
+                            </div>
+                        </div>
+
+                        <div class="publisher bt-1 border-light">
+                            
+                            <input class="publisher-input" type="text" placeholder="請輸入訊息" />
+                            <span class="publisher-btn file-group">
+                                <input type="file" />
+                                <i class="fas fa-image"></i>
+                            </span>
+                            <a class="publisher-btn text-info" href="#" data-abc="true"><i class="fa fa-paper-plane"></i></a>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="chats-room3" role="tabpanel">
+                        <div class="card-header">
+                            <div class="img-thumbnail-group">
+                                <!-- 小編&用戶 頭像縮圖 -->
+                                <img src="https://placehold.co/100/orange/white" class="img-thumbnail rounded-circle" alt="..." />
+                                <img src="https://placehold.co/100/dodgerblue/white" class="img-thumbnail rounded-circle" alt="..." />
+                                <img src="https://placehold.co/100/hotpink/white" class="img-thumbnail rounded-circle" alt="..." />
+                            </div>
+                            <!-- 填入標題 -->
+                            <h4 class="card-title"><strong>婦產咖啡廳</strong></h4>
+                            <!-- [標題]婦產咖啡廳: 顯示該咖啡廳剩餘時間 -->
+                            <p class="card-subtitle"><i class="bi bi-clock-fill pe-1"></i>倒數 2小時 20分鐘</p>
+                            <button type="button" class="btn-xs btn-close btn-card-close position-absolute top-0 end-0 p-3"></button>
+                        </div>
+
+                        <div class="ps-container ps-theme-default ps-active-y" id="chat-content" style="overflow-y: scroll !important; height: 400px !important">
+                            <div class="alert alert-secondary m-2 p-2 align-items-center d-flex" role="alert">
+                                <i class="bi bi-exclamation-circle float-start px-2"></i>
+                                <!-- 如有置頂標語提醒 請顯示alert，並填入文字 -->
+                                詐騙提醒詐騙提醒詐騙提醒
+                            </div>
+                            
+                            <!-- 小編方(media-chat) 顯示頭像與訊息文字 -->
+                            <div class="media media-chat">
+                                <img class="avatar" src="https://img.icons8.com/color/48/person-female.png" alt="..." />
+                                <div class="media-body">
+                                    <!-- 多則訊息 以<p>新增 -->
+                                    <p>Hi</p>
+                                    <p>What's your name???</p>
+                                   
+                                    <p class="meta"><time datetime="2018">23:58</time></p>
+                                </div>
+                            </div>
+                             <!-- 若聊天有跨日(比如:隔夜凌晨) 顯示時間 -->
+                             <div class="media media-meta-day">Today</div>
+                            <!-- 用戶方(media-chat-reverse) 顯示發送訊息文字 -->
+                            <div class="media media-chat media-chat-reverse">
+                                <div class="media-body">
+                                    <p>Hiii, I'm good.</p>
+                                    <p>I have some problem...</p>
+                                    <p class="meta"><time datetime="2018">00:06</time></p>
+                                </div>
+                            </div>
+
+                            <div class="media media-chat">
+                                <img class="avatar" src="https://img.icons8.com/color/48/person-female.png" alt="..." />
+                                <div class="media-body">
+                                    <p>Okay</p>
+                                    <p>What's wrong?</p>
+                                    <p class="meta"><time datetime="2018">00:07</time></p>
+                                </div>
+                            </div>
+
+                            <div class="media media-chat media-chat-reverse">
+                                <div class="media-body">
+                                    <p>...</p>
+                                    <p class="meta"><time datetime="2018">00:09</time></p>
+                                </div>
+                            </div>
+
+                            <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px"></div></div>
+                            <div class="ps-scrollbar-y-rail" style="top: 0px; height: 0px; right: 2px">
+                                <div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 2px"></div>
+                            </div>
+                        </div>
+
+                        <div class="publisher bt-1 border-light">
+                            
+                            <input class="publisher-input" type="text" placeholder="請輸入訊息" />
+                            <span class="publisher-btn file-group">
+                                <input type="file" />
+                                <i class="fas fa-image"></i>
+                            </span>
+                            <a class="publisher-btn text-info" href="#" data-abc="true"><i class="fa fa-paper-plane"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="container-xl mt-5">
+                <div class="row p-xs-2 p-md-4 px-lg-5 text-center justify-content-md-center justify-content-lg-evenly">
+                    <div class="col-4 col-md-2 col-lg-auto mb-2">
+                        <a href="#" class="">關於我們</a>
+                    </div>
+                    <div class="col-4 col-md-2 col-lg-auto mb-2">
+                        <a href="#" class="">聯絡我們</a>
+                    </div>
+                    <div class="col-4 col-md-2 col-lg-auto mb-2">
+                        <a href="#" class="">常見問題</a>
+                    </div>
+                    <div class="col-4 col-md-2 col-lg-auto mb-2">
+                        <a href="#" class="">使用者條款</a>
+                    </div>
+                    <div class="col-4 col-md-2 col-lg-auto mb-2">
+                        <a href="#" class="">隱私權政策</a>
+                    </div>
+                    <div class="col-4 col-md-2 col-lg-auto mb-2">
+                        <a href="#" class="">優德莎莉官網</a>
+                    </div>
+
+                    <div class="col-12 col-md-auto mt-2 mt-lg-0 mb-2">
+                        <a href="#" class="col-12 ct-txt-2 mx-3 mx-md-2"><i class="fab fa-line"></i></a>
+                        <a href="#" class="col-12 ct-txt-2 mx-3 mx-md-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="col-12 ct-txt-2 mx-3 mx-md-2"><i class="fab fa-facebook-square"></i></a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+
+        <script src="static/bootstrap-4.6.0-dist/jquery-3.6.0.js"></script>
+        <script src="static/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+        <script src="static/bootstrap-table-master/dist/bootstrap-table.min.js"></script>
+        <script src="static/dayjs-1.11.8/package/dayjs.min.js"></script>
+        <script src="static/bootstrap-datepicker-master/dist/js/bootstrap-datepicker.min.js"></script>
+
+        <script src="static/bootstrap-multiselect/dist/js/bootstrap-multiselect.js"></script>
+
+        <script src="static/js/master_page.js"></script>
+        <script src="static/js/forum_list.js"></script>
+
+    </body>
+</html>

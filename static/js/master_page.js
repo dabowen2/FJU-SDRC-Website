@@ -35,3 +35,25 @@ $("#topbar-nav-tabs > li:not(.dropstart)").mouseover(function () {
 $("#topbar-nav-tabs > li:not(.dropstart)").mouseout(function () {
     $(this).find(".dropdown-menu").removeClass("show");
 });
+
+
+//即時聊天室 close按鈕
+$(".btn-card-close").on("click", function () {
+    $(this).closest(".tab-vertical").fadeOut("fast");
+
+});
+/* 開啟即時聊天室 */
+$("#floatButton , #chats-button").on("click", function () {
+    $(".tab-vertical").show();
+});
+//頂端欄 暢聊咖啡廳-按鈕
+$("#chats-button").on("click", function () {
+    $(".tab-vertical").show();
+    $("#room2-vertical-tab").tab("show");
+});
+//頂端欄 營養師諮詢-按鈕
+$("#consult-button").on("click", function () {
+    $(".tab-vertical").show();
+    $("#room1-vertical-tab").tab("show");
+});
+
