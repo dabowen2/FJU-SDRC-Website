@@ -37,7 +37,7 @@
     background: var(--ct-sub-3);
     font-weight: 500;
     border-radius: 15px;
-    font-size: var(--fs-18);
+    font-size: var(--fs-20);
 }
 #total_points span {
     color: var(--ct-sub-4);
@@ -51,7 +51,7 @@
     font-weight: 500;
     border-radius: 15px;
     text-decoration: none;
-    font-size: var(--fs-18);
+    font-size: var(--fs-20);
 }
 
 /* 任務類型標籤 */
