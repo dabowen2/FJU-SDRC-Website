@@ -12,6 +12,10 @@
 .article-title {
     font-weight: bold;
     font-size: var(--fs-22);
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 .article-title > a {
     text-decoration: none;
@@ -23,6 +27,14 @@
     line-height: var(--fs-30);
     font-weight: lighter;
     font-size: var(--fs-18);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.4; /* 设置固定的行高，根据需要调整值 */
+    min-height: 2.8em; /* 1.2 * 3 = 3.6，每行高度乘以固定行数 */
+    overflow: hidden;
 }
 
 /* 類別標籤 */

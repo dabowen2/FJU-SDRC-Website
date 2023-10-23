@@ -7,6 +7,16 @@ body {
     font-family: "Muli", "Noto Sans TC", "微軟正黑體";
     background-color: white;
 }
+
+html,
+body {
+    height: 100%;
+}
+
+body > footer {
+    position: sticky !important;
+    top: 100vh;
+}
 .row {
     margin-left: 0;
     margin-right: 0;
@@ -370,8 +380,9 @@ header,
         padding-left: 1rem;
     }
     #topbar-nav-tabs .dropdown-menu a::before {
-        content: "\F231";
+        content: "\F231\00A0";
         font-family: "bootstrap-icons";
+        font-size: xx-small;
     }
     #topbar-nav-tabs .dropdown-menu .dropdown-item:hover {
         background: var(--ct-sub-3);
@@ -412,7 +423,6 @@ header,
     #topbar-nav-tabs li .dropdown-menu .dropdown-item::before {
         content: "";
         position: absolute;
-
         width: 0px;
         height: 100%;
         left: 0;
@@ -426,7 +436,7 @@ header,
         -o-transition: 0.3s all ease;
         transition: 0.3s all ease;
     }
-    #topbar-nav-tabs li .dropdown-menu .dropdown-item:last-child {
+    #topbar-nav-tabs li .dropdown-menu li:last-child .dropdown-item {
         border-bottom: none;
     }
 
@@ -444,6 +454,22 @@ header,
         background-color: var(--ct-color-1);
         color: white;
     }
+}
+
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu > a:after {
+    float: right;
+    border: none;
+}
+
+.dropdown-submenu > .dropdown-menu {
+    top: 0;
+    right: 100%;
+    margin-top: 0px;
+    margin-right: 0px;
 }
 
 #goTopButton,

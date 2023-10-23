@@ -31,10 +31,11 @@
         <div class="container-xxl topbar">
             <nav class="navbar navbar-expand-lg border-bottom fixed-top">
                 <div class="container-xxl px-md-4">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="https://dabowen2.github.io/FJU-SDRC-Website/">
                         <img src="static/img/us-logo.png" alt="" height="40" class="d-inline-block align-text-top" />
                     </a>
                     <div class="align-items-center">
+                        <!--通知按鈕-->
                         <button class="navbar-toggler notfiy_bell" type="button" data-bs-toggle="tooltip" data-bs-title="通知" data-bs-placement="bottom">
                             <i class="fas fa-bell ct-txt-1"></i>
                             <!--如有新通知 顯示紅點-->
@@ -50,27 +51,27 @@
                     <div class="justify-content-end collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav mb-2 mb-md-0" id="topbar-nav-tabs">
                             <li class="nav-item">
-                                <a href="#" class="nav-link active" data-bs-toggle="dropdown">知識圖書館</a>
+                                <a href="https://dabowen2.github.io/FJU-SDRC-Website/knowledge_library" class="nav-link active" data-bs-toggle="dropdown">知識圖書館</a>
                                 <ul class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">小產調理</a>
-                                    <a class="dropdown-item" href="#">婦科保健</a>
-                                    <a class="dropdown-item" href="#">備孕調理</a>
-                                    <a class="dropdown-item" href="#">懷孕知識</a>
-                                    <a class="dropdown-item" href="#">日常保健</a>
+                                    <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/knowledge_article">小產調理</a></li>
+                                    <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/knowledge_article">婦科保健</a></li>
+                                    <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/knowledge_article">備孕調理</a></li>
+                                    <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/knowledge_article">懷孕知識</a></li>
+                                    <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/knowledge_article">日常保健</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link active" data-bs-toggle="dropdown">療心室</a>
+                                <a href="https://dabowen2.github.io/FJU-SDRC-Website/treatment_qa" class="nav-link active" data-bs-toggle="dropdown">療心室</a>
                                 <ul class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">聊療小產</a>
-                                    <a class="dropdown-item" href="#">聊療婦科保健</a>
-                                    <a class="dropdown-item" href="#">聊療備孕</a>
-                                    <a class="dropdown-item" href="#">聊療懷孕</a>
-                                    <a class="dropdown-item" href="#">聊療日常保健</a>
+                                    <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/treatment_article">聊療小產</a></li>
+                                    <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/treatment_article">聊療婦科保健</a></li>
+                                    <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/treatment_article">聊療備孕</a></li>
+                                    <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/treatment_article">聊療懷孕</a></li>
+                                    <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/treatment_article">聊療日常保健</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item"><a href="#" class="nav-link active">暢聊咖啡廳</a></li>
-                            <li class="nav-item"><a href="#" class="nav-link active">營養師諮詢</a></li>
+                            <li class="nav-item"><a href="https://dabowen2.github.io/FJU-SDRC-Website/chat_room" class="nav-link active">暢聊咖啡廳</a></li>
+                            <li class="nav-item"><a href="https://dabowen2.github.io/FJU-SDRC-Website/chat_room" class="nav-link active">營養師諮詢</a></li>
                             <li class="nav-item notfiy_bell d-none d-lg-block" data-bs-toggle="tooltip" data-bs-title="通知" data-bs-placement="bottom">
                                 <a class="nav-link" style="cursor: pointer">
                                     <i class="fas fa-bell"></i>
@@ -80,50 +81,36 @@
                                     </span>
                                 </a>
                             </li>
+                            <!--如有會員登入 顯示以下 li 區塊-->
                             <li class="nav-item dropstart order-first order-lg-last">
-                                <a href="#" class="nav-link" data-bs-toggle="dropdown">
+                                <a href="https://dabowen2.github.io/FJU-SDRC-Website/user_info" class="nav-link" data-bs-toggle="dropdown">
                                     <i class="fas fa-user-circle"></i>
+                                    <!--顯示會員名稱-->
                                     <span id="account_name" class="d-lg-none">Account Name</span>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">個人資料</a>
-                                    <a class="dropdown-item" href="#">點數錢包</a>
-                                    <a class="dropdown-item" href="#">文章列表</a>
-                                    <a class="dropdown-item" href="#">收藏與追蹤</a>
-                                    <a class="dropdown-item" href="#">登出</a>
-                                </ul>
-                            </li>
-                        </ul>
-                        <p class="py-1 mb-1 border-top border-bottom d-lg-none" style="letter-spacing: 2px; font-weight: 500; color: var(--ct-color-1); font-size: var(--fs-20)">功能選單</p>
-                        <ul class="nav flex-column d-lg-none">
-                            <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="collapse" href="#sub-class-1">會員資料<i class="fas fa-angle-down ms-2"></i></a>
-                                <ul class="collapse" id="sub-class-1">
-                                    <a class="dropdown-item" href="#">會員資料</a>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#">專屬月曆</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="collapse" href="#sub-class-2">點數錢包<i class="fas fa-angle-down ms-2"></i></a>
-                                <ul class="collapse" id="sub-class-2">
-                                    <a class="dropdown-item" href="#">任務專區</a>
-                                    <a class="dropdown-item" href="#">點數兌換</a>
-                                    <a class="dropdown-item" href="#">點數轉贈</a>
-                                    <a class="dropdown-item" href="#">點數獲得紀錄</a>
-                                    <a class="dropdown-item" href="#">點數使用紀錄</a>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">我的心事</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-bs-toggle="collapse" href="#sub-class-3">收藏與追蹤<i class="fas fa-angle-down ms-2"></i></a>
-                                <ul class="collapse" id="sub-class-3">
-                                    <a class="dropdown-item" href="#">文章收藏</a>
-                                    <a class="dropdown-item" href="#">作者追蹤</a>
-                                    <a class="dropdown-item" href="#">話題追蹤</a>
+                                    <li><a href="https://dabowen2.github.io/FJU-SDRC-Website/user_info" class="dropdown-item">會員資料</a></li>
+                                    <li><a href="https://dabowen2.github.io/FJU-SDRC-Website/calendar" class="dropdown-item">專屬月曆</a></li>
+                                    <li class="dropdown-submenu">
+                                        <a role="button" data-bs-toggle="dropdown" class="dropdown-item">點數錢包</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/point_task">任務專區</a></li>
+                                            <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/point_exchange">點數兌換</a></li>
+                                            <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/point_gift1">點數轉贈</a></li>
+                                            <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/point_get_record">點數獲得紀錄</a></li>
+                                            <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/point_use_record">點數使用紀錄</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="https://dabowen2.github.io/FJU-SDRC-Website/my_mind" class="dropdown-item">我的心事</a></li>
+                                    <li class="dropdown-submenu">
+                                        <a role="button" data-bs-toggle="dropdown" class="dropdown-item">收藏與追蹤</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/article_saved_list">文章收藏</a></li>
+                                            <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/author_saved">作者追蹤</a></li>
+                                            <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/topic_saved">話題追蹤</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#" class="dropdown-item">登出</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -137,7 +124,7 @@
                         </h2>
                         <!-- for loop 通知消息 img:頭貼圖片 h4:人名/帳號名 p:通知訊息內容-->
                         <div class="notifications-item">
-                            <img src="https://i.imgur.com/uIgDDDd.jpg" alt="img" />
+                            <img src="https://img.icons8.com/color/64/circled-user-male-skin-type-7--v1.png" alt="img" />
                             <div class="text">
                                 <h4>Samso aliao</h4>
                                 <p>Samso Nagaro Like your home work</p>
@@ -285,37 +272,35 @@
                     <i class="fas fa-comment-dots"></i>
                 </button>
             </div>
-
-            <footer class="container-xl mt-5">
-                <div class="row p-xs-2 p-md-4 px-lg-5 text-center justify-content-md-center justify-content-lg-evenly">
-                    <div class="col-4 col-md-2 col-lg-auto mb-2">
-                        <a href="#" class="">關於我們</a>
-                    </div>
-                    <div class="col-4 col-md-2 col-lg-auto mb-2">
-                        <a href="#" class="">聯絡我們</a>
-                    </div>
-                    <div class="col-4 col-md-2 col-lg-auto mb-2">
-                        <a href="#" class="">常見問題</a>
-                    </div>
-                    <div class="col-4 col-md-2 col-lg-auto mb-2">
-                        <a href="#" class="">使用者條款</a>
-                    </div>
-                    <div class="col-4 col-md-2 col-lg-auto mb-2">
-                        <a href="#" class="">隱私權政策</a>
-                    </div>
-                    <div class="col-4 col-md-2 col-lg-auto mb-2">
-                        <a href="#" class="">優德莎莉官網</a>
-                    </div>
-
-                    <div class="col-12 col-md-auto mt-2 mt-lg-0 mb-2">
-                        <a href="#" class="col-12 ct-txt-2 mx-3 mx-md-2"><i class="fab fa-line"></i></a>
-                        <a href="#" class="col-12 ct-txt-2 mx-3 mx-md-2"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="col-12 ct-txt-2 mx-3 mx-md-2"><i class="fab fa-facebook-square"></i></a>
-                    </div>
-                </div>
-            </footer>
         </div>
+        <footer class="container-xl mt-5">
+            <div class="row p-xs-2 p-md-4 px-lg-5 text-center justify-content-md-center justify-content-lg-evenly">
+                <div class="col-4 col-md-2 col-lg-auto mb-2">
+                    <a href="#" class="">關於我們</a>
+                </div>
+                <div class="col-4 col-md-2 col-lg-auto mb-2">
+                    <a href="#" class="">聯絡我們</a>
+                </div>
+                <div class="col-4 col-md-2 col-lg-auto mb-2">
+                    <a href="#" class="">常見問題</a>
+                </div>
+                <div class="col-4 col-md-2 col-lg-auto mb-2">
+                    <a href="#" class="">使用者條款</a>
+                </div>
+                <div class="col-4 col-md-2 col-lg-auto mb-2">
+                    <a href="#" class="">隱私權政策</a>
+                </div>
+                <div class="col-4 col-md-2 col-lg-auto mb-2">
+                    <a href="#" class="">優德莎莉官網</a>
+                </div>
 
+                <div class="col-12 col-md-auto mt-2 mt-lg-0 mb-2">
+                    <a href="#" class="col-12 ct-txt-2 mx-3 mx-md-2"><i class="fab fa-line"></i></a>
+                    <a href="#" class="col-12 ct-txt-2 mx-3 mx-md-2"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="col-12 ct-txt-2 mx-3 mx-md-2"><i class="fab fa-facebook-square"></i></a>
+                </div>
+            </div>
+        </footer>
         <script src="static/bootstrap-4.6.0-dist/jquery-3.6.0.js"></script>
         <script src="static/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
         <script src="static/bootstrap-table-master/dist/bootstrap-table.min.js"></script>

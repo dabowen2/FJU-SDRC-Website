@@ -28,19 +28,31 @@ $(".notfiy_bell").click(function (e) {
     }
 });
 
-//頂端欄 滑動顯示下拉選單
-$("#topbar-nav-tabs > li:not(.dropstart)").mouseover(function () {
-    $(this).find(".dropdown-menu").addClass("show");
-});
-$("#topbar-nav-tabs > li:not(.dropstart)").mouseout(function () {
-    $(this).find(".dropdown-menu").removeClass("show");
-});
+$(document).ready(function () {
+    //頂端欄 滑動顯示下拉選單
+    $("#topbar-nav-tabs > li:not(.dropstart)").mouseover(function () {
+        $(this).find(".dropdown-menu").addClass("show");
+    });
+    $("#topbar-nav-tabs > li:not(.dropstart)").mouseout(function () {
+        $(this).find(".dropdown-menu").removeClass("show");
+    });
 
+    $(".dropdown-submenu a").on("mouseover", function (e) {
+        $(this).next("ul").toggleClass("show");
+        e.stopPropagation();
+        e.preventDefault();
+    });
+    $('.dropdown-submenu').mouseleave(function() {
+        var submenu = $(this).find('.dropdown-menu');
+        if (submenu.length > 0) {
+          submenu.removeClass("show");
+        }
+      });
+});
 
 //即時聊天室 close按鈕
 $(".btn-card-close").on("click", function () {
     $(this).closest(".tab-vertical").fadeOut("fast");
-
 });
 /* 開啟即時聊天室 */
 $("#floatButton , #chats-button").on("click", function () {
@@ -56,4 +68,3 @@ $("#consult-button").on("click", function () {
     $(".tab-vertical").show();
     $("#room1-vertical-tab").tab("show");
 });
-

@@ -11,7 +11,13 @@
 .content {
     padding: 3rem 8vw;
 }
-
+.card {
+    border: none !important;
+}
+.card-body {
+    padding-left: 1px !important;
+    padding-right: 1px !important;
+}
 .card-temp-1 {
     width: 100%;
     max-width: 18vw;
@@ -31,6 +37,7 @@
     }
     .card-temp-1 {
         width: 100% !important;
+        max-width: 70vw !important;
     }
     .card-temp-2 {
         min-width: 185px !important;
@@ -90,7 +97,7 @@
 
 .card-temp-1 .card-img-top,
 .card-temp-2 .card-img-top {
-    height: 11.25rem;
+    max-height: 11.25rem;
     object-fit: cover;
 }
 
@@ -100,13 +107,27 @@
 
 .card-title {
     font-size: var(--fs-20);
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .card-text {
     font-size: var(--fs-16);
     line-height: var(--fs-22);
     letter-spacing: 1px;
 }
-
+p.card-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.4; /* 设置固定的行高，根据需要调整值 */
+    min-height: 4.2em; /* 1.2 * 3 = 3.6，每行高度乘以固定行数 */
+    overflow: hidden;
+}
 #popular_topic_tabs button {
     color: var(--ct-title-1);
     font-size: var(--fs-16);
