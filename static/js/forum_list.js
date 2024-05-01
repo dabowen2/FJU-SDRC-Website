@@ -79,3 +79,32 @@ function draft() {
 
     //後端處理
 }
+
+// 知識圖書館 > 營養師發文選項觸發
+$("input[name='post-options']").click(function () {
+    //若選「排程發佈」，需出現日期及時間選擇
+    if ($("#post-option2").prop("checked") == true) {
+        $(".post-datetime-pick").removeClass("d-none");
+    } else {
+        $(".post-datetime-pick").addClass("d-none");
+    }
+});
+
+
+$("#add_voteitem_btn").click(function(){
+    let id = parseInt($("#vote_item_list").find('input:last').attr('id').replace("vote_item","")) + 1;
+    let newItem = `<input type="text" class="form-control my-1" id="vote_item${id}" placeholder="選項${id}" />`;
+    $("#vote_item_list").append(newItem);
+})
+
+// 當選擇「排程時間」時
+$('#post_settime').click(function(){
+    // 解除對應輸入框的禁用
+    $('#input_post_time').prop('disabled', false);
+});
+
+// 當選擇「立即發布」時
+$('#post_now').click(function(){
+    // 將輸入框禁用
+    $('#input_post_time').prop('disabled', true);
+});

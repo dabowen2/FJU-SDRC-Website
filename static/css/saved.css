@@ -11,8 +11,9 @@
 
 #article_collection_list img {
     /* width: 11.25rem; */
-    width: 100%;
+    width: 180px;
     height: 8.125rem;
+    object-fit: cover;
 }
 /* 作者、話題追蹤 */
 #topic_collection_list span.rounded-circle {

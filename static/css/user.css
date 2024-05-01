@@ -76,11 +76,13 @@
     font-size: var(--fs-24);
     font-weight: bold;
     margin: 0.7rem 0;
-    text-indent: -1em;
+    text-indent: -1.77em;
+    padding-left: 10px;
 }
 .form-register .tab-pane .ol {
-    text-indent: 0em;
+    /* text-indent: 0em; */
     color: black;
+    list-style-position: outside;
 }
 .form-register .tab-pane input:not([type="radio"], [type="checkbox"], [type="datetime"]) {
     background: none;

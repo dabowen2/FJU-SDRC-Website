@@ -388,6 +388,9 @@ step_confirm_btn.forEach((item, step_index) => {
                     step_id = $(this).next().find(".step-next-btn").data("bs-target").substring(6); //取得當前下一步按紐，並取得bs-target屬性資料前往下個步驟id
                     $("body").css("background-image", `url('${bg_path + step_id}.png')`);
                     $(this).next().find(".step-next-btn").click();
+                     //每到下一題 讓網頁位置回到頂端置頂
+                     document.body.scrollTop = 0; // For Safari
+                     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
                 }
             }
         }

@@ -28,6 +28,22 @@
     max-width: 18vw;
     min-width: 150px;
 }
+.card-temp-3 {
+    width: 180px; /* 或其他固定值 */
+    height: 180px; /* 與寬度相同以保持 1:1 比例 */
+    /* 移除 max-width 和 max-height */
+    /* 移除 min-width 和 min-height */
+}
+
+.card-img-top2 {
+    border-radius: 100%;
+    object-fit: cover;
+    width: 100% !important; /* 新增 */
+    height: 100% !important;
+    margin: auto;
+    /* border: 0.25rem #909090; */
+}
+
 @media screen and (max-width: 426px) {
     .carousel-item img {
         max-height: 230px !important;
@@ -63,7 +79,7 @@
         max-height: 375px !important;
     }
     .content {
-        padding: 3rem 6vw !important;
+        padding: 2.25rem 6vw !important;
     }
     .card-temp-1 {
         width: 100% !important;
@@ -95,10 +111,12 @@
     color: var(--ct-sub-1);
 }
 
-.card-temp-1 .card-img-top,
-.card-temp-2 .card-img-top {
-    max-height: 11.25rem;
+.card-img-top {
+    min-height: calc(9.5rem - 0.5vw) !important;
+    max-height: calc(9.5rem - 0.5vw) !important;
+    height: 100% !important;
     object-fit: cover;
+    /* aspect-ratio: 4/3; */
 }
 
 #popular_topic_tabs button {
@@ -117,14 +135,14 @@
     font-size: var(--fs-16);
     line-height: var(--fs-22);
     letter-spacing: 1px;
-}
-p.card-text {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
     line-height: 1.4; /* 设置固定的行高，根据需要调整值 */
+}
+.card-temp-1 p.card-text {
     min-height: 4.2em; /* 1.2 * 3 = 3.6，每行高度乘以固定行数 */
     overflow: hidden;
 }
@@ -133,4 +151,12 @@ p.card-text {
     font-size: var(--fs-16);
     margin-left: 0;
     margin-right: 5px;
+}
+
+.article_author img,
+.user-img {
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+    border-radius: 50%;
 }

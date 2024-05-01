@@ -75,8 +75,8 @@
                                     <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/treatment_article">聊療日常保健</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item"><a href="https://dabowen2.github.io/FJU-SDRC-Website/chat_room" class="nav-link active">暢聊咖啡廳</a></li>
-                            <li class="nav-item"><a href="https://dabowen2.github.io/FJU-SDRC-Website/chat_room" class="nav-link active">營養師諮詢</a></li>
+                            <li class="nav-item"><a role="button" id="chats-button" class="nav-link active">暢聊咖啡廳</a></li>
+                            <li class="nav-item"><a role="button" id="consult-button" class="nav-link active">營養師諮詢</a></li>
                             <li class="nav-item notfiy_bell d-none d-lg-block" data-bs-toggle="tooltip" data-bs-title="通知" data-bs-placement="bottom">
                                 <a class="nav-link" style="cursor: pointer">
                                     <i class="fas fa-bell"></i>
@@ -173,6 +173,7 @@
                         <p>是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字</p>
                         <p>是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字是測試文字</p>
                     </div>
+                    <button class="btn btn-c1" onclick="add()">ADD</button>
                 </div>
             </div>
             <div class="row py-3 px-5"></div>
@@ -196,7 +197,7 @@
                     </li>
                 </ul>
 
-                <ul class="nav nav-tabs nav-horizontal-tabs fade show active" role="tablist">
+                <ul class="nav nav-tabs chats-nav-tab nav-horizontal-tabs fade show active" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="room1-horizontal-tab" data-bs-toggle="tab" href="#chats-room1" role="tab" aria-controls="home" aria-selected="true">營養師諮詢</a>
                     </li>
@@ -319,7 +320,7 @@
                                 <input type="file" />
                                 <i class="fas fa-image"></i>
                             </span>
-                            <a class="publisher-btn text-info" href="#" data-abc="true"><i class="fa fa-paper-plane"></i></a>
+                            <a class="publisher-btn text-info" role="button" onclick="user_send_msg('chats-room1')"><i class="fa fa-paper-plane"></i></a>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="chats-room2" role="tabpanel" aria-labelledby="chats-room2">
@@ -429,7 +430,7 @@
                                 <input type="file" />
                                 <i class="fas fa-image"></i>
                             </span>
-                            <a class="publisher-btn text-info" href="#" data-abc="true"><i class="fa fa-paper-plane"></i></a>
+                            <a class="publisher-btn text-info" role="button" onclick="user_send_msg('chats-room2')"><i class="fa fa-paper-plane"></i></a>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="chats-room3" role="tabpanel">
@@ -504,7 +505,7 @@
                                 <input type="file" />
                                 <i class="fas fa-image"></i>
                             </span>
-                            <a class="publisher-btn text-info" href="#" data-abc="true"><i class="fa fa-paper-plane"></i></a>
+                            <a class="publisher-btn text-info" role="button" onclick="user_send_msg('chats-room3')"><i class="fa fa-paper-plane"></i></a>
                         </div>
                     </div>
                 </div>
@@ -548,5 +549,89 @@
 
         <script src="static/js/master_page.js"></script>
         <script src="static/js/forum_list.js"></script>
+
+        <script>
+            let current_chat_tab = "";
+            let previous_chat_tab = "";
+            $(document).ready(function () {
+                // 取得使用者目前點選的聊天室分類
+                $(".chats-nav-tab a").on("shown.bs.tab", function (e) {
+                    current_chat_tab = e.target;
+                    previous_chat_tab = e.relatedTarget;
+                });
+
+                // 監聽聊天室輸入框的 keydown 事件
+                $(".publisher-input").keydown(function (e) {
+                    // 如果按下的是 Enter 鍵 (key code 13)
+                    if (e.keyCode == 13) {
+                        let chat_room = "";
+                        // 判斷當前的聊天室分類
+                        if (current_chat_tab != "") {
+                            chat_room = $(current_chat_tab).attr("href").replace("#", "");
+                        } else {
+                            chat_room = "chats-room1";
+                        }
+
+                        user_send_msg(chat_room); //發送訊息
+                    }
+                });
+            });
+
+            function offical_send_msg() {
+                // 前端對話框模板
+                var chatMedia = document.createElement("div");
+                chatMedia.className = "media media-chat";
+
+                var avatarImg = document.createElement("img");
+                avatarImg.className = "avatar";
+                avatarImg.src = "https://img.icons8.com/color/48/person-female.png";
+                avatarImg.alt = "...";
+
+                var mediaBody = document.createElement("div");
+                mediaBody.className = "media-body";
+
+                // 將 後端發出的打字訊息填入, 如有分開發送訊息 請用loop生成
+                var paragraphElement = document.createElement("p");
+                paragraphElement.innerHTML = "1233333333333111";
+                mediaBody.appendChild(paragraphElement);
+
+                chatMedia.appendChild(avatarImg);
+                chatMedia.appendChild(mediaBody);
+
+                // 將 chatMedia 元素添加到 .chat_content 的 div 內
+                // 目前預設為營養師諮詢(chat-room1)，如果是其他聊天室 將chats-room1 改成 2 or 3
+                var container = $(`#chats-room1 .ps-container`).eq(0);
+                container.append(chatMedia);
+                container.scrollTop(container.prop("scrollHeight"));
+            }
+
+            function user_send_msg(chat_room) {
+                // 前端對話框模板
+                var chatMedia = document.createElement("div");
+                chatMedia.className = "media media-chat media-chat-reverse";
+
+                var mediaBody = document.createElement("div");
+                mediaBody.className = "media-body";
+
+                var paragraphElement = document.createElement("p");
+                paragraphElement.innerHTML = $(`#${chat_room} .publisher-input`).val();
+                mediaBody.appendChild(paragraphElement);
+
+                chatMedia.appendChild(mediaBody);
+
+                // 將 chatMedia 元素添加到 .chat_content 的 div 內
+                // 會依據使用者點選"發送訊息按鈕"傳值變數chat_room，判斷是哪類聊天室
+                var container = $(`#${chat_room} .ps-container`).eq(0);
+                container.append(chatMedia);
+                container.scrollTop(container.prop("scrollHeight"));
+
+                //輸入框文字清空
+                $(`#${chat_room} .publisher-input`).val("");
+            }
+
+            function user_upload_file() {
+                //todo:不確定邏輯
+            }
+        </script>
     </body>
 </html>

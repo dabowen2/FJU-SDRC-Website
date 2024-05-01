@@ -36,7 +36,12 @@
     min-height: 2.8em; /* 1.2 * 3 = 3.6，每行高度乘以固定行数 */
     overflow: hidden;
 }
-
+.article-img {
+    object-fit: cover;
+    aspect-ratio: 4/3;
+    width: 185px;
+    height: 100%;
+}
 /* 類別標籤 */
 #article_class_tabs .nav-link.active {
     background-color: var(--ct-sub-3);

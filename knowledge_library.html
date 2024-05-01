@@ -25,7 +25,12 @@
         <link rel="stylesheet" href="static/css/master_page.css" />
         <link rel="stylesheet" href="static/css/forum_list.css" />
         <title>優德莎莉 知識圖書館</title>
-        <style></style>
+        <style>
+            div.vote_div input,
+            div.vote_div .form-select {
+                background: #f5f5f5;
+            }
+        </style>
     </head>
     <body>
         <div class="container-xxl topbar">
@@ -173,7 +178,7 @@
                         <div class="col-md-12 col pe-0">
                             <div class="row d-flex g-3 justify-content-between align-items-end">
                                 <div class="col-auto px-0">
-                                    <button class="btn btn-c2 rounded-pill" data-bs-toggle="modal" data-bs-target="#post_modal"><i class="fas fa-pen me-1"></i>建立貼文</button>
+                                    <button class="btn btn-c2 rounded-pill" data-bs-toggle="modal" data-bs-target="#patch_modal"><i class="fas fa-pen me-1"></i>建立貼文</button>
                                 </div>
                                 <div class="col-auto px-0">
                                     <select class="form-select" id="sort_select" style="font-size: var(--fs-16)">
@@ -212,7 +217,7 @@
                                 </div>
                                 <div class="col-auto d-none d-lg-block px-0 py-1">
                                     <!--文章縮圖-->
-                                    <img src="https://placehold.co/150" class="article-img" width="150" />
+                                    <img src="static/img/index_smp3.jpg" class="article-img" />
                                 </div>
                             </div>
                             <!--loop end 以下為靜態網頁範例 可刪除-->
@@ -222,17 +227,14 @@
                                     <h5 class="article-title" id="article_id_title"><a href="#">#發問 文章標題</a></h5>
                                     <div class="mb-3 article-abs" id="article_id_abs">我是內文我是內文我是內文我是內文我是內文我是內文我是內文我是內文</div>
                                     <div class="ct-sub-1">
-                                        <button class="btn btn-sm p-0" onclick="like(this)">
-                                            <i class="fas fa-heart ct-sub-1 me-1"></i>
-                                        </button>
-                                        <span class="me-2 like_count">112</span>
-                                        <i class="fas fa-comment me-1"></i><span class="me-2">26</span> <i class="fas fa-share me-1"></i><span class="me-2">3</span>
+                                        <i class="fas fa-heart ct-sub-1"></i> <span class="me-2 like_count">112</span> <i class="fas fa-comment me-1"></i><span class="me-2">26</span>
+                                        <i class="fas fa-share me-1"></i><span class="me-2">3</span>
                                         <!--收藏文章 onclick()帶入文章id-->
                                         <button class="btn btn-sm p-0" onclick="collect(this,'article_id2')"><i class="far fa-bookmark ct-sub-1 me-1"></i></button>
                                     </div>
                                 </div>
                                 <div class="col-auto d-none d-lg-block px-0 py-1">
-                                    <img src="https://placehold.co/150" class="article-img" width="150" />
+                                    <img src="https://placehold.co/150" class="article-img" />
                                 </div>
                             </div>
                         </div>
@@ -314,10 +316,10 @@
         </footer>
         <!-- 建立貼文 Modal -->
         <div class="modal fade" id="post_modal" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header pb-0 border-bottom-0">
-                        <h1 class="modal-title fs-5 ct-txt-2 fw-bold">發表貼文，一起聊聊吧🙂</h1>
+                        <h1 class="modal-title fs-4 fw-bold">建立文章</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -354,10 +356,140 @@
                                 <input class="form-control" type="text" id="input_topic" onchange="generateHashtag(this)" placeholder="＃話題：可以根據你的文章內容輸入多個＃話題喔！" />
                             </div>
                         </div>
+                        <div class="row my-2 g-2 align-items-center">
+                            <div class="btn-group col-auto" role="group">
+                                <input type="radio" class="btn-check" name="post-options" id="post-option1" autocomplete="off" checked />
+                                <label class="btn btn-outline-c1" for="post-option1">立即發布</label>
+
+                                <input type="radio" class="btn-check" name="post-options" id="post-option2" autocomplete="off" />
+                                <label class="btn btn-outline-c1" for="post-option2">排程時間</label>
+
+                                <input type="radio" class="btn-check" name="post-options" id="post-option3" autocomplete="off" />
+                                <label class="btn btn-outline-c1" for="post-option3">儲存為草稿</label>
+                            </div>
+                            <div class="post-datetime-pick col-auto d-none">
+                                <input type="date" name="post-date" />
+                                <input type="time" name="post-time" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-start align-items-center">
+                        <button type="button" class="btn btn-c2 rounded-pill" onclick="post()">發文/儲存</button>
+                        <button type="button" class="btn btn-sm text-muted" data-bs-dismiss="modal" aria-label="Close">取消</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 建立修改營養師文章 Modal -->
+        <div class="modal fade" id="patch_modal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <input type="hidden" id="return_content" name="content" />
+                    <input type="hidden" id="return_html" name="html" />
+                    <input type="hidden" id="article_id" />
+                    <div class="modal-header pb-0 border-bottom-0">
+                        <h1 class="modal-title fs-5 ct-txt-2 fw-bold">修改聊療，一起聊聊吧🙂</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row mb-1 g-2 align-items-center">
+                            <div class="col-auto">
+                                <img class="me-1" src="{{ asset('static/img/user.png') }}" width="25" />
+                            </div>
+                            <div class="col-auto">
+                                <select class="form-select" id="patch_id_type">
+                                    <option value="{{" $nickname }} selected>{{ $nickname }}</option>
+                                    <option value="匿名">匿名</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row my-1 g-2 align-items-center justify-content-between">
+                            <div class="col-8">
+                                <input class="form-control" type="text" id="input_patch_title" name="title" placeholder="標題：請用簡短的話說明你的提問/分享" />
+                            </div>
+                            <div class="col">
+                                <select class="form-select" id="patch_treat_class" name="treat">
+                                    <option selected>選擇聊療的類別</option>
+                                    <option value="小產知識">小產知識</option>
+                                    <option value="小產調理知識">小產調理知識</option>
+                                    <option value="婦科保健知識">婦科保健知識</option>
+                                    <option value="婦科保健調理知識">婦科保健調理知識</option>
+                                    <option value="備孕知識">備孕知識</option>
+                                    <option value="備孕調理知識">備孕調理知識</option>
+                                    <option value="懷孕知識">懷孕知識</option>
+                                    <option value="懷孕調理知識">懷孕調理知識</option>
+                                    <option value="日常保健知識">日常保健知識</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row my-1 g-2 justify-content-center">
+                            <!--文字編輯器套件 editor-->
+                            <div class="col-12" id="patch-editor-container" style="height: 300px; font-size: 30px">
+                                <textarea class="form-control" rows="7" id="patch_editor" name="patch_editor"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <label class="fw-bold text-muted">建立投票貼文</label>
+                                <a class="btn px-1" data-bs-toggle="collapse" href="#collapseVote">
+                                    <i class="bi bi-caret-down-fill"></i>
+                                </a>
+                            </div>
+                            <div class="col-12 vote_div collapse" id="collapseVote">
+                                <div class="mb-2">
+                                    <input type="text" class="form-control" id="qa_title" placeholder="投票問題：描述發起投票的問題" />
+                                </div>
+                                <div class="mb-2" id="vote_item_list">
+                                    <input type="text" class="form-control my-1" id="vote_item1" placeholder="選項1" />
+                                    <input type="text" class="form-control my-1" id="vote_item2" placeholder="選項2" />
+                                </div>
+                                <div class="mb-2">
+                                    <button id="add_voteitem_btn" class="col-12 btn btn-secondary text-start"><i class="bi bi-plus-circle-fill me-2"></i>新增選項</button>
+                                </div>
+                                <div class="mb-2 align-items-center">
+                                    <div class="col-auto">
+                                        <label for="input_vote_type" class="col-form-label">投票方式</label>
+                                    </div>
+                                    <div class="col-auto">
+                                        <select class="form-select" id="input_vote_type">
+                                            <option selected>選擇投票方式</option>
+                                            <option value="radio">單選</option>
+                                            <option value="check">複選</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mb-2 align-items-center">
+                                    <div class="col-auto">
+                                        <label for="input_vote_time" class="col-form-label">投票結束時間（投票開始時間即為發文時間）</label>
+                                    </div>
+                                    <div class="col-auto">
+                                        <input type="datetime-local" class="form-control" id="input_vote_time" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 mb-2">
+                                <input class="form-control" type="text" id="patch_input_topic" placeholder="＃話題：可以根據你的文章內容輸入多個＃話題喔！" />
+                            </div>
+                            <div class="col-12 my-1">
+                                <div class="row">
+                                    <div class="btn-group col-auto px-0 align-items-center" role="group" aria-label="Basic radio toggle button group">
+                                        <input type="radio" class="btn-check" name="set_post_time" id="post_now" autocomplete="off" checked />
+                                        <label class="btn btn-outline-c3" for="post_now">立即發布</label>
+
+                                        <input type="radio" class="btn-check" name="set_post_time" id="post_settime" autocomplete="off" />
+                                        <label class="btn btn-outline-c3" for="post_settime">排程時間</label>
+                                    </div>
+                                    <div class="col pe-0">
+                                        <input type="datetime-local" class="form-control" id="input_post_time" disabled />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-c2 rounded-pill px-3 py-1" onclick="post()"><i class="fas fa-bullhorn me-1"></i>發文</button>
-                        <button type="button" class="btn btn-outline-c2 ct-sub-1 rounded-pill px-3 py-1" onclick="draft()"><i class="bi bi-inbox-fill me-1"></i>暫存</button>
+                        <button type="button" class="btn btn-c2 rounded-pill px-3 py-1" onclick="official_patchData()"><i class="fas fa-bullhorn me-1"></i>發文</button>
+                        {{-- <button type="button" class="btn btn-outline-c2 ct-sub-1 rounded-pill px-3 py-1" onclick="draft()"><i class="bi bi-inbox-fill me-1"></i>暫存</button> --}} {{--
+                        <button onclick="data()">發文</button> --}}
                     </div>
                 </div>
             </div>
@@ -381,7 +513,7 @@
             tinymce.init({
                 selector: "textarea#editor",
                 plugins: "advlist link image lists emoticons",
-                height: 250,
+                height: 300,
                 content_style: "textarea { line-height: 0.75rem;}",
                 menubar: false,
                 toolbar: "undo redo | styles | bold italic underline | alignleft aligncenter alignright alignjustify | image emoticons |",

@@ -42,6 +42,13 @@
 .icons a:nth-child(2):hover {
     background: #25d366;
 }
+.icons a:nth-child(3) {
+    color: #e1306c;
+    border-color: #f5bccf;
+}
+.icons a:nth-child(3):hover {
+    background: #e1306c;
+}
 /* .icons a:nth-child(2) {
     color: #46c1f6;
     border-color: #b6e7fc;

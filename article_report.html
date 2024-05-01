@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en" style="height: 100%">
+    <head>
+        <link rel="icon" href="static/img/us-icon.ico" type="image/x-icon" />
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <!--ICON-->
+        <link rel="stylesheet" href="static/bootstrap_icons-1.4.1/font/bootstrap-icons.css" />
+        <link rel="stylesheet" href="static/fontawesome-free-5.15.3-web/css/all.css" />
+        <!--Bootstrap-->
+        <link rel="stylesheet" href="static/bootstrap-5.1.3-dist/css/bootstrap.min.css" />
+        <!-- <link rel="stylesheet" href="static/bootstrap-5.0.0-beta3-dist/css/bootstrap.min.css" /> -->
+        <!-- Sweet Alert -->
+        <link rel="stylesheet" href="static/sweetalert2-11.7.1/dist/sweetalert2.min.css" />
+        <script src="static/sweetalert2-11.7.1/dist/sweetalert2.all.min.js"></script>
+        <!--Table-->
+        <!-- <link rel="stylesheet" href="static/bootstrap-table-master/dist/bootstrap-table.min.css" /> -->
+        <!--MultiSelect-->
+        <link rel="stylesheet" href="static/bootstrap-multiselect/dist/css/bootstrap-multiselect.css" type="text/css" />
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
+            integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
+            crossorigin="anonymous"
+        ></script>
+        <!-- import self-css -->
+        <link rel="stylesheet" href="static/css/master_page.css" />
+        <link rel="stylesheet" href="static/css/forum_list.css" />
+        <link rel="stylesheet" href="static/css/user.css" />
+
+        <title>優德莎莉 文章管理</title>
+        <style>
+            .filter-control {
+                position: relative;
+                display: inline-block;
+            }
+
+            .bootstrap-table-filter-control-class {
+                width: 100%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                appearance: none; /* Remove default styles on Firefox */
+                -webkit-appearance: none; /* Remove default styles on Webkit browsers */
+                -moz-appearance: none; /* Remove default styles on older Firefox browsers */
+                cursor: pointer;
+            }
+
+            .bootstrap-table-filter-control-class::after {
+                content: "\25BC"; /* Unicode character for downward arrow */
+                position: absolute;
+                top: 50%;
+                right: 10px;
+                transform: translateY(-50%);
+            }
+
+            /* Optional styles for hover and focus states */
+            .bootstrap-table-filter-control-class:hover,
+            .bootstrap-table-filter-control-class:focus {
+                border-color: #555;
+            }
+
+            /* Optional styles for active state (when the dropdown is open) */
+            .bootstrap-table-filter-control-class:active {
+                border-color: #333;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container-xxl topbar">
+            <nav class="navbar navbar-expand-lg border-bottom fixed-top">
+                <div class="container-xxl px-md-4">
+                    <a class="navbar-brand" href="https://dabowen2.github.io/FJU-SDRC-Website/">
+                        <img src="static/img/us-logo.png" alt="" height="40" class="d-inline-block align-text-top" />
+                    </a>
+                    <div class="align-items-center">
+                        <!--通知按鈕-->
+                        <button class="navbar-toggler notfiy_bell" type="button" data-bs-toggle="tooltip" data-bs-title="通知" data-bs-placement="bottom">
+                            <i class="fas fa-bell ct-txt-1"></i>
+                            <!--如有新通知 顯示紅點-->
+                            <span class="position-absolute top-25 start-75 translate-middle p-1 bg-danger border border-light rounded-circle">
+                                <span class="visually-hidden">New alerts</span>
+                            </span>
+                        </button>
+                        <button class="navbar-toggler border" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+                            <i class="fas fa-bars ct-txt-1"></i>
+                        </button>
+                    </div>
+
+                    <div class="justify-content-end collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav mb-2 mb-md-0" id="topbar-nav-tabs">
+                            <li class="nav-item">
+                                <a href="https://dabowen2.github.io/FJU-SDRC-Website/knowledge_library" class="nav-link active" data-bs-toggle="dropdown">知識圖書館</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/knowledge_article">小產調理</a></li>
+                                    <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/knowledge_article">婦科保健</a></li>
+                                    <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/knowledge_article">備孕調理</a></li>
+                                    <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/knowledge_article">懷孕知識</a></li>
+                                    <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/knowledge_article">日常保健</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="https://dabowen2.github.io/FJU-SDRC-Website/treatment_qa" class="nav-link active" data-bs-toggle="dropdown">療心室</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/treatment_article">聊療小產</a></li>
+                                    <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/treatment_article">聊療婦科保健</a></li>
+                                    <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/treatment_article">聊療備孕</a></li>
+                                    <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/treatment_article">聊療懷孕</a></li>
+                                    <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/treatment_article">聊療日常保健</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item"><a href="https://dabowen2.github.io/FJU-SDRC-Website/chat_room" class="nav-link active">暢聊咖啡廳</a></li>
+                            <li class="nav-item"><a href="https://dabowen2.github.io/FJU-SDRC-Website/chat_room" class="nav-link active">營養師諮詢</a></li>
+                            <li class="nav-item notfiy_bell d-none d-lg-block" data-bs-toggle="tooltip" data-bs-title="通知" data-bs-placement="bottom">
+                                <a class="nav-link" style="cursor: pointer">
+                                    <i class="fas fa-bell"></i>
+                                    <!--如有新通知 顯示紅點-->
+                                    <span class="position-absolute top-25 start-75 translate-middle p-1 bg-danger border border-light rounded-circle">
+                                        <span class="visually-hidden">New alerts</span>
+                                    </span>
+                                </a>
+                            </li>
+                            <!--如有會員登入 顯示以下 li 區塊-->
+                            <li class="nav-item dropstart order-first order-lg-last">
+                                <a href="https://dabowen2.github.io/FJU-SDRC-Website/user_info" class="nav-link" data-bs-toggle="dropdown">
+                                    <i class="fas fa-user-circle"></i>
+                                    <!--顯示會員名稱-->
+                                    <span id="account_name" class="d-lg-none">Account Name</span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="https://dabowen2.github.io/FJU-SDRC-Website/user_info" class="dropdown-item">會員資料</a></li>
+                                    <li><a href="https://dabowen2.github.io/FJU-SDRC-Website/calendar" class="dropdown-item">專屬月曆</a></li>
+                                    <li class="dropdown-submenu">
+                                        <a role="button" data-bs-toggle="dropdown" class="dropdown-item">點數錢包</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/point_task">任務專區</a></li>
+                                            <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/point_exchange">點數兌換</a></li>
+                                            <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/point_gift1">點數轉贈</a></li>
+                                            <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/point_get_record">點數獲得紀錄</a></li>
+                                            <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/point_use_record">點數使用紀錄</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="https://dabowen2.github.io/FJU-SDRC-Website/my_mind" class="dropdown-item">我的心事</a></li>
+                                    <li class="dropdown-submenu">
+                                        <a role="button" data-bs-toggle="dropdown" class="dropdown-item">收藏與追蹤</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/article_saved_list">文章收藏</a></li>
+                                            <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/author_saved">作者追蹤</a></li>
+                                            <li><a class="dropdown-item" href="https://dabowen2.github.io/FJU-SDRC-Website/topic_saved">話題追蹤</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#" class="dropdown-item">登出</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!--通知欄區塊-->
+                    <div class="notifications border" id="notifications_box">
+                        <h2>
+                            Notifications
+                            <span class="badge bg-danger rounded-circle notify_num"> 2<!--帶入通知數--> </span>
+                        </h2>
+                        <!-- for loop 通知消息 img:頭貼圖片 h4:人名/帳號名 p:通知訊息內容-->
+                        <div class="notifications-item">
+                            <img src="https://img.icons8.com/color/64/circled-user-male-skin-type-7--v1.png" alt="img" />
+                            <div class="text">
+                                <h4>Samso aliao</h4>
+                                <p>Samso Nagaro Like your home work</p>
+                            </div>
+                        </div>
+                        <!-- end loop-->
+                        <div class="notifications-item">
+                            <img src="https://img.icons8.com/flat_round/64/000000/vote-badge.png" alt="img" />
+                            <div class="text">
+                                <h4>John Silvester</h4>
+                                <p>+20 vista badge earned</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <div class="container-xxl">
+            <div class="row pt-3 px-md-5">
+                <div class="col-12 my-2">
+                    <div class="row mt-2 d-flex align-items-center">
+                        <h2 class="class-title col-auto ps-0"><i class="fab fa-gratipay me-1 ct-txt-1"></i>文章管理</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row px-md-5">
+                <!-- 洞察報告介面1 -->
+                <div class="col-12 mt-4">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#dataModal">查看洞察報告</button>
+                    <div class="modal fade" id="dataModal" tabindex="-1">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5">洞察報告</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body row row-cols-2 d-flex justify-content-center">
+                                    <div class="card col-5 py-3 m-1" style="background: #ececec">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title fs-18 fw-normal">文章瀏覽次數</h5>
+                                            <p class="fs-24 my-0 fw-bold">100</p>
+                                        </div>
+                                    </div>
+                                    <div class="card col-5 py-3 m-1" style="background: #ececec">
+                                        <div class="card-body text-center m-auto">
+                                            <h5 class="card-title fs-18 fw-normal">文章互動次數</h5>
+                                            <p class="fs-24 my-0 fw-bold">245</p>
+                                        </div>
+                                    </div>
+                                    <div class="card col-5 py-3 m-1" style="background: #ececec">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title fs-18 fw-normal">使用者數量</h5>
+                                            <p class="fs-24 my-0 fw-bold">1400</p>
+                                        </div>
+                                    </div>
+                                    <div class="card col-5 py-3 m-1" style="background: #ececec">
+                                        <div class="card-body text-center">
+                                            <h5 class="card-title fs-18 fw-normal">平均閱讀時間</h5>
+                                            <p class="fs-24 my-0 fw-bold">7分10秒</p>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-c2 rounded-pill my-2 fs-6">查看整體洞察報告</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 整體洞察報告UI -->
+                <div class="col-12 mt-4">
+                    <div class="row my-1">
+                        <div class="col-auto d-flex align-items-center ps-0">
+                            <span class="me-2"><i class="fas fa-search"></i></span>
+                            <input type="text" class="form-control form-control-sm" id="filter-text-box" placeholder="標題搜尋 ..." oninput="onFilterTextBoxChanged()" />
+                        </div>
+                        <div class="col-auto d-flex align-items-center ps-0">
+                            <span class="me-1"><i class="fas fa-filter"></i></span>
+                            <select class="form-select form-select-sm" id="state_select" multiple="multiple">
+                                <option value="草稿">草稿</option>
+                                <option value="已發布">已發布</option>
+                                <option value="已排定發布">已排定發布</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="myGrid" style="height: 500px; width: 100%" class="ag-theme-alpine"></div>
+                </div>
+            </div>
+            <div class="row py-3 px-5"></div>
+        </div>
+        <footer class="container-xl mt-5">
+            <div class="row p-xs-2 p-md-4 px-lg-5 text-center justify-content-md-center justify-content-lg-evenly">
+                <div class="col-4 col-md-2 col-lg-auto mb-2">
+                    <a href="#" class="">關於我們</a>
+                </div>
+                <div class="col-4 col-md-2 col-lg-auto mb-2">
+                    <a href="#" class="">聯絡我們</a>
+                </div>
+                <div class="col-4 col-md-2 col-lg-auto mb-2">
+                    <a href="#" class="">常見問題</a>
+                </div>
+                <div class="col-4 col-md-2 col-lg-auto mb-2">
+                    <a href="#" class="">使用者條款</a>
+                </div>
+                <div class="col-4 col-md-2 col-lg-auto mb-2">
+                    <a href="#" class="">隱私權政策</a>
+                </div>
+                <div class="col-4 col-md-2 col-lg-auto mb-2">
+                    <a href="#" class="">優德莎莉官網</a>
+                </div>
+
+                <div class="col-12 col-md-auto mt-2 mt-lg-0 mb-2">
+                    <a href="#" class="col-12 ct-txt-2 mx-3 mx-md-2"><i class="fab fa-line"></i></a>
+                    <a href="#" class="col-12 ct-txt-2 mx-3 mx-md-2"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="col-12 ct-txt-2 mx-3 mx-md-2"><i class="fab fa-facebook-square"></i></a>
+                </div>
+            </div>
+        </footer>
+        <script src="static/bootstrap-4.6.0-dist/jquery-3.6.0.js"></script>
+        <script src="static/bootstrap-5.1.3-dist/js/bootstrap.bundle.min.js"></script>
+        <script src="static/js/master_page.js"></script>
+
+        <!-- 引用 ag-grid表格與複選套件 -->
+        <script src="https://cdn.jsdelivr.net/npm/ag-grid-community/dist/ag-grid-community.min.js"></script>
+        <script src="static/bootstrap-multiselect/dist/js/bootstrap-multiselect.js"></script>
+
+        <script>
+            $(document).ready(function () {
+                // 宣告定義datepicker、multiselect套件
+                $("#state_select").multiselect({
+                    includeSelectAllOption: true,
+                    nonSelectedText: "狀態篩選 ... ",
+                    buttonClass: "form-select form-select-sm text-muted",
+                    allSelectedText: "全選",
+                    buttonWidth: "100%",
+                    onDropdownHide: function (event) {
+                        set_state_filter();
+                    },
+                });
+            });
+
+            let random_data = [];
+            let gridApi;
+
+            for (var i = 0; i < 150; i++) {
+                var title = "標題" + (i + 1);
+                var state = Math.random() < 0.33 ? "草稿" : Math.random() < 0.5 ? "已排定發布" : "已發布";
+                var classValue = "分類" + Math.floor(Math.random() * 10);
+                var time = "2023/11/13 09:15:53"; // 假設所有時間都相同
+                var viewCount = Math.floor(Math.random() * 1000);
+                var clickCount = Math.floor(Math.random() * 1000);
+                var usersCount = Math.floor(Math.random() * 1000);
+                var viewAvgTimeMinutes = Math.floor(Math.random() * 10);
+                var viewAvgTimeSeconds = Math.floor(Math.random() * 60);
+                var viewAvgTime = viewAvgTimeMinutes + "分" + viewAvgTimeSeconds + "秒";
+
+                random_data.push({
+                    title: title,
+                    state: state,
+                    class: classValue,
+                    time: time,
+                    view_count: viewCount,
+                    click_count: clickCount,
+                    users_count: usersCount,
+                    view_avg_time: viewAvgTime,
+                });
+            }
+
+            // 表格欄位設定 field名稱再對應後端資料庫欄位修改
+            const columnDefs = [
+                {
+                    flex: 4,
+                    field: "title",
+                    headerName: "文章標題",
+                    filter: "agTextColumnFilter",
+                    sortable: false,
+                    cellRenderer: function (params) {
+                        // 超連結文字，可放文章連結，但若太麻煩可以拿掉
+                        return '<a href="https://www.google.com" target="_blank">' + params.value + "</a>";
+                    },
+                },
+                {
+                    flex: 2,
+                    field: "state",
+                    headerName: "狀態",
+                    filter: "agTextColumnFilter",
+                    sortable: false,
+                },
+                { flex: 2, field: "class", headerName: "文章分類", filter: "agTextColumnFilter", sortable: false },
+                { flex: 3, field: "time", headerName: "發布/修改時間" },
+                { flex: 2, field: "view_count", headerName: "文章瀏覽次數" },
+                { flex: 2, field: "click_count", headerName: "文章互動次數" },
+                { flex: 2, field: "users_count", headerName: "使用者數量" },
+                { flex: 2, field: "view_avg_time", headerName: "平均閱讀時間" },
+            ];
+
+            // 資料sample
+            const rowData = [
+                {
+                    title: "<a href='https://www.google.com' target='_blank'>1婦產保健知識:你知道sample................</a>",
+                    state: "草稿",
+                    class: "聊療婦女保健",
+                    time: "2023/11/13 14:23:40",
+                    view_count: 256,
+                    click_count: 256,
+                    users_count: 341,
+                    view_avg_time: "3分01秒",
+                },
+                {
+                    title: "2小產保健知識:你知道...",
+                    state: "已發布",
+                    class: "聊療婦女保健",
+                    time: "2023/11/21 14:23:40",
+                    view_count: 134,
+                    click_count: 33,
+                    users_count: 76,
+                    view_avg_time: "6分10秒",
+                },
+                {
+                    title: "3生理期保健知識:你知道...",
+                    state: "已發布",
+                    class: "聊療婦女保健",
+                    time: "2023/11/13 09:15:53",
+                    view_count: 256,
+                    click_count: 256,
+                    users_count: 341,
+                    view_avg_time: "7分11秒",
+                },
+                {
+                    title: "自由爆新聞》怕了? 藍擋無赦封殺傅崐萁條款網酸他直奔祖國為這件事(中國團客/地震- 自由電子報影音頻道",
+                    state: "已發布",
+                    class: "聊療婦女保健",
+                    time: "2023/11/13 09:15:53",
+                    view_count: 256,
+                    click_count: 256,
+                    users_count: 341,
+                    view_avg_time: "7分20秒",
+                },
+                {
+                    title: "加強對外宣傳 中馬媒體簽訂新聞合作協議",
+                    state: "已發布",
+                    class: "聊療婦女保健",
+                    time: "2023/11/13 09:15:53",
+                    view_count: 256,
+                    click_count: 256,
+                    users_count: 341,
+                    view_avg_time: "7分10秒",
+                },
+                {
+                    title: "4生理期保健知識:你知道...",
+                    state: "已排定發布",
+                    class: "聊療婦女保健",
+                    time: "2023/11/13 09:15:53",
+                    view_count: 256,
+                    click_count: 256,
+                    users_count: 341,
+                    view_avg_time: "4分10秒",
+                },
+                {
+                    title: "花蓮6.3地震「只是剛開始」 氣象署：規模4以上餘震恐持續1年",
+                    state: "已發布",
+                    class: "聊療婦女保健",
+                    time: "2023/11/13 09:15:53",
+                    view_count: 256,
+                    click_count: 256,
+                    users_count: 341,
+                    view_avg_time: "5分30秒",
+                },
+            ];
+
+            const gridOptions = {
+                columnDefs: columnDefs,
+                rowData: random_data, //後端撈取資料回傳
+                domLayout: "autoHeight",
+                onGridReady: function () {
+                    gridOptions.api.sizeColumnsToFit(); //調整表格大小自適應
+                },
+                defaultColDef: {
+                    sortable: true,
+                    filter: false,
+                    resizable: true,
+                },
+                pagination: true,
+                paginationPageSize: 10,
+                // paginationAutoPageSize: true,
+            };
+
+            document.addEventListener("DOMContentLoaded", () => {
+                const gridDiv = document.querySelector("#myGrid");
+                gridApi = agGrid.createGrid(gridDiv, gridOptions); //渲染table
+            });
+
+            //表格綜合查詢
+            function onFilterTextBoxChanged() {
+                gridApi.setGridOption("quickFilterText", document.getElementById("filter-text-box").value);
+            }
+
+            //狀態篩選，根據figma資料提供有三種狀態:[草稿, 已發布, 已排定發布]
+            function set_state_filter() {
+                var select_items = $("#state_select").val();
+                var filters = select_items.map(function (item) {
+                    return {
+                        type: "contain",
+                        filter: item,
+                    };
+                });
+                //最多只能設兩個條件 等同於只能篩選兩個類別的值(套件限制)
+                if (filters.length !== 3) {
+                    gridApi
+                        .setColumnFilterModel("state", {
+                            conditions: filters,
+                            operator: "OR",
+                        })
+                        .then(() => {
+                            gridApi.onFilterChanged();
+                        });
+                } else gridApi.setFilterModel(null);
+            }
+        </script>
+    </body>
+</html>

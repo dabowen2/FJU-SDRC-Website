@@ -46,21 +46,64 @@ function collect(obj) {
     let article_id = $(".article_content").attr("id"); //文章ID
     const no_collect = $(obj_node).parent().find("i.fa-bookmark").hasClass("far"); //取得目前狀態有無收藏
     //前端顯示已收藏/未收藏按紐
-    if (no_collect) {
-        // 收藏文章
-        $(obj_node).parent().find("i.fa-bookmark").removeClass("far ct-sub-1");
-        $(obj_node).parent().find("i.fa-bookmark").addClass("fas ct-txt-2");
 
-        //後端處理 回傳本篇文章id?
-    } else {
+    if (!no_collect) {
         //取消收藏
         $(obj_node).parent().find("i.fa-bookmark").removeClass("fas ct-txt-2");
         $(obj_node).parent().find("i.fa-bookmark").addClass("far ct-sub-1");
+        alert("取消收藏");
+    } 
+    // if (no_collect) {
+    //     // 收藏文章
+    //     $(obj_node).parent().find("i.fa-bookmark").removeClass("far ct-sub-1");
+    //     $(obj_node).parent().find("i.fa-bookmark").addClass("fas ct-txt-2");
 
-        //後端處理 回傳本篇文章id?
-    }
+    //     //後端處理 回傳本篇文章id?
+    // } else {
+    //     //取消收藏
+    //     $(obj_node).parent().find("i.fa-bookmark").removeClass("fas ct-txt-2");
+    //     $(obj_node).parent().find("i.fa-bookmark").addClass("far ct-sub-1");
+
+    //     //後端處理 回傳本篇文章id?
+    // }
     console.log(article_id);
 }
+
+
+// $('.saved_list li').on('click', function() {
+//     // 取得被點擊的 li 元素的文本內容
+//     var clickedItemText = $(this).text();
+//     // 輸出到控制台，你可以根據實際需求進行其他處理
+//     console.log('被點擊的項目：' + clickedItemText);
+
+//     const no_collect = $(this).parent('.saved_list').prev().find("i.fa-bookmark").hasClass("far"); //取得目前狀態有無收藏
+//     //前端顯示已收藏/未收藏按紐
+//     if (no_collect) {
+//         // 收藏文章
+//         $(this).parent('.saved_list').prev().find("i.fa-bookmark").removeClass("far ct-sub-1");
+//         $(this).parent('.saved_list').prev().find("i.fa-bookmark").addClass("fas ct-txt-2");
+//     } 
+//     alert("收藏成功");
+//   });
+
+  $('#article_collection_list .plus-btn').on('click', function() {
+    // 取得被點擊的 收藏分類名稱
+    var saved_name = $(this).parent().find(".saved-title").html();
+    console.log(saved_name);
+
+    const is_collect = $(this).find('i').hasClass("fa-check-circle"); //取得目前狀態有無收藏
+
+    if (is_collect) {
+        // 取消收藏
+        $(this).find('i').toggleClass("fa-plus fa-check-circle");
+    } 
+    else{
+        // 收藏文章
+        $(this).find('i').toggleClass("fa-check-circle fa-plus");
+    }
+    // alert("收藏成功");
+  });
+  
 
 // 追蹤按鈕
 function follow(obj, type) {
@@ -76,6 +119,7 @@ function follow(obj, type) {
 let edit_cmt_obj = "";
 function edit_comment(obj) {
     edit_cmt_obj = $(obj).parents().eq(3).find(".comment_content").eq(0); //取得前端組件 編輯區塊
+    $(".edit_check_btn").show(); //顯示提交按鈕
     $(edit_cmt_obj).attr("contenteditable", "true"); //開啟可編輯
     $(edit_cmt_obj).focus(); //亮起可編輯區域
 }
@@ -84,7 +128,7 @@ function edit_comment(obj) {
 $(document).on("blur", ".comment_content", function () {
     $(edit_cmt_obj).html($(this).html()); //更新留言內容
     $(edit_cmt_obj).attr("contenteditable", "false"); //取消可編輯
-
+    $(".edit_check_btn").hide(); //隱藏提交按鈕
     //後端回傳資料 更新留言內容
     let cmt_id = $(edit_cmt_obj).parent().attr("id"); //留言id
     let cmt_content = $(this).html(); //留言內容
@@ -176,6 +220,10 @@ function vote(obj) {
 //點擊分享 將當前網址填入shareModal內
 $("#shareModal").on("show.bs.modal", function (e) {
     $("#input_link").val(location.href);
+    let fb_link = "https://www.facebook.com/sharer/sharer.php?u=";
+    let line_link = "http://line.naver.jp/R/msg/text/?";
+    $(".fb_share").attr("href", fb_link+location.href);
+    $(".line_share").attr("href", line_link+location.href);
 });
 
 //分享文章 複製連結

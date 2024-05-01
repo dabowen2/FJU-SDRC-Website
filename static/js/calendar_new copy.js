@@ -59,13 +59,10 @@ var elements = {
 // var events = {};
 /* 頁面初始 從後端要取初次使用設定、提醒事件、日期事件資料 */
 let reminder_title = "生理期再三天就要報到啦！";
-let setting_json = {
-    type: "小產期"
-};
+let setting_json = {};
 /* 日期事件json格式如下： */
 /* key為日期且date格式必須為 DD/MM/YYYY (*月曆套件才能建立事件) */
 /* 以下資料皆可先由前端完成記錄儲存得到該資料內容後 返回儲存至後端中 */
-/* 資料內容說明：根據使用者選擇的身體狀態(type)，會對應記錄日記的問題內容，填寫新增後即會將資料儲存成下面格式 */
 let events = {
     "27/11/2023": {
         name: "身體狀態：生理期<br/>月經：有<br/>月經量：量少<br/>經痛程度：輕微<br/>症狀：潮熱",
@@ -101,6 +98,33 @@ var showEvents = function (date) {
     if (events.hasOwnProperty(id)) {
         $(".subtitle").html("1 event"); // 前端badge標籤 顯示事件數量
         $("#event-content").html(events[id].name); // 前端事件內文 顯示內容
+
+        /* 原先事件為list格式 已改成單事件(先保留原始code) */
+        // Number of events
+        // elements.subtitle.textContent = events[id].length + " " + (events[id].length > 1 ? "events" : "event");
+
+        // var div;
+        // var close;
+        // For each event
+        // for (var i = 0; i < events[id].length; i++) {
+        // div = document.createElement("div");
+        // div.className = "event-item";
+        // div.textContent = i + 1 + ". " + events[id][i].name;
+        // elements.list.appendChild(div);
+        // close = document.createElement("div");
+        // close.className = "close";
+        // close.textContent = "×";
+        // div.appendChild(close);
+        // close.addEventListener(
+        //     "click",
+        //     (function (date, index) {
+        //         return function () {
+        //             removeEvent(date, index);
+        //         };
+        //     })(date, i),
+        //     false
+        // );
+        // }
     } else {
         // elements.subtitle.textContent = "No events";
         $(".subtitle").html("No events"); // 若無日期事件資料，則前端badge標籤 顯示事件數量
@@ -248,13 +272,10 @@ $("#add_daily_btn").click(function () {
             break;
         }
     }
-
-    //取得選取日期
     let cal_id = (Math.random() + new Date().getTime()).toString(32).slice(0, 8);
-    //將剛剛前端使用者填的json資料存至cal_json 變數，並不要date資料
     let cal_json = JSON.parse(JSON.stringify(daily_json));
+    // delete cal_json.type;
     delete cal_json.date;
-    //將json轉成str，這是要拿來放置前端#event-content的顯示內容
     let cal_description = JSON.stringify(cal_json).slice(2, -2).replaceAll(`:`, "：").replaceAll(`"`, "").replaceAll(",", "<br/>");
     cal_description = cal_description.replace("type", "身體狀態");
     console.log(daily_json, cal_description);
@@ -274,7 +295,7 @@ $("#add_daily_btn").click(function () {
     //     // Select date
     // }
 
-    // 月曆套件 Add event
+    // Add event
     calendar.unselect(current); //先清除舊有日期事件
     calendar.select(current, event_dot_colors[daily_json.type]); //建立事件
 
@@ -296,51 +317,31 @@ function open_modal() {
         $("#first_daily_modal").modal("show");
     } else {
         // 有的話 開啟平時日誌記錄modal
-        $("#health_type_1").addClass("d-none");
-        $("#daily_type_1").addClass("d-none");
-        $("#health_type").val(setting_json.type);
         switch (setting_json.type) {
             case "生理期": {
-                $("#health_type_1").removeClass("d-none");
-                $("#daily_type_1").removeClass("d-none");
                 $("#d_type1_q1").datepicker("setDate", current);
-                daily_id = "daily_type_1";
                 break;
             }
             case "小產期": {
-                $("#health_type_2").removeClass("d-none");
-                $("#daily_type_2").removeClass("d-none");
                 $("#d_type2_q1").datepicker("setDate", current);
-                daily_id = "daily_type_2";
                 break;
             }
             case "懷孕期": {
-                $("#health_type_3").removeClass("d-none");
-                $("#daily_type_3").removeClass("d-none");
                 $("#d_type3_q1").datepicker("setDate", current);
-                daily_id = "daily_type_3";
                 break;
             }
             case "產後期": {
-                $("#health_type_4").removeClass("d-none");
-                $("#daily_type_4").removeClass("d-none");
                 $("#d_type4_q1").datepicker("setDate", current);
-                daily_id = "daily_type_4";
                 break;
             }
             case "更年期": {
-                $("#health_type_5").removeClass("d-none");
-                $("#daily_type_5").removeClass("d-none");
                 $("#d_type5_q1").datepicker("setDate", current);
-                daily_id = "daily_type_5";
                 break;
             }
             default: {
                 break;
             }
         }
-
-
         $("#daily_modal").modal("show");
     }
 }

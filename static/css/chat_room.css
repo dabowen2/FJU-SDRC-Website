@@ -1,9 +1,9 @@
-.card-bordered {
+.tab-vertical .card-bordered {
     border: 1px solid #ebebeb !important;
     /* border-radius: 10px; */
 }
 
-.card {
+.tab-vertical .card {
     border: 0;
     border-radius: 10px;
     /* margin-bottom: 30px; */
@@ -17,19 +17,15 @@
     z-index: 100;
 }
 
-.padding {
+.tab-vertical .padding {
     padding: 3rem !important;
 }
 
-body {
-    background-color: #f9f9fa;
-}
-
-.card-header:first-child {
+.chats-card .card-header:first-child {
     border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
 }
 
-.card-header {
+.chats-card .card-header {
     display: -webkit-box;
     display: block;
     -webkit-box-pack: justify;
@@ -50,13 +46,13 @@ body {
     border: 0.05rem solid #ededed;
 }
 
-.card-header .card-title {
+.chats-card .card-header .card-title {
     padding: 5px 0;
     border: none;
     font-weight: 500;
 }
 
-.card-header .card-subtitle {
+.chats-card .card-header .card-subtitle {
     padding: 1px 0;
     border: none;
     font-size: var(--fs-15);
@@ -66,36 +62,36 @@ body {
     color: #25d366;
 }
 
-h4.card-title {
+.chats-card h4.card-title {
     font-size: var(--fs-20);
 }
 
-.card-header > *:last-child {
+.chats-card .card-header > *:last-child {
     margin-right: 0;
 }
 
-.card-header > * {
+.chats-card .card-header > * {
     margin-left: 8px;
     margin-right: 8px;
 }
 
-.btn-secondary {
+.tab-vertical .btn-secondary {
     color: #4d5259 !important;
     background-color: #e4e7ea;
     border-color: #e4e7ea;
     color: #fff;
 }
 
-.btn-xs {
+.tab-vertical .btn-xs {
     font-size: 11px;
     padding: 2px 8px;
     line-height: 18px;
 }
-.btn-xs:hover {
+.tab-vertical .btn-xs:hover {
     color: #fff !important;
 }
 
-.card-title {
+.chats-card .card-title {
     font-family: Roboto, sans-serif;
     font-weight: 300;
     line-height: 1.5;
@@ -200,12 +196,6 @@ h4.card-title {
     font-weight: 400;
     text-align: center;
     position: relative;
-}
-
-.media {
-    padding: 16px 12px;
-    -webkit-transition: background-color 0.2s linear;
-    transition: background-color 0.2s linear;
 }
 
 .media-meta-day::before {
